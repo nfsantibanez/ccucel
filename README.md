@@ -1,4 +1,4 @@
-# ccucel
+# Web para Solicitud y seguimiento de Celulares de Trabajadores CCU
 Proyecto Pagina control celulares
 
 # Ruby Version
