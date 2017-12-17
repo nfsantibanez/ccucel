@@ -1,0 +1,57 @@
+<%= form_with(model: smartphone, local: true) do |form| %>
+  <% if smartphone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(smartphone.errors.count, "error") %> prohibited this smartphone from being saved:</h2>
+
+      <ul>
+      <% smartphone.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model, id: :smartphone_model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_owner %>
+    <%= form.text_field :last_owner, id: :smartphone_last_owner %>
+  </div>
+
+  <div class="field">
+    <%= form.label :imei %>
+    <%= form.text_area :imei, id: :smartphone_imei %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, id: :smartphone_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type, id: :smartphone_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :available %>
+    <%= form.check_box :available, id: :smartphone_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_assign_at %>
+    <%= form.datetime_select :last_assign_at, id: :smartphone_last_assign_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sim_id %>
+    <%= form.text_field :sim_id, id: :smartphone_sim_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

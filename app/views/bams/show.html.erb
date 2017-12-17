@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @bam.model %>
+</p>
+
+<p>
+  <strong>Last owner:</strong>
+  <%= @bam.last_owner %>
+</p>
+
+<p>
+  <strong>Imei:</strong>
+  <%= @bam.imei %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @bam.price %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @bam.type %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @bam.available %>
+</p>
+
+<p>
+  <strong>Last assign at:</strong>
+  <%= @bam.last_assign_at %>
+</p>
+
+<p>
+  <strong>Sim:</strong>
+  <%= @bam.sim %>
+</p>
+
+<%= link_to 'Edit', edit_bam_path(@bam) %> |
+<%= link_to 'Back', bams_path %>

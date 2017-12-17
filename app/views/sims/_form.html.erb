@@ -1,0 +1,42 @@
+<%= form_with(model: sim, local: true) do |form| %>
+  <% if sim.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sim.errors.count, "error") %> prohibited this sim from being saved:</h2>
+
+      <ul>
+      <% sim.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :phone_number %>
+    <%= form.number_field :phone_number, id: :sim_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_owner %>
+    <%= form.text_field :last_owner, id: :sim_last_owner %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type, id: :sim_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :available %>
+    <%= form.check_box :available, id: :sim_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_assign_at %>
+    <%= form.datetime_select :last_assign_at, id: :sim_last_assign_at %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

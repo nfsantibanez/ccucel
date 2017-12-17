@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Smartphone</th>
+      <th>Sim</th>
+      <th>Bam</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_records.each do |user_record| %>
+      <tr>
+        <td><%= user_record.smartphone %></td>
+        <td><%= user_record.sim %></td>
+        <td><%= user_record.bam %></td>
+        <td><%= user_record.user %></td>
+        <td><%= link_to 'Show', user_record %></td>
+        <td><%= link_to 'Edit', edit_user_record_path(user_record) %></td>
+        <td><%= link_to 'Destroy', user_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Record', new_user_record_path %>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Last owner</th>
+      <th>Imei</th>
+      <th>Price</th>
+      <th>Type</th>
+      <th>Available</th>
+      <th>Last assign at</th>
+      <th>Sim</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bams.each do |bam| %>
+      <tr>
+        <td><%= bam.model %></td>
+        <td><%= bam.last_owner %></td>
+        <td><%= bam.imei %></td>
+        <td><%= bam.price %></td>
+        <td><%= bam.type %></td>
+        <td><%= bam.available %></td>
+        <td><%= bam.last_assign_at %></td>
+        <td><%= bam.sim %></td>
+        <td><%= link_to 'Show', bam %></td>
+        <td><%= link_to 'Edit', edit_bam_path(bam) %></td>
+        <td><%= link_to 'Destroy', bam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bam', new_bam_path %>

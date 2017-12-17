@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @sim.phone_number %>
+</p>
+
+<p>
+  <strong>Last owner:</strong>
+  <%= @sim.last_owner %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @sim.type %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @sim.available %>
+</p>
+
+<p>
+  <strong>Last assign at:</strong>
+  <%= @sim.last_assign_at %>
+</p>
+
+<%= link_to 'Edit', edit_sim_path(@sim) %> |
+<%= link_to 'Back', sims_path %>

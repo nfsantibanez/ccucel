@@ -1,0 +1,57 @@
+<%= form_with(model: request, local: true) do |form| %>
+  <% if request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :request %>
+    <%= form.text_field :request, id: :request_request %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type, id: :request_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contract %>
+    <%= form.text_field :contract, id: :request_contract %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file %>
+    <%= form.text_field :file, id: :request_file %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :request_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, id: :request_comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :closed_at %>
+    <%= form.datetime_select :closed_at, id: :request_closed_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :request_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sims</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phone number</th>
+      <th>Last owner</th>
+      <th>Type</th>
+      <th>Available</th>
+      <th>Last assign at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sims.each do |sim| %>
+      <tr>
+        <td><%= sim.phone_number %></td>
+        <td><%= sim.last_owner %></td>
+        <td><%= sim.type %></td>
+        <td><%= sim.available %></td>
+        <td><%= sim.last_assign_at %></td>
+        <td><%= link_to 'Show', sim %></td>
+        <td><%= link_to 'Edit', edit_sim_path(sim) %></td>
+        <td><%= link_to 'Destroy', sim, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sim', new_sim_path %>

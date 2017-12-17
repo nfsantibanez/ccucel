@@ -1,0 +1,57 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rut %>
+    <%= form.text_field :rut, id: :user_rut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :user_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :user_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :occupation %>
+    <%= form.text_field :occupation, id: :user_occupation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enterprice %>
+    <%= form.text_field :enterprice, id: :user_enterprice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :supervisor %>
+    <%= form.text_field :supervisor, id: :user_supervisor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost_center %>
+    <%= form.text_field :cost_center, id: :user_cost_center %>
+  </div>
+
+  <div class="field">
+    <%= form.label :job_center %>
+    <%= form.text_field :job_center, id: :user_job_center %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

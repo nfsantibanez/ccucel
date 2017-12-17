@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Request:</strong>
+  <%= @request.request %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @request.type %>
+</p>
+
+<p>
+  <strong>Contract:</strong>
+  <%= @request.contract %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= @request.file %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @request.status %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @request.comment %>
+</p>
+
+<p>
+  <strong>Closed at:</strong>
+  <%= @request.closed_at %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @request.user %>
+</p>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>
