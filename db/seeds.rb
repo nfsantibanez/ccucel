@@ -60,13 +60,13 @@ puts(sims)
 # Smartphones
 smartphones = Smartphone.create!([
   {model: 'Samsung Galaxy S8', category: 'gerente', imei:'353227075802167', price: 200836,
-  last_owner: 'Marco Sepulveda', state: 'used'},
+  last_owner: 'Marco Sepulveda', state: 'used', sim_id: 3},
   {model: 'Samsung Galaxy S8', category: 'gerente', imei:'359878069666630', price: 200836,
   last_owner: 'Carolina Arredondo', state: 'used'},
   {model: 'Samsung Galaxy S7', category: 'subgerente', imei:'35688706001064', price: 158820,
   last_owner: 'Kathy Whiting', state: 'used'},
   {model: 'Samsung Galaxy J7', category: 'profesional/tecnico', imei:'35881306155560', price: 50417,
-  last_owner: 'Felipe Arriagada', state: 'used'},
+  last_owner: 'Felipe Arriagada', state: 'used', sim_id: 8},
   {model: 'Samsung Galaxy J7', category: 'profesional/tecnico', imei:'352141079023186', price: 50417},
   {model: 'Samsung Galaxy S7', category: 'jefe venta/vendedor', imei:'359878063788620', price: 158820},
   {model: 'Samsung Galaxy S7', category: 'jefe venta/vendedor', imei:'35687805120863', price: 158820},
@@ -84,9 +84,9 @@ bams = Bam.create!([
   {model: 'Huaewi E5573', imei:'952427835802167', price: 35990,
     last_owner: 'Joaquin Zunino', state: 'used'},
   {model: 'Huaewi E5573', imei:'984557575805360', price: 35990,
-    last_owner: 'Francisca Irarrazaval', state: 'used'},
+    last_owner: 'Francisca Irarrazaval', state: 'used', sim_id: 2},
   {model: 'Huaewi E5573', imei:'996883330106421', price: 35990},
-  {model: 'Huaewi E8372', imei:'918813063325600', price: 25990},
+  {model: 'Huaewi E8372', imei:'918813063325600', price: 25990, sim_id: 1},
   {model: 'Huaewi E8372', imei:'932414072893167', price: 25990,
     last_owner: 'Mariana Fernandez', state: 'used'}
 ])
@@ -96,9 +96,9 @@ puts(bams)
 records = UserRecord.create!([
   {user_id: 1, bam_id: 4, sim_id: 1},
   {user_id: 2, bam_id: 2, sim_id: 2},
-  {user_id: 3, smartphone_id: 1},
+  {user_id: 3, smartphone_id: 1, sim_id: 3},
   {user_id: 4, smartphone_id: 6},
-  {user_id: 5, smartphone_id: 4},
+  {user_id: 5, smartphone_id: 4, sim_id: 8},
   {user_id: 6, smartphone_id: 3},
   {user_id: 9, sim_id: 6},
   {user_id: 10, sim_id: 7}

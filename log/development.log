@@ -6036,3 +6036,681 @@ Migrating to CreateUsers (20171218024856)
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "requests" ("request", "state", "status", "comment", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["request", "sim"], ["state", "stolen"], ["status", "accepted"], ["comment", "Necesito nueva SIM porque me robaron bolso donde tenia el smartphone con la SIM"], ["user_id", 8], ["created_at", "2017-12-18 03:19:07.009441"], ["updated_at", "2017-12-18 03:19:07.009441"]]
   [1m[35m (53.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/smartphones" for 127.0.0.1 at 2017-12-18 00:26:14 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SmartphonesController#index as HTML
+  Rendering smartphones/index.html.erb within layouts/application
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT "smartphones".* FROM "smartphones"[0m
+  Rendered smartphones/index.html.erb within layouts/application (31.6ms)
+Completed 200 OK in 197ms (Views: 183.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/bams" for 127.0.0.1 at 2017-12-18 00:27:53 -0300
+Processing by BamsController#index as HTML
+  Rendering bams/index.html.erb within layouts/application
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT "bams".* FROM "bams"[0m
+  Rendered bams/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 56ms (Views: 34.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/sims" for 127.0.0.1 at 2017-12-18 00:28:18 -0300
+Processing by SimsController#index as HTML
+  Rendering sims/index.html.erb within layouts/application
+  [1m[36mSim Load (0.2ms)[0m  [1m[34mSELECT "sims".* FROM "sims"[0m
+  Rendered sims/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 54ms (Views: 52.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-12-18 00:28:36 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 55ms (Views: 48.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/record_status" for 127.0.0.1 at 2017-12-18 00:29:00 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/record_status"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/request" for 127.0.0.1 at 2017-12-18 00:29:16 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/request"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requests" for 127.0.0.1 at 2017-12-18 00:29:18 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered requests/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 45ms (Views: 40.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/bams" for 127.0.0.1 at 2017-12-18 00:30:04 -0300
+Processing by BamsController#index as HTML
+  Rendering bams/index.html.erb within layouts/application
+  [1m[36mBam Load (0.2ms)[0m  [1m[34mSELECT "bams".* FROM "bams"[0m
+  Rendered bams/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "bams"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (60.1ms)[0m  [1m[35mCREATE TABLE "bams" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "model" varchar NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "imei" text NOT NULL, "price" integer NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "available" boolean DEFAULT 't' NOT NULL, "last_assign_at" datetime DEFAULT '2017-12-18 03:13:17' NOT NULL, "sim_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (69.2ms)[0m  [1m[35mCREATE  INDEX "index_bams_on_sim_id" ON "bams" ("sim_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "requests"[0m
+  [1m[35m (63.2ms)[0m  [1m[35mCREATE TABLE "requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "request" varchar NOT NULL, "state" varchar NOT NULL, "contract" blob, "file" blob, "status" varchar DEFAULT 'created' NOT NULL, "comment" text, "closed_at" datetime, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (55.1ms)[0m  [1m[35mCREATE  INDEX "index_requests_on_user_id" ON "requests" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "sims"[0m
+  [1m[35m (68.4ms)[0m  [1m[35mCREATE TABLE "sims" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "phone_number" integer NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "available" boolean DEFAULT 't' NOT NULL, "last_assign_at" datetime DEFAULT '2017-12-18 03:13:17' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "smartphones"[0m
+  [1m[35m (55.4ms)[0m  [1m[35mCREATE TABLE "smartphones" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "model" varchar NOT NULL, "category" varchar NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "imei" text NOT NULL, "price" integer NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "available" boolean DEFAULT 't' NOT NULL, "last_assign_at" datetime DEFAULT '2017-12-18 03:13:18' NOT NULL, "sim_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (60.6ms)[0m  [1m[35mCREATE  INDEX "index_smartphones_on_sim_id" ON "smartphones" ("sim_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_records"[0m
+  [1m[35m (64.4ms)[0m  [1m[35mCREATE TABLE "user_records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "smartphone_id" integer, "sim_id" integer, "bam_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (66.1ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_bam_id" ON "user_records" ("bam_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (80.8ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_sim_id" ON "user_records" ("sim_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (42.3ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_smartphone_id" ON "user_records" ("smartphone_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (61.7ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_user_id" ON "user_records" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (66.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rut" varchar NOT NULL, "name" varchar NOT NULL, "last_name" varchar NOT NULL, "email" varchar NOT NULL, "occupation" varchar NOT NULL, "enterprice" varchar, "supervisor" varchar NOT NULL, "supervisor_email" varchar NOT NULL, "cost_center" varchar NOT NULL, "job_center" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (81.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (55.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171218024856)[0m
+  [1m[35m (47.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171218023633),
+(20171217204813),
+(20171218024459),
+(20171218024335),
+(20171218023921);
+
+[0m
+  [1m[35m (63.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-12-18 03:37:03.415455"], ["updated_at", "2017-12-18 03:37:03.415455"]]
+  [1m[35m (52.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "bams"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (66.4ms)[0m  [1m[35mCREATE TABLE "bams" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "model" varchar NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "imei" text NOT NULL, "price" integer NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "available" boolean DEFAULT 't' NOT NULL, "last_assign_at" datetime DEFAULT '2017-12-18 03:13:17' NOT NULL, "sim_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (53.5ms)[0m  [1m[35mCREATE  INDEX "index_bams_on_sim_id" ON "bams" ("sim_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "requests"[0m
+  [1m[35m (68.0ms)[0m  [1m[35mCREATE TABLE "requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "request" varchar NOT NULL, "state" varchar NOT NULL, "contract" blob, "file" blob, "status" varchar DEFAULT 'created' NOT NULL, "comment" text, "closed_at" datetime, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (64.3ms)[0m  [1m[35mCREATE  INDEX "index_requests_on_user_id" ON "requests" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "sims"[0m
+  [1m[35m (52.2ms)[0m  [1m[35mCREATE TABLE "sims" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "phone_number" integer NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "available" boolean DEFAULT 't' NOT NULL, "last_assign_at" datetime DEFAULT '2017-12-18 03:13:17' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "smartphones"[0m
+  [1m[35m (62.2ms)[0m  [1m[35mCREATE TABLE "smartphones" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "model" varchar NOT NULL, "category" varchar NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "imei" text NOT NULL, "price" integer NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "available" boolean DEFAULT 't' NOT NULL, "last_assign_at" datetime DEFAULT '2017-12-18 03:13:18' NOT NULL, "sim_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (60.7ms)[0m  [1m[35mCREATE  INDEX "index_smartphones_on_sim_id" ON "smartphones" ("sim_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_records"[0m
+  [1m[35m (66.0ms)[0m  [1m[35mCREATE TABLE "user_records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "smartphone_id" integer, "sim_id" integer, "bam_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (67.9ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_bam_id" ON "user_records" ("bam_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (68.4ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_sim_id" ON "user_records" ("sim_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (76.2ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_smartphone_id" ON "user_records" ("smartphone_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (64.3ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_user_id" ON "user_records" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (74.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rut" varchar NOT NULL, "name" varchar NOT NULL, "last_name" varchar NOT NULL, "email" varchar NOT NULL, "occupation" varchar NOT NULL, "enterprice" varchar, "supervisor" varchar NOT NULL, "supervisor_email" varchar NOT NULL, "cost_center" varchar NOT NULL, "job_center" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (189.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (57.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171218024856)[0m
+  [1m[35m (56.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171218023633),
+(20171217204813),
+(20171218024459),
+(20171218024335),
+(20171218023921);
+
+[0m
+  [1m[35m (70.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-12-18 03:37:04.744034"], ["updated_at", "2017-12-18 03:37:04.744034"]]
+  [1m[35m (59.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ccalde@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("rut", "name", "last_name", "email", "occupation", "supervisor", "supervisor_email", "cost_center", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rut", "13362555-0"], ["name", "Constanza"], ["last_name", "Calderon Sanchez"], ["email", "ccalde@ccu.cl"], ["occupation", "Operario de Maquinas"], ["supervisor", "Nicolas Santibanez"], ["supervisor_email", "nscnico@gmail.com"], ["cost_center", "290766000"], ["created_at", "2017-12-18 03:37:04.841901"], ["updated_at", "2017-12-18 03:37:04.841901"]]
+  [1m[35m (51.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sclaren@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("rut", "name", "last_name", "email", "occupation", "supervisor", "supervisor_email", "cost_center", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rut", "16054341-8"], ["name", "Sebastian"], ["last_name", "Claren Rubio"], ["email", "sclaren@ccu.cl"], ["occupation", "Vendedor Santiago"], ["supervisor", "Felipe Diaz"], ["supervisor_email", "nscnico@gmail.com"], ["cost_center", "290501500"], ["created_at", "2017-12-18 03:37:04.899310"], ["updated_at", "2017-12-18 03:37:04.899310"]]
+  [1m[35m (50.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "cbonil@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("rut", "name", "last_name", "email", "occupation", "supervisor", "supervisor_email", "cost_center", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rut", "14121031-9"], ["name", "Claudia"], ["last_name", "Bonilla Toro"], ["email", "cbonil@ccu.cl"], ["occupation", "Gerente Tecnologia"], ["supervisor", "Marco Rios"], ["supervisor_email", "nscnico@gmail.com"], ["cost_center", "290501100"], ["created_at", "2017-12-18 03:37:04.954416"], ["updated_at", "2017-12-18 03:37:04.954416"]]
+  [1m[35m (58.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yaraos@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("rut", "name", "last_name", "email", "occupation", "supervisor", "supervisor_email", "cost_center", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rut", "16095197-4"], ["name", "Yerko"], ["last_name", "Araos Ramirez"], ["email", "yaraos@ccu.cl"], ["occupation", "Vendedor Region"], ["supervisor", "Nicolas Santibanez"], ["supervisor_email", "nscnico@gmail.com"], ["cost_center", "290106000"], ["created_at", "2017-12-18 03:37:05.018695"], ["updated_at", "2017-12-18 03:37:05.018695"]]
+  [1m[35m (58.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rmonar@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("rut", "name", "last_name", "email", "occupation", "supervisor", "supervisor_email", "cost_center", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rut", "13679739-5"], ["name", "Rodrigo"], ["last_name", "Monardes Nitrihual"], ["email", "rmonar@ccu.cl"], ["occupation", "Jefe Laboratorio"], ["supervisor", "Felipe Diaz"], ["supervisor_email", "nscnico@gmail.com"], ["cost_center", "290108000"], ["created_at", "2017-12-18 03:37:05.083041"], ["updated_at", "2017-12-18 03:37:05.083041"]]
+  [1m[35m (46.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ggiaconi@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("rut", "name", "last_name", "email", "occupation", "supervisor", "supervisor_email", "cost_center", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rut", "16943369-0"], ["name", "Guillermo"], ["last_name", "Giaconi Rodriguez"], ["email", "ggiaconi@ccu.cl"], ["occupation", "Subgerente systemas"], ["supervisor", "Marco Rios"], ["supervisor_email", "nscnico@gmail.com"], ["cost_center", "290051000"], ["created_at", "2017-12-18 03:37:05.142146"], ["updated_at", "2017-12-18 03:37:05.142146"]]
+  [1m[35m (59.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jcastro@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("rut", "name", "last_name", "email", "occupation", "supervisor", "supervisor_email", "cost_center", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rut", "8208182-8"], ["name", "Javier"], ["last_name", "Castro Maldonado"], ["email", "jcastro@ccu.cl"], ["occupation", "Gerente Informatica"], ["supervisor", "Nicolas Santibanez"], ["supervisor_email", "nscnico@gmail.com"], ["cost_center", "290776000"], ["created_at", "2017-12-18 03:37:05.208904"], ["updated_at", "2017-12-18 03:37:05.208904"]]
+  [1m[35m (48.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "cutili@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("rut", "name", "last_name", "email", "occupation", "supervisor", "supervisor_email", "cost_center", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rut", "5192357-K"], ["name", "Carmen Gloria"], ["last_name", "Utili Escudero"], ["email", "cutili@ccu.cl"], ["occupation", "Ejecutiva Aprovisionamiento"], ["supervisor", "Felipe Diaz"], ["supervisor_email", "nscnico@gmail.com"], ["cost_center", "540796000"], ["created_at", "2017-12-18 03:37:05.262711"], ["updated_at", "2017-12-18 03:37:05.262711"]]
+  [1m[35m (57.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mcabrera@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("rut", "name", "last_name", "email", "occupation", "supervisor", "supervisor_email", "cost_center", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rut", "16371090-0"], ["name", "Marcelo"], ["last_name", "Cabrera Rubio"], ["email", "mcabrera@ccu.cl"], ["occupation", "Ingeniero de Televenta"], ["supervisor", "Marco Rios"], ["supervisor_email", "nscnico@gmail.com"], ["cost_center", "290501500"], ["created_at", "2017-12-18 03:37:05.326460"], ["updated_at", "2017-12-18 03:37:05.326460"]]
+  [1m[35m (57.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "avenega@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("rut", "name", "last_name", "email", "occupation", "supervisor", "supervisor_email", "cost_center", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rut", "8634532-3"], ["name", "Anain"], ["last_name", "Venegas Mondaca"], ["email", "avenega@ccu.cl"], ["occupation", "Tecnico de redes"], ["supervisor", "Nicolas Santibanez"], ["supervisor_email", "nscnico@gmail.com"], ["cost_center", "290845000"], ["created_at", "2017-12-18 03:37:05.388737"], ["updated_at", "2017-12-18 03:37:05.388737"]]
+  [1m[35m (54.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 82099147], ["last_owner", "Constanza Cabrera"], ["created_at", "2017-12-18 03:37:05.475511"], ["updated_at", "2017-12-18 03:37:05.475511"]]
+  [1m[35m (42.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 93192570], ["last_owner", "Norma Acuna"], ["created_at", "2017-12-18 03:37:05.521305"], ["updated_at", "2017-12-18 03:37:05.521305"]]
+  [1m[35m (47.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 84099131], ["last_owner", "Victor Santibanez"], ["created_at", "2017-12-18 03:37:05.572651"], ["updated_at", "2017-12-18 03:37:05.572651"]]
+  [1m[35m (47.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 51999216], ["last_owner", "Carmen Castro"], ["created_at", "2017-12-18 03:37:05.625178"], ["updated_at", "2017-12-18 03:37:05.625178"]]
+  [1m[35m (40.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 93192661], ["last_owner", "Jose Luis Cabrera"], ["created_at", "2017-12-18 03:37:05.671445"], ["updated_at", "2017-12-18 03:37:05.671445"]]
+  [1m[35m (47.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["phone_number", 97991465], ["created_at", "2017-12-18 03:37:05.722320"], ["updated_at", "2017-12-18 03:37:05.722320"]]
+  [1m[35m (44.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["phone_number", 76681990], ["created_at", "2017-12-18 03:37:05.773323"], ["updated_at", "2017-12-18 03:37:05.773323"]]
+  [1m[35m (45.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["phone_number", 62082805], ["created_at", "2017-12-18 03:37:05.822288"], ["updated_at", "2017-12-18 03:37:05.822288"]]
+  [1m[35m (55.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["phone_number", 66285644], ["created_at", "2017-12-18 03:37:05.881598"], ["updated_at", "2017-12-18 03:37:05.881598"]]
+  [1m[35m (44.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["phone_number", 99158447], ["created_at", "2017-12-18 03:37:05.932063"], ["updated_at", "2017-12-18 03:37:05.932063"]]
+  [1m[35m (45.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["phone_number", 82593542], ["created_at", "2017-12-18 03:37:05.981377"], ["updated_at", "2017-12-18 03:37:05.981377"]]
+  [1m[35m (41.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["phone_number", 82491446], ["created_at", "2017-12-18 03:37:06.029306"], ["updated_at", "2017-12-18 03:37:06.029306"]]
+  [1m[35m (48.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 93185497], ["last_owner", "Felipe Castro"], ["created_at", "2017-12-18 03:37:06.085430"], ["updated_at", "2017-12-18 03:37:06.085430"]]
+  [1m[35m (40.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 42178031], ["last_owner", "Gonzalo Inostroza"], ["created_at", "2017-12-18 03:37:06.131992"], ["updated_at", "2017-12-18 03:37:06.131992"]]
+  [1m[35m (45.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 93186475], ["last_owner", "Claudia Munoz"], ["created_at", "2017-12-18 03:37:06.181649"], ["updated_at", "2017-12-18 03:37:06.181649"]]
+  [1m[35m (46.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "353227075802167"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "category", "last_owner", "imei", "price", "state", "sim_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S8"], ["category", "gerente"], ["last_owner", "Marco Sepulveda"], ["imei", "353227075802167"], ["price", 200836], ["state", "used"], ["sim_id", 3], ["created_at", "2017-12-18 03:37:06.270768"], ["updated_at", "2017-12-18 03:37:06.270768"]]
+  [1m[35m (48.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "359878069666630"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "category", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S8"], ["category", "gerente"], ["last_owner", "Carolina Arredondo"], ["imei", "359878069666630"], ["price", 200836], ["state", "used"], ["created_at", "2017-12-18 03:37:06.322144"], ["updated_at", "2017-12-18 03:37:06.322144"]]
+  [1m[35m (54.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "35688706001064"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "category", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S7"], ["category", "subgerente"], ["last_owner", "Kathy Whiting"], ["imei", "35688706001064"], ["price", 158820], ["state", "used"], ["created_at", "2017-12-18 03:37:06.383529"], ["updated_at", "2017-12-18 03:37:06.383529"]]
+  [1m[35m (50.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "35881306155560"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "category", "last_owner", "imei", "price", "state", "sim_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J7"], ["category", "profesional/tecnico"], ["last_owner", "Felipe Arriagada"], ["imei", "35881306155560"], ["price", 50417], ["state", "used"], ["sim_id", 8], ["created_at", "2017-12-18 03:37:06.437705"], ["updated_at", "2017-12-18 03:37:06.437705"]]
+  [1m[35m (49.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "352141079023186"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "category", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J7"], ["category", "profesional/tecnico"], ["imei", "352141079023186"], ["price", 50417], ["created_at", "2017-12-18 03:37:06.490594"], ["updated_at", "2017-12-18 03:37:06.490594"]]
+  [1m[35m (51.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "359878063788620"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "category", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S7"], ["category", "jefe venta/vendedor"], ["imei", "359878063788620"], ["price", 158820], ["created_at", "2017-12-18 03:37:06.546918"], ["updated_at", "2017-12-18 03:37:06.546918"]]
+  [1m[35m (58.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "35687805120863"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "category", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S7"], ["category", "jefe venta/vendedor"], ["imei", "35687805120863"], ["price", 158820], ["created_at", "2017-12-18 03:37:06.611070"], ["updated_at", "2017-12-18 03:37:06.611070"]]
+  [1m[35m (46.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "359878069666481"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "category", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S7"], ["category", "empleado/operario"], ["last_owner", "Andres Soto"], ["imei", "359878069666481"], ["price", 40333], ["state", "used"], ["created_at", "2017-12-18 03:37:06.666182"], ["updated_at", "2017-12-18 03:37:06.666182"]]
+  [1m[35m (60.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "35214073409175"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "category", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J7"], ["category", "empleado/operario"], ["imei", "35214073409175"], ["price", 40333], ["created_at", "2017-12-18 03:37:06.733158"], ["updated_at", "2017-12-18 03:37:06.733158"]]
+  [1m[35m (58.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "359048050341094"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "category", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J5"], ["category", "multiusuario"], ["last_owner", "Guillermo Aguilar"], ["imei", "359048050341094"], ["price", 40333], ["state", "used"], ["created_at", "2017-12-18 03:37:06.797305"], ["updated_at", "2017-12-18 03:37:06.797305"]]
+  [1m[35m (46.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBam Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "bams" WHERE "bams"."imei" = ? LIMIT ?[0m  [["imei", "952427835802167"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bams" ("model", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Huaewi E5573"], ["last_owner", "Joaquin Zunino"], ["imei", "952427835802167"], ["price", 35990], ["state", "used"], ["created_at", "2017-12-18 03:37:06.879503"], ["updated_at", "2017-12-18 03:37:06.879503"]]
+  [1m[35m (48.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBam Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "bams" WHERE "bams"."imei" = ? LIMIT ?[0m  [["imei", "984557575805360"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "bams" ("model", "last_owner", "imei", "price", "state", "sim_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Huaewi E5573"], ["last_owner", "Francisca Irarrazaval"], ["imei", "984557575805360"], ["price", 35990], ["state", "used"], ["sim_id", 2], ["created_at", "2017-12-18 03:37:06.931251"], ["updated_at", "2017-12-18 03:37:06.931251"]]
+  [1m[35m (62.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBam Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "bams" WHERE "bams"."imei" = ? LIMIT ?[0m  [["imei", "996883330106421"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "bams" ("model", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["model", "Huaewi E5573"], ["imei", "996883330106421"], ["price", 35990], ["created_at", "2017-12-18 03:37:06.999698"], ["updated_at", "2017-12-18 03:37:06.999698"]]
+  [1m[35m (56.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBam Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "bams" WHERE "bams"."imei" = ? LIMIT ?[0m  [["imei", "918813063325600"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "bams" ("model", "imei", "price", "sim_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["model", "Huaewi E8372"], ["imei", "918813063325600"], ["price", 25990], ["sim_id", 1], ["created_at", "2017-12-18 03:37:07.063820"], ["updated_at", "2017-12-18 03:37:07.063820"]]
+  [1m[35m (56.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBam Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "bams" WHERE "bams"."imei" = ? LIMIT ?[0m  [["imei", "932414072893167"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "bams" ("model", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Huaewi E8372"], ["last_owner", "Mariana Fernandez"], ["imei", "932414072893167"], ["price", 25990], ["state", "used"], ["created_at", "2017-12-18 03:37:07.125304"], ["updated_at", "2017-12-18 03:37:07.125304"]]
+  [1m[35m (50.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "user_records" ("sim_id", "bam_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["sim_id", 1], ["bam_id", 4], ["user_id", 1], ["created_at", "2017-12-18 03:37:07.205332"], ["updated_at", "2017-12-18 03:37:07.205332"]]
+  [1m[35m (46.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "user_records" ("sim_id", "bam_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["sim_id", 2], ["bam_id", 2], ["user_id", 2], ["created_at", "2017-12-18 03:37:07.259196"], ["updated_at", "2017-12-18 03:37:07.259196"]]
+  [1m[35m (48.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "user_records" ("smartphone_id", "sim_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["smartphone_id", 1], ["sim_id", 3], ["user_id", 3], ["created_at", "2017-12-18 03:37:07.317135"], ["updated_at", "2017-12-18 03:37:07.317135"]]
+  [1m[35m (59.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "user_records" ("smartphone_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["smartphone_id", 6], ["user_id", 4], ["created_at", "2017-12-18 03:37:07.386480"], ["updated_at", "2017-12-18 03:37:07.386480"]]
+  [1m[35m (63.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "user_records" ("smartphone_id", "sim_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["smartphone_id", 4], ["sim_id", 8], ["user_id", 5], ["created_at", "2017-12-18 03:37:07.458443"], ["updated_at", "2017-12-18 03:37:07.458443"]]
+  [1m[35m (53.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "user_records" ("smartphone_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["smartphone_id", 3], ["user_id", 6], ["created_at", "2017-12-18 03:37:07.516349"], ["updated_at", "2017-12-18 03:37:07.516349"]]
+  [1m[35m (61.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "user_records" ("sim_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sim_id", 6], ["user_id", 9], ["created_at", "2017-12-18 03:37:07.586362"], ["updated_at", "2017-12-18 03:37:07.586362"]]
+  [1m[35m (55.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "user_records" ("sim_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sim_id", 7], ["user_id", 10], ["created_at", "2017-12-18 03:37:07.649358"], ["updated_at", "2017-12-18 03:37:07.649358"]]
+  [1m[35m (52.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSmartphone Load (0.6ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? AND ("smartphones"."id" != ?) LIMIT ?[0m  [["imei", "353227075802167"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[33mUPDATE "smartphones" SET "available" = ?, "updated_at" = ? WHERE "smartphones"."id" = ?[0m  [["available", "f"], ["updated_at", "2017-12-18 03:37:07.714883"], ["id", 1]]
+  [1m[35m (49.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? AND ("smartphones"."id" != ?) LIMIT ?[0m  [["imei", "35688706001064"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "smartphones" SET "available" = ?, "updated_at" = ? WHERE "smartphones"."id" = ?[0m  [["available", "f"], ["updated_at", "2017-12-18 03:37:07.773105"], ["id", 3]]
+  [1m[35m (47.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSmartphone Load (0.4ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? AND ("smartphones"."id" != ?) LIMIT ?[0m  [["imei", "35881306155560"], ["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "smartphones" SET "available" = ?, "updated_at" = ? WHERE "smartphones"."id" = ?[0m  [["available", "f"], ["updated_at", "2017-12-18 03:37:07.826946"], ["id", 4]]
+  [1m[35m (48.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSmartphone Load (0.3ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSmartphone Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "smartphones" WHERE "smartphones"."imei" = ? AND ("smartphones"."id" != ?) LIMIT ?[0m  [["imei", "359878063788620"], ["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "smartphones" SET "available" = ?, "updated_at" = ? WHERE "smartphones"."id" = ?[0m  [["available", "f"], ["updated_at", "2017-12-18 03:37:07.884683"], ["id", 6]]
+  [1m[35m (59.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBam Load (0.6ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBam Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "bams" WHERE "bams"."imei" = ? AND ("bams"."id" != ?) LIMIT ?[0m  [["imei", "984557575805360"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "bams" SET "available" = ?, "updated_at" = ? WHERE "bams"."id" = ?[0m  [["available", "f"], ["updated_at", "2017-12-18 03:37:07.953697"], ["id", 2]]
+  [1m[35m (45.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBam Load (0.2ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBam Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "bams" WHERE "bams"."imei" = ? AND ("bams"."id" != ?) LIMIT ?[0m  [["imei", "918813063325600"], ["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "bams" SET "available" = ?, "updated_at" = ? WHERE "bams"."id" = ?[0m  [["available", "f"], ["updated_at", "2017-12-18 03:37:08.006385"], ["id", 4]]
+  [1m[35m (40.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSim Load (0.4ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "sims" SET "available" = ?, "updated_at" = ? WHERE "sims"."id" = ?[0m  [["available", "f"], ["updated_at", "2017-12-18 03:37:08.052147"], ["id", 1]]
+  [1m[35m (47.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSim Load (0.2ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "sims" SET "available" = ?, "updated_at" = ? WHERE "sims"."id" = ?[0m  [["available", "f"], ["updated_at", "2017-12-18 03:37:08.109292"], ["id", 2]]
+  [1m[35m (48.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSim Load (0.2ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "sims" SET "available" = ?, "updated_at" = ? WHERE "sims"."id" = ?[0m  [["available", "f"], ["updated_at", "2017-12-18 03:37:08.164468"], ["id", 6]]
+  [1m[35m (64.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSim Load (0.2ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "sims" SET "available" = ?, "updated_at" = ? WHERE "sims"."id" = ?[0m  [["available", "f"], ["updated_at", "2017-12-18 03:37:08.234180"], ["id", 7]]
+  [1m[35m (51.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "requests" ("request", "state", "status", "comment", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["request", "smartphone"], ["state", "new"], ["status", "accepted"], ["comment", "Necesito el smartphone lo antes posible"], ["user_id", 6], ["created_at", "2017-12-18 03:37:08.324451"], ["updated_at", "2017-12-18 03:37:08.324451"]]
+  [1m[35m (38.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "requests" ("request", "state", "status", "comment", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["request", "smartphone"], ["state", "lost"], ["status", "approval pending"], ["comment", "Se me perdio el smartphone en viaje fuera del pais"], ["user_id", 3], ["created_at", "2017-12-18 03:37:08.371629"], ["updated_at", "2017-12-18 03:37:08.371629"]]
+  [1m[35m (47.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "requests" ("request", "state", "status", "comment", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["request", "smartphone"], ["state", "technical service"], ["status", "in repairs"], ["comment", "Se rompio la pantalla en salida a terreno"], ["user_id", 4], ["created_at", "2017-12-18 03:37:08.429264"], ["updated_at", "2017-12-18 03:37:08.429264"]]
+  [1m[35m (55.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "requests" ("request", "state", "status", "comment", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["request", "bam"], ["state", "stolen"], ["status", "rejected"], ["comment", "Me robaron aparato BAM"], ["user_id", 1], ["created_at", "2017-12-18 03:37:08.491227"], ["updated_at", "2017-12-18 03:37:08.491227"]]
+  [1m[35m (51.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "requests" ("request", "state", "status", "comment", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["request", "bam"], ["state", "renew"], ["status", "ready to deliver"], ["comment", "BAM es muy antiguo y necesito mayor velocidad de navegacion"], ["user_id", 2], ["created_at", "2017-12-18 03:37:08.548140"], ["updated_at", "2017-12-18 03:37:08.548140"]]
+  [1m[35m (36.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "requests" ("request", "state", "status", "comment", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["request", "sim"], ["state", "new"], ["status", "dispatched"], ["comment", "Necesito SIM de CCU para instalar en mi smartphone"], ["user_id", 7], ["created_at", "2017-12-18 03:37:08.592350"], ["updated_at", "2017-12-18 03:37:08.592350"]]
+  [1m[35m (44.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "requests" ("request", "state", "status", "comment", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["request", "sim"], ["state", "stolen"], ["status", "accepted"], ["comment", "Necesito nueva SIM porque me robaron bolso donde tenia el smartphone con la SIM"], ["user_id", 8], ["created_at", "2017-12-18 03:37:08.646945"], ["updated_at", "2017-12-18 03:37:08.646945"]]
+  [1m[35m (39.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/bams" for 127.0.0.1 at 2017-12-18 00:37:20 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BamsController#index as HTML
+  Rendering bams/index.html.erb within layouts/application
+  [1m[36mBam Load (0.2ms)[0m  [1m[34mSELECT "bams".* FROM "bams"[0m
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered bams/index.html.erb within layouts/application (41.6ms)
+Completed 200 OK in 210ms (Views: 196.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/smartphones" for 127.0.0.1 at 2017-12-18 00:37:30 -0300
+Processing by SmartphonesController#index as HTML
+  Rendering smartphones/index.html.erb within layouts/application
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT "smartphones".* FROM "smartphones"[0m
+  [1m[36mSim Load (0.2ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered smartphones/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 52ms (Views: 47.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/requests" for 127.0.0.1 at 2017-12-18 00:37:41 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered requests/index.html.erb within layouts/application (48.5ms)
+Completed 200 OK in 86ms (Views: 80.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/user_records" for 127.0.0.1 at 2017-12-18 00:37:54 -0300
+Processing by UserRecordsController#index as HTML
+  Rendering user_records/index.html.erb within layouts/application
+  [1m[36mUserRecord Load (0.2ms)[0m  [1m[34mSELECT "user_records".* FROM "user_records"[0m
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBam Load (0.2ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendered user_records/index.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 66ms (Views: 60.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/smartphones" for 127.0.0.1 at 2017-12-18 00:38:35 -0300
+Processing by SmartphonesController#index as HTML
+  Rendering smartphones/index.html.erb within layouts/application
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT "smartphones".* FROM "smartphones"[0m
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered smartphones/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/request" for 127.0.0.1 at 2017-12-18 00:38:40 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/request"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requests" for 127.0.0.1 at 2017-12-18 00:38:43 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered requests/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/requests/new" for 127.0.0.1 at 2017-12-18 00:38:49 -0300
+Processing by RequestsController#new as HTML
+  Rendering requests/new.html.erb within layouts/application
+  Rendered requests/_form.html.erb (30.0ms)
+  Rendered requests/new.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 61ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
