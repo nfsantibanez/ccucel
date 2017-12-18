@@ -7,10 +7,12 @@
     <tr>
       <th>Rut</th>
       <th>Name</th>
+      <th>Last name</th>
       <th>Email</th>
       <th>Occupation</th>
       <th>Enterprice</th>
       <th>Supervisor</th>
+      <th>Supervisor email</th>
       <th>Cost center</th>
       <th>Job center</th>
       <th colspan="3"></th>
@@ -22,10 +24,12 @@
       <tr>
         <td><%= user.rut %></td>
         <td><%= user.name %></td>
+        <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= user.occupation %></td>
         <td><%= user.enterprice %></td>
         <td><%= user.supervisor %></td>
+        <td><%= user.supervisor_email %></td>
         <td><%= user.cost_center %></td>
         <td><%= user.job_center %></td>
         <td><%= link_to 'Show', user %></td>

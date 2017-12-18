@@ -3,9 +3,10 @@ class Request < ApplicationRecord
 
   # Validations
   validates :request, presence: true, allow_blank: false
-  validates :type, presence: true, allow_blank: false
+  validates :state, presence: true, allow_blank: false
   validates :status, presence: true, allow_blank: false
-  validates :valid_type, :valid_request
+  validate :valid_state
+  validate :valid_request
   validate :valid_status, on: :update
   # Revisar cuando debo validar que exista un contrato adjunto
   # validates :valid_contract
@@ -13,10 +14,10 @@ class Request < ApplicationRecord
 
   private
 
-  def valid_type
-    if type != 'new' && type != 'renew' && type != 'lost' && type != 'stolen' &&
-      type != 'technical service'
-      errors.add(:type, 'invalid type field, must be: new, renew, lost, stolen or technical service')
+  def valid_state
+    if state != 'new' && state != 'renew' && state != 'lost' && state != 'stolen' &&
+      state != 'technical service'
+      errors.add(:state, 'invalid state field, must be: new, renew, lost, stolen or technical service')
     end
   end
 

@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171217204813) do
+ActiveRecord::Schema.define(version: 20171218024856) do
 
   create_table "bams", force: :cascade do |t|
     t.string "model", null: false
     t.string "last_owner", default: "first owner", null: false
     t.text "imei", null: false
     t.integer "price", null: false
-    t.string "type", default: "new", null: false
+    t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
-    t.datetime "last_assign_at", default: "2017-12-17 23:00:25", null: false
+    t.datetime "last_assign_at", default: "2017-12-18 03:13:17", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,12 +28,12 @@ ActiveRecord::Schema.define(version: 20171217204813) do
 
   create_table "requests", force: :cascade do |t|
     t.string "request", null: false
-    t.string "type", null: false
+    t.string "state", null: false
     t.binary "contract"
     t.binary "file"
     t.string "status", default: "created", null: false
     t.text "comment"
-    t.datetime "closed_at", null: false
+    t.datetime "closed_at"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20171217204813) do
   create_table "sims", force: :cascade do |t|
     t.integer "phone_number", null: false
     t.string "last_owner", default: "first owner", null: false
-    t.string "type", default: "new", null: false
+    t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
-    t.datetime "last_assign_at", default: "2017-12-17 23:00:25", null: false
+    t.datetime "last_assign_at", default: "2017-12-18 03:13:17", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20171217204813) do
     t.string "last_owner", default: "first owner", null: false
     t.text "imei", null: false
     t.integer "price", null: false
-    t.string "type", default: "new", null: false
+    t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
-    t.datetime "last_assign_at", default: "2017-12-17 23:00:25", null: false
+    t.datetime "last_assign_at", default: "2017-12-18 03:13:18", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -81,11 +81,13 @@ ActiveRecord::Schema.define(version: 20171217204813) do
   create_table "users", force: :cascade do |t|
     t.string "rut", null: false
     t.string "name", null: false
+    t.string "last_name", null: false
     t.string "email", null: false
     t.string "occupation", null: false
     t.string "enterprice"
     t.string "supervisor", null: false
-    t.string "cost_center"
+    t.string "supervisor_email", null: false
+    t.string "cost_center", null: false
     t.string "job_center"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

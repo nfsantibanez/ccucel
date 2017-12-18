@@ -6,10 +6,11 @@
   <thead>
     <tr>
       <th>Model</th>
+      <th>Category</th>
       <th>Last owner</th>
       <th>Imei</th>
       <th>Price</th>
-      <th>Type</th>
+      <th>State</th>
       <th>Available</th>
       <th>Last assign at</th>
       <th>Sim</th>
@@ -21,10 +22,11 @@
     <% @smartphones.each do |smartphone| %>
       <tr>
         <td><%= smartphone.model %></td>
+        <td><%= smartphone.category %></td>
         <td><%= smartphone.last_owner %></td>
         <td><%= smartphone.imei %></td>
         <td><%= smartphone.price %></td>
-        <td><%= smartphone.type %></td>
+        <td><%= smartphone.state %></td>
         <td><%= smartphone.available %></td>
         <td><%= smartphone.last_assign_at %></td>
         <td><%= smartphone.sim %></td>

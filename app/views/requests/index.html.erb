@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Request</th>
-      <th>Type</th>
+      <th>State</th>
       <th>Contract</th>
       <th>File</th>
       <th>Status</th>
@@ -21,7 +21,7 @@
     <% @requests.each do |request| %>
       <tr>
         <td><%= request.request %></td>
-        <td><%= request.type %></td>
+        <td><%= request.state %></td>
         <td><%= request.contract %></td>
         <td><%= request.file %></td>
         <td><%= request.status %></td>
