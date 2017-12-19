@@ -1,5 +1,6 @@
 class SimsController < ApplicationController
   before_action :set_sim, only: [:show, :edit, :update, :destroy]
+  layout 'general_view'
 
   # GET /sims
   # GET /sims.json

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Identifiación de Usuario y Solicitud</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="container-fluid">
+  <h1><strong> Formulario </strong></h1>
+  <hr>
+  <h3> Identificación de Usuario y Solicitud </h3>
+  <hr>
+  <%= form_with url: "validate", method: "get" do |form| %>
+    <%= form.label :request_type, 'Seleccione Tipo de Solicitud' %>
+    <%= form.select :request_type, [['Nuevo', 1], ['Renovación', 2], ['Pérdida', 3],
+    ['Robo', 4], ['Reparación', 5]], {}, {class: "form-control"} %>
+    <br>
+    <%= form.label :user_rut, 'Identificación de Usuario' %>
+    <%= form.text_field :user_rut, id: :request_request %>
+    <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
+  <% end %>
+</div>
+
+</body>
+</html>

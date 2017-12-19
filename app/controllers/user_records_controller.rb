@@ -1,5 +1,6 @@
 class UserRecordsController < ApplicationController
   before_action :set_user_record, only: [:show, :edit, :update, :destroy]
+  layout 'general_view'
 
   # GET /user_records
   # GET /user_records.json

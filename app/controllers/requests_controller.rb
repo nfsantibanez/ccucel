@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+  layout 'general_view', :except => [:index]
 
   # GET /requests
   # GET /requests.json
@@ -60,6 +61,14 @@ class RequestsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # Functions for validate data
+  def validate_user
+    user = rut_verification(params[:user_rut])
+    form = form_convert(params[:request_type])
+    render json: {req: form, user: user}
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,5 +1,6 @@
 class BamsController < ApplicationController
   before_action :set_bam, only: [:show, :edit, :update, :destroy]
+  layout 'general_view'
 
   # GET /bams
   # GET /bams.json

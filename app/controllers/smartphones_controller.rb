@@ -1,5 +1,6 @@
 class SmartphonesController < ApplicationController
   before_action :set_smartphone, only: [:show, :edit, :update, :destroy]
+  layout 'general_view'
 
   # GET /smartphones
   # GET /smartphones.json
