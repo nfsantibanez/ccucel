@@ -19539,3 +19539,675 @@ Processing by UserRecordsController#index as HTML
 Completed 200 OK in 124ms (Views: 89.5ms | ActiveRecord: 18.1ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-12-20 16:12:03 -0300
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.4) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.4) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (575.0ms)[0m  [1m[35mCREATE TABLE "SCHEMA_MIGRATIONS" ("VERSION" VARCHAR2(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE TABLE "AR_INTERNAL_METADATA" ("KEY" VARCHAR2(255) NOT NULL PRIMARY KEY, "VALUE" VARCHAR2(255), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (129.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Migrating to CreateUserRecords (20171217204813)
+  [1m[35m (16.7ms)[0m  [1m[35mCREATE TABLE "USER_RECORDS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "SMARTPHONE_ID" NUMBER(19), "SIM_ID" NUMBER(19), "BAM_ID" NUMBER(19), "USER_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_AFF0319B64"
+FOREIGN KEY ("SMARTPHONE_ID")
+  REFERENCES "SMARTPHONES" ("ID")
+, CONSTRAINT "FK_RAILS_D53DF9C69C"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+, CONSTRAINT "FK_RAILS_67BB80AF19"
+FOREIGN KEY ("BAM_ID")
+  REFERENCES "BAMS" ("ID")
+, CONSTRAINT "FK_RAILS_7583AC5F75"
+FOREIGN KEY ("USER_ID")
+  REFERENCES "USERS" ("ID")
+)[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.7ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (47.5ms)[0m  [1m[34mSELECT sequence_name FROM all_sequences where sequence_owner = SYS_CONTEXT('userenv', 'session_user') ORDER BY 1[0m
+  [1m[35m (5528.3ms)[0m  [1m[34mSELECT table_name from all_tables t
+                    WHERE owner = SYS_CONTEXT('userenv', 'current_schema') AND secondary = 'N'
+                      AND NOT EXISTS (SELECT mv.mview_name FROM all_mviews mv WHERE mv.owner = t.owner AND mv.mview_name = t.table_name)
+                      AND NOT EXISTS (SELECT mvl.log_table FROM all_mview_logs mvl WHERE mvl.log_owner = t.owner AND mvl.log_table = t.table_name)
+                    ORDER BY 1[0m
+  [1m[35m (464.4ms)[0m  [1m[34mSELECT view_name FROM all_views where owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (33.8ms)[0m  [1m[34mSELECT mview_name FROM all_mviews where owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (453.7ms)[0m  [1m[34mSELECT synonym_name FROM all_synonyms where owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (313.7ms)[0m  [1m[34mSELECT type_name FROM all_types where owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (206.0ms)[0m  [1m[34mSELECT object_name FROM all_objects WHERE object_type = 'PACKAGE' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (24.7ms)[0m  [1m[34mSELECT object_name FROM all_objects WHERE object_type = 'FUNCTION' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (18.6ms)[0m  [1m[34mSELECT object_name FROM all_objects WHERE object_type = 'PROCEDURE' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (991.8ms)[0m  [1m[35mDROP TABLE "ARC_CHARFIELD_4373" CASCADE CONSTRAINTS[0m
+  [1m[35m (28.9ms)[0m  [1m[35mDROP TABLE "ARC_CHARFIELD_7056" CASCADE CONSTRAINTS[0m
+  [1m[35m (190.0ms)[0m  [1m[35mDROP TABLE "AR_INTERNAL_METADATA" CASCADE CONSTRAINTS[0m
+  [1m[35m (303.8ms)[0m  [1m[35mDROP TABLE "CLOBPCMTXT" CASCADE CONSTRAINTS[0m
+  [1m[35m (202.7ms)[0m  [1m[35mDROP TABLE "CLOBPCMTXTM4" CASCADE CONSTRAINTS[0m
+  [1m[35m (81.3ms)[0m  [1m[35mDROP TABLE "CLOBQRYEXPR" CASCADE CONSTRAINTS[0m
+  [1m[35m (52.7ms)[0m  [1m[35mDROP TABLE "CLOBSQLTEXTDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (130.4ms)[0m  [1m[35mDROP TABLE "DERIVEDPSSQLTABLEANDINDEX" CASCADE CONSTRAINTS[0m
+  [1m[35m (28.2ms)[0m  [1m[35mDROP TABLE "DERIVEDTABLESWITHFUNCINDEXES" CASCADE CONSTRAINTS[0m
+  [1m[35m (40.2ms)[0m  [1m[35mDROP TABLE "DROP_FUNCIDX_CANDIDATES" CASCADE CONSTRAINTS[0m
+  [1m[35m (85.8ms)[0m  [1m[35mDROP TABLE "M4_VAL_INCIDENCIA_BKP" CASCADE CONSTRAINTS[0m
+  [1m[35m (57.5ms)[0m  [1m[35mDROP TABLE "PSACCESSLOG" CASCADE CONSTRAINTS[0m
+  [1m[35m (84.5ms)[0m  [1m[35mDROP TABLE "PSACCESSPRFL" CASCADE CONSTRAINTS[0m
+  [1m[35m (98.3ms)[0m  [1m[35mDROP TABLE "PSACECUBE" CASCADE CONSTRAINTS[0m
+  [1m[35m (58.5ms)[0m  [1m[35mDROP TABLE "PSACECUBECOLL" CASCADE CONSTRAINTS[0m
+  [1m[35m (108.4ms)[0m  [1m[35mDROP TABLE "PSACECUBECOLMAP" CASCADE CONSTRAINTS[0m
+  [1m[35m (45.7ms)[0m  [1m[35mDROP TABLE "PSACECUBEDIMS" CASCADE CONSTRAINTS[0m
+  [1m[35m (59.8ms)[0m  [1m[35mDROP TABLE "PSACEDIM" CASCADE CONSTRAINTS[0m
+  [1m[35m (41.7ms)[0m  [1m[35mDROP TABLE "PSACEEXPDIMS" CASCADE CONSTRAINTS[0m
+  [1m[35m (27.7ms)[0m  [1m[35mDROP TABLE "PSACEEXPSET" CASCADE CONSTRAINTS[0m
+  [1m[35m (72.0ms)[0m  [1m[35mDROP TABLE "PSACEMDLDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (24.7ms)[0m  [1m[35mDROP TABLE "PSACEMDLDEFNDEL" CASCADE CONSTRAINTS[0m
+  [1m[35m (57.8ms)[0m  [1m[35mDROP TABLE "PSACEMDLDEFNLNG" CASCADE CONSTRAINTS[0m
+  [1m[35m (33.6ms)[0m  [1m[35mDROP TABLE "PSACEORGANIZER" CASCADE CONSTRAINTS[0m
+  [1m[35m (37.8ms)[0m  [1m[35mDROP TABLE "PSACEORGMAP" CASCADE CONSTRAINTS[0m
+  [1m[35m (54.5ms)[0m  [1m[35mDROP TABLE "PSACERULE" CASCADE CONSTRAINTS[0m
+  [1m[35m (58.4ms)[0m  [1m[35mDROP TABLE "PSACETREE" CASCADE CONSTRAINTS[0m
+  [1m[35m (46.1ms)[0m  [1m[35mDROP TABLE "PSACEUSRFUNC" CASCADE CONSTRAINTS[0m
+  [1m[35m (241.5ms)[0m  [1m[35mDROP TABLE "PSACTARCHIVE" CASCADE CONSTRAINTS[0m
+  [1m[35m (65.9ms)[0m  [1m[35mDROP TABLE "PSACTIVEXLIC" CASCADE CONSTRAINTS[0m
+  [1m[35m (67.0ms)[0m  [1m[35mDROP TABLE "PSACTIVIMG" CASCADE CONSTRAINTS[0m
+  [1m[35m (84.6ms)[0m  [1m[35mDROP TABLE "PSACTIVIMGLANG" CASCADE CONSTRAINTS[0m
+  [1m[35m (175.6ms)[0m  [1m[35mDROP TABLE "PSACTIVITYDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (80.0ms)[0m  [1m[35mDROP TABLE "PSACTIVITYDEL" CASCADE CONSTRAINTS[0m
+  [1m[35m (92.1ms)[0m  [1m[35mDROP TABLE "PSACTIVITYLANG" CASCADE CONSTRAINTS[0m
+  [1m[35m (278.8ms)[0m  [1m[35mDROP TABLE "PSACTIVITYLOG" CASCADE CONSTRAINTS[0m
+  [1m[35m (100.1ms)[0m  [1m[35mDROP TABLE "PSADSDEFAULTS" CASCADE CONSTRAINTS[0m
+  [1m[35m (55.3ms)[0m  [1m[35mDROP TABLE "PSADSEXCLUSIONS" CASCADE CONSTRAINTS[0m
+  [1m[35m (68.9ms)[0m  [1m[35mDROP TABLE "PSADSRELATIONS" CASCADE CONSTRAINTS[0m
+  [1m[35m (102.9ms)[0m  [1m[35mDROP TABLE "PSADSRELMAP" CASCADE CONSTRAINTS[0m
+  [1m[35m (103.8ms)[0m  [1m[35mDROP TABLE "PSADSSQLREF" CASCADE CONSTRAINTS[0m
+  [1m[35m (91.3ms)[0m  [1m[35mDROP TABLE "PSADSTYDFNDEL" CASCADE CONSTRAINTS[0m
+  [1m[35m (340.2ms)[0m  [1m[35mDROP TABLE "PSADSTYPEDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (51.5ms)[0m  [1m[35mDROP TABLE "PSADSTYPEITEM" CASCADE CONSTRAINTS[0m
+  [1m[35m (262.5ms)[0m  [1m[35mDROP TABLE "PSAEAPPLDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (68.2ms)[0m  [1m[35mDROP TABLE "PSAEAPPLDEL" CASCADE CONSTRAINTS[0m
+  [1m[35m (38.5ms)[0m  [1m[35mDROP TABLE "PSAEAPPLLANG" CASCADE CONSTRAINTS[0m
+  [1m[35m (31.3ms)[0m  [1m[35mDROP TABLE "PSAEAPPLSTATE" CASCADE CONSTRAINTS[0m
+  [1m[35m (41.0ms)[0m  [1m[35mDROP TABLE "PSAEAPPLTEMPTBL" CASCADE CONSTRAINTS[0m
+  [1m[35m (66.5ms)[0m  [1m[35mDROP TABLE "PSAESECTDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (49.0ms)[0m  [1m[35mDROP TABLE "PSAESECTDEL" CASCADE CONSTRAINTS[0m
+  [1m[35m (66.6ms)[0m  [1m[35mDROP TABLE "PSAESECTDTLDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (156.7ms)[0m  [1m[35mDROP TABLE "PSAESTEPDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (67.2ms)[0m  [1m[35mDROP TABLE "PSAESTEPMSGDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (88.2ms)[0m  [1m[35mDROP TABLE "PSAESTMTDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (102.6ms)[0m  [1m[35mDROP TABLE "PSANALYTICREG" CASCADE CONSTRAINTS[0m
+  [1m[35m (215.7ms)[0m  [1m[35mDROP TABLE "PSAPMSGARCHPC" CASCADE CONSTRAINTS[0m
+  [1m[35m (57.7ms)[0m  [1m[35mDROP TABLE "PSAPMSGARCHPD" CASCADE CONSTRAINTS[0m
+  [1m[35m (306.7ms)[0m  [1m[35mDROP TABLE "PSAPMSGARCHPH" CASCADE CONSTRAINTS[0m
+  [1m[35m (89.9ms)[0m  [1m[35mDROP TABLE "PSAPMSGARCHPT" CASCADE CONSTRAINTS[0m
+  [1m[35m (535.0ms)[0m  [1m[35mDROP TABLE "PSAPMSGARCHSC" CASCADE CONSTRAINTS[0m
+  [1m[35m (2089.0ms)[0m  [1m[35mDROP TABLE "PSAPMSGARCHST" CASCADE CONSTRAINTS[0m
+  [1m[35m (48.8ms)[0m  [1m[35mDROP TABLE "PSAPMSGARCHTMP" CASCADE CONSTRAINTS[0m
+  [1m[35m (39.0ms)[0m  [1m[35mDROP TABLE "PSAPMSGARCHTMP2" CASCADE CONSTRAINTS[0m
+  [1m[35m (33.3ms)[0m  [1m[35mDROP TABLE "PSAPMSGCHUNKTBL" CASCADE CONSTRAINTS[0m
+  [1m[35m (129.9ms)[0m  [1m[35mDROP TABLE "PSAPMSGDOMSTAT" CASCADE CONSTRAINTS[0m
+  [1m[35m (68.0ms)[0m  [1m[35mDROP TABLE "PSAPMSGDSPSTAT" CASCADE CONSTRAINTS[0m
+  [1m[35m (38.0ms)[0m  [1m[35mDROP TABLE "PSAPMSGIBATTR" CASCADE CONSTRAINTS[0m
+  [1m[35m (83.1ms)[0m  [1m[35mDROP TABLE "PSAPMSGPCONDATA" CASCADE CONSTRAINTS[0m
+  [1m[35m (47.2ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBATTR" CASCADE CONSTRAINTS[0m
+  [1m[35m (70.3ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBCERR" CASCADE CONSTRAINTS[0m
+  [1m[35m (62.6ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBCERRP" CASCADE CONSTRAINTS[0m
+  [1m[35m (67.5ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBCLOCK" CASCADE CONSTRAINTS[0m
+  [1m[35m (278.1ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBCON" CASCADE CONSTRAINTS[0m
+  [1m[35m (29.3ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBCSYNC" CASCADE CONSTRAINTS[0m
+  [1m[35m (58.7ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBDATA" CASCADE CONSTRAINTS[0m
+  [1m[35m (51.3ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBERR" CASCADE CONSTRAINTS[0m
+  [1m[35m (49.2ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBERRP" CASCADE CONSTRAINTS[0m
+  [1m[35m (302.9ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBHDR" CASCADE CONSTRAINTS[0m
+  [1m[35m (57.3ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBINST" CASCADE CONSTRAINTS[0m
+  [1m[35m (43.4ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBLOCK" CASCADE CONSTRAINTS[0m
+  [1m[35m (29.5ms)[0m  [1m[35mDROP TABLE "PSAPMSGPUBSYNC" CASCADE CONSTRAINTS[0m
+  [1m[35m (81.5ms)[0m  [1m[35mDROP TABLE "PSAPMSGQUEUESET" CASCADE CONSTRAINTS[0m
+  [1m[35m (80.0ms)[0m  [1m[35mDROP TABLE "PSAPMSGSCONDATA" CASCADE CONSTRAINTS[0m
+  [1m[35m (33.1ms)[0m  [1m[35mDROP TABLE "PSAPMSGSEGATTR" CASCADE CONSTRAINTS[0m
+  [1m[35m (60.0ms)[0m  [1m[35mDROP TABLE "PSAPMSGSUBCERR" CASCADE CONSTRAINTS[0m
+  [1m[35m (77.7ms)[0m  [1m[35mDROP TABLE "PSAPMSGSUBCERRP" CASCADE CONSTRAINTS[0m
+  [1m[35m (32.7ms)[0m  [1m[35mDROP TABLE "PSAPMSGSUBCLOCK" CASCADE CONSTRAINTS[0m
+  [1m[35m (337.6ms)[0m  [1m[35mDROP TABLE "PSAPMSGSUBCON" CASCADE CONSTRAINTS[0m
+  [1m[35m (46.1ms)[0m  [1m[35mDROP TABLE "PSAPMSGSUBCSYNC" CASCADE CONSTRAINTS[0m
+  [1m[35m (26.7ms)[0m  [1m[35mDROP TABLE "PSAPMSGSUBPRCID" CASCADE CONSTRAINTS[0m
+  [1m[35m (102.0ms)[0m  [1m[35mDROP TABLE "PSAPMSGXTB" CASCADE CONSTRAINTS[0m
+  [1m[35m (66.1ms)[0m  [1m[35mDROP TABLE "PSAPPCLASSDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (44.8ms)[0m  [1m[35mDROP TABLE "PSAPPRRULEDEL" CASCADE CONSTRAINTS[0m
+  [1m[35m (63.8ms)[0m  [1m[35mDROP TABLE "PSARCHAUDIT" CASCADE CONSTRAINTS[0m
+  [1m[35m (54.0ms)[0m  [1m[35mDROP TABLE "PSARCHBATCH" CASCADE CONSTRAINTS[0m
+  [1m[35m (230.8ms)[0m  [1m[35mDROP TABLE "PSARCHIVE_AET" CASCADE CONSTRAINTS[0m
+  [1m[35m (127.0ms)[0m  [1m[35mDROP TABLE "PSARCHIVE_TAO" CASCADE CONSTRAINTS[0m
+  [1m[35m (70.5ms)[0m  [1m[35mDROP TABLE "PSARCHOBJDEFN" CASCADE CONSTRAINTS[0m
+  [1m[35m (36.0ms)[0m  [1m[35mDROP TABLE "PSARCHOBJDEL" CASCADE CONSTRAINTS[0m
+  [1m[35m (37.4ms)[0m  [1m[35mDROP TABLE "PSARCHOBJLANG" CASCADE CONSTRAINTS[0m
+  [1m[35m (47.9ms)[0m  [1m[35mDROP TABLE "PSARCHOBJREC" CASCADE CONSTRAINTS[0m
+  [1m[35m (86.4ms)[0m  [1m[35mDROP TABLE "PSARCHRUNCNTL" CASCADE CONSTRAINTS[0m
+  [1m[35m (74.0ms)[0m  [1m[35mDROP TABLE "PSARCHRUNQRYBND" CASCADE CONSTRAINTS[0m
+  [1m[35m (55.9ms)[0m  [1m[35mDROP TABLE "PSARCHTEMPAE" CASCADE CONSTRAINTS[0m
+  [1m[35m (45.7ms)[0m  [1m[35mDROP TABLE "PSARCHTEMPDEL" CASCADE CONSTRAINTS[0m
+  [1m[35m (31.6ms)[0m  [1m[35mDROP TABLE "PSARCHTEMPLANG" CASCADE CONSTRAINTS[0m
+  [1m[35m (93.0ms)[0m  [1m[35mDROP TABLE "PSARCHTEMPLATE" CASCADE CONSTRAINTS[0m
+  [1m[35m (64.1ms)[0m  [1m[35mDROP TABLE "PSARCHTEMPOBJ" CASCADE CONSTRAINTS[0m
+  [1m[35m (41.3ms)[0m  [1m[35mDROP TABLE "PSARCHTEMPQRY" CASCADE CONSTRAINTS[0m
+  [1m[35m (36.7ms)[0m  [1m[35mDROP TABLE "PSASOFDATE" CASCADE CONSTRAINTS[0m
+  [1m[35m (55.3ms)[0m  [1m[35mDROP TABLE "PSATTRIBUTE" CASCADE CONSTRAINTS[0m
+  [1m[35m (229.7ms)[0m  [1m[35mDROP TABLE "PSAUDIT" CASCADE CONSTRAINTS[0m
+  [1m[35m (55.1ms)[0m  [1m[35mDROP TABLE "PSAUDITWRK" CASCADE CONSTRAINTS[0m
+  [1m[35m (57.7ms)[0m  [1m[35mDROP TABLE "PSAUTHBUSCOMP" CASCADE CONSTRAINTS[0m
+  [1m[35m (104.2ms)[0m  [1m[35mDROP TABLE "PSAUTHCHNLMON" CASCADE CONSTRAINTS[0m
+  [1m[35m (28.7ms)[0m  [1m[35mDROP TABLE "PSAUTHCUBE" CASCADE CONSTRAINTS[0m
+  [1m[35m (485.2ms)[0m  [1m[35mDROP TABLE "PSAUTHITEM" CASCADE CONSTRAINTS[0m
+  [1m[35m (48.4ms)[0m  [1m[35mDROP TABLE "PSAUTHMP" CASCADE CONSTRAINTS[0m
+  [1m[35m (57.3ms)[0m  [1m[35mDROP TABLE "PSAUTHOPTN" CASCADE CONSTRAINTS[0m
+  [1m[35m (13.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (11.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (80.7ms)[0m  [1m[35mCREATE TABLE "AR_INTERNAL_METADATA" ("KEY" VARCHAR2(255) NOT NULL PRIMARY KEY, "VALUE" VARCHAR2(255), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+  [1m[35m (9.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (38.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (12.2ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Migrating to CreateUserRecords (20171217204813)
+  [1m[35m (29.0ms)[0m  [1m[35mCREATE TABLE "USER_RECORDS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "SMARTPHONE_ID" NUMBER(19), "SIM_ID" NUMBER(19), "BAM_ID" NUMBER(19), "USER_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_AFF0319B64"
+FOREIGN KEY ("SMARTPHONE_ID")
+  REFERENCES "SMARTPHONES" ("ID")
+, CONSTRAINT "FK_RAILS_D53DF9C69C"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+, CONSTRAINT "FK_RAILS_67BB80AF19"
+FOREIGN KEY ("BAM_ID")
+  REFERENCES "BAMS" ("ID")
+, CONSTRAINT "FK_RAILS_7583AC5F75"
+FOREIGN KEY ("USER_ID")
+  REFERENCES "USERS" ("ID")
+)[0m
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Migrating to CreateSims (20171217024335)
+  [1m[35m (32.0ms)[0m  [1m[35mCREATE TABLE "SIMS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "PHONE_NUMBER" NUMBER(38) NOT NULL, "LAST_OWNER" VARCHAR2(255) DEFAULT 'first owner' NOT NULL, "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "LAST_ASSIGN_AT" TIMESTAMP DEFAULT '2017-12-20 19:49:07.749332' NOT NULL, "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+  [1m[35m (27.6ms)[0m  [1m[35mCREATE SEQUENCE "SIMS_SEQ" START WITH 10000[0m
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35mSQL (82.9ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171217024335"]]
+Migrating to CreateUsers (20171217024856)
+  [1m[35m (40.4ms)[0m  [1m[35mCREATE TABLE "USERS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "RUT" VARCHAR2(255) NOT NULL, "NAME" VARCHAR2(255) NOT NULL, "LAST_NAME" VARCHAR2(255) NOT NULL, "EMAIL" VARCHAR2(255) NOT NULL, "OCCUPATION" VARCHAR2(255) NOT NULL, "ENTERPRICE" VARCHAR2(255), "SUPERVISOR" VARCHAR2(255) NOT NULL, "SUPERVISOR_EMAIL" VARCHAR2(255) NOT NULL, "COST_CENTER" VARCHAR2(255) NOT NULL, "JOB_CENTER" VARCHAR2(255), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE SEQUENCE "USERS_SEQ" START WITH 10000[0m
+  [1m[35mSQL (3.1ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171217024856"]]
+Migrating to CreateBams (20171218023633)
+  [1m[35m (43.1ms)[0m  [1m[35mCREATE TABLE "BAMS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "MODEL" VARCHAR2(255) NOT NULL, "LAST_OWNER" VARCHAR2(255) DEFAULT 'first owner' NOT NULL, "IMEI" CLOB NOT NULL, "PRICE" NUMBER(38) NOT NULL, "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "LAST_ASSIGN_AT" TIMESTAMP DEFAULT '2017-12-20 19:49:07.984039' NOT NULL, "SIM_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_D300ACFE61"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+)[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE SEQUENCE "BAMS_SEQ" START WITH 10000[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (81.3ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'BAMS'
+               AND i.index_name = 'INDEX_BAMS_ON_SIM_ID'
+[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE  INDEX "INDEX_BAMS_ON_SIM_ID" ON "BAMS" ("SIM_ID") [0m
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171218023633"]]
+Migrating to CreateRequests (20171218023921)
+  [1m[35m (50.3ms)[0m  [1m[35mCREATE TABLE "REQUESTS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "REQUEST" VARCHAR2(255) NOT NULL, "STATE" VARCHAR2(255) NOT NULL, "CONTRACT" BLOB, "FILE" BLOB, "STATUS" VARCHAR2(255) DEFAULT 'created' NOT NULL, "COMMENT" CLOB, "CLOSED_AT" TIMESTAMP, "USER_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_8EAD8B1E6B"
+FOREIGN KEY ("USER_ID")
+  REFERENCES "USERS" ("ID")
+)[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE SEQUENCE "REQUESTS_SEQ" START WITH 10000[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.4ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'REQUESTS'
+               AND i.index_name = 'INDEX_REQUESTS_ON_USER_ID'
+[0m
+  [1m[35m (26.2ms)[0m  [1m[35mCREATE  INDEX "INDEX_REQUESTS_ON_USER_ID" ON "REQUESTS" ("USER_ID") [0m
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171218023921"]]
+Migrating to CreateSmartphones (20171218024459)
+  [1m[35m (27.8ms)[0m  [1m[35mCREATE TABLE "SMARTPHONES" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "MODEL" VARCHAR2(255) NOT NULL, "CATEGORY" VARCHAR2(255) NOT NULL, "LAST_OWNER" VARCHAR2(255) DEFAULT 'first owner' NOT NULL, "IMEI" CLOB NOT NULL, "PRICE" NUMBER(38) NOT NULL, "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "LAST_ASSIGN_AT" TIMESTAMP DEFAULT '2017-12-20 19:49:08.263046' NOT NULL, "SIM_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_0BAC5A798A"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE SEQUENCE "SMARTPHONES_SEQ" START WITH 10000[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.8ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'SMARTPHONES'
+               AND i.index_name = 'INDEX_SMARTPHONES_ON_SIM_ID'
+[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE  INDEX "INDEX_SMARTPHONES_ON_SIM_ID" ON "SMARTPHONES" ("SIM_ID") [0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171218024459"]]
+Migrating to CreateUserRecords (20171219204813)
+  [1m[35m (23.7ms)[0m  [1m[35mCREATE TABLE "USER_RECORDS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "SMARTPHONE_ID" NUMBER(19), "SIM_ID" NUMBER(19), "BAM_ID" NUMBER(19), "USER_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_AFF0319B64"
+FOREIGN KEY ("SMARTPHONE_ID")
+  REFERENCES "SMARTPHONES" ("ID")
+, CONSTRAINT "FK_RAILS_D53DF9C69C"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+, CONSTRAINT "FK_RAILS_67BB80AF19"
+FOREIGN KEY ("BAM_ID")
+  REFERENCES "BAMS" ("ID")
+, CONSTRAINT "FK_RAILS_7583AC5F75"
+FOREIGN KEY ("USER_ID")
+  REFERENCES "USERS" ("ID")
+)[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE SEQUENCE "USER_RECORDS_SEQ" START WITH 10000[0m
+OracleEnhanced shortened default index name index_user_records_on_smartphone_id to i_user_records_smartphone_id
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.6ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'I_USER_RECORDS_SMARTPHONE_ID'
+[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE  INDEX "I_USER_RECORDS_SMARTPHONE_ID" ON "USER_RECORDS" ("SMARTPHONE_ID") [0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.5ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'INDEX_USER_RECORDS_ON_SIM_ID'
+[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE  INDEX "INDEX_USER_RECORDS_ON_SIM_ID" ON "USER_RECORDS" ("SIM_ID") [0m
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.7ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'INDEX_USER_RECORDS_ON_BAM_ID'
+[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE  INDEX "INDEX_USER_RECORDS_ON_BAM_ID" ON "USER_RECORDS" ("BAM_ID") [0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.6ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'INDEX_USER_RECORDS_ON_USER_ID'
+[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE  INDEX "INDEX_USER_RECORDS_ON_USER_ID" ON "USER_RECORDS" ("USER_ID") [0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171219204813"]]
+  [1m[35m (16.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'AR_INTERNAL_METADATA' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.6ms)[0m  [1m[34mSELECT  "AR_INTERNAL_METADATA".* FROM "AR_INTERNAL_METADATA" WHERE "AR_INTERNAL_METADATA"."KEY" = :a1 AND ROWNUM <= :a2 [0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35mSQL (8.1ms)[0m  [1m[32mINSERT INTO "AR_INTERNAL_METADATA" ("KEY", "VALUE", "CREATED_AT", "UPDATED_AT") VALUES (:a1, :a2, :a3, :a4)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-12-20 19:49:08.532374"], ["updated_at", "2017-12-20 19:49:08.532374"]]
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (39.8ms)[0m  [1m[34mSELECT LOWER(mview_name) FROM all_mviews WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (35.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'BAMS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mPrimary Keys (873.3ms)[0m  [1m[34mSELECT cc.column_name
+  FROM all_constraints c, all_cons_columns cc
+ WHERE c.owner = 'SYSADM'
+   AND c.table_name = 'BAMS'
+   AND c.constraint_type = 'P'
+   AND cc.owner = c.owner
+   AND cc.constraint_name = c.constraint_name
+   order by cc.position
+[0m
+  [1m[35m (49.7ms)[0m  [1m[34mSELECT temporary FROM all_tables WHERE table_name = 'BAMS' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (26.4ms)[0m  [1m[34m            SELECT comments FROM all_tab_comments
+            WHERE owner = 'SYSADM'
+              AND table_name = 'BAMS'
+[0m
+  [1m[35m (149.9ms)[0m  [1m[34mSELECT LOWER(default_tablespace) FROM user_users WHERE username = SYS_CONTEXT('userenv', 'current_schema')[0m
+Started GET "/" for 127.0.0.1 at 2017-12-20 16:55:57 -0300
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (9.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (11.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.7ms)
+Completed 200 OK in 218ms (Views: 211.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-20 16:56:00 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.5ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-20 16:56:00 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (8.7ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-20 16:56:03 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (1.6ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests" for 127.0.0.1 at 2017-12-20 16:56:07 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (29.9ms)[0m  [1m[34mSELECT "REQUESTS".* FROM "REQUESTS"[0m
+  [1m[35m (170.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  Rendered requests/index.html.erb within layouts/application (517.9ms)
+Completed 200 OK in 625ms (Views: 420.0ms | ActiveRecord: 200.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-12-20 16:56:17 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/general_view
+  [1m[36mUser Load (15.4ms)[0m  [1m[34mSELECT "USERS".* FROM "USERS"[0m
+  [1m[35m (115.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  Rendered users/index.html.erb within layouts/general_view (142.7ms)
+Completed 200 OK in 160ms (Views: 23.3ms | ActiveRecord: 131.0ms)
+
+
+Started GET "/sims" for 127.0.0.1 at 2017-12-20 16:56:23 -0300
+Processing by SimsController#index as HTML
+  Rendering sims/index.html.erb within layouts/general_view
+  [1m[36mSim Load (10.1ms)[0m  [1m[34mSELECT "SIMS".* FROM "SIMS"[0m
+  [1m[35m (85.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SIMS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  Rendered sims/index.html.erb within layouts/general_view (118.4ms)
+Completed 200 OK in 137ms (Views: 36.0ms | ActiveRecord: 95.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-20 17:07:44 -0300
+  [1m[35m (15.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (40.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (15.3ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.7ms)
+Completed 200 OK in 216ms (Views: 208.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-20 17:07:46 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (9.5ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&user_rut=&commit=Enviar" for 127.0.0.1 at 2017-12-20 17:07:48 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "user_rut"=>"", "commit"=>"Enviar"}
+  [1m[35m (36.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (6.8ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE (rut='' OR rut=NULL) AND ROWNUM <= :a1 [0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 203ms (ActiveRecord: 43.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 17:07:48 -0300
+Processing by RequestsController#new_form as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant RequestsController::PsvV88rhEmpleeVw):
+  
+app/controllers/requests_controller.rb:79:in `new_form'
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (9.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (15.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'AR_INTERNAL_METADATA' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mActiveRecord::InternalMetadata Load (13.8ms)[0m  [1m[34mSELECT  "AR_INTERNAL_METADATA".* FROM "AR_INTERNAL_METADATA" WHERE "AR_INTERNAL_METADATA"."KEY" = :a1 AND ROWNUM <= :a2 [0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT LOWER(mview_name) FROM all_mviews WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (29.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'BAMS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mPrimary Keys (3.6ms)[0m  [1m[34mSELECT cc.column_name
+  FROM all_constraints c, all_cons_columns cc
+ WHERE c.owner = 'SYSADM'
+   AND c.table_name = 'BAMS'
+   AND c.constraint_type = 'P'
+   AND cc.owner = c.owner
+   AND cc.constraint_name = c.constraint_name
+   order by cc.position
+[0m
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT temporary FROM all_tables WHERE table_name = 'BAMS' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (2.9ms)[0m  [1m[34m            SELECT comments FROM all_tab_comments
+            WHERE owner = 'SYSADM'
+              AND table_name = 'BAMS'
+[0m
+  [1m[35m (21.8ms)[0m  [1m[34mSELECT LOWER(default_tablespace) FROM user_users WHERE username = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (10.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (21.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (31.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT LOWER(mview_name) FROM all_mviews WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (86.3ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'BAMS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mPrimary Keys (5.0ms)[0m  [1m[34mSELECT cc.column_name
+  FROM all_constraints c, all_cons_columns cc
+ WHERE c.owner = 'SYSADM'
+   AND c.table_name = 'BAMS'
+   AND c.constraint_type = 'P'
+   AND cc.owner = c.owner
+   AND cc.constraint_name = c.constraint_name
+   order by cc.position
+[0m
+  [1m[35m (13.0ms)[0m  [1m[34mSELECT temporary FROM all_tables WHERE table_name = 'BAMS' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (12.6ms)[0m  [1m[34m            SELECT comments FROM all_tab_comments
+            WHERE owner = 'SYSADM'
+              AND table_name = 'BAMS'
+[0m
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT LOWER(default_tablespace) FROM user_users WHERE username = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (10.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (15.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'AR_INTERNAL_METADATA' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mActiveRecord::InternalMetadata Load (10.9ms)[0m  [1m[34mSELECT  "AR_INTERNAL_METADATA".* FROM "AR_INTERNAL_METADATA" WHERE "AR_INTERNAL_METADATA"."KEY" = :a1 AND ROWNUM <= :a2 [0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (7.4ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT LOWER(mview_name) FROM all_mviews WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (32.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'BAMS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mPrimary Keys (3.9ms)[0m  [1m[34mSELECT cc.column_name
+  FROM all_constraints c, all_cons_columns cc
+ WHERE c.owner = 'SYSADM'
+   AND c.table_name = 'BAMS'
+   AND c.constraint_type = 'P'
+   AND cc.owner = c.owner
+   AND cc.constraint_name = c.constraint_name
+   order by cc.position
+[0m
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT temporary FROM all_tables WHERE table_name = 'BAMS' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (2.8ms)[0m  [1m[34m            SELECT comments FROM all_tab_comments
+            WHERE owner = 'SYSADM'
+              AND table_name = 'BAMS'
+[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT LOWER(default_tablespace) FROM user_users WHERE username = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (18.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (16.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (16.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (33.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (11.4ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (58.7ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'AR_INTERNAL_METADATA' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mActiveRecord::InternalMetadata Load (11.4ms)[0m  [1m[34mSELECT  "AR_INTERNAL_METADATA".* FROM "AR_INTERNAL_METADATA" WHERE "AR_INTERNAL_METADATA"."KEY" = :a1 AND ROWNUM <= :a2 [0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (10.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (11.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (10.0ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (15.3ms)[0m  [1m[34mSELECT LOWER(mview_name) FROM all_mviews WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (417.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'BAMS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mPrimary Keys (16.1ms)[0m  [1m[34mSELECT cc.column_name
+  FROM all_constraints c, all_cons_columns cc
+ WHERE c.owner = 'SYSADM'
+   AND c.table_name = 'BAMS'
+   AND c.constraint_type = 'P'
+   AND cc.owner = c.owner
+   AND cc.constraint_name = c.constraint_name
+   order by cc.position
+[0m
+  [1m[35m (18.4ms)[0m  [1m[34mSELECT temporary FROM all_tables WHERE table_name = 'BAMS' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (15.2ms)[0m  [1m[34m            SELECT comments FROM all_tab_comments
+            WHERE owner = 'SYSADM'
+              AND table_name = 'BAMS'
+[0m
+  [1m[35m (16.0ms)[0m  [1m[34mSELECT LOWER(default_tablespace) FROM user_users WHERE username = SYS_CONTEXT('userenv', 'current_schema')[0m
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 17:59:23 -0300
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant RequestsController::PsV88rhEmpleeVw):
+  
+app/controllers/requests_controller.rb:79:in `new_form'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 17:59:54 -0300
+Processing by RequestsController#new_form as HTML
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 18:00:05 -0300
+  [1m[35m (2308.0ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (19.7ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (866.6ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[35m (93.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 7381ms (ActiveRecord: 7275.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/requests_controller.rb:79:in `new_form'
+Processing by RequestsController#new_form as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 13ms (ActiveRecord: 3.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/requests_controller.rb:79:in `new_form'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 18:00:15 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 9ms (ActiveRecord: 3.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/requests_controller.rb:79:in `new_form'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 18:01:30 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[35m (1051.5ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (14.2ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USER_RECORDS_seq')[0m
+  [1m[36mPrimary Key (14.7ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USER_RECORDS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[35m (121.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USER_RECORDS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUserRecord Load (16.6ms)[0m  [1m[34mSELECT  "USER_RECORDS".* FROM "USER_RECORDS" WHERE "USER_RECORDS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 2303ms (ActiveRecord: 2213.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find UserRecord with 'id'=1):
+  
+app/controllers/requests_controller.rb:79:in `new_form'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 18:04:14 -0300
+Processing by RequestsController#new_form as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant RequestsController::Ptgranttbl):
+  
+app/controllers/requests_controller.rb:79:in `new_form'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 18:06:42 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[35m (43.8ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw[0m
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 43.8ms)
+
+
+  
+NameError (uninitialized constant RequestsController::PsV88rhEmpleeVw):
+  
+app/controllers/requests_controller.rb:80:in `new_form'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 18:06:59 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[35m (9.3ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw[0m
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (3.9ms)
+Completed 200 OK in 192ms (Views: 178.4ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 18:12:27 -0300
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (9.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `conn' for #<RequestsController:0x00556ab87fa4b8>):
+  
+app/controllers/requests_controller.rb:79:in `new_form'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 18:16:51 -0300
+Processing by RequestsController#new_form as HTML
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `connectString' for #<RequestsController:0x00556ab8df0de0>):
+  
+app/controllers/requests_controller.rb:80:in `new_form'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 18:19:49 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[35m (6.8ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw[0m
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (4.5ms)
+Completed 200 OK in 1806ms (Views: 196.6ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 18:20:55 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[35m (6.4ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw[0m
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.0ms)
+Completed 200 OK in 2238ms (Views: 5.4ms | ActiveRecord: 6.4ms)
+
+

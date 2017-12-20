@@ -76,7 +76,11 @@ class RequestsController < ApplicationController
 
   # New Request form
   def new_form
-    
+    # Query all rows
+    view= ActiveRecord::Base.connection.execute("select * from sysadm.ps_v88rh_emplee_vw")
+    while r = view.fetch_hash
+      puts(r)
+    end
   end
 
 
