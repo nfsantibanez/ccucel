@@ -22,14 +22,25 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
     <span class="input-group-addon"><i></i></span>
-    <input  name="first_name" value="Ingrese Nombre" class="form-control"  type="text">
+    <input  name="first_name" value=" Ingrese Nombre" class="form-control"  type="text">
       </div>
     </div>
   </div>
 
+    </form>
 
-      </form>
+    <%= form_with url: "validate", html: {:class => "well form-horizontal"}, method: "get" do |form| %>
+    <div class="row">
+      <br>
+      <%= form.label :user_rut, 'Nombre', class: "col-md-4 control-label"%>
+      <%= form.text_field :user_rut, id: :request_request, value: "nico", disabled: true %>
+    </div>
+
+    <% end %>
+
     </div><!-- /.container -->
+
+
 
 </body>
 </html>

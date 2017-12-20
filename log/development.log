@@ -18432,3 +18432,1110 @@ Processing by RequestsController#new_form as HTML
 Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=2&user_rut=13679739-5&commit=Enviar" for 127.0.0.1 at 2017-12-20 08:48:19 -0300
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=2&user_rut=13679739-5&commit=Enviar" for 127.0.0.1 at 2017-12-20 08:48:20 -0300
+  [1m[35m (29.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RequestsController#validate_user as HTML
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"2", "user_rut"=>"13679739-5", "commit"=>"Enviar"}
+  Parameters: {"utf8"=>"✓", "request_type"=>"2", "user_rut"=>"13679739-5", "commit"=>"Enviar"}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (rut='13679739-5' OR rut='13679739--5') LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (118.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (rut='13679739-5' OR rut='13679739--5') LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (rut='13679739-5' OR rut='13679739--5') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (rut='13679739-5' OR rut='13679739--5') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 406 Not Acceptable in 331ms (ActiveRecord: 1.6ms)
+
+
+Completed 406 Not Acceptable in 362ms (ActiveRecord: 120.0ms)
+
+
+  
+  
+ActionController::UnknownFormat (RequestsController#validate_user is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+ActionController::UnknownFormat (RequestsController#validate_user is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-12-20 08:48:29 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+Completed 200 OK in 1390ms (Views: 1364.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-20 08:59:07 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (39.4ms)
+Completed 200 OK in 44ms (Views: 43.3ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&user_rut=&commit=Enviar" for 127.0.0.1 at 2017-12-20 08:59:22 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "user_rut"=>"", "commit"=>"Enviar"}
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (rut='' OR rut=NULL) LIMIT ?[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 08:59:22 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:01:12 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:02:23 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (3.0ms)
+Completed 200 OK in 207ms (Views: 201.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:02:38 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:26: syntax error, unexpected tSTRING_BEG, expecting ')'
+... 17.395.384-2", readonly: true");@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:26: unterminated string meets end of file):
+  
+app/views/requests/new_form.html.erb:26: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/requests/new_form.html.erb:26: unterminated string meets end of file
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:03:54 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.5ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:04:19 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:06:28 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.6ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:06:49 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:06:50 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:08:33 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.5ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:08:35 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:11:21 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:11:22 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.5ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:11:25 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:11:43 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-20 09:12:10 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.3ms)
+Completed 200 OK in 5ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-20 09:12:12 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-20 09:12:13 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (8.2ms)
+Completed 200 OK in 14ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&user_rut=&commit=Enviar" for 127.0.0.1 at 2017-12-20 09:12:17 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "user_rut"=>"", "commit"=>"Enviar"}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (rut='' OR rut=NULL) LIMIT ?[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 11ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:12:17 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:16:29 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:16:30 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:16:31 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.5ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:16:32 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:17:16 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:17:19 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.5ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:17:29 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:20:12 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:20:14 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:20:16 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:21:39 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.5ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:26: syntax error, unexpected '='
+... "name", readonly: true, class="form-control" );@output_buff...
+...                               ^):
+  
+app/views/requests/new_form.html.erb:26: syntax error, unexpected '='
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:21:41 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.5ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:26: syntax error, unexpected '='
+... "name", readonly: true, class="form-control" );@output_buff...
+...                               ^):
+  
+app/views/requests/new_form.html.erb:26: syntax error, unexpected '='
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:05 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:07 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:08 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:09 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:10 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:11 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:27 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.6ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:30 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:39 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:40 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:53 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:54 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:22:55 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.4ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:23:10 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.5ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:23:11 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.5ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:23:11 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:23:46 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (3.1ms)
+Completed 200 OK in 212ms (Views: 206.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:23:49 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:24:43 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (174.4ms)
+Completed 500 Internal Server Error in 176ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `form' for #<#<Class:0x005604e64729d0>:0x007f33c2190030>
+Did you mean?  format
+               formats
+               form_tag
+               form_for
+               formats=
+               form_with
+               fork):
+    30: 
+    31:   <div class="row">
+    32:     <br>
+    33:     <%= form.label :user_rut, 'Identificación de Usuario' %>
+    34:     <%= form.text_field :user_rut, value: "rut ej: 17.395.384-2" %>
+    35:   </div>
+    36: 
+  
+app/views/requests/new_form.html.erb:33:in `_app_views_requests_new_form_html_erb__682617098590798585_69930138242080'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:25:15 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (82.5ms)
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `label_field' for #<#<Class:0x005604e64729d0>:0x005604e6189d90>
+Did you mean?  label_tag):
+    30: 
+    31:   <div class="row">
+    32:     <br>
+    33:     <%= label_field :user_rut, 'Identificación de Usuario' %>
+    34:     <%= text_field :user_rut, value: "rut ej: 17.395.384-2" %>
+    35:   </div>
+    36: 
+  
+app/views/requests/new_form.html.erb:33:in `_app_views_requests_new_form_html_erb__682617098590798585_47289520163360'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:25:17 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (81.4ms)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `label_field' for #<#<Class:0x005604e64729d0>:0x007f33b4059cd8>
+Did you mean?  label_tag):
+    30: 
+    31:   <div class="row">
+    32:     <br>
+    33:     <%= label_field :user_rut, 'Identificación de Usuario' %>
+    34:     <%= text_field :user_rut, value: "rut ej: 17.395.384-2" %>
+    35:   </div>
+    36: 
+  
+app/views/requests/new_form.html.erb:33:in `_app_views_requests_new_form_html_erb__682617098590798585_69930020164400'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:25:25 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (11.1ms)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:26:53 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.1ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:26:56 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:26:56 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:26:57 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:26:58 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.1ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:26:59 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:30:52 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.2ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:31:35 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.3ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:34:06 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (6.1ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:32: syntax error, unexpected keyword_do, expecting '}'
+...ss => 'well form-horizontal' do |form| @output_buffer.safe_a...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:48: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/requests/new_form.html.erb:32: syntax error, unexpected keyword_do, expecting '}'
+app/views/requests/new_form.html.erb:48: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:34:30 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.6ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:32: syntax error, unexpected keyword_do, expecting '}'
+...ss => 'well form-horizontal' do |form| @output_buffer.safe_a...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:48: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/requests/new_form.html.erb:32: syntax error, unexpected keyword_do, expecting '}'
+app/views/requests/new_form.html.erb:48: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:34:32 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.6ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:32: syntax error, unexpected keyword_do, expecting '}'
+...ss => 'well form-horizontal' do |form| @output_buffer.safe_a...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:48: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/requests/new_form.html.erb:32: syntax error, unexpected keyword_do, expecting '}'
+app/views/requests/new_form.html.erb:48: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:34:58 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:36:28 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:36:29 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:37:05 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.1ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:37:14 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:37:27 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:37:29 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.1ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:37:30 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:37:30 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 09:37:31 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 10:12:05 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 10:12:10 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 10:12:29 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.0ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 10:12:45 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.9ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 10:13:04 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 10:14:33 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.9ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 10:14:37 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (5.9ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-20 10:15:12 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.1ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-20 10:21:38 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (2.6ms)
+Completed 200 OK in 8ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&user_rut=13679739-5&commit=Enviar" for 127.0.0.1 at 2017-12-20 10:21:50 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "user_rut"=>"13679739-5", "commit"=>"Enviar"}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (rut='13679739-5' OR rut='13679739--5') LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (rut='13679739-5' OR rut='13679739--5') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 406 Not Acceptable in 36ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionController::UnknownFormat (RequestsController#validate_user is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&user_rut=13679739-5&commit=Enviar" for 127.0.0.1 at 2017-12-20 10:21:56 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "user_rut"=>"13679739-5", "commit"=>"Enviar"}
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE (rut='13679739-5' OR rut='13679739--5') LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (rut='13679739-5' OR rut='13679739--5') ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 406 Not Acceptable in 19ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::UnknownFormat (RequestsController#validate_user is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2017-12-20 10:22:11 -0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/general_view
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/general_view (3.3ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/request" for 127.0.0.1 at 2017-12-20 10:23:05 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/request"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requests" for 127.0.0.1 at 2017-12-20 10:23:08 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (8.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered requests/index.html.erb within layouts/application (42.9ms)
+Completed 200 OK in 314ms (Views: 292.3ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/user_records" for 127.0.0.1 at 2017-12-20 10:24:49 -0300
+Processing by UserRecordsController#index as HTML
+  Rendering user_records/index.html.erb within layouts/general_view
+  [1m[36mUserRecord Load (8.8ms)[0m  [1m[34mSELECT "user_records".* FROM "user_records"[0m
+  [1m[36mSim Load (0.2ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBam Load (0.3ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (5.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendered user_records/index.html.erb within layouts/general_view (103.2ms)
+Completed 200 OK in 124ms (Views: 89.5ms | ActiveRecord: 18.1ms)
+
+

@@ -64,11 +64,11 @@ class RequestsController < ApplicationController
 
   # Functions for validate data
   def validate_user
-    user = rut_verification(params[:user_rut])
+    @user = rut_verification(params[:user_rut])
     form = form_convert(params[:request_type])
 
     # Redirect to correct form
-    if form == 'new' and user == 0
+    if form == 'new' and @user == 0
       redirect_to '/requests/forms/new'
     end
     #render json: {req: form, user: user}
@@ -76,7 +76,7 @@ class RequestsController < ApplicationController
 
   # New Request form
   def new_form
-    puts('hi')
+    
   end
 
 

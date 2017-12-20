@@ -10,8 +10,18 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+# Original config
+# <<: *default
+#  database: db/development.sqlite3
+
+# Config for Oracle DB conecction
+
+  adapter: oracle_enhanced
+  host: p260e.ccu.cl
+  port: 1521
+  database: HR88DEV
+  username: sysadm
+  password: hrdev16
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
