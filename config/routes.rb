@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/requests/home/menu' => 'home_pages#request_home'
   # Validate User
   get '/requests/home/validate' => 'requests#validate_user'
+  # New Form
+  get '/requests/forms/new' => 'requests#new_form'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

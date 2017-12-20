@@ -13,15 +13,22 @@
   <h3> Identificación de Usuario y Solicitud </h3>
   <hr>
   <%= form_with url: "validate", method: "get" do |form| %>
-    <%= form.label :request_type, 'Seleccione Tipo de Solicitud' %>
-    <%= form.select :request_type, [['Nuevo', 1], ['Renovación', 2], ['Pérdida', 3],
-    ['Robo', 4], ['Reparación', 5]], {}, {class: "form-control"} %>
+   <div class="row">
+     <div class="col-md-2"></div>
+     <%= form.label :request_type, 'Seleccione Tipo de Solicitud', class: "col-md-4 text-right" %>
+     <%= form.select :request_type, [['Nuevo', 1], ['Renovación', 2], ['Pérdida', 3],
+     ['Robo', 4], ['Reparación', 5]], {}, {class: "col-md-4 text-left"} %>
+     <div class="col-md-2"></div>
+  </div>
+  <div class="row">
     <br>
     <%= form.label :user_rut, 'Identificación de Usuario' %>
-    <%= form.text_field :user_rut, id: :request_request %>
+    <%= form.text_field :user_rut, id: :request_request, placeholder: "rut ej: 17.395.384-2" %>
+  </div>
+    <br>
     <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
-  <% end %>
 </div>
+  <% end %>
 
 </body>
 </html>
