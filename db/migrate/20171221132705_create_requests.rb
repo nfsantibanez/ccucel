@@ -6,7 +6,7 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.binary :contract
       t.binary :file
       t.string :status, null: false, default: 'created'
-      t.text :comment
+      t.string :comment
       t.datetime :closed_at
       t.references :user, foreign_key: true
 

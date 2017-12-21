@@ -15,7 +15,6 @@ development:
 #  database: db/development.sqlite3
 
 # Config for Oracle DB conecction
-
   adapter: oracle_enhanced
   host: p260e.ccu.cl
   port: 1521

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+</head>
+<body>
+  <h4><strong> Datos del Usuario</strong></h4>
+  <hr>
+  <br>
+
+    <div class="field-center">
+        <%= form.label :name, 'Name' %>
+        <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :last_name, 'Last Name' %>
+        <%= form.text_field :last_name, value: @user["last_name"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :user_rut, 'RUT' %>
+        <%= form.text_field :user_rut, value: @user["rut"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center-fluid">
+        <%= form.label :user_rut, 'e-mail' %>
+        <%= form.text_field :user_rut, value: @user["email"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :user_rut, 'Job Title' %>
+        <%= form.text_field :user_rut, value: @user["jobtitle"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :user_rut, 'Supervisor RUT' %>
+        <%= form.text_field :user_rut, value: @user["supervisor"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :user_rut, 'Company' %>
+        <%= form.text_field :user_rut, value: @user["company"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :user_rut, 'Departament' %>
+        <%= form.text_field :user_rut, value: @user["deptname"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :user_rut, 'Business Unit' %>
+        <%= form.text_field :user_rut, value: @user["business_unit"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :user_rut, 'Location' %>
+        <%= form.text_field :user_rut, value: @user["location"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+</body>
+</html>

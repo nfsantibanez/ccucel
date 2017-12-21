@@ -25,6 +25,9 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
+    puts(params)
+    puts(params)
+    puts(params)
     @request = Request.new(request_params)
 
     respond_to do |format|
@@ -64,23 +67,25 @@ class RequestsController < ApplicationController
 
   # Functions for validate data
   def validate_user
-    @user = rut_verification(params[:user_rut])
+    #Validate rut and form
+    user = rut_verification(params[:user_rut])
     form = form_convert(params[:request_type])
 
     # Redirect to correct form
-    if form == 'new' and @user == 0
+    if form == 'new' and user != 0
+      session[:user] = user.attributes
       redirect_to '/requests/forms/new'
+    else
+      render json: {message: 'Datos Incorrectos'}
     end
-    #render json: {req: form, user: user}
   end
 
   # New Request form
   def new_form
-    # Query all rows
-    view= ActiveRecord::Base.connection.execute("select * from sysadm.ps_v88rh_emplee_vw")
-    while r = view.fetch_hash
-      puts(r)
-    end
+    # User information in Hash
+    @user = session[:user]
+    # Smartphones information in a Hash
+    @smartphones = available_smartphones()
   end
 
 
@@ -92,6 +97,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:request, :state, :contract, :file, :status, :comment, :closed_at, :user_id)
+      params.permit(:request, :state, :contract, :file, :status, :comment, :closed_at, :user_id)
     end
 end

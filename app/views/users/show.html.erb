@@ -21,13 +21,13 @@
 </p>
 
 <p>
-  <strong>Occupation:</strong>
-  <%= @user.occupation %>
+  <strong>JobTitle:</strong>
+  <%= @user.jobtitle %>
 </p>
 
 <p>
-  <strong>Enterprice:</strong>
-  <%= @user.enterprice %>
+  <strong>Company:</strong>
+  <%= @user.company %>
 </p>
 
 <p>
@@ -41,13 +41,23 @@
 </p>
 
 <p>
-  <strong>Cost center:</strong>
-  <%= @user.cost_center %>
+  <strong>DeptName:</strong>
+  <%= @user.deptname %>
 </p>
 
 <p>
-  <strong>Job center:</strong>
-  <%= @user.job_center %>
+  <strong>Business Unit:</strong>
+  <%= @user.business_unit %>
+</p>
+
+<p>
+  <strong>JobCode:</strong>
+  <%= @user.jobcode %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @user.location %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
