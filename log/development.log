@@ -25631,3 +25631,965 @@ Processing by BamsController#index as HTML
 Completed 200 OK in 37ms (Views: 24.7ms | ActiveRecord: 11.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-12-22 08:46:58 -0300
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (49.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (10.9ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (1.8ms)
+Completed 200 OK in 595ms (Views: 572.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-22 08:47:21 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.3ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-22 08:47:22 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (124.5ms)
+Completed 200 OK in 141ms (Views: 140.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&user_rut=15.680.498-3&commit=Enviar" for 127.0.0.1 at 2017-12-22 08:47:27 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "user_rut"=>"15.680.498-3", "commit"=>"Enviar"}
+  [1m[35m (27.2ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '15680498-3'[0m
+  [1m[35m (31.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (46.9ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."RUT" = :a1 AND ROWNUM <= :a2 [0m  [["rut", "15680498-3"], ["LIMIT", 1]]
+  [1m[35m (725.3ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (2.7ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (37.8ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."RUT" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["rut", "15680498-3"], ["LIMIT", 1]]
+  [1m[36mUser Exists (7.2ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "FeDiaz@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 6880ms (ActiveRecord: 6674.2ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 08:47:34 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (11.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (36.3ms)
+Completed 200 OK in 74ms (Views: 48.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 08:49:06 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (2.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (4.7ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 08:49:52 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (4.9ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 08:49:55 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (4.7ms)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 08:50:18 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (5.1ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 08:50:52 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.6ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:29: syntax error, unexpected ')', expecting ']'
+...', 1], ['Sim', 2], ['BAM', 3] );@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:39: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:47: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:49: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/requests/new_form.html.erb:29: syntax error, unexpected ')', expecting ']'
+app/views/requests/new_form.html.erb:39: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/new_form.html.erb:47: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/requests/new_form.html.erb:49: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 08:51:02 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (2.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (4.4ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 08:52:24 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (6.0ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 08:52:47 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (5.0ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 08:52:51 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (5.5ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-22 08:53:11 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vRviR72eSF74h6wIZUBBAYM7gaf4RO5xKO1lWIa0OVpD6RP1h8nglO3S7fp+uLeVNaFEKWPIzPEqgsF/GD7z7g==", "user_id"=>"10000", "request_type"=>"3", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :request_type, :commit
+  [1m[35m (29.3ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mSequence (3.1ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (10.1ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (20.2ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (36.0ms)
+  Rendered requests/new.html.erb within layouts/general_view (38.4ms)
+Completed 200 OK in 222ms (Views: 46.7ms | ActiveRecord: 62.7ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 09:02:57 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (5.2ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 09:43:44 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (85.9ms)
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `params' for #<ActionView::Helpers::FormBuilder:0x007f74fec89e50>):
+    27:     <div class="field-center">
+    28:     <%= form.label :request_type, 'Seleccione Requerimiento' %>
+    29:     <%= form.select :request_type, [['Smartphone', 1], ['Sim', 2], ['BAM', 3]], {}, {onChange: puts('cambios')} %>
+    30:       <%= puts(form.params)%>
+    31:       <%= puts(form)%>
+    32:       <%= puts(params)%>
+    33: 
+  
+app/views/requests/new_form.html.erb:30:in `block in _app_views_requests_new_form_html_erb___454927982687429447_70070233719780'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70070233719780'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 09:44:03 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (4.9ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 09:44:44 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.6ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:30: syntax error, unexpected ')', expecting '('
+...put_buffer.append=( puts(form.));@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:40: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:48: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:50: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/requests/new_form.html.erb:30: syntax error, unexpected ')', expecting '('
+app/views/requests/new_form.html.erb:40: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/new_form.html.erb:48: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/requests/new_form.html.erb:50: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 09:45:10 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (177.1ms)
+Completed 500 Internal Server Error in 179ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `form_label' for #<#<Class:0x005651210df2c8>:0x007f74fdb6be48>
+Did you mean?  form_tag):
+    27:     <div class="field-center">
+    28:     <%= form.label :request_type, 'Seleccione Requerimiento' %>
+    29:     <%= form.select :request_type, [['Smartphone', 1], ['Sim', 2], ['BAM', 3]], {}, {onChange: puts('cambios')} %>
+    30:       <%= puts(form_label)%>
+    31:       <%= puts(form)%>
+    32:       <%= puts(params)%>
+    33: 
+  
+app/views/requests/new_form.html.erb:30:in `block in _app_views_requests_new_form_html_erb___454927982687429447_70070224812540'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70070224812540'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:16:28 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (4.5ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `model_name' for "info":String):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_with model: "info", url: "create/new", method: "post" do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70070177757380'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:17:46 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (209.4ms)
+Completed 500 Internal Server Error in 212ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `transaction' for #<#<Class:0x005651210df2c8>:0x007f7504c30408>
+Did you mean?  translate):
+    29:     <%= form.select :request_type, [['Smartphone', 1], ['Sim', 2], ['BAM', 3]], {}, {onChange: puts('cambios')} %>
+    30: 
+    31:       <!--  here comes ternary operator -->
+    32:     <div class="field" <%= transaction.transactionType == 'Income' ? 'present' : 'hidden' %>">
+    33:      <%= f.label :amount %>
+    34:      <%= f.number_field :amount, options = { max: 0 }%>
+    35:     </div>
+  
+app/views/requests/new_form.html.erb:32:in `block in _app_views_requests_new_form_html_erb___454927982687429447_70070283896640'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70070283896640'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:20:54 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (2.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (6.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `request_type' for nil:NilClass):
+    30:     </div>
+    31: 
+    32:     <!--  here comes ternary operator -->
+    33:     <div class="field" <%= @request.request_type == '1' ? 'present' : 'hidden' %>">
+    34:      <%= f.label :amount_1 %>
+    35:      <%= f.number_field :amount, options = { max: 0 }%>
+    36:     </div>
+  
+app/views/requests/new_form.html.erb:33:in `block in _app_views_requests_new_form_html_erb___454927982687429447_70070415526880'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70070415526880'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:20:55 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (2.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (5.7ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `request_type' for nil:NilClass):
+    30:     </div>
+    31: 
+    32:     <!--  here comes ternary operator -->
+    33:     <div class="field" <%= @request.request_type == '1' ? 'present' : 'hidden' %>">
+    34:      <%= f.label :amount_1 %>
+    35:      <%= f.number_field :amount, options = { max: 0 }%>
+    36:     </div>
+  
+app/views/requests/new_form.html.erb:33:in `block in _app_views_requests_new_form_html_erb___454927982687429447_70070277924920'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70070277924920'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:21:47 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.2ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_with @request do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70070230136420'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:22:27 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.2ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1..2)):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_for do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70070283053620'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:22:28 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.2ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1..2)):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_for do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70070415397560'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:22:40 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.1ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_for @request do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70070231353860'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:22:42 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.1ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_for @request do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___454927982687429447_70069908985520'
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&user_rut=15.680.498-3&commit=Enviar" for 127.0.0.1 at 2017-12-22 10:28:40 -0300
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "user_rut"=>"15.680.498-3", "commit"=>"Enviar"}
+  [1m[35m (3.8ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '15680498-3'[0m
+  [1m[35m (31.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (5.1ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."RUT" = :a1 AND ROWNUM <= :a2 [0m  [["rut", "15680498-3"], ["LIMIT", 1]]
+  [1m[35m (444.7ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (3.1ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (3.1ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."RUT" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["rut", "15680498-3"], ["LIMIT", 1]]
+  [1m[36mUser Exists (3.4ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "FeDiaz@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 7993ms (ActiveRecord: 7899.9ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:28:48 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[35m (29.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mSequence (5.4ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (12.6ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (23.5ms)
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 47.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `request_type' for #<Request:0x007f76d8fb3870>
+Did you mean?  request):
+    26:     <!-- Obtener nueva informacion del Formulario -->
+    27:     <div class="field-center">
+    28:     <%= form.label :request_type, 'Seleccione Requerimiento' %>
+    29:     <%= form.select :request_type, [['Smartphone', 1], ['Sim', 2], ['BAM', 3]], {}, {onChange: puts('cambios')} %>
+    30:     </div>
+    31: 
+    32:     <!--  here comes ternary operator -->
+  
+app/views/requests/new_form.html.erb:29:in `block in _app_views_requests_new_form_html_erb___18082857031773408_47026904917940'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_47026904917940'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:29:42 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.4ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `request_type' for #<Request:0x007f76d4017af0>
+Did you mean?  request):
+    30:     </div>
+    31: 
+    32:     <!--  here comes ternary operator -->
+    33:     <div class="field" <%= @request.request_type == '1' ? 'present' : 'hidden' %>">
+    34:      <%= f.label :amount_1 %>
+    35:      <%= f.number_field :amount, options = { max: 0 }%>
+    36:     </div>
+  
+app/views/requests/new_form.html.erb:33:in `block in _app_views_requests_new_form_html_erb___18082857031773408_70074169864700'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_70074169864700'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:29:58 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (157.0ms)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007f76d9087710>:0x007f76d8f950a0>):
+    31: 
+    32:     <!--  here comes ternary operator -->
+    33:     <div class="field" <%= @request.request == '1' ? 'present' : 'hidden' %>">
+    34:      <%= f.label :amount_1 %>
+    35:      <%= f.number_field :amount, options = { max: 0 }%>
+    36:     </div>
+    37:     <div class="field" <%= @request.request != '2' ? 'present' : 'hidden' %>"">
+  
+app/views/requests/new_form.html.erb:34:in `block in _app_views_requests_new_form_html_erb___18082857031773408_70074211544620'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_70074211544620'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:30:21 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (25.1ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `amount' for #<Request:0x007f76d41ce2e0>):
+    32:     <!--  here comes ternary operator -->
+    33:     <div class="field" <%= @request.request == '1' ? 'present' : 'hidden' %>">
+    34:      <%= form.label :amount_1 %>
+    35:      <%= form.number_field :amount, options = { max: 0 }%>
+    36:     </div>
+    37:     <div class="field" <%= @request.request != '2' ? 'present' : 'hidden' %>"">
+    38:      <%= form.label :amount_2 %>
+  
+app/views/requests/new_form.html.erb:35:in `block in _app_views_requests_new_form_html_erb___18082857031773408_70074170762860'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_70074170762860'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:30:26 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (10.3ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `amount' for #<Request:0x00558a9c81fef8>):
+    32:     <!--  here comes ternary operator -->
+    33:     <div class="field" <%= @request.request == '1' ? 'present' : 'hidden' %>">
+    34:      <%= form.label :amount_1 %>
+    35:      <%= form.number_field :amount, options = { max: 0 }%>
+    36:     </div>
+    37:     <div class="field" <%= @request.request != '2' ? 'present' : 'hidden' %>"">
+    38:      <%= form.label :amount_2 %>
+  
+app/views/requests/new_form.html.erb:35:in `block in _app_views_requests_new_form_html_erb___18082857031773408_47026909800960'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_47026909800960'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:35:02 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (4.7ms)
+Completed 200 OK in 178ms (Views: 176.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:37:00 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (3.9ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:37:11 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (4.1ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:37:34 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (4.2ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:40:15 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (1.5ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:29: syntax error, unexpected ',', expecting =>
+...', 1], ['Sim', 2], ['BAM', 3]], {}, {onChange: puts('cambios...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:38: syntax error, unexpected ')', expecting =>
+...amount_1, options = { max: 0 });@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:42: syntax error, unexpected ')', expecting =>
+...amount_2, options = { min: 0 });@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:59: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:61: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/requests/new_form.html.erb:29: syntax error, unexpected ',', expecting =>
+app/views/requests/new_form.html.erb:38: syntax error, unexpected ')', expecting =>
+app/views/requests/new_form.html.erb:42: syntax error, unexpected ')', expecting =>
+app/views/requests/new_form.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/new_form.html.erb:59: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/requests/new_form.html.erb:61: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:40:54 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:29: syntax error, unexpected ')', expecting =>
+..., 1], ['Sim', 2], ['BAM', 3]] );@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:38: syntax error, unexpected ')', expecting =>
+...amount_1, options = { max: 0 });@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:42: syntax error, unexpected ')', expecting =>
+...amount_2, options = { min: 0 });@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:59: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:61: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/requests/new_form.html.erb:29: syntax error, unexpected ')', expecting =>
+app/views/requests/new_form.html.erb:38: syntax error, unexpected ')', expecting =>
+app/views/requests/new_form.html.erb:42: syntax error, unexpected ')', expecting =>
+app/views/requests/new_form.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/new_form.html.erb:59: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/requests/new_form.html.erb:61: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:40:55 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:29: syntax error, unexpected ')', expecting =>
+..., 1], ['Sim', 2], ['BAM', 3]] );@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:38: syntax error, unexpected ')', expecting =>
+...amount_1, options = { max: 0 });@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:42: syntax error, unexpected ')', expecting =>
+...amount_2, options = { min: 0 });@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:59: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:61: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/requests/new_form.html.erb:29: syntax error, unexpected ')', expecting =>
+app/views/requests/new_form.html.erb:38: syntax error, unexpected ')', expecting =>
+app/views/requests/new_form.html.erb:42: syntax error, unexpected ')', expecting =>
+app/views/requests/new_form.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/new_form.html.erb:59: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/requests/new_form.html.erb:61: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:41:31 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.7ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:38: syntax error, unexpected ')', expecting =>
+...amount_1, options = { max: 0 });@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:42: syntax error, unexpected ')', expecting =>
+...amount_2, options = { min: 0 });@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:59: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:61: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/requests/new_form.html.erb:38: syntax error, unexpected ')', expecting =>
+app/views/requests/new_form.html.erb:42: syntax error, unexpected ')', expecting =>
+app/views/requests/new_form.html.erb:51: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/new_form.html.erb:59: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/requests/new_form.html.erb:61: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:42:26 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (31.0ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActionDispatch::Request:0x00558a9a9c4ee0>
+Did you mean?  to_yaml):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_with(model: request, local: true) do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_47026894165200'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:42:28 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (26.6ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActionDispatch::Request:0x007f76dcaacb70>
+Did you mean?  to_yaml):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_with(model: request, local: true) do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_70074242429320'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:45:14 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (23.3ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActionDispatch::Request:0x007f76d8b8a5a0>
+Did you mean?  to_yaml):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_with(model: request, local: true) do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_70074209394480'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:45:17 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (25.9ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActionDispatch::Request:0x007f76dc6e1fe0>
+Did you mean?  to_yaml):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_with(model: request, local: true) do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_70074240605400'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:47:33 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (25.2ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActionDispatch::Request:0x007f76d8c8f8b0>
+Did you mean?  to_yaml):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_with(model: request) do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_70074209929020'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:47:35 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (29.3ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActionDispatch::Request:0x007f76d92c7f20>
+Did you mean?  to_yaml):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_with(model: request) do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb___18082857031773408_70074213059420'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:47:41 -0300
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (7.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  [1m[35m (33.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (430.2ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (2.3ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (2.8ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (28.2ms)
+Completed 500 Internal Server Error in 1955ms (ActiveRecord: 1859.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActionDispatch::Request:0x0055fe6f693700>
+Did you mean?  to_yaml):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_with(model: request) do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb__4171938147650332397_70221045207880'
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&user_rut=15.680.498-3&commit=Enviar" for 127.0.0.1 at 2017-12-22 10:47:44 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "user_rut"=>"15.680.498-3", "commit"=>"Enviar"}
+  [1m[35m (6.3ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '15680498-3'[0m
+  [1m[35m (38.7ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (3.3ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."RUT" = :a1 AND ROWNUM <= :a2 [0m  [["rut", "15680498-3"], ["LIMIT", 1]]
+  [1m[35m (411.0ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (2.8ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (3.1ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."RUT" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["rut", "15680498-3"], ["LIMIT", 1]]
+  [1m[36mUser Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "FeDiaz@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 2219ms (ActiveRecord: 1983.5ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:47:46 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (28.0ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<ActionDispatch::Request:0x0055fe6f5d77a8>
+Did you mean?  to_yaml):
+    15:   <h3> Formulario Nuevo </h3>
+    16:   <hr>
+    17: 
+    18:   <%= form_with(model: request) do |form| %>
+    19:     <div class="well form-horizontal">
+    20:       <!-- Cargar Informacion del usuario para mostrar -->
+    21:       <%= render partial: '/layouts/user_info', locals: {form: form} %>
+  
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb__4171938147650332397_47275639163080'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:48:23 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (8.6ms)
+Completed 200 OK in 217ms (Views: 216.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2017-12-22 10:48:29 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qLeij4kW3yqo+WNnfAebAZRAn4G1dNkke/aKfRgnHCAIo3xA216TXaQBjC5dKqYLqLv8KvnsCN4oby5kNpmLbg==", "request"=>{"user_id"=>"10000", "request"=>"1"}, "amount_1"=>{"{:max=>0}"=>""}, "amount_2"=>{"{:min=>0}"=>""}, "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :request, :amount_1, :amount_2, :commit
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (8.2ms)
+  Rendered requests/new.html.erb within layouts/general_view (9.2ms)
+Completed 200 OK in 33ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2017-12-22 10:48:32 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qLeij4kW3yqo+WNnfAebAZRAn4G1dNkke/aKfRgnHCAIo3xA216TXaQBjC5dKqYLqLv8KvnsCN4oby5kNpmLbg==", "request"=>{"user_id"=>"10000", "request"=>"1"}, "amount_1"=>{"{:max=>0}"=>""}, "amount_2"=>{"{:min=>0}"=>""}, "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :request, :amount_1, :amount_2, :commit
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (14.1ms)
+  Rendered requests/new.html.erb within layouts/general_view (16.2ms)
+Completed 200 OK in 104ms (Views: 28.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 10:49:28 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (4.5ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 11:17:06 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.2ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `request_type' for #<Request:0x007fbb392c1130>
+Did you mean?  request):
+    29:     <%= form.select :request_type, [['Smartphone', 1], ['Sim', 2], ['BAM', 3]], {}, {onChange: puts('cambios')} %>
+    30:     </div>
+    31:       <!--  here comes ternary operator -->
+    32:     <div class="field" <%= @request.request_type == '1' ? 'present' : 'hidden' %>">
+    33:      <%= f.label :amount_1 %>
+    34:      <%= f.number_field :amount, options = { max: 0 }%>
+    35:     </div>
+  
+app/views/requests/new_form.html.erb:32:in `block in _app_views_requests_new_form_html_erb__4171938147650332397_70221044036440'
+app/views/requests/new_form.html.erb:18:in `_app_views_requests_new_form_html_erb__4171938147650332397_70221044036440'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 11:17:24 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (2.6ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-22 11:18:20 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dSgrBBK8gqaeMseKdvBfZFu/ORj/A3UFpCiCyyiKPVqL2tq2KOsqbItnhnhtCKnw7SX8lmSPV4WmRybstgD37g==", "request"=>{"user_id"=>"10000", "request_type"=>"2"}, "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :request, :commit
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (4.9ms)
+  Rendered requests/new.html.erb within layouts/general_view (5.8ms)
+Completed 200 OK in 38ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-22 11:18:52 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dSgrBBK8gqaeMseKdvBfZFu/ORj/A3UFpCiCyyiKPVqL2tq2KOsqbItnhnhtCKnw7SX8lmSPV4WmRybstgD37g==", "request"=>{"user_id"=>"10000", "request_type"=>"2"}, "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :request, :commit
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (4.6ms)
+  Rendered requests/new.html.erb within layouts/general_view (5.4ms)
+Completed 200 OK in 21ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-22 11:19:07 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (29.3ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (47.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (3.4ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."RUT" = :a1 AND ROWNUM <= :a2 [0m  [["rut", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mSequence (3.6ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (3.5ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Exists (6.2ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ROWNUM <= :a2 [0m  [["email", "OsRein@ccu.cl"], ["LIMIT", 1]]
+  [1m[36mCACHE Sequence (0.0ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mCACHE Primary Key (0.0ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mPrimary Key Trigger (219.1ms)[0m  [1m[34m          SELECT trigger_name
+          FROM all_triggers
+          WHERE owner = 'SYSADM'
+            AND trigger_name = q'[USERS_PKT]'
+            AND table_owner = 'SYSADM'
+            AND table_name = q'[USERS]'
+            AND status = 'ENABLED'
+[0m
+  [1m[35mSQL (20.2ms)[0m  [1m[32mINSERT INTO "USERS" ("RUT", "NAME", "LAST_NAME", "EMAIL", "JOBTITLE", "COMPANY", "SUPERVISOR", "SUPERVISOR_EMAIL", "DEPTNAME", "BUSINESS_UNIT", "CREATED_AT", "UPDATED_AT", "JOBCODE", "LOCATION", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10, :a11, :a12, :a13, :a14, :a15)[0m  [["rut", "10021284-6"], ["name", "Oscar Segundo"], ["last_name", "Reinoso Marin"], ["email", "OsRein@ccu.cl"], ["jobtitle", "OPERADOR MANTENEDOR"], ["company", "23"], ["supervisor", "17754026-9"], ["supervisor_email", "17754026-9@ccu.cl"], ["deptname", "P29 Envasado Cerveza Linea5"], ["business_unit", "EMP23"], ["created_at", "2017-12-22 14:19:07.695521"], ["updated_at", "2017-12-22 14:19:07.695521"], ["jobcode", "101000"], ["location", "30_CERV"], ["id", 10011]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 402ms (ActiveRecord: 332.6ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-22 11:19:07 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (7.6ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-22 11:19:10 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MQF8OK31EQ1Pe6aWCgdkbFiB2HvWWviHrBLJANmmCNrP842Kl6K5x1ou52QR/5L47hsd9U3W2geufW0nRyzCbg==", "user_id"=>"10011", "request_type"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :request_type, :commit
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10011], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.0ms)
+  Rendered requests/new.html.erb within layouts/general_view (5.7ms)
+Completed 200 OK in 29ms (Views: 10.3ms | ActiveRecord: 3.2ms)
+
+

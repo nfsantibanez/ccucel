@@ -15,20 +15,19 @@
   <h3> Formulario Nuevo </h3>
   <hr>
 
-  <%= form_with url: "create/new", method: "post" do |form| %>
+  <%= form_with model: @request, url: "create/new", method: "post" do |form| %>
     <div class="well form-horizontal">
       <!-- Cargar Informacion del usuario para mostrar -->
       <%= render partial: '/layouts/user_info', locals: {form: form} %>
     </div>
     <div class="well form-horizontal">
-    <!-- Obtener nueva informacion del Formulario -->
+
     <%= form.hidden_field :user_id, value: @user["id"] %>
-    <%= form.label :request_type, 'Seleccione ', class: "col-md-4 text-right" %>
-    <%= form.select :request_type, [['Nuevo', 1], ['Renovación', 2], ['Pérdida', 3],
-    ['Robo', 4], ['Reparación', 5]]%>
-      <%= puts(:request_type)%>
-      <%= puts(:request_type)%>
-      <%= puts(:request_type)%>
+    <!-- Obtener nueva informacion del Formulario -->
+    <div class="field-center">
+    <%= form.label :request_type, 'Seleccione Requerimiento' %>
+    <%= form.select :request_type, [['Smartphone', 1], ['Sim', 2], ['BAM', 3]], {}, {onChange: puts('cambios')} %>
+    </div>
 
     </div>
     <br>
