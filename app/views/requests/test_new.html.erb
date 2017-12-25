@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Identifiación de Usuario y Solicitud</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+  <%= javascript_include_tag "display_menus.min" %>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    $(".select_1").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+
+    $('input[name="want_sim"]').change(function() {
+      var selected = $('input:checked[name="want_sim"]').val();
+      if(selected == 'true') {
+          $(".want_number").show();
+      } else if(selected == 'false'){
+          $(".want_number").hide();
+      }
+    }).change();
+
+    $('input[name="want_number"]').change(function() {
+      var selected = $('input:checked[name="want_number"]').val();
+      if(selected == 'false') {
+          $("#number").show();
+      } else if(selected == 'true') {
+          $("#number").hide();
+      }
+    }).change();
+
+
+  });
+  </script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+  <h1><strong> Formulario </strong></h1>
+  <hr>
+  <h3> Formulario Nuevo </h3>
+  <hr>
+
+  <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
+
+    <!-- Obtener nueva informacion del Formulario -->
+    <h4><strong> Datos de Solicitud</strong></h4>
+    <hr>
+
+    <div class="field-center">
+    <%= form.label :request, 'Seleccione Requerimiento' %>
+    <%= form.select :request, [['Smartphone', 1], ['Sim', 2], ['BAM', 3]], {},
+    { :class => 'select_1' } %>
+    </div>
+    <br>
+
+    <div class="field-center 1 box">
+    <%= form.label :model, 'Seleccione Modelo Smartphone' %>
+    <%= form.select :model, [['Galaxy J7', 1], ['Galaxy S5', 2], ['Iphone 6s', 3], ['Iphone X', 4]], {}, {onChange: puts('cambios')} %>
+    </div>
+    <br>
+    <div class="field-center 1 box">
+    <%= form.label :want_sim, 'Desea Incluir Tarjeta Sim?' %>
+    <%= form.collection_radio_buttons :want_sim, [[true, 'Si'], [false, 'No']], :first, :last,
+    :item_wrapper_class => 'inline', checked: true%>
+    </div>
+
+    <div class="field-center 1 box 2 box want_number">
+    <%= form.label :want_number, 'Desea un número nuevo?'%>
+    <%= form.collection_radio_buttons :want_number, [[true, 'Si'], [false, 'No, quiero portar un numero']], :first, :last,
+    :item_wrapper_class => 'inline', checked: true%>
+    </div>
+
+    <div id= "number" class="field-center 1 box 2 box want_number">
+    <%= form.label :number, 'Ingrese Número: +56 9' %>
+    <%= form.text_field :number %>
+    </div>
+
+    <br>
+
+    <div class="field-center 3 box">
+    <%= form.label :request_type, 'Seleccione Modelo BAM' %>
+    </div>
+
+
+
+    </div>
+    <br>
+    <!-- Enviar Formulario -->
+    <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
+  <% end %>
+
+</div>
+
+</body>
+</html>

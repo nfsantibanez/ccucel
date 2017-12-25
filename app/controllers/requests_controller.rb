@@ -27,7 +27,6 @@ class RequestsController < ApplicationController
   def create
     puts(params)
     puts(params)
-    puts(params)
     @request = Request.new(request_params)
 
     respond_to do |format|
@@ -86,6 +85,11 @@ class RequestsController < ApplicationController
     @user = session[:user]
     # Smartphones information in a Hash
     @smartphones = available_smartphones()
+  end
+
+  ####################Trst Views and layouts#########################
+  def test_new
+    puts('nico')
   end
 
 

@@ -1,0 +1,777 @@
+Started GET "/" for 127.0.0.1 at 2017-12-23 13:18:51 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.7ms)
+Completed 200 OK in 6526ms (Views: 6072.0ms)
+Started GET "/assets/home_style.min-2bed1ed8150b46912b9a625fbc864ff0b59632a10d6a93ef8e28f3b559c927c5.css" for 127.0.0.1 at 2017-12-23 13:18:57 -0300
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-23 13:19:09 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (207.8ms)
+Completed 200 OK in 216ms (Views: 215.3ms)
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&user_rut=&commit=Enviar" for 127.0.0.1 at 2017-12-23 13:19:12 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "user_rut"=>"", "commit"=>"Enviar"}
+  [1m[35m (0.1ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = ''[0m
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.6ms)
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-23 13:19:39 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (2.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (4.8ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-23 13:19:46 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (2.1ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+Started GET "/requests/" for 127.0.0.1 at 2017-12-23 13:19:59 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (10.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  Rendered requests/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 91ms (Views: 4.6ms | ActiveRecord: 10.9ms)
+Started GET "/assets/application-1f4edc2b7069dfbe72faec62c6157876db6cc8ebaafe78c5d5c15ffd5a719dc3.css" for 127.0.0.1 at 2017-12-23 13:19:59 -0300
+Started GET "/assets/application-9cbaa3bfdee657362a518fc04f663e067f3845682b1933d54f364b5b586a8964.js" for 127.0.0.1 at 2017-12-23 13:19:59 -0300
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-23 13:21:51 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (2.2ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-23 13:21:53 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (2.0ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:26:56 -0300
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:26:58 -0300
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:27:32 -0300
+Processing by RequestsController#test as HTML
+Completed 500 Internal Server Error in 167ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:30:19 -0300
+Processing by RequestsController#test as HTML
+Completed 500 Internal Server Error in 1ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:31:02 -0300
+Processing by RequestsController#test as HTML
+Completed 500 Internal Server Error in 161ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:32:24 -0300
+Processing by RequestsController#test as HTML
+Completed 500 Internal Server Error in 1ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:33:50 -0300
+Processing by RequestsController#test as HTML
+Completed 500 Internal Server Error in 1ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:34:16 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.0ms)
+  Rendered requests/test.html.erb within layouts/general_view (161.6ms)
+Completed 500 Internal Server Error in 321ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:35:58 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (2.1ms)
+  Rendered requests/test.html.erb within layouts/general_view (3.2ms)
+Completed 500 Internal Server Error in 4ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:36:10 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.1ms)
+  Rendered requests/test.html.erb within layouts/general_view (161.9ms)
+Completed 500 Internal Server Error in 320ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:37:41 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.2ms)
+  Rendered requests/test.html.erb within layouts/general_view (2.2ms)
+Completed 500 Internal Server Error in 3ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:37:42 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.2ms)
+  Rendered requests/test.html.erb within layouts/general_view (1.9ms)
+Completed 500 Internal Server Error in 3ms
+Started GET "/" for 127.0.0.1 at 2017-12-23 13:41:34 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.9ms)
+Completed 200 OK in 316ms (Views: 159.6ms)
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:41:38 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.0ms)
+  Rendered requests/test.html.erb within layouts/general_view (6.8ms)
+Completed 500 Internal Server Error in 8ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:44:15 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.0ms)
+  Rendered requests/test.html.erb within layouts/general_view (161.1ms)
+Completed 500 Internal Server Error in 319ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:45:17 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.3ms)
+  Rendered requests/test.html.erb within layouts/general_view (2.4ms)
+Completed 500 Internal Server Error in 3ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:45:18 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.2ms)
+  Rendered requests/test.html.erb within layouts/general_view (2.1ms)
+Completed 500 Internal Server Error in 3ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:48:17 -0300
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:49:08 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/application
+  Rendered layouts/_user_info.html.erb (5.0ms)
+  Rendered requests/test.html.erb within layouts/application (161.1ms)
+Completed 500 Internal Server Error in 320ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:50:13 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/application
+  Rendered layouts/_user_info.html.erb (1.2ms)
+  Rendered requests/test.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 3ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:50:15 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/application
+  Rendered layouts/_user_info.html.erb (1.3ms)
+  Rendered requests/test.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 3ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:50:21 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/application
+  Rendered layouts/_user_info.html.erb (5.0ms)
+  Rendered requests/test.html.erb within layouts/application (161.3ms)
+Completed 500 Internal Server Error in 319ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 13:59:12 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/application
+  Rendered layouts/_user_info.html.erb (5.3ms)
+  Rendered requests/test.html.erb within layouts/application (170.3ms)
+Completed 500 Internal Server Error in 340ms
+Started GET "/test" for 127.0.0.1 at 2017-12-23 15:02:05 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered requests/test.html.erb within layouts/general_view (132.8ms)
+Completed 200 OK in 394ms (Views: 138.0ms)
+Started GET "/test" for 127.0.0.1 at 2017-12-23 15:03:35 -0300
+Processing by RequestsController#test as HTML
+  Rendering requests/test.html.erb within layouts/general_view
+  Rendered requests/test.html.erb within layouts/general_view (1.8ms)
+Completed 200 OK in 3ms (Views: 2.3ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:03:37 -0300
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:03:45 -0300
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:03:46 -0300
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:04:05 -0300
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:04:21 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.2ms)
+Completed 200 OK in 239ms (Views: 82.4ms)
+Started POST "/create/new" for 127.0.0.1 at 2017-12-23 15:04:23 -0300
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:05:59 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.7ms)
+Completed 200 OK in 239ms (Views: 83.8ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 15:06:01 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1.1", "sim"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :request_type, :sim, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.7ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.6ms)
+Completed 200 OK in 75ms (Views: 9.7ms | ActiveRecord: 1.9ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 15:06:47 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1.1", "sim"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :request_type, :sim, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (4.1ms)
+  Rendered requests/new.html.erb within layouts/general_view (4.4ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.1ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:07:12 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (83.4ms)
+Completed 200 OK in 244ms (Views: 86.6ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 15:07:18 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1.1", "sim"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :request_type, :sim, :commit
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.7ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.5ms)
+Completed 200 OK in 75ms (Views: 9.5ms | ActiveRecord: 1.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:08:08 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (78.0ms)
+Completed 200 OK in 237ms (Views: 81.2ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 15:08:11 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1.1", "sim"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :request_type, :sim, :commit
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.5ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.3ms)
+Completed 200 OK in 73ms (Views: 9.3ms | ActiveRecord: 1.8ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:12:25 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (78.5ms)
+Completed 200 OK in 237ms (Views: 81.8ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 15:12:29 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request"=>"1", "model"=>"1.1", "sim"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :model, :sim, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (8.7ms)
+  Rendered requests/new.html.erb within layouts/general_view (9.5ms)
+Completed 200 OK in 83ms (Views: 10.5ms | ActiveRecord: 2.0ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 15:12:59 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request"=>"1", "model"=>"1.1", "sim"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :model, :sim, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (12.6ms)
+  Rendered requests/new.html.erb within layouts/general_view (13.9ms)
+Completed 200 OK in 245ms (Views: 17.8ms | ActiveRecord: 2.1ms)
+Started GET "/requests" for 127.0.0.1 at 2017-12-23 15:13:55 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/application
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  Rendered requests/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 3.2ms | ActiveRecord: 0.6ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 15:14:00 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request"=>"1", "model"=>"1.1", "sim"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :model, :sim, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (12.8ms)
+  Rendered requests/new.html.erb within layouts/general_view (13.1ms)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.1ms)
+Started GET "/rtest" for 127.0.0.1 at 2017-12-23 15:14:20 -0300
+Started GET "/test" for 127.0.0.1 at 2017-12-23 15:14:23 -0300
+Started GET "/test" for 127.0.0.1 at 2017-12-23 15:14:38 -0300
+Started GET "/test" for 127.0.0.1 at 2017-12-23 15:14:39 -0300
+Started GET "/test" for 127.0.0.1 at 2017-12-23 15:14:48 -0300
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:14:55 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.5ms)
+Completed 200 OK in 244ms (Views: 83.7ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 15:15:00 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request"=>"1", "model"=>"1", "sim"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :model, :sim, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.5ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.3ms)
+Completed 200 OK in 74ms (Views: 9.3ms | ActiveRecord: 1.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:19:42 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (0.8ms)
+Completed 500 Internal Server Error in 160ms
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:20:53 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (81.6ms)
+Completed 200 OK in 241ms (Views: 84.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:27:39 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.4ms)
+Completed 200 OK in 239ms (Views: 83.6ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:45:25 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.4ms)
+Completed 200 OK in 242ms (Views: 83.6ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 15:54:27 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (86.5ms)
+Completed 200 OK in 255ms (Views: 89.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:16:39 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.7ms)
+Completed 200 OK in 243ms (Views: 83.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:24:40 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.9ms)
+Completed 200 OK in 241ms (Views: 83.1ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:31:27 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.5ms)
+Completed 200 OK in 237ms (Views: 82.6ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 16:31:28 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request"=>"1", "model"=>"1", "sim"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :model, :sim, :commit
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.5ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.3ms)
+Completed 200 OK in 77ms (Views: 9.3ms | ActiveRecord: 2.1ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:34:57 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (78.3ms)
+Completed 200 OK in 238ms (Views: 81.7ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 16:35:00 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request"=>"1", "model"=>"1", "sim"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :model, :sim, :commit
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.4ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.1ms)
+Completed 200 OK in 73ms (Views: 9.2ms | ActiveRecord: 1.9ms)
+Started GET "/request/new" for 127.0.0.1 at 2017-12-23 16:37:00 -0300
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:37:06 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (1.4ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:38:50 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.0ms)
+Completed 200 OK in 240ms (Views: 83.2ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:38:59 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (1.5ms)
+Completed 200 OK in 3ms (Views: 2.3ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:39:58 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (81.1ms)
+Completed 200 OK in 250ms (Views: 84.3ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:41:10 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (84.5ms)
+Completed 200 OK in 253ms (Views: 87.7ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 16:41:24 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request"=>"1", "model"=>"1", "sim"=>"2", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :model, :sim, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.5ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.3ms)
+Completed 200 OK in 73ms (Views: 9.3ms | ActiveRecord: 1.9ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 16:41:28 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request"=>"1", "model"=>"1", "sim"=>"2", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :model, :sim, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (4.1ms)
+  Rendered requests/new.html.erb within layouts/general_view (4.3ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.1ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:42:59 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (84.8ms)
+Completed 200 OK in 253ms (Views: 88.1ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 16:43:07 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request"=>"1", "model"=>"1", "sim"=>"2", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :model, :sim, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.4ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.2ms)
+Completed 200 OK in 75ms (Views: 9.2ms | ActiveRecord: 2.0ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:59:36 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (77.3ms)
+Completed 200 OK in 235ms (Views: 80.5ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:59:42 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (1.6ms)
+Completed 200 OK in 3ms (Views: 2.4ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 16:59:47 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (1.6ms)
+Completed 200 OK in 3ms (Views: 2.2ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:01:28 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (78.7ms)
+Completed 200 OK in 244ms (Views: 82.0ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:02:32 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.9ms)
+Completed 200 OK in 247ms (Views: 84.3ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:04:57 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (82.5ms)
+Completed 200 OK in 247ms (Views: 85.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:06:10 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (86.1ms)
+Completed 200 OK in 252ms (Views: 89.5ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:06:53 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (81.5ms)
+Completed 200 OK in 249ms (Views: 84.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:07:23 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.7ms)
+Completed 200 OK in 245ms (Views: 83.0ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:08:57 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.0ms)
+Completed 200 OK in 242ms (Views: 83.2ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:10:29 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (82.6ms)
+Completed 200 OK in 257ms (Views: 86.5ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:12:42 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (82.1ms)
+Completed 200 OK in 245ms (Views: 85.3ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:13:29 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:13:38 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (84.5ms)
+Completed 200 OK in 253ms (Views: 88.0ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:14:55 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (1.8ms)
+Completed 200 OK in 3ms (Views: 2.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:16:00 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (81.0ms)
+Completed 200 OK in 247ms (Views: 84.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:16:52 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.5ms)
+Completed 200 OK in 240ms (Views: 82.8ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:19:46 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.7ms)
+Completed 200 OK in 247ms (Views: 84.1ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:22:24 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (0.8ms)
+Completed 500 Internal Server Error in 169ms
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:23:35 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.7ms)
+Completed 200 OK in 241ms (Views: 83.1ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:24:17 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.2ms)
+Completed 200 OK in 246ms (Views: 83.5ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:26:05 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.4ms)
+Completed 200 OK in 243ms (Views: 83.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:32:42 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (85.1ms)
+Completed 200 OK in 255ms (Views: 88.2ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:34:37 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (82.0ms)
+Completed 200 OK in 245ms (Views: 85.2ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:34:40 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (1.6ms)
+Completed 200 OK in 3ms (Views: 2.4ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 17:35:07 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (1.6ms)
+Completed 200 OK in 3ms (Views: 2.4ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 22:48:38 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (233.7ms)
+Completed 200 OK in 731ms (Views: 258.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:01:36 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (77.4ms)
+Completed 200 OK in 236ms (Views: 80.6ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:02:27 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.8ms)
+Completed 200 OK in 253ms (Views: 84.0ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:10:19 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (1.1ms)
+Completed 500 Internal Server Error in 176ms
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:10:51 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (112.3ms)
+Completed 500 Internal Server Error in 271ms
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:11:57 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (78.1ms)
+Completed 200 OK in 241ms (Views: 81.5ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:15:49 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (88.6ms)
+Completed 200 OK in 233ms (Views: 91.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:17:48 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (78.3ms)
+Completed 200 OK in 239ms (Views: 81.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:22:51 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.7ms)
+Completed 200 OK in 243ms (Views: 83.0ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:24:15 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.6ms)
+Completed 200 OK in 241ms (Views: 82.8ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:28:20 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.3ms)
+Completed 200 OK in 243ms (Views: 82.4ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:29:04 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (1.8ms)
+Completed 200 OK in 3ms (Views: 2.5ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:30:00 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (78.3ms)
+Completed 200 OK in 251ms (Views: 81.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:42:39 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (99.5ms)
+Completed 200 OK in 245ms (Views: 103.6ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:44:25 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.6ms)
+Completed 200 OK in 239ms (Views: 82.8ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-23 23:45:50 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "request"=>"1", "model"=>"4", "want_sim"=>"2", "want_number"=>"1", "number"=>"asasdasdasd", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :model, :want_sim, :want_number, :number, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (22.5ms)
+  Rendered requests/new.html.erb within layouts/general_view (23.5ms)
+Completed 200 OK in 121ms (Views: 24.8ms | ActiveRecord: 2.1ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:47:46 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (84.4ms)
+Completed 200 OK in 253ms (Views: 87.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:48:35 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.3ms)
+Completed 200 OK in 240ms (Views: 82.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:50:58 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (81.4ms)
+Completed 200 OK in 243ms (Views: 84.6ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:52:17 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (78.7ms)
+Completed 200 OK in 240ms (Views: 82.0ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:54:28 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (90.2ms)
+Completed 200 OK in 232ms (Views: 93.6ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:54:43 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (2.3ms)
+Completed 200 OK in 3ms (Views: 2.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-23 23:56:52 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.7ms)
+Completed 200 OK in 249ms (Views: 83.8ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:01:03 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.2ms)
+Completed 200 OK in 242ms (Views: 83.4ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:02:00 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.0ms)
+Completed 200 OK in 239ms (Views: 82.2ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:04:26 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.8ms)
+Completed 200 OK in 242ms (Views: 83.4ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:05:40 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.6ms)
+Completed 200 OK in 241ms (Views: 83.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:06:07 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (81.8ms)
+Completed 200 OK in 244ms (Views: 85.3ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:06:14 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (2.5ms)
+Completed 200 OK in 4ms (Views: 3.2ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:06:55 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (81.0ms)
+Completed 200 OK in 244ms (Views: 84.2ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:07:50 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.3ms)
+Completed 200 OK in 240ms (Views: 83.5ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:14:02 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.4ms)
+Completed 200 OK in 246ms (Views: 83.5ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:14:26 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (2.4ms)
+Completed 200 OK in 4ms (Views: 3.1ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:14:51 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (2.1ms)
+Completed 200 OK in 3ms (Views: 2.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:18:07 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.5ms)
+Completed 200 OK in 239ms (Views: 82.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:19:36 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.0ms)
+Completed 200 OK in 242ms (Views: 83.5ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-24 00:24:07 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (79.1ms)
+Completed 200 OK in 239ms (Views: 82.3ms)
+Started GET "/" for 127.0.0.1 at 2017-12-25 12:00:45 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (1.6ms)
+Completed 200 OK in 443ms (Views: 29.9ms)
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-25 12:00:47 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (29.7ms)
+Completed 200 OK in 32ms (Views: 31.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-25 12:00:54 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (185.4ms)
+Completed 200 OK in 188ms (Views: 186.7ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-25 12:01:06 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (2.0ms)
+Completed 200 OK in 4ms (Views: 2.9ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-25 12:10:09 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (78.5ms)
+Completed 200 OK in 236ms (Views: 81.6ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-25 12:13:12 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (80.2ms)
+Completed 200 OK in 250ms (Views: 83.8ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-25 12:13:34 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (2.2ms)
+Completed 200 OK in 3ms (Views: 3.0ms)
+Started GET "/test_new" for 127.0.0.1 at 2017-12-25 12:24:55 -0300
+Processing by RequestsController#test_new as HTML
+  Rendering requests/test_new.html.erb within layouts/general_view
+  Rendered requests/test_new.html.erb within layouts/general_view (81.3ms)
+Completed 200 OK in 241ms (Views: 84.6ms)

@@ -1,0 +1,430 @@
+I, [2017-12-23T14:39:23.824262 #10626]  INFO -- : [7fb299d4-89b2-436b-9a75-b580dcbb6a27] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:39:23 -0300
+I, [2017-12-23T14:39:23.832134 #10626]  INFO -- : [7fb299d4-89b2-436b-9a75-b580dcbb6a27] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:39:23.844133 #10626]  INFO -- : [7fb299d4-89b2-436b-9a75-b580dcbb6a27]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:39:23.846592 #10626]  INFO -- : [7fb299d4-89b2-436b-9a75-b580dcbb6a27]   Rendered requests/test.html.erb within layouts/application (2.3ms)
+I, [2017-12-23T14:39:23.846837 #10626]  INFO -- : [7fb299d4-89b2-436b-9a75-b580dcbb6a27] Completed 500 Internal Server Error in 15ms
+F, [2017-12-23T14:39:23.847853 #10626] FATAL -- : [7fb299d4-89b2-436b-9a75-b580dcbb6a27]   
+F, [2017-12-23T14:39:23.847937 #10626] FATAL -- : [7fb299d4-89b2-436b-9a75-b580dcbb6a27] ActionView::Template::Error (The asset "display_menus.min.js" is not present in the asset pipeline.):
+F, [2017-12-23T14:39:23.848120 #10626] FATAL -- : [7fb299d4-89b2-436b-9a75-b580dcbb6a27]      6:   <meta name="viewport" content="width=device-width, initial-scale=1">
+[7fb299d4-89b2-436b-9a75-b580dcbb6a27]      7:   <style>
+[7fb299d4-89b2-436b-9a75-b580dcbb6a27]      8:   </style>
+[7fb299d4-89b2-436b-9a75-b580dcbb6a27]      9:   <%= javascript_include_tag "display_menus.min" %>
+[7fb299d4-89b2-436b-9a75-b580dcbb6a27]     10:   <script type="text/javascript">
+[7fb299d4-89b2-436b-9a75-b580dcbb6a27]     11:   $(document).ready(function(){
+[7fb299d4-89b2-436b-9a75-b580dcbb6a27]     12:       $(".select_1").change(function(){
+F, [2017-12-23T14:39:23.848156 #10626] FATAL -- : [7fb299d4-89b2-436b-9a75-b580dcbb6a27]   
+F, [2017-12-23T14:39:23.848192 #10626] FATAL -- : [7fb299d4-89b2-436b-9a75-b580dcbb6a27] app/views/requests/test.html.erb:9:in `_app_views_requests_test_html_erb___3221867565464680536_47453543951720'
+I, [2017-12-23T14:39:35.562644 #10626]  INFO -- : [a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42] Started GET "/" for 127.0.0.1 at 2017-12-23 14:39:35 -0300
+I, [2017-12-23T14:39:35.564078 #10626]  INFO -- : [a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42] Processing by HomePagesController#home as HTML
+I, [2017-12-23T14:39:35.565801 #10626]  INFO -- : [a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]   Rendering home_pages/home.html.erb within layouts/home
+I, [2017-12-23T14:39:35.566260 #10626]  INFO -- : [a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]   Rendered home_pages/home.html.erb within layouts/home (0.3ms)
+I, [2017-12-23T14:39:35.567700 #10626]  INFO -- : [a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42] Completed 500 Internal Server Error in 3ms
+F, [2017-12-23T14:39:35.568555 #10626] FATAL -- : [a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]   
+F, [2017-12-23T14:39:35.568619 #10626] FATAL -- : [a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42] ActionView::Template::Error (The asset "home_style.min.css" is not present in the asset pipeline.):
+F, [2017-12-23T14:39:35.568809 #10626] FATAL -- : [a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]     4:   <title>Solicitud Celulares CCU</title>
+[a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]     5:   <meta charset="utf-8">
+[a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]     6:   <meta name="viewport" content="width=device-width, initial-scale=1">
+[a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]     7:   <%= stylesheet_link_tag "home_style.min" %>
+[a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]     8:   <style>
+[a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]     9:     /* Remove the navbar's default margin-bottom and rounded borders, color dark green */
+[a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]    10:     .navbar {
+F, [2017-12-23T14:39:35.568845 #10626] FATAL -- : [a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42]   
+F, [2017-12-23T14:39:35.568881 #10626] FATAL -- : [a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42] app/views/layouts/home.html.erb:7:in `_app_views_layouts_home_html_erb__4550633874361028767_47453543475500'
+[a8ae8b8d-7a5a-4e73-b2fc-784a99c90f42] app/controllers/home_pages_controller.rb:6:in `home'
+I, [2017-12-23T14:39:37.720117 #10626]  INFO -- : [028af849-e0eb-46ae-a01f-ca03d4d50e48] Started GET "/" for 127.0.0.1 at 2017-12-23 14:39:37 -0300
+I, [2017-12-23T14:39:37.721037 #10626]  INFO -- : [028af849-e0eb-46ae-a01f-ca03d4d50e48] Processing by HomePagesController#home as HTML
+I, [2017-12-23T14:39:37.721821 #10626]  INFO -- : [028af849-e0eb-46ae-a01f-ca03d4d50e48]   Rendering home_pages/home.html.erb within layouts/home
+I, [2017-12-23T14:39:37.722018 #10626]  INFO -- : [028af849-e0eb-46ae-a01f-ca03d4d50e48]   Rendered home_pages/home.html.erb within layouts/home (0.1ms)
+I, [2017-12-23T14:39:37.723167 #10626]  INFO -- : [028af849-e0eb-46ae-a01f-ca03d4d50e48] Completed 500 Internal Server Error in 2ms
+F, [2017-12-23T14:39:37.724188 #10626] FATAL -- : [028af849-e0eb-46ae-a01f-ca03d4d50e48]   
+F, [2017-12-23T14:39:37.724290 #10626] FATAL -- : [028af849-e0eb-46ae-a01f-ca03d4d50e48] ActionView::Template::Error (The asset "home_style.min.css" is not present in the asset pipeline.):
+F, [2017-12-23T14:39:37.724516 #10626] FATAL -- : [028af849-e0eb-46ae-a01f-ca03d4d50e48]     4:   <title>Solicitud Celulares CCU</title>
+[028af849-e0eb-46ae-a01f-ca03d4d50e48]     5:   <meta charset="utf-8">
+[028af849-e0eb-46ae-a01f-ca03d4d50e48]     6:   <meta name="viewport" content="width=device-width, initial-scale=1">
+[028af849-e0eb-46ae-a01f-ca03d4d50e48]     7:   <%= stylesheet_link_tag "home_style.min" %>
+[028af849-e0eb-46ae-a01f-ca03d4d50e48]     8:   <style>
+[028af849-e0eb-46ae-a01f-ca03d4d50e48]     9:     /* Remove the navbar's default margin-bottom and rounded borders, color dark green */
+[028af849-e0eb-46ae-a01f-ca03d4d50e48]    10:     .navbar {
+F, [2017-12-23T14:39:37.724559 #10626] FATAL -- : [028af849-e0eb-46ae-a01f-ca03d4d50e48]   
+F, [2017-12-23T14:39:37.724597 #10626] FATAL -- : [028af849-e0eb-46ae-a01f-ca03d4d50e48] app/views/layouts/home.html.erb:7:in `_app_views_layouts_home_html_erb__4550633874361028767_47453543475500'
+[028af849-e0eb-46ae-a01f-ca03d4d50e48] app/controllers/home_pages_controller.rb:6:in `home'
+I, [2017-12-23T14:39:39.139229 #10626]  INFO -- : [d26a8b0d-9f0e-4f1a-8664-52e8a87075fc] Started GET "/" for 127.0.0.1 at 2017-12-23 14:39:39 -0300
+I, [2017-12-23T14:39:39.139864 #10626]  INFO -- : [d26a8b0d-9f0e-4f1a-8664-52e8a87075fc] Processing by HomePagesController#home as HTML
+I, [2017-12-23T14:39:39.140375 #10626]  INFO -- : [d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]   Rendering home_pages/home.html.erb within layouts/home
+I, [2017-12-23T14:39:39.140485 #10626]  INFO -- : [d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]   Rendered home_pages/home.html.erb within layouts/home (0.0ms)
+I, [2017-12-23T14:39:39.141275 #10626]  INFO -- : [d26a8b0d-9f0e-4f1a-8664-52e8a87075fc] Completed 500 Internal Server Error in 1ms
+F, [2017-12-23T14:39:39.142091 #10626] FATAL -- : [d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]   
+F, [2017-12-23T14:39:39.142132 #10626] FATAL -- : [d26a8b0d-9f0e-4f1a-8664-52e8a87075fc] ActionView::Template::Error (The asset "home_style.min.css" is not present in the asset pipeline.):
+F, [2017-12-23T14:39:39.142280 #10626] FATAL -- : [d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]     4:   <title>Solicitud Celulares CCU</title>
+[d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]     5:   <meta charset="utf-8">
+[d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]     6:   <meta name="viewport" content="width=device-width, initial-scale=1">
+[d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]     7:   <%= stylesheet_link_tag "home_style.min" %>
+[d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]     8:   <style>
+[d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]     9:     /* Remove the navbar's default margin-bottom and rounded borders, color dark green */
+[d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]    10:     .navbar {
+F, [2017-12-23T14:39:39.142312 #10626] FATAL -- : [d26a8b0d-9f0e-4f1a-8664-52e8a87075fc]   
+F, [2017-12-23T14:39:39.142341 #10626] FATAL -- : [d26a8b0d-9f0e-4f1a-8664-52e8a87075fc] app/views/layouts/home.html.erb:7:in `_app_views_layouts_home_html_erb__4550633874361028767_47453543475500'
+[d26a8b0d-9f0e-4f1a-8664-52e8a87075fc] app/controllers/home_pages_controller.rb:6:in `home'
+I, [2017-12-23T14:39:43.198003 #10626]  INFO -- : [4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:39:43 -0300
+I, [2017-12-23T14:39:43.198733 #10626]  INFO -- : [4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:39:43.199542 #10626]  INFO -- : [4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:39:43.200499 #10626]  INFO -- : [4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]   Rendered requests/test.html.erb within layouts/application (0.8ms)
+I, [2017-12-23T14:39:43.200691 #10626]  INFO -- : [4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc] Completed 500 Internal Server Error in 2ms
+F, [2017-12-23T14:39:43.201579 #10626] FATAL -- : [4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]   
+F, [2017-12-23T14:39:43.201646 #10626] FATAL -- : [4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc] ActionView::Template::Error (The asset "display_menus.min.js" is not present in the asset pipeline.):
+F, [2017-12-23T14:39:43.201832 #10626] FATAL -- : [4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]      6:   <meta name="viewport" content="width=device-width, initial-scale=1">
+[4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]      7:   <style>
+[4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]      8:   </style>
+[4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]      9:   <%= javascript_include_tag "display_menus.min" %>
+[4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]     10:   <script type="text/javascript">
+[4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]     11:   $(document).ready(function(){
+[4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]     12:       $(".select_1").change(function(){
+F, [2017-12-23T14:39:43.201869 #10626] FATAL -- : [4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc]   
+F, [2017-12-23T14:39:43.201919 #10626] FATAL -- : [4602d8ea-e8f5-4e70-aaa9-48c66f1d6efc] app/views/requests/test.html.erb:9:in `_app_views_requests_test_html_erb___3221867565464680536_47453543951720'
+I, [2017-12-23T14:40:41.294375 #10626]  INFO -- : [aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:40:41 -0300
+I, [2017-12-23T14:40:41.295207 #10626]  INFO -- : [aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:40:41.296291 #10626]  INFO -- : [aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:40:41.297674 #10626]  INFO -- : [aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]   Rendered requests/test.html.erb within layouts/application (1.2ms)
+I, [2017-12-23T14:40:41.297960 #10626]  INFO -- : [aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e] Completed 500 Internal Server Error in 3ms
+F, [2017-12-23T14:40:41.299183 #10626] FATAL -- : [aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]   
+F, [2017-12-23T14:40:41.299313 #10626] FATAL -- : [aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e] ActionView::Template::Error (The asset "display_menus.min.js" is not present in the asset pipeline.):
+F, [2017-12-23T14:40:41.299589 #10626] FATAL -- : [aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]      6:   <meta name="viewport" content="width=device-width, initial-scale=1">
+[aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]      7:   <style>
+[aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]      8:   </style>
+[aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]      9:   <%= javascript_include_tag "display_menus.min" %>
+[aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]     10:   <script type="text/javascript">
+[aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]     11:   $(document).ready(function(){
+[aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]     12:       $(".select_1").change(function(){
+F, [2017-12-23T14:40:41.299638 #10626] FATAL -- : [aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e]   
+F, [2017-12-23T14:40:41.299683 #10626] FATAL -- : [aa53d0e5-bdfc-4ea9-9c80-1a824eed8c3e] app/views/requests/test.html.erb:9:in `_app_views_requests_test_html_erb___3221867565464680536_47453543951720'
+I, [2017-12-23T14:40:48.326446 #10893]  INFO -- : [154d3b46-a79f-45a5-b026-b698906d76f4] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:40:48 -0300
+I, [2017-12-23T14:40:48.335080 #10893]  INFO -- : [154d3b46-a79f-45a5-b026-b698906d76f4] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:40:48.347376 #10893]  INFO -- : [154d3b46-a79f-45a5-b026-b698906d76f4]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:40:48.349974 #10893]  INFO -- : [154d3b46-a79f-45a5-b026-b698906d76f4]   Rendered requests/test.html.erb within layouts/application (2.4ms)
+I, [2017-12-23T14:40:48.350241 #10893]  INFO -- : [154d3b46-a79f-45a5-b026-b698906d76f4] Completed 500 Internal Server Error in 15ms
+F, [2017-12-23T14:40:48.351350 #10893] FATAL -- : [154d3b46-a79f-45a5-b026-b698906d76f4]   
+F, [2017-12-23T14:40:48.351447 #10893] FATAL -- : [154d3b46-a79f-45a5-b026-b698906d76f4] ActionView::Template::Error (The asset "display_menus.min.js" is not present in the asset pipeline.):
+F, [2017-12-23T14:40:48.351650 #10893] FATAL -- : [154d3b46-a79f-45a5-b026-b698906d76f4]      6:   <meta name="viewport" content="width=device-width, initial-scale=1">
+[154d3b46-a79f-45a5-b026-b698906d76f4]      7:   <style>
+[154d3b46-a79f-45a5-b026-b698906d76f4]      8:   </style>
+[154d3b46-a79f-45a5-b026-b698906d76f4]      9:   <%= javascript_include_tag "display_menus.min" %>
+[154d3b46-a79f-45a5-b026-b698906d76f4]     10:   <script type="text/javascript">
+[154d3b46-a79f-45a5-b026-b698906d76f4]     11:   $(document).ready(function(){
+[154d3b46-a79f-45a5-b026-b698906d76f4]     12:       $(".select_1").change(function(){
+F, [2017-12-23T14:40:48.351698 #10893] FATAL -- : [154d3b46-a79f-45a5-b026-b698906d76f4]   
+F, [2017-12-23T14:40:48.351746 #10893] FATAL -- : [154d3b46-a79f-45a5-b026-b698906d76f4] app/views/requests/test.html.erb:9:in `_app_views_requests_test_html_erb__3090278810738600325_47331112545640'
+I, [2017-12-23T14:46:30.474287 #11433]  INFO -- : [dfce4d5c-976e-411e-8f07-4597c03e02b6] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:46:30 -0300
+I, [2017-12-23T14:46:30.484789 #11433]  INFO -- : [dfce4d5c-976e-411e-8f07-4597c03e02b6] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:46:30.504088 #11433]  INFO -- : [dfce4d5c-976e-411e-8f07-4597c03e02b6]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:46:30.507226 #11433]  INFO -- : [dfce4d5c-976e-411e-8f07-4597c03e02b6]   Rendered requests/test.html.erb within layouts/application (2.9ms)
+I, [2017-12-23T14:46:30.507544 #11433]  INFO -- : [dfce4d5c-976e-411e-8f07-4597c03e02b6] Completed 500 Internal Server Error in 23ms
+F, [2017-12-23T14:46:30.508654 #11433] FATAL -- : [dfce4d5c-976e-411e-8f07-4597c03e02b6]   
+F, [2017-12-23T14:46:30.508779 #11433] FATAL -- : [dfce4d5c-976e-411e-8f07-4597c03e02b6] ActionView::Template::Error (The asset "display_menus.min.js" is not present in the asset pipeline.):
+F, [2017-12-23T14:46:30.509029 #11433] FATAL -- : [dfce4d5c-976e-411e-8f07-4597c03e02b6]      6:   <meta name="viewport" content="width=device-width, initial-scale=1">
+[dfce4d5c-976e-411e-8f07-4597c03e02b6]      7:   <style>
+[dfce4d5c-976e-411e-8f07-4597c03e02b6]      8:   </style>
+[dfce4d5c-976e-411e-8f07-4597c03e02b6]      9:   <%= javascript_include_tag "display_menus.min" %>
+[dfce4d5c-976e-411e-8f07-4597c03e02b6]     10:   <script type="text/javascript">
+[dfce4d5c-976e-411e-8f07-4597c03e02b6]     11:   $(document).ready(function(){
+[dfce4d5c-976e-411e-8f07-4597c03e02b6]     12:       $(".select_1").change(function(){
+F, [2017-12-23T14:46:30.509072 #11433] FATAL -- : [dfce4d5c-976e-411e-8f07-4597c03e02b6]   
+F, [2017-12-23T14:46:30.509115 #11433] FATAL -- : [dfce4d5c-976e-411e-8f07-4597c03e02b6] app/views/requests/test.html.erb:9:in `_app_views_requests_test_html_erb__4229827995281487493_46933323821120'
+I, [2017-12-23T14:46:32.274737 #11433]  INFO -- : [87d91873-0dfc-42fb-afa9-d9402f912d9a] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:46:32 -0300
+I, [2017-12-23T14:46:32.275706 #11433]  INFO -- : [87d91873-0dfc-42fb-afa9-d9402f912d9a] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:46:32.276718 #11433]  INFO -- : [87d91873-0dfc-42fb-afa9-d9402f912d9a]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:46:32.277972 #11433]  INFO -- : [87d91873-0dfc-42fb-afa9-d9402f912d9a]   Rendered requests/test.html.erb within layouts/application (1.1ms)
+I, [2017-12-23T14:46:32.278245 #11433]  INFO -- : [87d91873-0dfc-42fb-afa9-d9402f912d9a] Completed 500 Internal Server Error in 2ms
+F, [2017-12-23T14:46:32.279262 #11433] FATAL -- : [87d91873-0dfc-42fb-afa9-d9402f912d9a]   
+F, [2017-12-23T14:46:32.279349 #11433] FATAL -- : [87d91873-0dfc-42fb-afa9-d9402f912d9a] ActionView::Template::Error (The asset "display_menus.min.js" is not present in the asset pipeline.):
+F, [2017-12-23T14:46:32.279571 #11433] FATAL -- : [87d91873-0dfc-42fb-afa9-d9402f912d9a]      6:   <meta name="viewport" content="width=device-width, initial-scale=1">
+[87d91873-0dfc-42fb-afa9-d9402f912d9a]      7:   <style>
+[87d91873-0dfc-42fb-afa9-d9402f912d9a]      8:   </style>
+[87d91873-0dfc-42fb-afa9-d9402f912d9a]      9:   <%= javascript_include_tag "display_menus.min" %>
+[87d91873-0dfc-42fb-afa9-d9402f912d9a]     10:   <script type="text/javascript">
+[87d91873-0dfc-42fb-afa9-d9402f912d9a]     11:   $(document).ready(function(){
+[87d91873-0dfc-42fb-afa9-d9402f912d9a]     12:       $(".select_1").change(function(){
+F, [2017-12-23T14:46:32.279610 #11433] FATAL -- : [87d91873-0dfc-42fb-afa9-d9402f912d9a]   
+F, [2017-12-23T14:46:32.279649 #11433] FATAL -- : [87d91873-0dfc-42fb-afa9-d9402f912d9a] app/views/requests/test.html.erb:9:in `_app_views_requests_test_html_erb__4229827995281487493_46933323821120'
+I, [2017-12-23T14:48:10.488132 #11665]  INFO -- : [2b189943-54d2-481a-bc80-404db7209271] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:48:10 -0300
+I, [2017-12-23T14:48:10.496788 #11665]  INFO -- : [2b189943-54d2-481a-bc80-404db7209271] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:48:10.510005 #11665]  INFO -- : [2b189943-54d2-481a-bc80-404db7209271]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:48:10.520623 #11665]  INFO -- : [2b189943-54d2-481a-bc80-404db7209271]   Rendered layouts/_user_info.html.erb (3.7ms)
+I, [2017-12-23T14:48:10.520855 #11665]  INFO -- : [2b189943-54d2-481a-bc80-404db7209271]   Rendered requests/test.html.erb within layouts/application (6.9ms)
+I, [2017-12-23T14:48:10.521116 #11665]  INFO -- : [2b189943-54d2-481a-bc80-404db7209271] Completed 500 Internal Server Error in 24ms
+F, [2017-12-23T14:48:10.522327 #11665] FATAL -- : [2b189943-54d2-481a-bc80-404db7209271]   
+F, [2017-12-23T14:48:10.522435 #11665] FATAL -- : [2b189943-54d2-481a-bc80-404db7209271] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T14:48:10.522652 #11665] FATAL -- : [2b189943-54d2-481a-bc80-404db7209271]     14: 
+[2b189943-54d2-481a-bc80-404db7209271]     15:     <div class="field-center">
+[2b189943-54d2-481a-bc80-404db7209271]     16:         <%= form.label :name, 'Name' %>
+[2b189943-54d2-481a-bc80-404db7209271]     17:         <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
+[2b189943-54d2-481a-bc80-404db7209271]     18:     </div>
+[2b189943-54d2-481a-bc80-404db7209271]     19: 
+[2b189943-54d2-481a-bc80-404db7209271]     20:     <div class="field-center">
+F, [2017-12-23T14:48:10.522692 #11665] FATAL -- : [2b189943-54d2-481a-bc80-404db7209271]   
+F, [2017-12-23T14:48:10.522737 #11665] FATAL -- : [2b189943-54d2-481a-bc80-404db7209271] app/views/layouts/_user_info.html.erb:17:in `_app_views_layouts__user_info_html_erb___3277049332011995792_47059566084180'
+[2b189943-54d2-481a-bc80-404db7209271] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+[2b189943-54d2-481a-bc80-404db7209271] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+I, [2017-12-23T14:48:40.896580 #11665]  INFO -- : [dbfd135f-4b4c-4475-aced-67ced016bc9e] Started GET "/home" for 127.0.0.1 at 2017-12-23 14:48:40 -0300
+F, [2017-12-23T14:48:40.897333 #11665] FATAL -- : [dbfd135f-4b4c-4475-aced-67ced016bc9e]   
+F, [2017-12-23T14:48:40.897424 #11665] FATAL -- : [dbfd135f-4b4c-4475-aced-67ced016bc9e] ActionController::RoutingError (No route matches [GET] "/home"):
+F, [2017-12-23T14:48:40.897469 #11665] FATAL -- : [dbfd135f-4b4c-4475-aced-67ced016bc9e]   
+F, [2017-12-23T14:48:40.897544 #11665] FATAL -- : [dbfd135f-4b4c-4475-aced-67ced016bc9e] actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] railties (5.1.4) lib/rails/engine.rb:522:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+[dbfd135f-4b4c-4475-aced-67ced016bc9e] puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2017-12-23T14:48:43.610681 #11665]  INFO -- : [25afc98f-1baf-4742-973a-cb073d6268fa] Started GET "/" for 127.0.0.1 at 2017-12-23 14:48:43 -0300
+I, [2017-12-23T14:48:43.612284 #11665]  INFO -- : [25afc98f-1baf-4742-973a-cb073d6268fa] Processing by HomePagesController#home as HTML
+I, [2017-12-23T14:48:43.619144 #11665]  INFO -- : [25afc98f-1baf-4742-973a-cb073d6268fa]   Rendering home_pages/home.html.erb within layouts/home
+I, [2017-12-23T14:48:43.619681 #11665]  INFO -- : [25afc98f-1baf-4742-973a-cb073d6268fa]   Rendered home_pages/home.html.erb within layouts/home (0.4ms)
+I, [2017-12-23T14:48:43.621251 #11665]  INFO -- : [25afc98f-1baf-4742-973a-cb073d6268fa] Completed 200 OK in 9ms (Views: 8.3ms)
+I, [2017-12-23T14:48:45.706106 #11665]  INFO -- : [22567392-ab04-4c54-bc5c-5b7dfb6b97fd] Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-23 14:48:45 -0300
+I, [2017-12-23T14:48:45.706848 #11665]  INFO -- : [22567392-ab04-4c54-bc5c-5b7dfb6b97fd] Processing by HomePagesController#request_home as HTML
+I, [2017-12-23T14:48:45.708076 #11665]  INFO -- : [22567392-ab04-4c54-bc5c-5b7dfb6b97fd]   Rendering home_pages/request_home.html.erb within layouts/general_view
+I, [2017-12-23T14:48:45.709403 #11665]  INFO -- : [22567392-ab04-4c54-bc5c-5b7dfb6b97fd]   Rendered home_pages/request_home.html.erb within layouts/general_view (1.2ms)
+I, [2017-12-23T14:48:45.710385 #11665]  INFO -- : [22567392-ab04-4c54-bc5c-5b7dfb6b97fd] Completed 200 OK in 3ms (Views: 3.2ms)
+I, [2017-12-23T14:48:57.150639 #11665]  INFO -- : [271c7dee-b8b3-463a-b624-ca96bcc2d8c6] Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=5&user_rut=15.680.498-3&commit=Enviar" for 127.0.0.1 at 2017-12-23 14:48:57 -0300
+I, [2017-12-23T14:48:57.151639 #11665]  INFO -- : [271c7dee-b8b3-463a-b624-ca96bcc2d8c6] Processing by RequestsController#validate_user as HTML
+I, [2017-12-23T14:48:57.151791 #11665]  INFO -- : [271c7dee-b8b3-463a-b624-ca96bcc2d8c6]   Parameters: {"utf8"=>"✓", "request_type"=>"5", "user_rut"=>"15.680.498-3", "commit"=>"Enviar"}
+D, [2017-12-23T14:48:57.156153 #11665] DEBUG -- : [271c7dee-b8b3-463a-b624-ca96bcc2d8c6]   [1m[35m (0.2ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '15680498-3'[0m
+I, [2017-12-23T14:48:57.156607 #11665]  INFO -- : [271c7dee-b8b3-463a-b624-ca96bcc2d8c6] Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.7ms)
+F, [2017-12-23T14:48:57.157416 #11665] FATAL -- : [271c7dee-b8b3-463a-b624-ca96bcc2d8c6]   
+F, [2017-12-23T14:48:57.157507 #11665] FATAL -- : [271c7dee-b8b3-463a-b624-ca96bcc2d8c6] ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: sysadm.ps_v88rh_emplee_vw: select * from sysadm.ps_v88rh_emplee_vw where emplid = '15680498-3'):
+F, [2017-12-23T14:48:57.157833 #11665] FATAL -- : [271c7dee-b8b3-463a-b624-ca96bcc2d8c6]   
+F, [2017-12-23T14:48:57.157942 #11665] FATAL -- : [271c7dee-b8b3-463a-b624-ca96bcc2d8c6] app/controllers/application_controller.rb:14:in `rut_verification'
+[271c7dee-b8b3-463a-b624-ca96bcc2d8c6] app/controllers/requests_controller.rb:68:in `validate_user'
+I, [2017-12-23T14:49:06.891246 #11665]  INFO -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:49:06 -0300
+I, [2017-12-23T14:49:06.891915 #11665]  INFO -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:49:06.892672 #11665]  INFO -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:49:06.894937 #11665]  INFO -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]   Rendered layouts/_user_info.html.erb (1.8ms)
+I, [2017-12-23T14:49:06.895043 #11665]  INFO -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]   Rendered requests/test.html.erb within layouts/application (2.3ms)
+I, [2017-12-23T14:49:06.895180 #11665]  INFO -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5] Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+F, [2017-12-23T14:49:06.896231 #11665] FATAL -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]   
+F, [2017-12-23T14:49:06.896293 #11665] FATAL -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T14:49:06.896456 #11665] FATAL -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]     14: 
+[ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]     15:     <div class="field-center">
+[ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]     16:         <%= form.label :name, 'Name' %>
+[ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]     17:         <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
+[ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]     18:     </div>
+[ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]     19: 
+[ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]     20:     <div class="field-center">
+F, [2017-12-23T14:49:06.896490 #11665] FATAL -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5]   
+F, [2017-12-23T14:49:06.896529 #11665] FATAL -- : [ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5] app/views/layouts/_user_info.html.erb:17:in `_app_views_layouts__user_info_html_erb___3277049332011995792_47059566084180'
+[ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+[ad1bbaec-7035-4ad1-8b56-7ea82b7f9be5] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+I, [2017-12-23T14:57:03.913156 #11665]  INFO -- : [8dfbb619-da4c-4a09-919d-41970723da1e] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:57:03 -0300
+I, [2017-12-23T14:57:03.913764 #11665]  INFO -- : [8dfbb619-da4c-4a09-919d-41970723da1e] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:57:03.914416 #11665]  INFO -- : [8dfbb619-da4c-4a09-919d-41970723da1e]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:57:03.916657 #11665]  INFO -- : [8dfbb619-da4c-4a09-919d-41970723da1e]   Rendered layouts/_user_info.html.erb (1.7ms)
+I, [2017-12-23T14:57:03.916780 #11665]  INFO -- : [8dfbb619-da4c-4a09-919d-41970723da1e]   Rendered requests/test.html.erb within layouts/application (2.3ms)
+I, [2017-12-23T14:57:03.916947 #11665]  INFO -- : [8dfbb619-da4c-4a09-919d-41970723da1e] Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+F, [2017-12-23T14:57:03.917972 #11665] FATAL -- : [8dfbb619-da4c-4a09-919d-41970723da1e]   
+F, [2017-12-23T14:57:03.918041 #11665] FATAL -- : [8dfbb619-da4c-4a09-919d-41970723da1e] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T14:57:03.918194 #11665] FATAL -- : [8dfbb619-da4c-4a09-919d-41970723da1e]     14: 
+[8dfbb619-da4c-4a09-919d-41970723da1e]     15:     <div class="field-center">
+[8dfbb619-da4c-4a09-919d-41970723da1e]     16:         <%= form.label :name, 'Name' %>
+[8dfbb619-da4c-4a09-919d-41970723da1e]     17:         <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
+[8dfbb619-da4c-4a09-919d-41970723da1e]     18:     </div>
+[8dfbb619-da4c-4a09-919d-41970723da1e]     19: 
+[8dfbb619-da4c-4a09-919d-41970723da1e]     20:     <div class="field-center">
+F, [2017-12-23T14:57:03.918240 #11665] FATAL -- : [8dfbb619-da4c-4a09-919d-41970723da1e]   
+F, [2017-12-23T14:57:03.918278 #11665] FATAL -- : [8dfbb619-da4c-4a09-919d-41970723da1e] app/views/layouts/_user_info.html.erb:17:in `_app_views_layouts__user_info_html_erb___3277049332011995792_47059566084180'
+[8dfbb619-da4c-4a09-919d-41970723da1e] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+[8dfbb619-da4c-4a09-919d-41970723da1e] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+I, [2017-12-23T14:57:06.422360 #11665]  INFO -- : [2152ca4a-f3b4-4ee0-8e9d-5ea4f3e49e53] Started GET "/" for 127.0.0.1 at 2017-12-23 14:57:06 -0300
+I, [2017-12-23T14:57:06.423094 #11665]  INFO -- : [2152ca4a-f3b4-4ee0-8e9d-5ea4f3e49e53] Processing by HomePagesController#home as HTML
+I, [2017-12-23T14:57:06.423717 #11665]  INFO -- : [2152ca4a-f3b4-4ee0-8e9d-5ea4f3e49e53]   Rendering home_pages/home.html.erb within layouts/home
+I, [2017-12-23T14:57:06.423863 #11665]  INFO -- : [2152ca4a-f3b4-4ee0-8e9d-5ea4f3e49e53]   Rendered home_pages/home.html.erb within layouts/home (0.0ms)
+I, [2017-12-23T14:57:06.424528 #11665]  INFO -- : [2152ca4a-f3b4-4ee0-8e9d-5ea4f3e49e53] Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+I, [2017-12-23T14:57:08.928742 #11665]  INFO -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:57:08 -0300
+I, [2017-12-23T14:57:08.929392 #11665]  INFO -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:57:08.930080 #11665]  INFO -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:57:08.932177 #11665]  INFO -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9]   Rendered layouts/_user_info.html.erb (1.7ms)
+I, [2017-12-23T14:57:08.932280 #11665]  INFO -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9]   Rendered requests/test.html.erb within layouts/application (2.1ms)
+I, [2017-12-23T14:57:08.932429 #11665]  INFO -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9] Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+F, [2017-12-23T14:57:08.933418 #11665] FATAL -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9]   
+F, [2017-12-23T14:57:08.933459 #11665] FATAL -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T14:57:08.933590 #11665] FATAL -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9]     14: 
+[a8797358-3806-49ed-bf6a-634a1d76f1b9]     15:     <div class="field-center">
+[a8797358-3806-49ed-bf6a-634a1d76f1b9]     16:         <%= form.label :name, 'Name' %>
+[a8797358-3806-49ed-bf6a-634a1d76f1b9]     17:         <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
+[a8797358-3806-49ed-bf6a-634a1d76f1b9]     18:     </div>
+[a8797358-3806-49ed-bf6a-634a1d76f1b9]     19: 
+[a8797358-3806-49ed-bf6a-634a1d76f1b9]     20:     <div class="field-center">
+F, [2017-12-23T14:57:08.933648 #11665] FATAL -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9]   
+F, [2017-12-23T14:57:08.933678 #11665] FATAL -- : [a8797358-3806-49ed-bf6a-634a1d76f1b9] app/views/layouts/_user_info.html.erb:17:in `_app_views_layouts__user_info_html_erb___3277049332011995792_47059566084180'
+[a8797358-3806-49ed-bf6a-634a1d76f1b9] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+[a8797358-3806-49ed-bf6a-634a1d76f1b9] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+I, [2017-12-23T14:58:08.788031 #11665]  INFO -- : [dfb037c3-31c8-4244-8551-b2089bd7a013] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:58:08 -0300
+I, [2017-12-23T14:58:08.788762 #11665]  INFO -- : [dfb037c3-31c8-4244-8551-b2089bd7a013] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:58:08.789515 #11665]  INFO -- : [dfb037c3-31c8-4244-8551-b2089bd7a013]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:58:08.792076 #11665]  INFO -- : [dfb037c3-31c8-4244-8551-b2089bd7a013]   Rendered layouts/_user_info.html.erb (2.0ms)
+I, [2017-12-23T14:58:08.792229 #11665]  INFO -- : [dfb037c3-31c8-4244-8551-b2089bd7a013]   Rendered requests/test.html.erb within layouts/application (2.6ms)
+I, [2017-12-23T14:58:08.792390 #11665]  INFO -- : [dfb037c3-31c8-4244-8551-b2089bd7a013] Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+F, [2017-12-23T14:58:08.793537 #11665] FATAL -- : [dfb037c3-31c8-4244-8551-b2089bd7a013]   
+F, [2017-12-23T14:58:08.793579 #11665] FATAL -- : [dfb037c3-31c8-4244-8551-b2089bd7a013] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T14:58:08.793744 #11665] FATAL -- : [dfb037c3-31c8-4244-8551-b2089bd7a013]     14: 
+[dfb037c3-31c8-4244-8551-b2089bd7a013]     15:     <div class="field-center">
+[dfb037c3-31c8-4244-8551-b2089bd7a013]     16:         <%= form.label :name, 'Name' %>
+[dfb037c3-31c8-4244-8551-b2089bd7a013]     17:         <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
+[dfb037c3-31c8-4244-8551-b2089bd7a013]     18:     </div>
+[dfb037c3-31c8-4244-8551-b2089bd7a013]     19: 
+[dfb037c3-31c8-4244-8551-b2089bd7a013]     20:     <div class="field-center">
+F, [2017-12-23T14:58:08.793816 #11665] FATAL -- : [dfb037c3-31c8-4244-8551-b2089bd7a013]   
+F, [2017-12-23T14:58:08.793862 #11665] FATAL -- : [dfb037c3-31c8-4244-8551-b2089bd7a013] app/views/layouts/_user_info.html.erb:17:in `_app_views_layouts__user_info_html_erb___3277049332011995792_47059566084180'
+[dfb037c3-31c8-4244-8551-b2089bd7a013] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+[dfb037c3-31c8-4244-8551-b2089bd7a013] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+I, [2017-12-23T14:58:14.835346 #11665]  INFO -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:58:14 -0300
+I, [2017-12-23T14:58:14.835957 #11665]  INFO -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:58:14.836660 #11665]  INFO -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:58:14.838995 #11665]  INFO -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05]   Rendered layouts/_user_info.html.erb (1.8ms)
+I, [2017-12-23T14:58:14.839094 #11665]  INFO -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05]   Rendered requests/test.html.erb within layouts/application (2.4ms)
+I, [2017-12-23T14:58:14.839247 #11665]  INFO -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05] Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+F, [2017-12-23T14:58:14.840391 #11665] FATAL -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05]   
+F, [2017-12-23T14:58:14.840439 #11665] FATAL -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T14:58:14.840580 #11665] FATAL -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05]     14: 
+[1ffd4f49-b4f5-400d-b697-2630e6601f05]     15:     <div class="field-center">
+[1ffd4f49-b4f5-400d-b697-2630e6601f05]     16:         <%= form.label :name, 'Name' %>
+[1ffd4f49-b4f5-400d-b697-2630e6601f05]     17:         <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
+[1ffd4f49-b4f5-400d-b697-2630e6601f05]     18:     </div>
+[1ffd4f49-b4f5-400d-b697-2630e6601f05]     19: 
+[1ffd4f49-b4f5-400d-b697-2630e6601f05]     20:     <div class="field-center">
+F, [2017-12-23T14:58:14.840614 #11665] FATAL -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05]   
+F, [2017-12-23T14:58:14.840648 #11665] FATAL -- : [1ffd4f49-b4f5-400d-b697-2630e6601f05] app/views/layouts/_user_info.html.erb:17:in `_app_views_layouts__user_info_html_erb___3277049332011995792_47059566084180'
+[1ffd4f49-b4f5-400d-b697-2630e6601f05] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+[1ffd4f49-b4f5-400d-b697-2630e6601f05] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+I, [2017-12-23T14:58:54.597727 #11665]  INFO -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:58:54 -0300
+I, [2017-12-23T14:58:54.598400 #11665]  INFO -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:58:54.599184 #11665]  INFO -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:58:54.601674 #11665]  INFO -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d]   Rendered layouts/_user_info.html.erb (1.9ms)
+I, [2017-12-23T14:58:54.601870 #11665]  INFO -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d]   Rendered requests/test.html.erb within layouts/application (2.5ms)
+I, [2017-12-23T14:58:54.602072 #11665]  INFO -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d] Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+F, [2017-12-23T14:58:54.603108 #11665] FATAL -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d]   
+F, [2017-12-23T14:58:54.603220 #11665] FATAL -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T14:58:54.603406 #11665] FATAL -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d]     14: 
+[a31ce9d1-873e-409f-b2b5-434efcd2a10d]     15:     <div class="field-center">
+[a31ce9d1-873e-409f-b2b5-434efcd2a10d]     16:         <%= form.label :name, 'Name' %>
+[a31ce9d1-873e-409f-b2b5-434efcd2a10d]     17:         <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
+[a31ce9d1-873e-409f-b2b5-434efcd2a10d]     18:     </div>
+[a31ce9d1-873e-409f-b2b5-434efcd2a10d]     19: 
+[a31ce9d1-873e-409f-b2b5-434efcd2a10d]     20:     <div class="field-center">
+F, [2017-12-23T14:58:54.603447 #11665] FATAL -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d]   
+F, [2017-12-23T14:58:54.603487 #11665] FATAL -- : [a31ce9d1-873e-409f-b2b5-434efcd2a10d] app/views/layouts/_user_info.html.erb:17:in `_app_views_layouts__user_info_html_erb___3277049332011995792_47059566084180'
+[a31ce9d1-873e-409f-b2b5-434efcd2a10d] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+[a31ce9d1-873e-409f-b2b5-434efcd2a10d] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+I, [2017-12-23T14:58:56.581655 #11665]  INFO -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b] Started GET "/test" for 127.0.0.1 at 2017-12-23 14:58:56 -0300
+I, [2017-12-23T14:58:56.582277 #11665]  INFO -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b] Processing by RequestsController#test as HTML
+I, [2017-12-23T14:58:56.583168 #11665]  INFO -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b]   Rendering requests/test.html.erb within layouts/application
+I, [2017-12-23T14:58:56.586008 #11665]  INFO -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b]   Rendered layouts/_user_info.html.erb (1.8ms)
+I, [2017-12-23T14:58:56.586115 #11665]  INFO -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b]   Rendered requests/test.html.erb within layouts/application (2.9ms)
+I, [2017-12-23T14:58:56.586277 #11665]  INFO -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b] Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+F, [2017-12-23T14:58:56.587255 #11665] FATAL -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b]   
+F, [2017-12-23T14:58:56.587291 #11665] FATAL -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T14:58:56.587417 #11665] FATAL -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b]     14: 
+[ac43f407-636c-45d2-8c41-bf36fbd8667b]     15:     <div class="field-center">
+[ac43f407-636c-45d2-8c41-bf36fbd8667b]     16:         <%= form.label :name, 'Name' %>
+[ac43f407-636c-45d2-8c41-bf36fbd8667b]     17:         <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
+[ac43f407-636c-45d2-8c41-bf36fbd8667b]     18:     </div>
+[ac43f407-636c-45d2-8c41-bf36fbd8667b]     19: 
+[ac43f407-636c-45d2-8c41-bf36fbd8667b]     20:     <div class="field-center">
+F, [2017-12-23T14:58:56.587447 #11665] FATAL -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b]   
+F, [2017-12-23T14:58:56.587476 #11665] FATAL -- : [ac43f407-636c-45d2-8c41-bf36fbd8667b] app/views/layouts/_user_info.html.erb:17:in `_app_views_layouts__user_info_html_erb___3277049332011995792_47059566084180'
+[ac43f407-636c-45d2-8c41-bf36fbd8667b] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+[ac43f407-636c-45d2-8c41-bf36fbd8667b] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb__4596884301409442142_47059566273020'
+I, [2017-12-23T15:00:21.227519 #13248]  INFO -- : [f89e078a-4035-4d89-85f9-282034a14b65] Started GET "/test" for 127.0.0.1 at 2017-12-23 15:00:21 -0300
+I, [2017-12-23T15:00:21.234719 #13248]  INFO -- : [f89e078a-4035-4d89-85f9-282034a14b65] Processing by RequestsController#test as HTML
+I, [2017-12-23T15:00:21.249203 #13248]  INFO -- : [f89e078a-4035-4d89-85f9-282034a14b65]   Rendering requests/test.html.erb within layouts/general_view
+I, [2017-12-23T15:00:21.252938 #13248]  INFO -- : [f89e078a-4035-4d89-85f9-282034a14b65]   Rendered requests/test.html.erb within layouts/general_view (3.6ms)
+I, [2017-12-23T15:00:21.253218 #13248]  INFO -- : [f89e078a-4035-4d89-85f9-282034a14b65] Completed 500 Internal Server Error in 18ms
+F, [2017-12-23T15:00:21.254088 #13248] FATAL -- : [f89e078a-4035-4d89-85f9-282034a14b65]   
+F, [2017-12-23T15:00:21.254174 #13248] FATAL -- : [f89e078a-4035-4d89-85f9-282034a14b65] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T15:00:21.254348 #13248] FATAL -- : [f89e078a-4035-4d89-85f9-282034a14b65]     47:   <%= form_with model: @request, url: "create/new", method: "post" do |form| %>
+[f89e078a-4035-4d89-85f9-282034a14b65]     48: 
+[f89e078a-4035-4d89-85f9-282034a14b65]     49:     <div class="well form-horizontal">
+[f89e078a-4035-4d89-85f9-282034a14b65]     50:     <%= form.hidden_field :user_id, value: @user["id"] %>
+[f89e078a-4035-4d89-85f9-282034a14b65]     51: 
+[f89e078a-4035-4d89-85f9-282034a14b65]     52:     <!-- Obtener nueva informacion del Formulario -->
+[f89e078a-4035-4d89-85f9-282034a14b65]     53:     <h4><strong> Datos de Solicitud</strong></h4>
+F, [2017-12-23T15:00:21.254380 #13248] FATAL -- : [f89e078a-4035-4d89-85f9-282034a14b65]   
+F, [2017-12-23T15:00:21.254413 #13248] FATAL -- : [f89e078a-4035-4d89-85f9-282034a14b65] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb___1439523163334843588_46997727892400'
+[f89e078a-4035-4d89-85f9-282034a14b65] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb___1439523163334843588_46997727892400'
+I, [2017-12-23T15:00:45.673358 #13248]  INFO -- : [778bf188-b5e4-4374-a0ca-b46e86981033] Started GET "/test" for 127.0.0.1 at 2017-12-23 15:00:45 -0300
+I, [2017-12-23T15:00:45.676226 #13248]  INFO -- : [778bf188-b5e4-4374-a0ca-b46e86981033] Processing by RequestsController#test as HTML
+I, [2017-12-23T15:00:45.677111 #13248]  INFO -- : [778bf188-b5e4-4374-a0ca-b46e86981033]   Rendering requests/test.html.erb within layouts/general_view
+I, [2017-12-23T15:00:45.679703 #13248]  INFO -- : [778bf188-b5e4-4374-a0ca-b46e86981033]   Rendered requests/test.html.erb within layouts/general_view (2.4ms)
+I, [2017-12-23T15:00:45.679948 #13248]  INFO -- : [778bf188-b5e4-4374-a0ca-b46e86981033] Completed 500 Internal Server Error in 4ms
+F, [2017-12-23T15:00:45.682545 #13248] FATAL -- : [778bf188-b5e4-4374-a0ca-b46e86981033]   
+F, [2017-12-23T15:00:45.682657 #13248] FATAL -- : [778bf188-b5e4-4374-a0ca-b46e86981033] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T15:00:45.682857 #13248] FATAL -- : [778bf188-b5e4-4374-a0ca-b46e86981033]     47:   <%= form_with model: @request, url: "create/new", method: "post" do |form| %>
+[778bf188-b5e4-4374-a0ca-b46e86981033]     48: 
+[778bf188-b5e4-4374-a0ca-b46e86981033]     49:     <!-- Obtener nueva informacion del Formulario -->
+[778bf188-b5e4-4374-a0ca-b46e86981033]     50:     <h4><strong> Datos de Solicitud</strong></h4>
+[778bf188-b5e4-4374-a0ca-b46e86981033]     51:     <hr>
+[778bf188-b5e4-4374-a0ca-b46e86981033]     52: 
+[778bf188-b5e4-4374-a0ca-b46e86981033]     53:     <div class="field-center">
+F, [2017-12-23T15:00:45.682895 #13248] FATAL -- : [778bf188-b5e4-4374-a0ca-b46e86981033]   
+F, [2017-12-23T15:00:45.682933 #13248] FATAL -- : [778bf188-b5e4-4374-a0ca-b46e86981033] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb___1439523163334843588_46997727892400'
+[778bf188-b5e4-4374-a0ca-b46e86981033] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb___1439523163334843588_46997727892400'
+I, [2017-12-23T15:00:52.311550 #13248]  INFO -- : [33396e03-b19c-4e76-8520-d87d8f73296a] Started GET "/test" for 127.0.0.1 at 2017-12-23 15:00:52 -0300
+I, [2017-12-23T15:00:52.312222 #13248]  INFO -- : [33396e03-b19c-4e76-8520-d87d8f73296a] Processing by RequestsController#test as HTML
+I, [2017-12-23T15:00:52.313016 #13248]  INFO -- : [33396e03-b19c-4e76-8520-d87d8f73296a]   Rendering requests/test.html.erb within layouts/general_view
+I, [2017-12-23T15:00:52.315207 #13248]  INFO -- : [33396e03-b19c-4e76-8520-d87d8f73296a]   Rendered requests/test.html.erb within layouts/general_view (2.0ms)
+I, [2017-12-23T15:00:52.315460 #13248]  INFO -- : [33396e03-b19c-4e76-8520-d87d8f73296a] Completed 500 Internal Server Error in 3ms
+F, [2017-12-23T15:00:52.316288 #13248] FATAL -- : [33396e03-b19c-4e76-8520-d87d8f73296a]   
+F, [2017-12-23T15:00:52.316361 #13248] FATAL -- : [33396e03-b19c-4e76-8520-d87d8f73296a] ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+F, [2017-12-23T15:00:52.316529 #13248] FATAL -- : [33396e03-b19c-4e76-8520-d87d8f73296a]     47:   <%= form_with model: @request, url: "create/new", method: "post" do |form| %>
+[33396e03-b19c-4e76-8520-d87d8f73296a]     48: 
+[33396e03-b19c-4e76-8520-d87d8f73296a]     49:     <!-- Obtener nueva informacion del Formulario -->
+[33396e03-b19c-4e76-8520-d87d8f73296a]     50:     <h4><strong> Datos de Solicitud</strong></h4>
+[33396e03-b19c-4e76-8520-d87d8f73296a]     51:     <hr>
+[33396e03-b19c-4e76-8520-d87d8f73296a]     52: 
+[33396e03-b19c-4e76-8520-d87d8f73296a]     53:     <div class="field-center">
+F, [2017-12-23T15:00:52.316562 #13248] FATAL -- : [33396e03-b19c-4e76-8520-d87d8f73296a]   
+F, [2017-12-23T15:00:52.316596 #13248] FATAL -- : [33396e03-b19c-4e76-8520-d87d8f73296a] app/views/requests/test.html.erb:50:in `block in _app_views_requests_test_html_erb___1439523163334843588_46997727892400'
+[33396e03-b19c-4e76-8520-d87d8f73296a] app/views/requests/test.html.erb:47:in `_app_views_requests_test_html_erb___1439523163334843588_46997727892400'
+I, [2017-12-23T15:01:20.248420 #13326]  INFO -- : [0651f2ed-1041-4b08-99b0-bc0b2e4165c0] Started GET "/test" for 127.0.0.1 at 2017-12-23 15:01:20 -0300
+I, [2017-12-23T15:01:20.256153 #13326]  INFO -- : [0651f2ed-1041-4b08-99b0-bc0b2e4165c0] Processing by RequestsController#test as HTML
+I, [2017-12-23T15:01:20.267635 #13326]  INFO -- : [0651f2ed-1041-4b08-99b0-bc0b2e4165c0]   Rendering requests/test.html.erb within layouts/general_view
+I, [2017-12-23T15:01:20.725013 #13326]  INFO -- : [0651f2ed-1041-4b08-99b0-bc0b2e4165c0]   Rendered requests/test.html.erb within layouts/general_view (457.2ms)
+I, [2017-12-23T15:01:20.726357 #13326]  INFO -- : [0651f2ed-1041-4b08-99b0-bc0b2e4165c0] Completed 200 OK in 470ms (Views: 459.6ms)
+I, [2017-12-23T15:01:20.889622 #13326]  INFO -- : [87d5b8d2-0c79-47d7-91af-93897668f780] Started GET "/assets/display_menus.min-925e7c5ca670da0389b62cba75a6baa4c8e21c2b0a1f2ab7b9b73690f44debbb.js" for 127.0.0.1 at 2017-12-23 15:01:20 -0300
+F, [2017-12-23T15:01:20.890315 #13326] FATAL -- : [87d5b8d2-0c79-47d7-91af-93897668f780]   
+F, [2017-12-23T15:01:20.890390 #13326] FATAL -- : [87d5b8d2-0c79-47d7-91af-93897668f780] ActionController::RoutingError (No route matches [GET] "/assets/display_menus.min-925e7c5ca670da0389b62cba75a6baa4c8e21c2b0a1f2ab7b9b73690f44debbb.js"):
+F, [2017-12-23T15:01:20.890427 #13326] FATAL -- : [87d5b8d2-0c79-47d7-91af-93897668f780]   
+F, [2017-12-23T15:01:20.890467 #13326] FATAL -- : [87d5b8d2-0c79-47d7-91af-93897668f780] actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+[87d5b8d2-0c79-47d7-91af-93897668f780] railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[87d5b8d2-0c79-47d7-91af-93897668f780] activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+[87d5b8d2-0c79-47d7-91af-93897668f780] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+[87d5b8d2-0c79-47d7-91af-93897668f780] railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] railties (5.1.4) lib/rails/engine.rb:522:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+[87d5b8d2-0c79-47d7-91af-93897668f780] puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+[87d5b8d2-0c79-47d7-91af-93897668f780] puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+[87d5b8d2-0c79-47d7-91af-93897668f780] puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+[87d5b8d2-0c79-47d7-91af-93897668f780] puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
