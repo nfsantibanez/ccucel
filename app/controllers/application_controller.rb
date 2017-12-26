@@ -60,9 +60,14 @@ class ApplicationController < ActionController::Base
     return user_db
   end
 
-  # Get unique smartphones availables #without jobtitle filter
+  # Get smartphones availables for user jobtitle
   def available_smartphones
-    smartphones = 'sss'
+
+  end
+
+  # Get bams availables for user jobtitle
+  def available_bams
+
   end
 
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+</head>
+<body>
+
+  <div class="well form-horizontal">
+
+  <!-- Obtener nueva informacion del Formulario -->
+  <h4><strong> Datos de Solicitud</strong></h4>
+  <hr>
+
+  <div class="field-center">
+      <%= form.label :request, 'Equipo Seleccionado' %>
+      <%= form.text_field :request, value: 'BAM', disabled: true, class:"text-center", size: "30" %>
+  </div>
+
+
+
+  </div>
+
+</body>
+</html>

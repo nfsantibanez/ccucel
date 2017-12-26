@@ -71,9 +71,21 @@ class RequestsController < ApplicationController
     form = form_convert(params[:request_type])
 
     # Redirect to correct form
-    if form == 'new' and user != 0
+    if user != 0
+      # User data
       session[:user] = user.attributes
-      redirect_to '/requests/forms/new'
+      # selected item data
+      session[:user]["item"] = params[:request_hw]
+      # New Request
+      if form == 'new'
+        redirect_to '/requests/forms/new'
+      # Renew Request
+      elsif form == 'renew'
+        # check if selected item is owned by user
+        # item = item_verification(params[:request_hw])
+        redirect_to '/requests/forms/renew'
+      end
+
     else
       render json: {message: 'Datos Incorrectos'}
     end
@@ -83,15 +95,27 @@ class RequestsController < ApplicationController
   def new_form
     # User information in Hash
     @user = session[:user]
-    # Smartphones information in a Hash
+    # Smartphones Models available
     @smartphones = available_smartphones()
+    # Bam Models available_smartphones
+    @bam = available_bams()
+  end
+
+  # Renew Request form
+  def renew_form
+    # User information in Hash
+    @user = session[:user]
+    # Smartphones Models available
+    @smartphones = available_smartphones()
+    # Bam Models available_smartphones
+    @bam = available_bams()
   end
 
   ####################Trst Views and layouts#########################
   def test_new
     puts('nico')
   end
-
+  ####################Trst Views and layouts#########################
 
   private
     # Use callbacks to share common setup or constraints between actions.

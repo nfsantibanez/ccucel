@@ -4,6 +4,27 @@
   <title>Identifiación de Usuario y Solicitud</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+  <%= javascript_include_tag "jquery.min" %>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    // Display request types
+    $("#request").change(function(){
+        $(this).find("option:selected").each(function(){
+            var request = $(this).attr("value");
+            if(request == '1'){
+              $("#request_hw").hide()
+            }
+            else{
+              $("#request_hw").show()
+            }
+        });
+    }).change();
+  });
+  </script>
+
 </head>
 <body>
 
@@ -13,19 +34,31 @@
   <h3> Identificación de Usuario y Solicitud </h3>
   <hr>
   <%= form_with url: "validate", method: "get" do |form| %>
-   <div class="row">
-     <div class="col-md-2"></div>
-     <%= form.label :request_type, 'Seleccione Tipo de Solicitud', class: "col-md-4 text-right" %>
-     <%= form.select :request_type, [['Nuevo', 1], ['Renovación', 2], ['Pérdida', 3],
-     ['Robo', 4], ['Reparación', 5]], {}, {class: "col-md-4 text-left"} %>
-     <div class="col-md-2"></div>
-  </div>
-  <div class="row">
+   <div class="well form-horizontal">
+
+    <div id= "request" class="field-center">
+      <%= form.label :request_type, 'Seleccione Tipo de Solicitud' %>
+      <%= form.select :request_type, [['Nuevo', 1], ['Renovación', 2], ['Pérdida', 3],
+      ['Robo', 4], ['Reparación', 5]], {} %>
+    </div>
+
     <br>
-    <%= form.label :user_rut, 'Identificación de Usuario' %>
-    <%= form.text_field :user_rut, id: :request_request, placeholder: "rut ej: 17.395.384-2" %>
-  </div>
+
+    <div id= "request_hw" class="field-center">
+      <%= form.label :request_hw, 'Seleccione Equipo' %>
+      <%= form.select :request_hw, [['Smartphone', 'smartphone'], ['Sim', 'sim'], ['BAM', 'bam']], {} %>
+    </div>
+
     <br>
+
+    <div class="field-center">
+      <%= form.label :user_rut, 'Identificación de Usuario' %>
+      <%= form.text_field :user_rut, id: :request_request, placeholder: "rut ej: 17.395.384-2" %>
+    </div>
+  </div>
+
+    <br>
+
     <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
 </div>
   <% end %>

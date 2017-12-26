@@ -6,16 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
   </style>
-  <%= javascript_include_tag "display_menus.min" %>
+  <%= javascript_include_tag "jquery.min" %>
 
   <script type="text/javascript">
   $(document).ready(function(){
 
+    // Display request types
     $(".select_1").change(function(){
         $(this).find("option:selected").each(function(){
             var request = $(this).attr("value");
             var w_sim = $('input:checked[name="want_sim"]').val();
-            var w_number = $('input:checked[name="want_number"]').val();
+            var w_number = $('input:checked[name="want_new_number"]').val();
+            $('input[name="number"]').val("");
             if(request == 'smartphone'){
                 $("#models").show();
                 $("#bam_models").hide();
@@ -57,10 +59,11 @@
         });
     }).change();
 
+    // Display secondary menus
     var display_menus = function(){
       var request = $(".select_1 option:selected").attr("value");
       var w_sim = $('input:checked[name="want_sim"]').val();
-      var w_number = $('input:checked[name="want_number"]').val();
+      var w_number = $('input:checked[name="want_new_number"]').val();
       if(w_sim == 'true') {
           $("#want_number").show();
           if(w_number == 'false'){
@@ -86,9 +89,24 @@
       }
     };
 
+    // Submit Event
+    $("form").submit(function(e){
+      var phone = $.trim($('input[name="number"]').val());
+      var request = $(".select_1 option:selected").attr("value");
+      var w_sim = $('input:checked[name="want_sim"]').val();
+      var w_new_number = $('input:checked[name="want_new_number"]').val();
+
+      if((request == 'smartphone' && w_sim == 'true' && w_new_number == 'false') ||
+      (request == 'sim' && w_new_number == 'false')){
+        if( phone.length != 8 || !$.isNumeric(phone)){
+          alert('Ingrese número válido');
+          e.preventDefault(e);
+        }
+      }
+    });
+
     $('input[name="want_sim"]').change(display_menus);
-    $('input[name="want_number"]').change(display_menus);
-    //$(".select_1").change(display_menus);
+    $('input[name="want_new_number"]').change(display_menus);
 
   });
   </script>
@@ -109,10 +127,11 @@
     <hr>
 
     <div class="field-center">
-    <%= form.label :request, 'Seleccione Requerimiento' %>
+    <%= form.label :request, 'Seleccione Equipo' %>
     <%= form.select :request, [['Smartphone', 'smartphone'], ['Sim', 'sim'], ['BAM', 'bam']], {},
     { :class => 'select_1' } %>
     </div>
+
     <br>
 
     <div id= "models" class="field-center">
@@ -122,7 +141,7 @@
 
     <div id= "bam_models" class="field-center">
     <%= form.label :bam_model, 'Seleccione Modelo BAM' %>
-    <%= form.select :bam_model, [['Huaewi E5573', 1], [ 'Huaewi E8372', 2]], {} %>
+    <%= form.select :bam_model, [['Huawei E5573', 1], [ 'Huawei E8372', 2]], {} %>
     </div>
 
     <br>
@@ -133,21 +152,27 @@
     :item_wrapper_class => 'inline', checked: true%>
     </div>
 
+    <br>
+
     <div id= "want_number" class="field-center">
-    <%= form.label :want_number, 'Desea un número nuevo?'%>
-    <%= form.collection_radio_buttons :want_number, [[true, 'Si'], [false, 'No, quiero portar un numero']], :first, :last,
+    <%= form.label :want_new_number, 'Desea un número nuevo?'%>
+    <%= form.collection_radio_buttons :want_new_number, [[true, 'Si'], [false, 'No, quiero portar un numero']], :first, :last,
     :item_wrapper_class => 'inline', checked: true%>
     </div>
 
+    <br>
+
     <div id= "number" class="field-center">
     <%= form.label :number, 'Ingrese Número: +56 9' %>
-    <%= form.text_field :number %>
+    <%= form.text_field :number%>
     </div>
 
     </div>
     <br>
     <!-- Enviar Formulario -->
+    <div id= "submit" >
     <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
+    </div>
   <% end %>
 
 </div>
