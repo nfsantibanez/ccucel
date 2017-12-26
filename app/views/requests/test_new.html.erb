@@ -13,34 +13,82 @@
 
     $(".select_1").change(function(){
         $(this).find("option:selected").each(function(){
-            var optionValue = $(this).attr("value");
-            if(optionValue){
-                $(".box").not("." + optionValue).hide();
-                $("." + optionValue).show();
-            } else{
-                $(".box").hide();
+            var request = $(this).attr("value");
+            var w_sim = $('input:checked[name="want_sim"]').val();
+            var w_number = $('input:checked[name="want_number"]').val();
+            if(request == 'smartphone'){
+                $("#models").show();
+                $("#bam_models").hide();
+                $("#want_sim").show();
+                if(w_sim == 'true'){
+                  $("#want_number").show();
+                  if(w_number == 'false'){
+                      $("#number").show();
+                  }
+                  else{
+                      $("#number").hide();
+                  }
+                }
+                else{
+                  $("#want_number").hide();
+                  $("#number").hide();
+                }
+            }
+            else if(request == 'sim'){
+              $("#models").hide();
+              $("#bam_models").hide();
+              $("#want_sim").hide();
+              $("#want_number").show();
+              if(w_number == 'false'){
+                  $("#number").show();
+              }
+              else{
+                  $("#number").hide();
+              }
+            }
+
+            else{
+                $("#models").hide();
+                $("#want_sim").hide();
+                $("#want_number").hide();
+                $("#number").hide();
+                $("#bam_models").show();
             }
         });
     }).change();
 
-    $('input[name="want_sim"]').change(function() {
-      var selected = $('input:checked[name="want_sim"]').val();
-      if(selected == 'true') {
-          $(".want_number").show();
-      } else if(selected == 'false'){
-          $(".want_number").hide();
+    var display_menus = function(){
+      var request = $(".select_1 option:selected").attr("value");
+      var w_sim = $('input:checked[name="want_sim"]').val();
+      var w_number = $('input:checked[name="want_number"]').val();
+      if(w_sim == 'true') {
+          $("#want_number").show();
+          if(w_number == 'false'){
+              $("#number").show();
+          }
+          else{
+              $("#number").hide();
+          }
       }
-    }).change();
-
-    $('input[name="want_number"]').change(function() {
-      var selected = $('input:checked[name="want_number"]').val();
-      if(selected == 'false') {
-          $("#number").show();
-      } else if(selected == 'true') {
+      else if(w_sim == 'false'){
+        if (request != 'sim'){
+          $("#want_number").hide();
           $("#number").hide();
+        }
+        else{
+          if(w_number == 'false'){
+              $("#number").show();
+          }
+          else{
+              $("#number").hide();
+          }
+        }
       }
-    }).change();
+    };
 
+    $('input[name="want_sim"]').change(display_menus);
+    $('input[name="want_number"]').change(display_menus);
+    //$(".select_1").change(display_menus);
 
   });
   </script>
@@ -62,40 +110,39 @@
 
     <div class="field-center">
     <%= form.label :request, 'Seleccione Requerimiento' %>
-    <%= form.select :request, [['Smartphone', 1], ['Sim', 2], ['BAM', 3]], {},
+    <%= form.select :request, [['Smartphone', 'smartphone'], ['Sim', 'sim'], ['BAM', 'bam']], {},
     { :class => 'select_1' } %>
     </div>
     <br>
 
-    <div class="field-center 1 box">
+    <div id= "models" class="field-center">
     <%= form.label :model, 'Seleccione Modelo Smartphone' %>
-    <%= form.select :model, [['Galaxy J7', 1], ['Galaxy S5', 2], ['Iphone 6s', 3], ['Iphone X', 4]], {}, {onChange: puts('cambios')} %>
+    <%= form.select :model, [['Galaxy J7', 1], ['Galaxy S5', 2], ['Iphone 6s', 3], ['Iphone X', 4]], {} %>
     </div>
+
+    <div id= "bam_models" class="field-center">
+    <%= form.label :bam_model, 'Seleccione Modelo BAM' %>
+    <%= form.select :bam_model, [['Huaewi E5573', 1], [ 'Huaewi E8372', 2]], {} %>
+    </div>
+
     <br>
-    <div class="field-center 1 box">
+
+    <div id= "want_sim" class="field-center">
     <%= form.label :want_sim, 'Desea Incluir Tarjeta Sim?' %>
     <%= form.collection_radio_buttons :want_sim, [[true, 'Si'], [false, 'No']], :first, :last,
     :item_wrapper_class => 'inline', checked: true%>
     </div>
 
-    <div class="field-center 1 box 2 box want_number">
+    <div id= "want_number" class="field-center">
     <%= form.label :want_number, 'Desea un número nuevo?'%>
     <%= form.collection_radio_buttons :want_number, [[true, 'Si'], [false, 'No, quiero portar un numero']], :first, :last,
     :item_wrapper_class => 'inline', checked: true%>
     </div>
 
-    <div id= "number" class="field-center 1 box 2 box want_number">
+    <div id= "number" class="field-center">
     <%= form.label :number, 'Ingrese Número: +56 9' %>
     <%= form.text_field :number %>
     </div>
-
-    <br>
-
-    <div class="field-center 3 box">
-    <%= form.label :request_type, 'Seleccione Modelo BAM' %>
-    </div>
-
-
 
     </div>
     <br>
