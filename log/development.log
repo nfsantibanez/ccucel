@@ -32206,3 +32206,288 @@ Processing by RequestsController#new_form as HTML
 Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (11.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (35.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (9.2ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (10.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (14.1ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (11.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (16.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (233.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (12.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Migrating to CreatePlans (20171227194658)
+  [1m[35m (81.8ms)[0m  [1m[35mDROP TABLE "PLANS"[0m
+  [1m[35m (14.8ms)[0m  [1m[35mDROP SEQUENCE "PLANS_SEQ"[0m
+  [1m[35mSQL (12.7ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171227194658"]]
+Migrating to CreateUserRecords (20171221132708)
+  [1m[35m (67.4ms)[0m  [1m[35mDROP TABLE "USER_RECORDS"[0m
+  [1m[35m (18.0ms)[0m  [1m[35mDROP SEQUENCE "USER_RECORDS_SEQ"[0m
+  [1m[35mSQL (15.6ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132708"]]
+Migrating to CreateSmartphones (20171221132707)
+  [1m[35m (324.0ms)[0m  [1m[35mDROP TABLE "SMARTPHONES"[0m
+  [1m[35m (11.3ms)[0m  [1m[35mDROP SEQUENCE "SMARTPHONES_SEQ"[0m
+  [1m[35mSQL (5.2ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132707"]]
+Migrating to CreateBams (20171221132706)
+  [1m[35m (83.1ms)[0m  [1m[35mDROP TABLE "BAMS"[0m
+  [1m[35m (10.0ms)[0m  [1m[35mDROP SEQUENCE "BAMS_SEQ"[0m
+  [1m[35mSQL (6.0ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132706"]]
+Migrating to CreateRequests (20171221132705)
+  [1m[35m (64.6ms)[0m  [1m[35mDROP TABLE "REQUESTS"[0m
+  [1m[35m (10.7ms)[0m  [1m[35mDROP SEQUENCE "REQUESTS_SEQ"[0m
+  [1m[35mSQL (7.2ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132705"]]
+Migrating to CreateSims (20171221132704)
+  [1m[35m (69.9ms)[0m  [1m[35mDROP TABLE "SIMS"[0m
+  [1m[35m (11.9ms)[0m  [1m[35mDROP SEQUENCE "SIMS_SEQ"[0m
+  [1m[35mSQL (7.2ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132704"]]
+Migrating to CreateUsers (20171221132703)
+  [1m[35m (96.7ms)[0m  [1m[35mDROP TABLE "USERS"[0m
+  [1m[35m (11.5ms)[0m  [1m[35mDROP SEQUENCE "USERS_SEQ"[0m
+  [1m[35mSQL (9.5ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132703"]]
+  [1m[35m (8.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.1ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (12.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (40.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (13.7ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (9.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Migrating to CreateUsers (20171221132703)
+  [1m[35m (67.3ms)[0m  [1m[35mCREATE TABLE "USERS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "NATIONAL_ID" VARCHAR2(255) NOT NULL, "NAME" VARCHAR2(255) NOT NULL, "LAST_NAME" VARCHAR2(255) NOT NULL, "EMAIL" VARCHAR2(255) NOT NULL, "NID_COUNTRY" VARCHAR2(255) NOT NULL, "JOBTITLE" VARCHAR2(255) NOT NULL, "COMPANY" VARCHAR2(255) NOT NULL, "SUPERVISOR" VARCHAR2(255) NOT NULL, "SUPERVISOR_EMAIL" VARCHAR2(255) NOT NULL, "JOBCODE" VARCHAR2(255) NOT NULL, "LOCATION" VARCHAR2(255) NOT NULL, "DEPTNAME" VARCHAR2(255) NOT NULL, "BUSINESS_UNIT" VARCHAR2(255), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE SEQUENCE "USERS_SEQ" START WITH 10000[0m
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132703"]]
+Migrating to CreateSims (20171221132704)
+  [1m[35m (41.3ms)[0m  [1m[35mCREATE TABLE "SIMS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "PHONE_NUMBER" NUMBER(38) NOT NULL, "SERIAL_NUMBER" NUMBER(38), "COUNTRY" VARCHAR2(255) NOT NULL, "LAST_OWNER" VARCHAR2(255) DEFAULT 'first owner' NOT NULL, "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "LAST_ASSIGN_AT" TIMESTAMP DEFAULT '2017-12-27 21:20:11.709223' NOT NULL, "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE SEQUENCE "SIMS_SEQ" START WITH 10000[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132704"]]
+Migrating to CreateRequests (20171221132705)
+  [1m[35m (28.5ms)[0m  [1m[35mCREATE TABLE "REQUESTS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "REQUEST" VARCHAR2(255) NOT NULL, "ITEM" VARCHAR2(255) NOT NULL, "MODEL" VARCHAR2(255) DEFAULT 'default' NOT NULL, "PLAN" VARCHAR2(255) DEFAULT 'default' NOT NULL, "CONTRACT" BLOB, "FILE" BLOB, "STATUS" VARCHAR2(255) DEFAULT 'created' NOT NULL, "COMMENT" VARCHAR2(255), "CLOSED_AT" TIMESTAMP, "USER_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_8EAD8B1E6B"
+FOREIGN KEY ("USER_ID")
+  REFERENCES "USERS" ("ID")
+)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE SEQUENCE "REQUESTS_SEQ" START WITH 10000[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.6ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'REQUESTS'
+               AND i.index_name = 'INDEX_REQUESTS_ON_USER_ID'
+[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE  INDEX "INDEX_REQUESTS_ON_USER_ID" ON "REQUESTS" ("USER_ID") [0m
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132705"]]
+Migrating to CreateBams (20171221132706)
+  [1m[35m (33.7ms)[0m  [1m[35mCREATE TABLE "BAMS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "MODEL" VARCHAR2(255) NOT NULL, "CODE" VARCHAR2(255) NOT NULL, "COUNTRY" VARCHAR2(255) NOT NULL, "LAST_OWNER" VARCHAR2(255) DEFAULT 'first owner' NOT NULL, "IMEI" VARCHAR2(255) NOT NULL, "PRICE" NUMBER(38) NOT NULL, "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "RENOVATION_AT" TIMESTAMP DEFAULT '2019-12-27 21:20:11.839267' NOT NULL, "LAST_ASSIGN_AT" TIMESTAMP DEFAULT '2017-12-27 21:20:11.839548' NOT NULL, "SIM_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_D300ACFE61"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+)[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE SEQUENCE "BAMS_SEQ" START WITH 10000[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.5ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'BAMS'
+               AND i.index_name = 'INDEX_BAMS_ON_SIM_ID'
+[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE  INDEX "INDEX_BAMS_ON_SIM_ID" ON "BAMS" ("SIM_ID") [0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132706"]]
+Migrating to CreateSmartphones (20171221132707)
+  [1m[35m (38.7ms)[0m  [1m[35mCREATE TABLE "SMARTPHONES" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "MODEL" VARCHAR2(255) NOT NULL, "CODE" VARCHAR2(255) NOT NULL, "CATEGORY" VARCHAR2(255) NOT NULL, "COUNTRY" VARCHAR2(255) NOT NULL, "LAST_OWNER" VARCHAR2(255) DEFAULT 'first owner' NOT NULL, "IMEI" VARCHAR2(255) NOT NULL, "PRICE" NUMBER(38) NOT NULL, "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "RENOVATION_AT" TIMESTAMP DEFAULT '2019-12-27 21:20:11.914563' NOT NULL, "LAST_ASSIGN_AT" TIMESTAMP DEFAULT '2017-12-27 21:20:11.914745' NOT NULL, "SIM_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_0BAC5A798A"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+)[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE SEQUENCE "SMARTPHONES_SEQ" START WITH 10000[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (4.4ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'SMARTPHONES'
+               AND i.index_name = 'INDEX_SMARTPHONES_ON_SIM_ID'
+[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE  INDEX "INDEX_SMARTPHONES_ON_SIM_ID" ON "SMARTPHONES" ("SIM_ID") [0m
+  [1m[35mSQL (3.1ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132707"]]
+Migrating to CreateUserRecords (20171221132708)
+  [1m[35m (25.3ms)[0m  [1m[35mCREATE TABLE "USER_RECORDS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "SMARTPHONE_ID" NUMBER(19), "SIM_ID" NUMBER(19), "BAM_ID" NUMBER(19), "USER_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_AFF0319B64"
+FOREIGN KEY ("SMARTPHONE_ID")
+  REFERENCES "SMARTPHONES" ("ID")
+, CONSTRAINT "FK_RAILS_D53DF9C69C"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+, CONSTRAINT "FK_RAILS_67BB80AF19"
+FOREIGN KEY ("BAM_ID")
+  REFERENCES "BAMS" ("ID")
+, CONSTRAINT "FK_RAILS_7583AC5F75"
+FOREIGN KEY ("USER_ID")
+  REFERENCES "USERS" ("ID")
+)[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE SEQUENCE "USER_RECORDS_SEQ" START WITH 10000[0m
+OracleEnhanced shortened default index name index_user_records_on_smartphone_id to i_user_records_smartphone_id
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.9ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'I_USER_RECORDS_SMARTPHONE_ID'
+[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE  INDEX "I_USER_RECORDS_SMARTPHONE_ID" ON "USER_RECORDS" ("SMARTPHONE_ID") [0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.8ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'INDEX_USER_RECORDS_ON_SIM_ID'
+[0m
+  [1m[35m (57.0ms)[0m  [1m[35mCREATE  INDEX "INDEX_USER_RECORDS_ON_SIM_ID" ON "USER_RECORDS" ("SIM_ID") [0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.9ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'INDEX_USER_RECORDS_ON_BAM_ID'
+[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE  INDEX "INDEX_USER_RECORDS_ON_BAM_ID" ON "USER_RECORDS" ("BAM_ID") [0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.9ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'INDEX_USER_RECORDS_ON_USER_ID'
+[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE  INDEX "INDEX_USER_RECORDS_ON_USER_ID" ON "USER_RECORDS" ("USER_ID") [0m
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132708"]]
+Migrating to CreatePlans (20171227194658)
+  [1m[35m (18.2ms)[0m  [1m[35mCREATE TABLE "PLANS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "ITEM" VARCHAR2(255) NOT NULL, "NAME" VARCHAR2(255) NOT NULL, "PRICE" NUMBER(38) NOT NULL, "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE SEQUENCE "PLANS_SEQ" START WITH 10000[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171227194658"]]
+  [1m[35m (13.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'AR_INTERNAL_METADATA' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.4ms)[0m  [1m[34mSELECT  "AR_INTERNAL_METADATA".* FROM "AR_INTERNAL_METADATA" WHERE "AR_INTERNAL_METADATA"."KEY" = :a1 AND ROWNUM <= :a2 [0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT LOWER(mview_name) FROM all_mviews WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (41.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'BAMS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mPrimary Keys (4.8ms)[0m  [1m[34mSELECT cc.column_name
+  FROM all_constraints c, all_cons_columns cc
+ WHERE c.owner = 'SYSADM'
+   AND c.table_name = 'BAMS'
+   AND c.constraint_type = 'P'
+   AND cc.owner = c.owner
+   AND cc.constraint_name = c.constraint_name
+   order by cc.position
+[0m
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT temporary FROM all_tables WHERE table_name = 'BAMS' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (3.9ms)[0m  [1m[34m            SELECT comments FROM all_tab_comments
+            WHERE owner = 'SYSADM'
+              AND table_name = 'BAMS'
+[0m
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT LOWER(default_tablespace) FROM user_users WHERE username = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (6.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (9.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-12-27 18:24:58 -0300
+  [1m[35m (14.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (33.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (11.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.6ms)
+Completed 200 OK in 232ms (Views: 222.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-27 18:25:04 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (16.2ms)
+Completed 200 OK in 21ms (Views: 20.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-27 18:25:57 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (3.1ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&request_hw=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-27 18:26:04 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "request_hw"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (7.8ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (252.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (15.9ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (691.2ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (9.1ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (10.3ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Exists (10.3ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ROWNUM <= :a2 [0m  [["email", "OsRein@ccu.cl"], ["LIMIT", 1]]
+  [1m[36mCACHE Sequence (0.0ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mCACHE Primary Key (0.0ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mPrimary Key Trigger (9.1ms)[0m  [1m[34m          SELECT trigger_name
+          FROM all_triggers
+          WHERE owner = 'SYSADM'
+            AND trigger_name = q'[USERS_PKT]'
+            AND table_owner = 'SYSADM'
+            AND table_name = q'[USERS]'
+            AND status = 'ENABLED'
+[0m
+  [1m[35mSQL (22.2ms)[0m  [1m[32mINSERT INTO "USERS" ("NATIONAL_ID", "NAME", "LAST_NAME", "EMAIL", "NID_COUNTRY", "JOBTITLE", "COMPANY", "SUPERVISOR", "SUPERVISOR_EMAIL", "JOBCODE", "LOCATION", "DEPTNAME", "BUSINESS_UNIT", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10, :a11, :a12, :a13, :a14, :a15, :a16)[0m  [["national_id", "10021284-6"], ["name", "Oscar Segundo"], ["last_name", "Reinoso Marin"], ["email", "OsRein@ccu.cl"], ["nid_country", "CHL"], ["jobtitle", "OPERADOR MANTENEDOR"], ["company", "23"], ["supervisor", "17754026-9"], ["supervisor_email", "17754026-9@ccu.cl"], ["jobcode", "101000"], ["location", "30_CERV"], ["deptname", "P29 Envasado Cerveza Linea5"], ["business_unit", "EMP23"], ["created_at", "2017-12-27 21:26:08.220440"], ["updated_at", "2017-12-27 21:26:08.220440"], ["id", 10000]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 4136ms (ActiveRecord: 2788.8ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-27 18:26:08 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (75.1ms)
+Completed 200 OK in 82ms (Views: 80.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-27 18:26:43 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.3ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-27 18:27:06 -0300
+  [1m[35m (13.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (43.7ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (16.0ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (11.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (324.5ms)
+Completed 200 OK in 344ms (Views: 333.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-27 18:27:33 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.3ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-27 18:29:28 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.6ms)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-27 18:30:09 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-27 18:30:10 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.8ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+

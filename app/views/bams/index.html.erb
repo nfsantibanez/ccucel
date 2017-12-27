@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Model</th>
+      <th>Code</th>
       <th>Country</th>
       <th>Last owner</th>
       <th>Imei</th>
@@ -23,6 +24,7 @@
     <% @bams.each do |bam| %>
       <tr>
         <td><%= bam.model %></td>
+        <td><%= bam.code %></td>
         <td><%= bam.country %></td>
         <td><%= bam.last_owner %></td>
         <td><%= bam.imei %></td>

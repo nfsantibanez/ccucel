@@ -32,7 +32,7 @@
 
     <div class="field-center">
       <%= form.label :request, 'Seleccione Equipo' %>
-      <%= form.select :request, [['Smartphone', 'smartphone'], ['Sim', 'sim'], ['BAM', 'bam']], {},
+      <%= form.select :request, [['Smartphone', 'smartphone'], ['Sim', 'sim'], ['BAM', 'bam'], ['Roaming', 'roaming']], {},
     { :class => 'select_1' } %>
     </div>
 
@@ -69,6 +69,9 @@
     <div id= "number" class="field-center">
       <%= form.label :number, 'Ingrese Número: +56 9' %>
       <%= form.text_field :number %>
+
+      <p>
+
       <div class="alert alert-danger">Número ingresado no debe estar asociado a un contrato
         vigente con una compañía de telefonía móvi, a menos que sea la misma compañía que le
       presta servicios de telefonía a CCU en su país</div>
