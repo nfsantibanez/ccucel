@@ -4,6 +4,7 @@ class Smartphone < ApplicationRecord
 
   # Validations
   validates :model, presence: true, allow_blank: false
+  validates :category, presence: true, allow_blank: false
   validates :imei, presence: true, allow_blank: false, length: { in: 14..16 }, uniqueness: true
   validates :price, presence: true, allow_blank: false
   validates :state, presence: true, allow_blank: false
@@ -14,8 +15,8 @@ class Smartphone < ApplicationRecord
   private
 
   def valid_state
-   if state != 'new' && state != 'used'
-     errors.add(:state, 'invalid request field, must be: new or used')
+   if state != 'new' && state != 'used' && state != 'catalog'
+     errors.add(:state, 'invalid request field, must be: new, used or catalog')
    end
   end
 
@@ -25,5 +26,5 @@ class Smartphone < ApplicationRecord
      errors.add(:request, 'invalid category field')
    end
   end
-  
+
 end

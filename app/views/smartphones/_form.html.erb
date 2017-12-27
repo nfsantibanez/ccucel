@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :smartphone_country %>
+  </div>
+
+  <div class="field">
     <%= form.label :last_owner %>
     <%= form.text_field :last_owner, id: :smartphone_last_owner %>
   </div>
@@ -44,6 +49,11 @@
   <div class="field">
     <%= form.label :available %>
     <%= form.check_box :available, id: :smartphone_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :renovation_at %>
+    <%= form.datetime_select :renovation_at, id: :smartphone_renovation_at %>
   </div>
 
   <div class="field">

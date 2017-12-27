@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Phone number</th>
+      <th>Serial number</th>
+      <th>Country</th>
       <th>Last owner</th>
       <th>State</th>
       <th>Available</th>
@@ -18,6 +20,8 @@
     <% @sims.each do |sim| %>
       <tr>
         <td><%= sim.phone_number %></td>
+        <td><%= sim.serial_number %></td>
+        <td><%= sim.country %></td>
         <td><%= sim.last_owner %></td>
         <td><%= sim.state %></td>
         <td><%= sim.available %></td>

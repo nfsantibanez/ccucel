@@ -3,9 +3,11 @@ class Request < ApplicationRecord
 
   # Validations
   validates :request, presence: true, allow_blank: false
-  validates :state, presence: true, allow_blank: false
+  validates :item, presence: true, allow_blank: false
   validates :status, presence: true, allow_blank: false
-  validate :valid_state
+  validates :model, presence: true, allow_blank: false
+  validates :plan, presence: true, allow_blank: false
+  validate :valid_item
   validate :valid_request
   validate :valid_status, on: :update
   # Revisar cuando debo validar que exista un contrato adjunto
@@ -14,16 +16,16 @@ class Request < ApplicationRecord
 
   private
 
-  def valid_state
-    if state != 'new' && state != 'renew' && state != 'lost' && state != 'stolen' &&
+  def valid_request
+    if state != 'new' && state != 'renew' && state != 'stolen/lost' &&
       state != 'technical service'
       errors.add(:state, 'invalid state field, must be: new, renew, lost, stolen or technical service')
     end
   end
 
-  def valid_request
-    if request != 'bam' && request != 'sim' && request != 'smartphone'
-      errors.add(:request, 'invalid request field, must be: sim, bam or smartphone')
+  def valid_item
+    if request != 'bam' && request != 'sim' && request != 'smartphone'  && request != 'roaming'
+      errors.add(:request, 'invalid request field, must be: sim, bam, smartphone or roaming')
     end
   end
 

@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   def rut_verification(rut)
     rut.strip!
     rut.delete!(".")
-    # if !rut.include?("-") then rut.insert(-2,"-") unless rut.empty? end
 
     # Query to CCU DB
     query_1 = "select * from sysadm.ps_v88rh_emplee_vw where "
@@ -29,10 +28,8 @@ class ApplicationController < ActionController::Base
     elsif  type == "2"
       return 'renew'
     elsif  type == "3"
-      return 'lost'
+      return 'stolen/lost'
     elsif  type == "4"
-      return 'stolen'
-    elsif  type == "5"
       return 'technical service'
     else
       return 0
@@ -45,17 +42,18 @@ class ApplicationController < ActionController::Base
     name = user["NAME"].split(",")[0]
     last_name = user["NAME"].split(",")[1]
     # save or update user info
-    if !User.where(rut: user["NATIONAL_ID"]).empty?
-      user_db = User.where(rut: user["NATIONAL_ID"]).first
+    if !User.where(national_id: user["NATIONAL_ID"]).empty?
+      user_db = User.where(national_id: user["NATIONAL_ID"]).first
       user_db.update_attributes!(jobtitle: user["JOBTITLE"], company: user["COMPANY"],
         deptname: user["DEPTNAME"], business_unit: user["BUSINESS_UNIT"],
         jobcode: user["JOBCODE"], location: user["LOCATION"], supervisor: user["SUPERVISOR_ID"],
-        supervisor_email: user["SUPERVISOR_ID"]+'@ccu.cl')
+        supervisor_email: user["SUPERVISOR_ID"]+'@ccu.cl', nid_country: user["NID_COUNTRY"])
     else
       user_db = User.create!(name: name, last_name: last_name, email: name[0..1]+last_name[0..3]+'@ccu.cl',
-        rut: user["NATIONAL_ID"], jobtitle: user["JOBTITLE"], company: user["COMPANY"],
+        national_id: user["NATIONAL_ID"], jobtitle: user["JOBTITLE"], company: user["COMPANY"],
         deptname: user["DEPTNAME"], business_unit: user["BUSINESS_UNIT"], jobcode: user["JOBCODE"],
-        location: user["LOCATION"], supervisor: user["SUPERVISOR_ID"], supervisor_email: user["SUPERVISOR_ID"]+'@ccu.cl')
+        location: user["LOCATION"], supervisor: user["SUPERVISOR_ID"],
+        supervisor_email: user["SUPERVISOR_ID"]+'@ccu.cl', nid_country: user["NID_COUNTRY"])
     end
     return user_db
   end

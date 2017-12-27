@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   # Validations
   validates :name, presence: true, allow_blank: false
-  validates :rut, presence: true, allow_blank: false
+  validates :national_id, presence: true, allow_blank: false
   validates :jobtitle, presence: true, allow_blank: false
   validates :email, presence: true, uniqueness: true, allow_blank: false,
   email_format: { message: 'Invalid email format' }
@@ -12,5 +12,6 @@ class User < ApplicationRecord
   validates :supervisor_email, presence: true, allow_blank: false,
   email_format: { message: 'Invalid email format' }
   validates :deptname, presence: true, allow_blank: false
+  validates :nid_country, presence: true, allow_black: false
 
 end

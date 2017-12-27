@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Rut</th>
+      <th>National id</th>
       <th>Name</th>
       <th>Last name</th>
       <th>Email</th>
@@ -24,7 +24,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.rut %></td>
+        <td><%= user.national_id %></td>
         <td><%= user.name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>

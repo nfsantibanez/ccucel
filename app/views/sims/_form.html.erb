@@ -17,6 +17,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :serial_number %>
+    <%= form.number_field :serial_number, id: :sim_serial_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.number_field :country, id: :sim_country %>
+  </div>
+
+  <div class="field">
     <%= form.label :last_owner %>
     <%= form.text_field :last_owner, id: :sim_last_owner %>
   </div>

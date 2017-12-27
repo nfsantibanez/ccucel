@@ -13,8 +13,8 @@ class Bam < ApplicationRecord
   private
 
   def valid_state
-   if state != 'new' && state != 'used'
-     errors.add(:state, 'invalid request field, must be: new or used')
+   if state != 'new' && state != 'used' && state != 'catalog'
+     errors.add(:state, 'invalid request field, must be: new, used or catalog')
    end
   end
 

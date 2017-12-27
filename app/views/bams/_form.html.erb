@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :bam_country %>
+  </div>
+
+  <div class="field">
     <%= form.label :last_owner %>
     <%= form.text_field :last_owner, id: :bam_last_owner %>
   </div>
@@ -39,6 +44,11 @@
   <div class="field">
     <%= form.label :available %>
     <%= form.check_box :available, id: :bam_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :renovation_at %>
+    <%= form.text_field :renovation_at, id: :bam_renovation_at %>
   </div>
 
   <div class="field">
