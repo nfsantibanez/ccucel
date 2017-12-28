@@ -2,7 +2,7 @@
   <% if request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
-
+      <%= puts(params) %>
       <ul>
       <% request.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -25,7 +25,7 @@
     <%= form.label :model %>
     <%= form.text_field :model, id: :request_model %>
   </div>
-  
+
   <div class="field">
     <%= form.label :plan %>
     <%= form.text_field :plan, id: :request_plan %>

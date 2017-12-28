@@ -32,6 +32,11 @@
     </div>
 
     <div class="field-center">
+        <%= form.label :nid_country, 'Country' %>
+        <%= form.text_field :nid_country, value: @user["nid_country"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
         <%= form.label :jobtitle, 'Job Title' %>
         <%= form.text_field :jobtitle, value: @user["jobtitle"], disabled: true, class:"text-center", size: "30" %>
     </div>

@@ -68,13 +68,14 @@ class RequestsController < ApplicationController
   def validate_user
     #Validate rut and form
     user = rut_verification(params[:user_rut])
-    form = form_convert(params[:request_type])
+    form = params[:request_type]
 
     # Redirect to correct form
     if user != 0
       # User data
       session[:user] = user.attributes
-      # selected item data
+      # selected request and item data
+      session[:user]["request"] = params[:request_type]
       session[:user]["item"] = params[:request_hw]
       # New Request
       if form == 'new'

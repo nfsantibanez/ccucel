@@ -5,6 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    .text_area * {
+    vertical-align: middle;
+    }
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 1400px}
   </style>
   <%= javascript_include_tag "jquery.min" %>
   <%= javascript_include_tag "display_new" %>
@@ -25,48 +30,45 @@
     </div>
     <div class="well form-horizontal">
       <%= form.hidden_field :user_id, value: @user["id"] %>
-
+      <%= form.hidden_field :request, value: @user["request"] %>
     <!-- Obtener nueva informacion del Formulario -->
     <h4><strong> Datos de Solicitud</strong></h4>
     <hr>
 
     <div class="field-center">
-      <%= form.label :request, 'Seleccione Equipo' %>
-      <%= form.select :request, [['Smartphone', 'smartphone'], ['Sim', 'sim'], ['BAM', 'bam'], ['Roaming', 'roaming']], {},
+      <%= form.label :item, 'Seleccione Equipo/Servicio' %>
+      <%= form.select :item, [['Smartphone', 'smartphone'], ['Sim', 'sim'], ['BAM', 'bam'], ['Roaming', 'roaming']], {},
     { :class => 'select_1' } %>
     </div>
 
-    <br>
-
     <div id= "models" class="field-center">
+      <br>
       <%= form.label :model, 'Seleccione Modelo Smartphone' %>
       <%= form.select :model, [['Galaxy J7', 1], ['Galaxy S5', 2], ['Iphone 6s', 3], ['Iphone X', 4]], {} %>
     </div>
 
     <div id= "bam_models" class="field-center">
-      <%= form.label :bam_model, 'Seleccione Modelo BAM' %>
-      <%= form.select :bam_model, [['Huawei E5573', 1], ['Huawei E8372', 2]], {} %>
+      <br>
+      <%= form.label :model, 'Seleccione Modelo BAM' %>
+      <%= form.select :model, [['Huawei E5573', 1], ['Huawei E8372', 2]], {} %>
     </div>
 
-    <br>
-
     <div id= "want_sim" class="field-center">
+      <br>
       <%= form.label :want_sim, 'Desea Incluir Tarjeta Sim?' %>
       <%= form.collection_radio_buttons :want_sim, [[true, 'Si'], [false, 'No']], :first, :last,
     :item_wrapper_class => 'inline', checked: true%>
     </div>
 
-    <br>
-
     <div id= "want_number" class="field-center">
+      <br>
       <%= form.label :want_new_number, 'Desea un número nuevo?'%>
       <%= form.collection_radio_buttons :want_new_number, [['true', 'Si'], ['false', 'No, quiero portar un numero']], :first, :last,
     :item_wrapper_class => 'inline', checked: true%>
     </div>
 
-    <br>
-
     <div id= "number" class="field-center">
+      <br>
       <%= form.label :number, 'Ingrese Número: +56 9' %>
       <%= form.text_field :number %>
 
@@ -76,6 +78,135 @@
         vigente con una compañía de telefonía móvi, a menos que sea la misma compañía que le
       presta servicios de telefonía a CCU en su país</div>
     </div>
+
+    <div class="field-center roaming">
+      <br>
+      <%= form.label :start_date, 'Fecha Inicio viaje' %>
+      <%= form.date_field :start_date %>
+    </div>
+
+    <div class="field-center roaming">
+      <br>
+      <%= form.label :end_date, 'Fecha Término viaje' %>
+      <%= form.date_field :end_date %>
+    </div>
+
+    <div class="field-center roaming text_area">
+      <br>
+      <%= form.label :comment, 'Motivo Viaje' %>
+      <%= text_area_tag :comment, nil, :rows => 4, :cols => 25 %>
+    </div>
+
+    <div id= "region" class="field-center roaming">
+      <br>
+      <%= form.label :region, 'Seleccione Región de destino' %>
+      <%= form.select :region, [['Sudamérica', 'sudamerica'], ['Centroamérica', 'centroamerica'],
+      ['Norteamérica', 'norteamerica'], ['Europa', 'europa'], ['Oceanía', 'oceania'],
+      ['Asia', 'asia'], ['África', 'africa']], {} %>
+    </div>
+
+    <div id= "sudamerica" class="field-center roaming_country">
+      <br>
+      <%= form.label :country, 'Seleccione País de destino' %>
+      <%= form.select :country, [['Argentina', 'argentina'], ['Bolivia', 'bolivia'],
+      ['Brasil', 'brasil'], ['Colombia', 'colombia'], ['Ecuador', 'ecuador'],
+      ['Paraguay', 'paraguay'], ['Perú', 'peru'] , ['Uruguay', 'uruguay'], ['Otro', 'otro']], {} %>
+    </div>
+
+    <div id= "centroamerica" class="field-center roaming_country">
+      <br>
+      <%= form.label :country, 'Seleccione País de destino' %>
+      <%= form.select :country, [['Costa Rica', 'costa rica'], ['El Salvador', 'el salvador'],
+      ['Guatemala', 'guatemala'], ['Honduras', 'honduras'], ['México', 'mexico'],
+      ['Nicaragua', 'nicaragua'], ['Panamá', 'panama'] , ['Puerto Rico', 'puerto rico'],
+      ['Otro', 'otro']], {} %>
+    </div>
+
+    <div id= "norteamerica" class="field-center roaming_country">
+      <br>
+      <%= form.label :country, 'Seleccione País de destino' %>
+      <%= form.select :country, [['Estados Unidos', 'estados unidos'], ['Canadá', 'canada'],
+      ['Otro', 'otro']], {} %>
+    </div>
+
+    <div id= "europa" class="field-center roaming_country">
+      <br>
+      <%= form.label :country, 'Seleccione País de destino' %>
+      <%= form.select :country, [['Albania', 'albania'], ['Alemania', 'alemania'],
+      ['Austria', 'austria'], ['Bélgica', 'belgica'], ['Croacia', 'croacia'],
+      ['Dinamarca', 'dinamarca'], ['Escocia', 'escocia'] , ['Eslovaquia', 'eslovaquia'],
+      ['España', 'españa'], ['Estonia', 'estonia'], ['Finlandia', 'finlandia'],
+      ['Francia', 'francia'], ['Gales', 'gales'], ['Grecia', 'grecia'], ['Holanda', 'holanda'],
+      ['Hungría', 'hungría'], ['Inglaterra', 'inglaterra'], ['Irlanda', 'irlanda'],
+      ['Irlanda del Norte', 'irlanda del norte'], ['Italia', 'italia'], ['Letonia', 'letonia'],
+      ['Lituania', 'lituania'], ['Luxemburgo', 'luxemburgo'] , ['Malta', 'malta'],
+      ['Polonia', 'polonia'], ['Portugal', 'portugal'], ['República Checa', 'republica checa'],
+      ['Rumania', 'rumania'], ['Rusia', 'rusia'], ['Suecia', 'suecia'],
+      ['Suiza', 'suiza'], ['Ucrania', 'ucrania'], ['Noruega', 'noruega'], ['Otro', 'otro']], {} %>
+    </div>
+
+    <div id= "oceania" class="field-center roaming_country">
+      <br>
+      <%= form.label :country, 'Seleccione País de destino' %>
+      <%= form.select :country, [['Australia', 'australia'], ['Nueva Zelanda', 'nueva zelanda'],
+      ['Otro', 'otro']], {} %>
+    </div>
+
+    <div id= "asia" class="field-center roaming_country">
+      <br>
+      <%= form.label :country, 'Seleccione País de destino' %>
+      <%= form.select :country, [['China', 'china'], ['Hong Kong', 'hong kong'],
+      ['Japón', 'japon'], ['Israel', 'israel'], ['Pakistán', 'pakistán'],
+      ['Singapur', 'singapur'], ['Taiwán', 'taiwan'], ['Otro', 'otro']], {} %>
+    </div>
+
+    <div id= "africa" class="field-center roaming_country">
+      <br>
+      <%= form.label :country, 'Seleccione País de destino' %>
+      <%= form.select :country, [['Congo', 'congo'], ['Mozambique', 'mozambique'],
+      ['Sudáfrica', 'sudafrica'], ['Tanzania', 'tanzania'], ['Otro', 'otro']], {} %>
+    </div>
+
+    <div id= "plan" class="field-center roaming_plan_bag">
+      <br>
+      <%= form.label :plan, 'Planes disponible' %>
+      <%= form.select :plan, [['Programa Viajero 150 MB', 1], ['Programa Viajero Pro 150 MB', 2],
+      ['Programa Viajero 300 MB', 3], ['Programa Viajero Pro 300 MB', 4]], {} %>
+    </div>
+
+    <div id= "bag" class="field-center roaming_plan_bag">
+      <br>
+      <%= form.label :plan, 'Bolsas disponibles' %>
+      <%= form.select :plan, [['Bolsa 15 MB', 1], ['Bolsa 25 MB', 2],
+      ['Bolsa 50 MB', 3], ['Bolsa 100 MB', 4], ['Bolsa 200 MB', 5],
+      ['Bolsa 400 MB', 6]], {} %>
+      <p>
+
+      <div class="alert alert-danger"> Bolsa solo incluye plan de datos </div>
+    </div>
+
+    <div id= "details_1" class="field-center roaming_details">
+      <br>
+      <div class="alert alert-success">El plan incluye: 150 MB + WHATSAPP ILIMITADO</div>
+    </div>
+
+    <div id= "details_2" class="field-center roaming_details">
+      <br>
+      <div class="alert alert-success">El plan incluye: 150 MB + 15 MIN + 15 SMS + WHATSAPP ILIMITADO</div>
+    </div>
+
+    <div id= "details_3" class="field-center roaming_details">
+      <br>
+      <div class="alert alert-success">El plan incluye: 300 MB + WHATSAPP ILIMITADO</div>
+    </div>
+
+    <div id= "details_4" class="field-center roaming_details">
+      <br>
+      <div class="alert alert-success">El plan incluye: 300 MB + 30 MIN + 30 SMS + WHATSAPP ILIMITADO
+</div>
+    </div>
+
+
 
     </div>
     <br>

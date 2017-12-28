@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 720px}
   </style>
   <%= javascript_include_tag "jquery.min" %>
 
@@ -14,11 +16,17 @@
     $("#request").change(function(){
         $(this).find("option:selected").each(function(){
             var request = $(this).attr("value");
-            if(request == '1'){
-              $("#request_hw").hide()
+            if(request == 'new'){
+              $("#request_hw_2").hide()
+              $("#request_hw_3").hide()
             }
-            else{
-              $("#request_hw").show()
+            else if(request == 'renew' || request == 'technical service'){
+              $("#request_hw_2").show()
+              $("#request_hw_3").hide()
+            }
+            else if(request == 'stolen/lost'){
+              $("#request_hw_3").show()
+              $("#request_hw_2").hide()
             }
         });
     }).change();
@@ -38,12 +46,17 @@
 
     <div id= "request" class="field-center">
       <%= form.label :request_type, 'Seleccione Tipo de Solicitud' %>
-      <%= form.select :request_type, [['Nuevo', 1], ['Renovación', 2], ['Robo/Pérdida', 3], ['Reparación', 4]], {} %>
+      <%= form.select :request_type, [['Nuevo', 'new'], ['Renovación', 'renew'], ['Robo/Pérdida', 'stolen/lost'], ['Reparación', 'technical service']], {} %>
     </div>
 
     <br>
 
-    <div id= "request_hw" class="field-center">
+    <div id= "request_hw_2" class="field-center">
+      <%= form.label :request_hw, 'Seleccione Equipo/Servicio' %>
+      <%= form.select :request_hw, [['Smartphone', 'smartphone'], ['BAM', 'bam']], {} %>
+    </div>
+
+    <div id= "request_hw_3" class="field-center">
       <%= form.label :request_hw, 'Seleccione Equipo/Servicio' %>
       <%= form.select :request_hw, [['Smartphone', 'smartphone'], ['Sim', 'sim'], ['BAM', 'bam']], {} %>
     </div>

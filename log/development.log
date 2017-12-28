@@ -32491,3 +32491,1733 @@ Processing by HomePagesController#request_home as HTML
 Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-12-28 08:51:07 -0300
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (24.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (2.2ms)
+Completed 200 OK in 662ms (Views: 642.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 08:51:11 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (61.4ms)
+Completed 200 OK in 77ms (Views: 76.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 08:52:29 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (3.9ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&request_hw=smartphone&request_hw=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-28 08:55:00 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "request_hw"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (22.8ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (68.7ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (14.6ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (869.9ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (3.6ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (16.7ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (10.5ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (4.0ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 6383ms (ActiveRecord: 6154.1ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 08:55:07 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (188.7ms)
+Completed 200 OK in 194ms (Views: 193.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 08:55:53 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.4ms)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 08:58:15 -0300
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (13.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (11.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (510.7ms)
+Completed 200 OK in 524ms (Views: 517.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 08:59:25 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (23.0ms)
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:00:29 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.7ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:01:26 -0300
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (10.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (14.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (448.5ms)
+Completed 200 OK in 464ms (Views: 455.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:01:47 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (13.1ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:03:33 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (24.2ms)
+Completed 200 OK in 30ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:04:27 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (12.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (21.5ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:36:35 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered requests/new_form.html.erb within layouts/general_view (0.8ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/new_form.html.erb:81: syntax error, unexpected tSTRING_BEG, expecting ')'
+...( form.date_field :date_start "user" );@output_buffer.safe_a...
+...                               ^):
+  
+app/views/requests/new_form.html.erb:81: syntax error, unexpected tSTRING_BEG, expecting ')'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:37:40 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (32.9ms)
+Completed 200 OK in 38ms (Views: 37.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:39:15 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (10.8ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:39:39 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.5ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:40:13 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.4ms)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:40:44 -0300
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (11.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (12.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (458.6ms)
+Completed 200 OK in 472ms (Views: 465.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:42:35 -0300
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (465.6ms)
+Completed 200 OK in 480ms (Views: 473.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:43:47 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (23.1ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:44:58 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.3ms)
+Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:45:52 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (14.3ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:47:05 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.6ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:49:55 -0300
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (433.2ms)
+Completed 200 OK in 448ms (Views: 441.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:51:56 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.8ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:52:26 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (14.2ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 09:53:22 -0300
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.3ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (460.2ms)
+Completed 200 OK in 474ms (Views: 468.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 09:54:15 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PQkdMOXOCXxq1JdvSQh/Uatll/Oib38lUUHtixgH48zL/vboNZIu3Pu4zpfanrT2F0T/I38P/YVL0a6yg156YQ==", "user_id"=>"10000", "request"=>"roaming", "model"=>"1", "bam_model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :model, :bam_model, :want_sim, :want_new_number, :number, :start_date, :end_date, :commit
+  [1m[35m (39.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (452.4ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (3.7ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (9.6ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mSequence (2.5ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (2.8ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[35m (40.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Load (17.1ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1833ms (ActiveRecord: 1659.8ms)
+
+
+  
+NameError (undefined local variable or method `state' for #<Request:0x007f8635d66b50>
+Did you mean?  status):
+  
+app/models/request.rb:20:in `valid_request'
+app/controllers/requests_controller.rb:33:in `block in create'
+app/controllers/requests_controller.rb:32:in `create'
+Started GET "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 10:09:01 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/requests/forms/create/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-12-28 10:09:06 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 10:09:07 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (3.7ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&request_hw=smartphone&request_hw=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-28 10:09:14 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "request_hw"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (6.9ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (43.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (6.6ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (419.6ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (128.2ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (3.9ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (3.3ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 1795ms (ActiveRecord: 1691.3ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:09:16 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (18.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (30.5ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 10:09:24 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+uH35PS+qWX3dturpF3FuSVgYYaqqnO4AVjANMuiIZdHGwHQ47dBQaxgpY9B7yxWLTpVsfKK276lSA5SHcRKw==", "user_id"=>"10000", "request"=>"", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :commit
+  [1m[35m (41.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mSequence (7.4ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (3.5ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (0.9ms)
+  Rendered requests/new.html.erb within layouts/general_view (1.8ms)
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 55.4ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/requests/_form.html.erb:6: syntax error, unexpected '<', expecting keyword_end
+      <ul>
+       ^
+/home/nico/ccu web/ccucel/app/views/requests/_form.html.erb:7: syntax error, unexpected keyword_do, expecting keyword_end
+...st.errors.full_messages.each do |message| @output_buffer.saf...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/requests/_form.html.erb:69: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  
+app/views/requests/_form.html.erb:6: syntax error, unexpected '<', expecting keyword_end
+app/views/requests/_form.html.erb:7: syntax error, unexpected keyword_do, expecting keyword_end
+app/views/requests/_form.html.erb:69: syntax error, unexpected keyword_ensure, expecting end-of-input
+app/views/requests/new.html.erb:3:in `_app_views_requests_new_html_erb__3009716823276670802_70107131552840'
+app/controllers/requests_controller.rb:37:in `block (2 levels) in create'
+app/controllers/requests_controller.rb:32:in `create'
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 10:09:37 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q+uH35PS+qWX3dturpF3FuSVgYYaqqnO4AVjANMuiIZdHGwHQ47dBQaxgpY9B7yxWLTpVsfKK276lSA5SHcRKw==", "user_id"=>"10000", "request"=>"", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :commit
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (24.7ms)
+  Rendered requests/new.html.erb within layouts/general_view (26.2ms)
+Completed 200 OK in 50ms (Views: 33.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-28 10:11:39 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 10:11:41 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.3ms)
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&request_hw=smartphone&request_hw=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-28 10:11:45 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "request_hw"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (3.5ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 25ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:11:45 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (13.5ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 10:11:48 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O3WnOWxU+jS99jheEjYfjfQLuBljEnN/jTsb6tLPabPNgkzhvAjdlCyaYaaBoNQqSCrQyb5y8d+Xq1jTSZbwHg==", "user_id"=>"10000", "request"=>"", "item"=>"smartphone", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :commit
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.0ms)
+  Rendered requests/new.html.erb within layouts/general_view (5.8ms)
+Completed 200 OK in 21ms (Views: 10.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 10:13:29 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/requests/forms/create/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 10:13:33 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O3WnOWxU+jS99jheEjYfjfQLuBljEnN/jTsb6tLPabPNgkzhvAjdlCyaYaaBoNQqSCrQyb5y8d+Xq1jTSZbwHg==", "user_id"=>"10000", "request"=>"", "item"=>"smartphone", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :commit
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.0ms)
+  Rendered requests/new.html.erb within layouts/general_view (5.7ms)
+Completed 200 OK in 21ms (Views: 10.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=1&request_hw=smartphone&request_hw=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-28 10:13:41 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"1", "request_hw"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (3.6ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 21ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:13:41 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.1ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 10:13:43 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dr1wdMNmExGOaV9A8G432RuslakuWSuYUTz5tIqbDZyASpusEzo0sR8FBrhj+Px+p439efM5qThLrLqNEcKUMQ==", "user_id"=>"10000", "request"=>"1", "item"=>"smartphone", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :commit
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.8ms)
+  Rendered requests/new.html.erb within layouts/general_view (6.7ms)
+Completed 200 OK in 21ms (Views: 10.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:15:11 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.5ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 10:15:13 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"goNwIoLQeWe9yT51l+B9QMSD7n++oe7VRWq3AmqPeE90dJv6UoxexyylZ40EdrbneKKGr2PBbHVf+vQ78dbh4g==", "user_id"=>"10000", "request"=>"1", "item"=>"smartphone", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :commit
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (6.3ms)
+  Rendered requests/new.html.erb within layouts/general_view (7.3ms)
+Completed 200 OK in 26ms (Views: 12.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-28 10:19:42 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.3ms)
+Completed 200 OK in 6ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 10:19:44 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (5.4ms)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 10:20:54 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.6ms)
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw=smartphone&request_hw=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-28 10:20:58 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (3.6ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (100.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (413.1ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (2.4ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (3.0ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 1686ms (ActiveRecord: 1591.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:20:59 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (18.6ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 10:21:04 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DnR9Wd0vvLT5WKuU13RGFDAIgl3gkJBwiDUX/2J/9hb4g5aBDXObFGg08mxE4o2zjCnqjT3wEtCSpVTG+SZvuw==", "user_id"=>"10000", "request"=>"new", "item"=>"smartphone", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :commit
+  [1m[35m (35.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mSequence (2.7ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (3.1ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.3ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.3ms)
+Completed 200 OK in 110ms (Views: 15.2ms | ActiveRecord: 44.1ms)
+
+
+Started GET "/requests/forms/ne" for 127.0.0.1 at 2017-12-28 10:26:56 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/requests/forms/ne"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:26:59 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.1ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:30:51 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.0ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:30:57 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (13.3ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:31:19 -0300
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (12.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (323.9ms)
+Completed 200 OK in 339ms (Views: 332.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:31:41 -0300
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (10.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (320.3ms)
+Completed 200 OK in 336ms (Views: 328.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 10:31:43 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8MxA7WIwh+vW4eEi9mTNsbdVJr7DVowXQWO2uHSBXdwGO6s1smygS0eNuNpl8gYWC3RObh42Drdb8/WB79jEcQ==", "user_id"=>"10000", "request"=>"new", "item"=>"smartphone", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "comment"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :commit
+  [1m[35m (38.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (454.5ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (4.6ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (3.0ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mSequence (2.4ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (2.8ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[35m (37.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (8.3ms)
+  Rendered requests/new.html.erb within layouts/general_view (9.3ms)
+Completed 200 OK in 1858ms (Views: 15.3ms | ActiveRecord: 1587.4ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:32:34 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (18.2ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:32:51 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.4ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:33:15 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.8ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:33:25 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.9ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:33:42 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.9ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/ne" for 127.0.0.1 at 2017-12-28 10:34:14 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/requests/forms/ne"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:34:17 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.2ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:35:01 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.9ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:35:32 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (12.8ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:35:52 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (11.9ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:36:03 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (16.6ms)
+Completed 200 OK in 35ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:36:59 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (17.3ms)
+Completed 200 OK in 22ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 10:37:17 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (16.3ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:02:16 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (13.8ms)
+Completed 200 OK in 18ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:17:24 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (38.3ms)
+Completed 200 OK in 43ms (Views: 42.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:18:31 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (21.4ms)
+Completed 200 OK in 25ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:36:46 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (14.3ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:44:30 -0300
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (444.4ms)
+Completed 200 OK in 459ms (Views: 452.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:48:03 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (35.1ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:49:18 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (16.6ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:53:37 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (25.6ms)
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:56:22 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (25.2ms)
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:56:32 -0300
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (432.0ms)
+Completed 200 OK in 446ms (Views: 439.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:57:45 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (26.1ms)
+Completed 200 OK in 31ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:58:23 -0300
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (463.2ms)
+Completed 200 OK in 478ms (Views: 471.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 11:59:02 -0300
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (437.9ms)
+Completed 200 OK in 453ms (Views: 444.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:01:59 -0300
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (436.5ms)
+Completed 200 OK in 451ms (Views: 444.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:02:21 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (27.9ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:02:30 -0300
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (418.0ms)
+Completed 200 OK in 432ms (Views: 425.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:03:04 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (18.5ms)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:05:31 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (26.2ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:08:41 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (25.7ms)
+Completed 200 OK in 30ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:10:57 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (24.4ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:12:54 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (24.1ms)
+Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:14:39 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (23.9ms)
+Completed 200 OK in 28ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:15:01 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (20.0ms)
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:15:55 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (23.8ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:17:58 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (13.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (37.7ms)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:18:50 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (39.2ms)
+Completed 200 OK in 45ms (Views: 44.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:19:38 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (31.3ms)
+Completed 200 OK in 38ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:21:43 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (35.6ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:23:23 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (46.0ms)
+Completed 200 OK in 51ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:23:49 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (38.6ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:25:26 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (32.5ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:26:18 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (10.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (32.6ms)
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:29:14 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (14.1ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-28 12:31:03 -0300
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.6ms)
+Completed 200 OK in 418ms (Views: 412.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:31:13 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (8.5ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw=smartphone&request_hw=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-28 12:31:30 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (8.8ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (52.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (3.4ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (417.5ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (4.5ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (4.7ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.8ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 1824ms (ActiveRecord: 1570.2ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:31:32 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (75.7ms)
+Completed 200 OK in 80ms (Views: 79.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:31:49 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (16.3ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:33:40 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.0ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw=smartphone&request_hw=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-28 12:33:47 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (3.9ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[36mUser Exists (2.8ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 26ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:33:47 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (20.2ms)
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:34:05 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (16.6ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-28 12:34:38 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:34:39 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (3.6ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:35:11 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.0ms)
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:35:21 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.6ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:35:53 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.7ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:36:06 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.4ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:36:15 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.5ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:36:38 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.2ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-28 12:36:56 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:36:59 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (5.0ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:37:13 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (3.3ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:37:23 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.3ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:37:34 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (3.9ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:37:44 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.8ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-28 12:37:45 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.3ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-28 12:37:46 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.6ms)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw=smartphone&request_hw=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-28 12:37:52 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (16.1ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[36mUser Exists (6.4ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (20.1ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 69ms (ActiveRecord: 51.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:37:53 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (12.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (46.3ms)
+Completed 200 OK in 54ms (Views: 52.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:38:26 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (21.1ms)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:45:09 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (24.8ms)
+Completed 200 OK in 30ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:46:00 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (27.6ms)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:47:27 -0300
+  [1m[35m (12.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (35.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (12.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (495.6ms)
+Completed 200 OK in 512ms (Views: 502.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 12:50:52 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (22.5ms)
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (6.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (20.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (9.2ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (9.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Migrating to CreatePlans (20171227194658)
+  [1m[35m (265.4ms)[0m  [1m[35mDROP TABLE "PLANS"[0m
+  [1m[35m (45.3ms)[0m  [1m[35mDROP SEQUENCE "PLANS_SEQ"[0m
+  [1m[35mSQL (10.5ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171227194658"]]
+Migrating to CreateUserRecords (20171221132708)
+  [1m[35m (77.7ms)[0m  [1m[35mDROP TABLE "USER_RECORDS"[0m
+  [1m[35m (11.7ms)[0m  [1m[35mDROP SEQUENCE "USER_RECORDS_SEQ"[0m
+  [1m[35mSQL (9.1ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132708"]]
+Migrating to CreateSmartphones (20171221132707)
+  [1m[35m (193.8ms)[0m  [1m[35mDROP TABLE "SMARTPHONES"[0m
+  [1m[35m (9.6ms)[0m  [1m[35mDROP SEQUENCE "SMARTPHONES_SEQ"[0m
+  [1m[35mSQL (7.0ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132707"]]
+Migrating to CreateBams (20171221132706)
+  [1m[35m (99.5ms)[0m  [1m[35mDROP TABLE "BAMS"[0m
+  [1m[35m (8.0ms)[0m  [1m[35mDROP SEQUENCE "BAMS_SEQ"[0m
+  [1m[35mSQL (5.3ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132706"]]
+Migrating to CreateRequests (20171221132705)
+  [1m[35m (73.3ms)[0m  [1m[35mDROP TABLE "REQUESTS"[0m
+  [1m[35m (7.8ms)[0m  [1m[35mDROP SEQUENCE "REQUESTS_SEQ"[0m
+  [1m[35mSQL (4.2ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132705"]]
+Migrating to CreateSims (20171221132704)
+  [1m[35m (62.3ms)[0m  [1m[35mDROP TABLE "SIMS"[0m
+  [1m[35m (11.8ms)[0m  [1m[35mDROP SEQUENCE "SIMS_SEQ"[0m
+  [1m[35mSQL (3.5ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132704"]]
+Migrating to CreateUsers (20171221132703)
+  [1m[35m (102.8ms)[0m  [1m[35mDROP TABLE "USERS"[0m
+  [1m[35m (11.5ms)[0m  [1m[35mDROP SEQUENCE "USERS_SEQ"[0m
+  [1m[35mSQL (3.2ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132703"]]
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.9ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (19.0ms)[0m  [1m[34mSELECT LOWER(mview_name) FROM all_mviews WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (39.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'PS_AA_COST_RT_JPN' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mPrimary Keys (9.3ms)[0m  [1m[34mSELECT cc.column_name
+  FROM all_constraints c, all_cons_columns cc
+ WHERE c.owner = 'SYSADM'
+   AND c.table_name = 'PS_AA_COST_RT_JPN'
+   AND c.constraint_type = 'P'
+   AND cc.owner = c.owner
+   AND cc.constraint_name = c.constraint_name
+   order by cc.position
+[0m
+  [1m[35m (10.4ms)[0m  [1m[34mSELECT temporary FROM all_tables WHERE table_name = 'PS_AA_COST_RT_JPN' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (13.4ms)[0m  [1m[34m            SELECT comments FROM all_tab_comments
+            WHERE owner = 'SYSADM'
+              AND table_name = 'PS_AA_COST_RT_JPN'
+[0m
+  [1m[35m (32.5ms)[0m  [1m[34mSELECT LOWER(default_tablespace) FROM user_users WHERE username = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (11.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (28.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Migrating to CreateUsers (20171221132703)
+  [1m[35m (167.3ms)[0m  [1m[35mCREATE TABLE "USERS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "NATIONAL_ID" VARCHAR2(255) NOT NULL, "NAME" VARCHAR2(255) NOT NULL, "LAST_NAME" VARCHAR2(255) NOT NULL, "EMAIL" VARCHAR2(255) NOT NULL, "NID_COUNTRY" VARCHAR2(255) NOT NULL, "JOBTITLE" VARCHAR2(255) NOT NULL, "COMPANY" VARCHAR2(255) NOT NULL, "SUPERVISOR" VARCHAR2(255) NOT NULL, "SUPERVISOR_EMAIL" VARCHAR2(255) NOT NULL, "JOBCODE" VARCHAR2(255) NOT NULL, "LOCATION" VARCHAR2(255) NOT NULL, "DEPTNAME" VARCHAR2(255) NOT NULL, "BUSINESS_UNIT" VARCHAR2(255), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+  [1m[35m (29.8ms)[0m  [1m[35mCREATE SEQUENCE "USERS_SEQ" START WITH 10000[0m
+  [1m[35m (8.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35mSQL (15.6ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132703"]]
+Migrating to CreateSims (20171221132704)
+  [1m[35m (37.9ms)[0m  [1m[35mCREATE TABLE "SIMS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "PHONE_NUMBER" NUMBER(38) NOT NULL, "SERIAL_NUMBER" NUMBER(38), "COUNTRY" VARCHAR2(255) NOT NULL, "LAST_OWNER" VARCHAR2(255) DEFAULT 'first owner' NOT NULL, "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "LAST_ASSIGN_AT" TIMESTAMP DEFAULT '2017-12-28 16:07:37.789455' NOT NULL, "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+  [1m[35m (22.5ms)[0m  [1m[35mCREATE SEQUENCE "SIMS_SEQ" START WITH 10000[0m
+  [1m[35mSQL (10.5ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132704"]]
+Migrating to CreateRequests (20171221132705)
+  [1m[35m (73.8ms)[0m  [1m[35mCREATE TABLE "REQUESTS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "REQUEST" VARCHAR2(255) NOT NULL, "ITEM" VARCHAR2(255) NOT NULL, "MODEL" VARCHAR2(255) DEFAULT 'default' NOT NULL, "PLAN" VARCHAR2(255) DEFAULT 'default' NOT NULL, "CONTRACT" BLOB, "FILE" BLOB, "STATUS" VARCHAR2(255) DEFAULT 'created' NOT NULL, "COMMENT" VARCHAR2(255), "CLOSED_AT" TIMESTAMP, "USER_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_8EAD8B1E6B"
+FOREIGN KEY ("USER_ID")
+  REFERENCES "USERS" ("ID")
+)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE SEQUENCE "REQUESTS_SEQ" START WITH 10000[0m
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.7ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'REQUESTS'
+               AND i.index_name = 'INDEX_REQUESTS_ON_USER_ID'
+[0m
+  [1m[35m (18.5ms)[0m  [1m[35mCREATE  INDEX "INDEX_REQUESTS_ON_USER_ID" ON "REQUESTS" ("USER_ID") [0m
+  [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132705"]]
+Migrating to CreateBams (20171221132706)
+  [1m[35m (42.3ms)[0m  [1m[35mCREATE TABLE "BAMS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "MODEL" VARCHAR2(255) NOT NULL, "CODE" VARCHAR2(255) NOT NULL, "COUNTRY" VARCHAR2(255) NOT NULL, "LAST_OWNER" VARCHAR2(255) DEFAULT 'first owner' NOT NULL, "IMEI" VARCHAR2(255) NOT NULL, "PRICE" NUMBER(38) NOT NULL, "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "RENOVATION_AT" TIMESTAMP DEFAULT '2019-12-28 16:07:38.012611' NOT NULL, "LAST_ASSIGN_AT" TIMESTAMP DEFAULT '2017-12-28 16:07:38.012890' NOT NULL, "SIM_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_D300ACFE61"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+)[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE SEQUENCE "BAMS_SEQ" START WITH 10000[0m
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (5.9ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'BAMS'
+               AND i.index_name = 'INDEX_BAMS_ON_SIM_ID'
+[0m
+  [1m[35m (21.9ms)[0m  [1m[35mCREATE  INDEX "INDEX_BAMS_ON_SIM_ID" ON "BAMS" ("SIM_ID") [0m
+  [1m[35mSQL (13.3ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132706"]]
+Migrating to CreateSmartphones (20171221132707)
+  [1m[35m (39.1ms)[0m  [1m[35mCREATE TABLE "SMARTPHONES" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "MODEL" VARCHAR2(255) NOT NULL, "CODE" VARCHAR2(255) NOT NULL, "CATEGORY" VARCHAR2(255) NOT NULL, "COUNTRY" VARCHAR2(255) NOT NULL, "LAST_OWNER" VARCHAR2(255) DEFAULT 'first owner' NOT NULL, "IMEI" VARCHAR2(255) NOT NULL, "PRICE" NUMBER(38) NOT NULL, "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "RENOVATION_AT" TIMESTAMP DEFAULT '2019-12-28 16:07:38.137681' NOT NULL, "LAST_ASSIGN_AT" TIMESTAMP DEFAULT '2017-12-28 16:07:38.137941' NOT NULL, "SIM_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_0BAC5A798A"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+)[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE SEQUENCE "SMARTPHONES_SEQ" START WITH 10000[0m
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (2.9ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'SMARTPHONES'
+               AND i.index_name = 'INDEX_SMARTPHONES_ON_SIM_ID'
+[0m
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE  INDEX "INDEX_SMARTPHONES_ON_SIM_ID" ON "SMARTPHONES" ("SIM_ID") [0m
+  [1m[35mSQL (3.9ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132707"]]
+Migrating to CreateUserRecords (20171221132708)
+  [1m[35m (50.2ms)[0m  [1m[35mCREATE TABLE "USER_RECORDS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "SMARTPHONE_ID" NUMBER(19), "SIM_ID" NUMBER(19), "BAM_ID" NUMBER(19), "USER_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_AFF0319B64"
+FOREIGN KEY ("SMARTPHONE_ID")
+  REFERENCES "SMARTPHONES" ("ID")
+, CONSTRAINT "FK_RAILS_D53DF9C69C"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+, CONSTRAINT "FK_RAILS_67BB80AF19"
+FOREIGN KEY ("BAM_ID")
+  REFERENCES "BAMS" ("ID")
+, CONSTRAINT "FK_RAILS_7583AC5F75"
+FOREIGN KEY ("USER_ID")
+  REFERENCES "USERS" ("ID")
+)[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE SEQUENCE "USER_RECORDS_SEQ" START WITH 10000[0m
+OracleEnhanced shortened default index name index_user_records_on_smartphone_id to i_user_records_smartphone_id
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.1ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'I_USER_RECORDS_SMARTPHONE_ID'
+[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE  INDEX "I_USER_RECORDS_SMARTPHONE_ID" ON "USER_RECORDS" ("SMARTPHONE_ID") [0m
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.2ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'INDEX_USER_RECORDS_ON_SIM_ID'
+[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE  INDEX "INDEX_USER_RECORDS_ON_SIM_ID" ON "USER_RECORDS" ("SIM_ID") [0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.2ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'INDEX_USER_RECORDS_ON_BAM_ID'
+[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE  INDEX "INDEX_USER_RECORDS_ON_BAM_ID" ON "USER_RECORDS" ("BAM_ID") [0m
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (5.8ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'SYSADM'
+               AND i.table_owner = 'SYSADM'
+               AND i.table_name = 'USER_RECORDS'
+               AND i.index_name = 'INDEX_USER_RECORDS_ON_USER_ID'
+[0m
+  [1m[35m (15.8ms)[0m  [1m[35mCREATE  INDEX "INDEX_USER_RECORDS_ON_USER_ID" ON "USER_RECORDS" ("USER_ID") [0m
+  [1m[35mSQL (5.2ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132708"]]
+Migrating to CreatePlans (20171227194658)
+  [1m[35m (24.5ms)[0m  [1m[35mCREATE TABLE "PLANS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "ITEM" VARCHAR2(255) NOT NULL, "NAME" VARCHAR2(255) NOT NULL, "DETAIL" VARCHAR2(255), "PRICE" NUMBER(38) NOT NULL, "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE SEQUENCE "PLANS_SEQ" START WITH 10000[0m
+  [1m[35mSQL (7.5ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171227194658"]]
+  [1m[35m (74.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'AR_INTERNAL_METADATA' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mActiveRecord::InternalMetadata Load (42.3ms)[0m  [1m[34mSELECT  "AR_INTERNAL_METADATA".* FROM "AR_INTERNAL_METADATA" WHERE "AR_INTERNAL_METADATA"."KEY" = :a1 AND ROWNUM <= :a2 [0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (9.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT LOWER(mview_name) FROM all_mviews WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (68.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'BAMS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mPrimary Keys (22.6ms)[0m  [1m[34mSELECT cc.column_name
+  FROM all_constraints c, all_cons_columns cc
+ WHERE c.owner = 'SYSADM'
+   AND c.table_name = 'BAMS'
+   AND c.constraint_type = 'P'
+   AND cc.owner = c.owner
+   AND cc.constraint_name = c.constraint_name
+   order by cc.position
+[0m
+  [1m[35m (14.0ms)[0m  [1m[34mSELECT temporary FROM all_tables WHERE table_name = 'BAMS' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (7.6ms)[0m  [1m[34m            SELECT comments FROM all_tab_comments
+            WHERE owner = 'SYSADM'
+              AND table_name = 'BAMS'
+[0m
+  [1m[35m (12.0ms)[0m  [1m[34mSELECT LOWER(default_tablespace) FROM user_users WHERE username = SYS_CONTEXT('userenv', 'current_schema')[0m
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 13:24:49 -0300
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (8.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (453.7ms)
+Completed 200 OK in 470ms (Views: 463.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 13:26:48 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (52.4ms)
+Completed 200 OK in 63ms (Views: 62.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 13:27:13 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (31.2ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 13:28:06 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (31.1ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 13:29:18 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (25.9ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 13:30:52 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (27.8ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 14:44:16 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (24.8ms)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 14:45:29 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (23.9ms)
+Completed 200 OK in 28ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 14:45:59 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (26.6ms)
+Completed 200 OK in 31ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 14:48:36 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (26.9ms)
+Completed 200 OK in 37ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 14:51:45 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (21.4ms)
+Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 14:52:29 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (33.5ms)
+Completed 200 OK in 39ms (Views: 37.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:04:02 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (29.6ms)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:04:49 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (28.5ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:05:54 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (14.7ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:09:07 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (2.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (23.4ms)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:24:05 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (35.7ms)
+Completed 200 OK in 41ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:25:37 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (20.0ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:32:14 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (29.9ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:34:15 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (29.3ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:36:45 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (27.4ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:39:18 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (23.3ms)
+Completed 200 OK in 30ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:39:53 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (22.7ms)
+Completed 200 OK in 27ms (Views: 26.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:40:14 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (23.7ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 15:41:01 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (34.5ms)
+Completed 200 OK in 40ms (Views: 39.1ms | ActiveRecord: 0.0ms)
+
+
