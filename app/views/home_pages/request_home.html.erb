@@ -16,17 +16,17 @@
     $("#request").change(function(){
         $(this).find("option:selected").each(function(){
             var request = $(this).attr("value");
-            if(request == 'new'){
-              $("#request_hw_2").hide()
-              $("#request_hw_3").hide()
+            if(request == 'new' || request == 'transfer line'){
+              $("#request_hw_renew_tech").hide()
+              $("#request_hw_lost").hide()
             }
             else if(request == 'renew' || request == 'technical service'){
-              $("#request_hw_2").show()
-              $("#request_hw_3").hide()
+              $("#request_hw_renew_tech").show()
+              $("#request_hw_lost").hide()
             }
             else if(request == 'stolen/lost'){
-              $("#request_hw_3").show()
-              $("#request_hw_2").hide()
+              $("#request_hw_lost").show()
+              $("#request_hw_renew_tech").hide()
             }
         });
     }).change();
@@ -46,19 +46,23 @@
 
     <div id= "request" class="field-center">
       <%= form.label :request_type, 'Seleccione Tipo de Solicitud' %>
-      <%= form.select :request_type, [['Nuevo', 'new'], ['Renovación', 'renew'], ['Robo/Pérdida', 'stolen/lost'], ['Reparación', 'technical service']], {} %>
+      <%= form.select :request_type, [['Cesión de línea', 'transfer line'],
+      ['Nuevo Equipo', 'new'], ['Renovar Equipo', 'renew'], ['Robo/Pérdida Equipo', 'stolen/lost'],
+      ['Reparación Equipo', 'technical service']], {} %>
     </div>
 
     <br>
 
-    <div id= "request_hw_2" class="field-center">
-      <%= form.label :request_hw, 'Seleccione Equipo/Servicio' %>
-      <%= form.select :request_hw, [['Smartphone', 'smartphone'], ['BAM', 'bam']], {} %>
+    <div id= "request_hw_renew_tech" class="field-center">
+      <%= form.label :request_hw_renew_tech, 'Seleccione Equipo/Servicio' %>
+      <%= form.select :request_hw_renew_tech, [['Smartphone', 'smartphone'],
+      ['BAM', 'bam']], {} %>
     </div>
 
-    <div id= "request_hw_3" class="field-center">
-      <%= form.label :request_hw, 'Seleccione Equipo/Servicio' %>
-      <%= form.select :request_hw, [['Smartphone', 'smartphone'], ['Sim', 'sim'], ['BAM', 'bam']], {} %>
+    <div id= "request_hw_lost" class="field-center">
+      <%= form.label :request_hw_lost, 'Seleccione Equipo/Servicio' %>
+      <%= form.select :request_hw_lost, [['Smartphone', 'smartphone'], ['Sim', 'sim'],
+      ['BAM', 'bam']], {} %>
     </div>
 
     <br>

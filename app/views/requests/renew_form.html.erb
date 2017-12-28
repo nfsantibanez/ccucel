@@ -17,7 +17,7 @@
       var w_sim = $('input:checked[name="want_sim"]').val();
       var w_new_number = $('input:checked[name="want_new_number"]').val();
       var item = $("#item").val();
-      
+
       if(( item == "smartphone" || item == "sim") && w_sim == 'true' && w_new_number == 'false'){
         console.log(item);
         if( phone.length != 8 || !$.isNumeric(phone)){
@@ -36,7 +36,7 @@
 <div class="container-fluid">
   <h1><strong> Formulario </strong></h1>
   <hr>
-  <h3> Formulario Reposición </h3>
+  <h3> Formulario Renovación </h3>
   <hr>
 
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>

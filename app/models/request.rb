@@ -18,8 +18,8 @@ class Request < ApplicationRecord
 
   def valid_request
     if request != 'new' && request != 'renew' && request != 'stolen/lost' &&
-      request != 'technical service'
-      errors.add(:state, 'invalid state field, must be: new, renew, lost, stolen or technical service')
+      request != 'technical service' && request != 'transfer line'
+      errors.add(:state, 'invalid state field, must be: transfer line, new, renew, lost, stolen, technical service')
     end
   end
 

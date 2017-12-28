@@ -76,7 +76,11 @@ class RequestsController < ApplicationController
       session[:user] = user.attributes
       # selected request and item data
       session[:user]["request"] = params[:request_type]
-      session[:user]["item"] = params[:request_hw]
+      if params[:request_type] == 'renew' || params[:request_type] == 'technical service'
+        session[:user]["item"] = params[:request_hw_renew_tech]
+      else
+        session[:user]["item"] = params[:request_hw_lost]
+      end
       # New Request
       if form == 'new'
         redirect_to '/requests/forms/new'
