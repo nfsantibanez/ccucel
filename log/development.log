@@ -35281,3 +35281,748 @@ Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :w
 Completed 200 OK in 433ms (Views: 13.8ms | ActiveRecord: 324.2ms)
 
 
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:30:10 -0300
+  [1m[35m (14.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (45.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (16.9ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (8.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (462.3ms)
+Completed 200 OK in 483ms (Views: 474.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:30:21 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vVB3BJR5FIPVFxGirLQIQKxzZMZWlsIITh+7Ad5MYEtLp5zcRCUzI0R7SFo/IsPnEFIMFov2QKhUj/g4RRX55g==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[35m (880.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (4128.2ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-28 18:30:30 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[36mSequence (14.8ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (15.7ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[35m (11.0ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[36mSequence (7.7ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (7.9ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[35m (119.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  [1m[36mUser Exists (33.3ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (10.0ms)
+  Rendered requests/new.html.erb within layouts/general_view (11.3ms)
+  [1m[36mUser Load (20.6ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+Completed 200 OK in 10467ms (Views: 17.4ms | ActiveRecord: 9413.1ms)
+
+
+  [1m[36mUser Exists (7.5ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 756ms (ActiveRecord: 191.2ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:30:31 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (17.9ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:30:43 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RQ6nczknbO5JIh6tH2r+4SXTwAVTUboFL/0KAUs8EhOz+Uyr6XtLTthOR1WM/DVGmfKo1Y4xOKU1bUk40GWLvg==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-04", "end_date"=>"2017-12-30", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (12.4ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (8.4ms)
+  Rendered requests/new.html.erb within layouts/general_view (9.6ms)
+Completed 200 OK in 61ms (Views: 17.9ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-28 18:33:23 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (19.7ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[36mUser Exists (227.4ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Load (15.0ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (14.9ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 313ms (ActiveRecord: 277.1ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:33:23 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (19.3ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:33:34 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"naS8H74e8zPnGa8LUjELAN7Cne3tGsUTbgHsWFv6H+trU1fHbkLUk3Z19vPBp8CnYuP1PTB6R7N0ka9hwKOGRg==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-04", "end_date"=>"2017-12-27", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (14.9ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (20.4ms)
+  Rendered requests/new.html.erb within layouts/general_view (22.9ms)
+Completed 200 OK in 81ms (Views: 33.0ms | ActiveRecord: 14.9ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:36:03 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"naS8H74e8zPnGa8LUjELAN7Cne3tGsUTbgHsWFv6H+trU1fHbkLUk3Z19vPBp8CnYuP1PTB6R7N0ka9hwKOGRg==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-04", "end_date"=>"2017-12-27", "comment"=>"1w12w12w", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.3ms)
+  Rendered requests/new.html.erb within layouts/general_view (6.2ms)
+Completed 200 OK in 26ms (Views: 10.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:36:08 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (26.5ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:36:18 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VzNVl2Ohucso5rhSY+5pO7lo1GzHvAyA2e8+Pon2WWChxL5Ps/2ea7mK4arweKKcBUm8vBrcjiDDf30HEq/AzQ==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-05", "end_date"=>"2017-12-30", "comment"=>"1w12w", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (9.1ms)
+  Rendered requests/new.html.erb within layouts/general_view (10.6ms)
+Completed 200 OK in 47ms (Views: 16.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:38:21 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (27.7ms)
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:38:29 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WyAyXQlke+aUMMX94NC7+P4B8TOQ/DUY6nUfH6UE0rCt19mF2ThcRgVcnAVzRnBfQiCZ402ct7jw5VwmPl1LHQ==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "comment"=>"asdasd", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.8ms)
+  Rendered requests/new.html.erb within layouts/general_view (6.6ms)
+Completed 200 OK in 21ms (Views: 11.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:39:19 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (36.5ms)
+Completed 200 OK in 42ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:39:26 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5tDcEJyyA1lCd7jK4cyJcx0SXPMzxohU3AL9ZB/ehIAQJzfITO4k+dMb4TJyWkLUoTM0I+6mCvTGkr5dhIcdLQ==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "comment"=>"swsv", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (11.4ms)
+  Rendered requests/new.html.erb within layouts/general_view (12.9ms)
+Completed 200 OK in 259ms (Views: 19.7ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:42:42 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (29.6ms)
+Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:42:54 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7dp2Fb1Ot2LWiZ2Tqc2cy6R+d1PXY5Gr06oDuSdzWAMbLZ3NbRKQwkflxGs6W1dsGF8fgwoDEwvJOkCAvCrBrg==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-05", "end_date"=>"2017-12-30", "comment"=>"s", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.8ms)
+  Rendered requests/new.html.erb within layouts/general_view (6.7ms)
+Completed 200 OK in 27ms (Views: 10.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:43:19 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (27.4ms)
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:43:30 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5GL8qxrpBYiImCPyP32NVGa9WoSbE1U9WGfTsBYiwDkSlRdzyrUiKBn0egqs60bz2pwyVEZz151C95CJjXtZlA==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-11-27", "end_date"=>"2017-12-30", "comment"=>"s", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (4.8ms)
+  Rendered requests/new.html.erb within layouts/general_view (5.5ms)
+Completed 200 OK in 24ms (Views: 9.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:44:09 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (26.7ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:44:19 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lk1peboBsuC93JdWa2hXcMjrRWJ/RlT6TFCOTQ0asj5guoKhal2VQCywzq74/pzXdMotsqIm1lpWwM10lkMrkw==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-04", "end_date"=>"2017-12-30", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (6.0ms)
+  Rendered requests/new.html.erb within layouts/general_view (7.1ms)
+Completed 200 OK in 24ms (Views: 11.6ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:44:35 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lk1peboBsuC93JdWa2hXcMjrRWJ/RlT6TFCOTQ0asj5guoKhal2VQCywzq74/pzXdMotsqIm1lpWwM10lkMrkw==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-04", "end_date"=>"2017-12-30", "comment"=>"ssssss", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (4.7ms)
+  Rendered requests/new.html.erb within layouts/general_view (5.4ms)
+Completed 200 OK in 25ms (Views: 9.8ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:50:08 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (16.3ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 18:57:58 -0300
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (9.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (468.1ms)
+Completed 200 OK in 485ms (Views: 478.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 18:58:10 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"498xI0v6XgUUpVTp3BwktjYYgOcQBHFQ7iG0HHHAKGgVKNr7m6Z5pYXJDRFPiu8RijnoN81k8/D0sfcl6pmxxQ==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-29", "end_date"=>"2017-12-31", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[35m (39.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (466.2ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (2.8ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (3.5ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mSequence (2.6ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (4.0ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[35m (48.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.4ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.4ms)
+Completed 200 OK in 2126ms (Views: 14.4ms | ActiveRecord: 1975.7ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 19:01:51 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (25.2ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 19:02:17 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (27.5ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 19:03:12 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (27.5ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 19:03:22 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"py4NY7OPEbvb13yjoOWURSZDQCbP8gA2O0BgRld8U3dR2ea7Y9M2G0q7JVszc1/immIo9hKSgpYh0CN/zCXK2g==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-28", "end_date"=>"2018-01-05", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (14.6ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (18.0ms)
+  Rendered requests/new.html.erb within layouts/general_view (20.8ms)
+Completed 200 OK in 85ms (Views: 30.7ms | ActiveRecord: 14.6ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 19:04:19 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"py4NY7OPEbvb13yjoOWURSZDQCbP8gA2O0BgRld8U3dR2ea7Y9M2G0q7JVszc1/immIo9hKSgpYh0CN/zCXK2g==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-28", "end_date"=>"2018-01-05", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (10.7ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (11.3ms)
+  Rendered requests/new.html.erb within layouts/general_view (12.8ms)
+Completed 200 OK in 63ms (Views: 22.8ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 19:04:23 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (23.9ms)
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 19:04:34 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eaxYrCwtpsVwS1C8qd0swFquKx3Iw2s7b8kAJYUHeHSPW7N0/HGBZeEnCUQ6S+dn5o9DzRWj6Zt1WUMcHl7h2Q==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-29", "end_date"=>"2017-12-30", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (8.1ms)
+  Rendered requests/new.html.erb within layouts/general_view (9.1ms)
+Completed 200 OK in 69ms (Views: 14.3ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 19:06:38 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (36.6ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 19:06:44 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RbJdr+n0v3/Vekgx9fXdJs1G2jAZ+nrHTjbZjhJMmwCzRbZ3OaiY30QWEclmYxaBcWey4MSa+GdUppq3iRUCrQ==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (12.6ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.3ms)
+  Rendered requests/new.html.erb within layouts/general_view (6.1ms)
+Completed 200 OK in 53ms (Views: 11.0ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-28 19:07:10 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (20.5ms)
+Completed 200 OK in 26ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-28 19:07:21 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yWy48/2aXwklbbhipiyYmtt71Z/tJ30bUecVx6MLVjI/m1MrLcZ4qbQB4Zo1ulM9Z1q9TzBH/7tLd1b+OFLPnw==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-28", "end_date"=>"2018-01-03", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (128.1ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (19.5ms)
+  Rendered requests/new.html.erb within layouts/general_view (22.1ms)
+Completed 200 OK in 296ms (Views: 31.4ms | ActiveRecord: 128.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 05:48:01 -0300
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (274.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (26.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (1.0ms)
+Completed 200 OK in 835ms (Views: 828.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-29 05:48:12 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (103.6ms)
+Completed 200 OK in 116ms (Views: 115.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-29 05:48:18 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (327.8ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (41.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (28.5ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (989.8ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (24.9ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (881.8ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (5.1ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 8911ms (ActiveRecord: 8624.2ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 05:48:27 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.7ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (176.0ms)
+Completed 200 OK in 184ms (Views: 181.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 05:48:45 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xySKiNxV7n5qcgv53GTZ0dv5S6jVRDyQM1r5cz6nD3qM1vpFZj8lbWd0IbVKtdHZx9N5toFZVO3JJq4UUqhq3A==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-30", "end_date"=>"", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[35m (33.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mSequence (2.5ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (7.2ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (23.1ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (31.9ms)
+  Rendered requests/new.html.erb within layouts/general_view (33.7ms)
+Completed 200 OK in 210ms (Views: 46.7ms | ActiveRecord: 65.9ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 05:49:14 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (16.4ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 05:49:29 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (15.7ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 05:49:38 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zq4/kn48wxYfBKxIPnbcc58AuVxJCd4DvtIPBPdqWUmFXE9fxFYIBRIChgSop9R7gyqLQh0Utn5Erlhjm2U87w==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-30", "end_date"=>"", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.0ms)
+  Rendered requests/new.html.erb within layouts/general_view (6.0ms)
+Completed 200 OK in 23ms (Views: 10.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 05:49:52 -0300
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (8.8ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (306.1ms)
+Completed 200 OK in 322ms (Views: 315.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 05:50:03 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WkPMQp9eh17MKpI4U0jPghdHW2gOrYkmA7cpQxwzHHYRsbyPJTRMTcEsuHTFmceKC21pdlqw4Vv5y34kcDx50A==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2018-01-05", "end_date"=>"", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[35m (33.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (536.2ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (4.7ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (4.1ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mSequence (2.2ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (2.8ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[35m (35.3ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (7.9ms)
+  Rendered requests/new.html.erb within layouts/general_view (8.9ms)
+Completed 200 OK in 5311ms (Views: 13.6ms | ActiveRecord: 5064.7ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 05:50:26 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (49.0ms)
+Completed 200 OK in 54ms (Views: 53.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 05:50:32 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y7PQh/TGuiuBYAvushCQhzKkEFl4YUC8qt1boJDfxgMoQaBKTqxxOIxmIaIkwZiPLo4iRyx8KMFQoQzH/NCjpQ==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"", "end_date"=>"", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.3ms)
+  Rendered requests/new.html.erb within layouts/general_view (6.2ms)
+Completed 200 OK in 23ms (Views: 10.9ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 05:50:42 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y7PQh/TGuiuBYAvushCQhzKkEFl4YUC8qt1boJDfxgMoQaBKTqxxOIxmIaIkwZiPLo4iRyx8KMFQoQzH/NCjpQ==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-30", "end_date"=>"2018-01-04", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (6.2ms)
+  Rendered requests/new.html.erb within layouts/general_view (7.1ms)
+Completed 200 OK in 24ms (Views: 11.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 05:54:44 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (26.1ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 05:54:57 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HZlUsCtlyr+lKGAUuL5AKzCNhqmS9jDlB9zuVZ9UpKJWayR9kQ8BrKguSlgub0gjLKe0t8brWJj9oLky81vBBA==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-30", "end_date"=>"2018-01-04", "comment"=>"aa", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.2ms)
+  Rendered requests/new.html.erb within layouts/general_view (5.9ms)
+Completed 200 OK in 21ms (Views: 10.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 05:57:02 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (25.7ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 05:57:11 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QNBw1yjTDyY6QpWr5Ntc6CXdxSih0xLuRCjfOHxYiTALIgAakrnENTdEv+dyClTgOff3NvXOepO+VIhfEFfslg==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2018-01-03", "end_date"=>"", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (6.0ms)
+  Rendered requests/new.html.erb within layouts/general_view (6.8ms)
+Completed 200 OK in 26ms (Views: 11.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 06:00:55 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (25.4ms)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 06:01:05 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oPEMrHSDd1xWpQAmM27vH5y8pzJMkjsmC1B5ba5+yzTrA3xhzum8T1ujKmqlv+cXgJaVLBiPU1vxLC4KwnGukg==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-30", "end_date"=>"", "comment"=>"", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.4ms)
+  Rendered requests/new.html.erb within layouts/general_view (6.2ms)
+Completed 200 OK in 25ms (Views: 10.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 06:01:22 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (12.0ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (24.7ms)
+Completed 200 OK in 29ms (Views: 28.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 06:01:35 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6S+9yvAHBZZPos+MkTLSOShF/VJBWX/BYc3snUkzDvGi3c0HSm3OhUKk5cAH49oxNG/PTBVEF7ybsbv6JTxrVw==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-30", "end_date"=>"2018-01-03", "comment"=>"www", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.0ms)
+  Rendered requests/new.html.erb within layouts/general_view (5.8ms)
+Completed 200 OK in 25ms (Views: 10.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-29 09:22:47 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (16.6ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[36mUser Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 50ms (ActiveRecord: 28.6ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 09:22:47 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (38.2ms)
+Completed 200 OK in 43ms (Views: 42.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 09:24:20 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZeYaVUfoSalp9OSwFJWuKs3IVG+ylTHVWD0dpzZzSvsuFGqY/YKCumTyzvyCRKYi0eJmceaIWaiiQUrAWnwvXQ==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-29", "end_date"=>"2017-12-29", "comment"=>"|1q|1q|1q|", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (5.7ms)
+  Rendered requests/new.html.erb within layouts/general_view (6.6ms)
+Completed 200 OK in 24ms (Views: 11.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-29 09:24:27 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.5ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=transfer+line&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-29 09:24:31 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"transfer line", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (4.3ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[36mUser Exists (3.1ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 71ms (ActiveRecord: 12.4ms)
+
+
+  
+ActionController::UnknownFormat (RequestsController#validate_user is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2017-12-29 09:24:39 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (5.3ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[36mUser Exists (3.9ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (3.4ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 34ms (ActiveRecord: 17.3ms)
+
+
+Started GET "/requests/forms/new" for 127.0.0.1 at 2017-12-29 09:24:39 -0300
+Processing by RequestsController#new_form as HTML
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.1ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (29.9ms)
+Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2017-12-29 09:25:26 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"g5r2ibH17RdcTdtpiOklvVc93IgTQp6NAvXzODgWAR3IaIZEC58mBFFL8SUeOC21Sxfulkdf9vD4iaRfVBlkuw==", "user_id"=>"10000", "request"=>"new", "item"=>"roaming", "model"=>"1", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "start_date"=>"2017-12-30", "end_date"=>"2017-12-30", "comment"=>"qwertyuio1", "region"=>"sudamerica", "country"=>"congo", "plan"=>"1", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :model, :want_sim, :want_new_number, :number, :start_date, :end_date, :region, :country, :plan, :commit
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (4.8ms)
+  Rendered requests/new.html.erb within layouts/general_view (5.6ms)
+Completed 200 OK in 21ms (Views: 10.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-12-29 09:25:43 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2017-12-29 09:25:45 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.0ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+

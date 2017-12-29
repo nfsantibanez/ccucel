@@ -132,9 +132,9 @@ $(document).ready(function(){
       var request = $(".select_1 option:selected").val();
       var w_sim = $('input:checked[name="want_sim"]').val();
       var w_new_number = $('input:checked[name="want_new_number"]').val();
-      var start_date = $("#start_date").datepicker({ dateFormat: 'dd,MM,yyyy' }).val();
-      var end_date = $("#end_date").datepicker({ dateFormat: 'dd,MM,yyyy' }).val();
-      var comment = $.trim($('input[name="comment"]').val());
+      var start_date = new Date($('input[name="start_date"]').val());
+      var end_date = new Date($('input[name="end_date"]').val());
+      var comment = $.trim($("#comment").val());
 
       if((request == 'smartphone' && w_sim == 'true' && w_new_number == 'false') ||
       (request == 'sim' && w_new_number == 'false')){
@@ -144,10 +144,19 @@ $(document).ready(function(){
         }
       }
       else if(request == 'roaming'){
-        console.log(start_date);
-        console.log(end_date);
+        if( isNaN(start_date) || isNaN(end_date) ){
+          alert("Debes Ingresar una fecha para inicio y termino de viaje");
+          e.preventDefault(e);
+        }
+        else if(start_date > end_date){
+          alert("La fecha de término del viaje debe ser posterior a la fecha de inicio");
+          e.preventDefault(e);
+        }
+        else if(comment.length < 10){
+          alert("Debes Ingresar una descripción de al menos 10 caracteres en el motivo del viaje");
+          e.preventDefault(e);
+        }
         console.log(comment);
-
       }
     });
 

@@ -113,13 +113,13 @@
     <div class="field-center roaming">
       <br>
       <%= form.label :start_date, 'Fecha Inicio viaje' %>
-      <%= form.date_field :start_date %>
+      <%= form.date_field :start_date, min: Date.today %>
     </div>
 
-    <div class="field-center roaming">
+    <div id= "end_date" class="field-center roaming">
       <br>
       <%= form.label :end_date, 'Fecha Término viaje' %>
-      <%= form.date_field :end_date %>
+      <%= form.date_field :end_date, min: Date.today %>
     </div>
 
     <div class="field-center roaming text_area">
