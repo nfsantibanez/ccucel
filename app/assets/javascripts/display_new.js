@@ -6,12 +6,20 @@ $(document).ready(function(){
             var request = $(this).val();
             var w_sim = $('input:checked[name="want_sim"]').val();
             var w_number = $('input:checked[name="want_new_number"]').val();
-            $('input[name="number"]').val("");
+            $("#models").hide();
+            $("#bam_models").hide();
+            $(".roaming").hide();
+            $("#want_sim").hide();
+            $("#want_number").hide();
+            $("#number").hide();
+            $("#show_all_models").hide();
+            $("#select_all_models").hide();
+            $(".model_text").hide();
+
             if(request == 'smartphone'){
-                $("#models").show();
-                $("#bam_models").hide();
                 $("#want_sim").show();
-                $(".roaming").hide();
+                $("#show_all_models").show();
+
                 if(w_sim == 'true'){
                   $("#want_number").show();
                   if(w_number == 'false'){
@@ -27,11 +35,7 @@ $(document).ready(function(){
                 }
             }
             else if(request == 'sim'){
-              $("#models").hide();
-              $("#bam_models").hide();
-              $("#want_sim").hide();
               $("#want_number").show();
-              $(".roaming").hide();
               if(w_number == 'false'){
                   $("#number").show();
               }
@@ -40,22 +44,30 @@ $(document).ready(function(){
               }
             }
             else if(request == 'bam'){
-                $("#models").hide();
-                $("#want_sim").hide();
-                $("#want_number").hide();
-                $("#number").hide();
                 $("#bam_models").show();
-                $(".roaming").hide();
             }
             else if(request == 'roaming'){
-                $("#models").hide();
-                $("#want_sim").hide();
-                $("#want_number").hide();
-                $("#number").hide();
-                $("#bam_models").hide();
                 $(".roaming").show();
             }
         });
+    }).change();
+
+    // Display all smartphones models
+    $("#show_all_models, .select_1").change(function(){
+      var request = $(".select_1 option:selected").val();
+      var check = $("#checkbox").is(":checked");
+      if(request == 'smartphone'){
+        if(check){
+          $("#select_all_models").show();
+          $(".model_text").show();
+          $("#models").hide();
+        }
+        else{
+          $("#select_all_models").hide();
+          $(".model_text").hide();
+          $("#models").show();
+        }
+      }
     }).change();
 
     // Display secondary menus
@@ -108,7 +120,6 @@ $(document).ready(function(){
               else{
                 $("#bag").show()
                 $("#plan").hide()
-                $("#details_"+bag).show()
               }
             }
         });
@@ -135,28 +146,63 @@ $(document).ready(function(){
       var start_date = new Date($('input[name="start_date"]').val());
       var end_date = new Date($('input[name="end_date"]').val());
       var comment = $.trim($("#comment").val());
+      var text = $.trim($("#model_text").val());
+      var check = $("#checkbox").is(":checked");
 
-      if((request == 'smartphone' && w_sim == 'true' && w_new_number == 'false') ||
+      if(request == 'smartphone' && check == true && text.length < 10){
+        swal({
+          title: 'Datos Inválidos!',
+          text: 'Debes Ingresar una descripción de al menos 10 caracteres en el motivo de eleccion del modelo que has elegido',
+          type: 'error',
+          confirmButtonText: 'Aceptar',
+          confirmButtonColor: "#DD6B55",
+        });
+        e.preventDefault();
+      }
+      else if((request == 'smartphone' && w_sim == 'true' && w_new_number == 'false') ||
       (request == 'sim' && w_new_number == 'false')){
         if( phone.length != 8 || !$.isNumeric(phone)){
-          alert('Ingrese número válido');
-          e.preventDefault(e);
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Ingrese número válido',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
         }
       }
       else if(request == 'roaming'){
         if( isNaN(start_date) || isNaN(end_date) ){
-          alert("Debes Ingresar una fecha para inicio y termino de viaje");
-          e.preventDefault(e);
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Debes Ingresar una fecha para inicio y termino de viaje',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
         }
         else if(start_date > end_date){
-          alert("La fecha de término del viaje debe ser posterior a la fecha de inicio");
-          e.preventDefault(e);
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'La fecha de término del viaje debe ser posterior a la fecha de inicio',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
         }
         else if(comment.length < 10){
-          alert("Debes Ingresar una descripción de al menos 10 caracteres en el motivo del viaje");
-          e.preventDefault(e);
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Debes Ingresar una descripción de al menos 10 caracteres en el motivo del viaje',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
         }
-        console.log(comment);
       }
     });
 

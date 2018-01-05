@@ -14,5 +14,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Template added by me
 Rails.application.config.assets.precompile += %w( home_style.min.css )
+Rails.application.config.assets.precompile += %w( sweetalert.css )
 Rails.application.config.assets.precompile += %w( jquery.min.js )
 Rails.application.config.assets.precompile += %w( display_new.js )
+Rails.application.config.assets.precompile += %w( sweetalert-dev.js )

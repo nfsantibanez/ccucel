@@ -5,8 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {height: 1100px}
   </style>
+
   <%= javascript_include_tag "jquery.min" %>
+  <%= javascript_include_tag "sweetalert-dev" %>
+  <%= stylesheet_link_tag "sweetalert" %>
 
   <script type="text/javascript">
   $(document).ready(function(){
@@ -19,13 +24,28 @@
       var item = $("#item").val();
 
       if(( item == "smartphone" || item == "sim") && w_sim == 'true' && w_new_number == 'false'){
-        console.log(item);
         if( phone.length != 8 || !$.isNumeric(phone)){
-          alert('Ingrese número válido');
-          e.preventDefault(e);
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Ingrese número válido',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
         }
       }
+      else{
+        swal({
+          title: 'Felicidades!',
+          text: 'Tus datos fueron enviados correctamente',
+          type: 'success',
+          confirmButtonText: 'Aceptar',
+          confirmButtonColor: "#00BE10",
+        });
+      }
     });
+
 
   });
   </script>
@@ -51,8 +71,6 @@
 
       <% if @user["item"] == 'smartphone' %>
         <%= render partial: '/layouts/renew_smp', locals: {form: form} %>
-      <% elsif @user["item"] == 'sim' %>
-        <%= render partial: '/layouts/renew_sim', locals: {form: form} %>
       <% elsif @user["item"] == 'bam' %>
         <%= render partial: '/layouts/renew_bam', locals: {form: form} %>
       <% end %>

@@ -9,10 +9,23 @@
     vertical-align: middle;
     }
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 1400px}
+    .row.content {height: 1500px}
+
+    .alert-info {
+      margin-top: 5px;
+      display:inline-block;
+      vertical-align: middle;
+      height: 50%;
+      padding: 1px;
+      margin-top: 1%;
+      margin-bottom: 0%;
+    }
+
   </style>
   <%= javascript_include_tag "jquery.min" %>
   <%= javascript_include_tag "display_new" %>
+  <%= javascript_include_tag "sweetalert-dev" %>
+  <%= stylesheet_link_tag "sweetalert" %>
 
 </head>
 <body>
@@ -45,6 +58,25 @@
       <br>
       <%= form.label :model, 'Seleccione Modelo Smartphone' %>
       <%= form.select :model, [['Galaxy J7', 1], ['Galaxy S5', 2], ['Iphone 6s', 3], ['Iphone X', 4]], {} %>
+    </div>
+
+    <div id= "select_all_models" class="field-center">
+      <br>
+      <%= form.label :model, 'Seleccione Modelo Smartphone' %>
+      <%= form.select :model, [['Galaxy 1', 1], ['Galaxy 2', 2], ['Galaxy 3', 3], ['Galaxy 4', 4]], {} %>
+    </div>
+
+    <div id= "show_all_models" class="field-center">
+      <div class="alert alert-info">
+        Mostrar modelos que no corresponden a mi cargo
+        <%= form.check_box :checkbox, { id: "checkbox" } %>
+      </div>
+    </div>
+
+    <div class="field-center model_text text_area">
+      <br>
+      <%= form.label :model_text , 'Motivo elección' %>
+      <%= text_area_tag :model_text , nil, :rows => 4, :cols => 25 %>
     </div>
 
     <div id= "bam_models" class="field-center">
