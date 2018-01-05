@@ -68,5 +68,11 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # Get missing days to renew item
+  def renew_date(id, item)
+    days = ((DateTime.now + 2.months) - DateTime.now).to_i
+    return days
+  end
+
 
 end

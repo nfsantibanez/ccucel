@@ -14,13 +14,18 @@ Rails.application.routes.draw do
   # Validate User
   get '/requests/home/validate' => 'requests#validate_user'
 
+  # TransferLine Form
+  get '/requests/forms/transferline' => 'requests#transfer_line'
   # New Form
   get '/requests/forms/new' => 'requests#new_form'
   # save New Form
   post '/requests/forms/create/new' => 'requests#create'
-
   # Renew Form
   get '/requests/forms/renew' => 'requests#renew_form'
+  # Stolen or Lost Form
+  get '/requests/forms/stolenlost' => 'requests#stolen_lost'
+  # Technical Service Form
+  get '/requests/forms/technicalservice' => 'requests#technical_service'
 
   #########TEST##########
   get '/test_new' => 'requests#test_new'

@@ -12,20 +12,13 @@
   <div class="well form-horizontal">
 
   <!-- Obtener nueva informacion del Formulario -->
-  <h4><strong> Datos de Solicitud BAM </strong></h4>
+  <h4><strong> Datos de Pérdida/Robo </strong></h4>
   <hr>
-
-  <% if @renew_date > 0 && @user["request"] == "renew" %>
-  <div class="alert alert-danger">
-    Faltan <%= @renew_date %> dias para que termine el periodo de renovación. Al estar fuera de plazo se incurrirá en costos adicionales
-  </div>
-  <% end %>
 
   <div class="field-center">
       <%= form.label :request, 'Equipo Seleccionado' %>
       <%= form.text_field :request, value: 'Default BAM model', disabled: true, class:"text-center", size: "30" %>
   </div>
-
 
 
   </div>

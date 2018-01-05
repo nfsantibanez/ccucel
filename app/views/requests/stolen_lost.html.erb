@@ -60,7 +60,7 @@
 <div class="container-fluid">
   <h1><strong> Formulario </strong></h1>
   <hr>
-  <h3> Formulario Renovación </h3>
+  <h3> Formulario Pérdida o Robo </h3>
   <hr>
 
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
@@ -73,10 +73,16 @@
       <%= render partial: '/layouts/user_info', locals: {form: form} %>
     </div>
 
+    <!-- Formulario del robo o perdida -->
+      <%= render partial: '/layouts/stolen_lost', locals: {form: form} %>
+
+    <!-- Formulario para nuevo dispositivo -->
       <% if @user["item"] == 'smartphone' %>
         <%= render partial: '/layouts/renew_smp', locals: {form: form} %>
       <% elsif @user["item"] == 'bam' %>
         <%= render partial: '/layouts/renew_bam', locals: {form: form} %>
+      <% elsif @user["item"] == 'sim' %>
+        <%= render partial: '/layouts/renew_sim', locals: {form: form} %>
       <% end %>
     <br>
 

@@ -69,30 +69,40 @@ class RequestsController < ApplicationController
     #Validate rut and form
     user = rut_verification(params[:user_rut])
     form = params[:request_type]
-
     # Redirect to correct form
     if user != 0
       # User data
       session[:user] = user.attributes
       # selected request and item data
       session[:user]["request"] = params[:request_type]
+
       if params[:request_type] == 'renew' || params[:request_type] == 'technical service'
         session[:user]["item"] = params[:request_hw_renew_tech]
       else
         session[:user]["item"] = params[:request_hw_lost]
       end
+
+      # Transfer Line
+      if form == 'transfer line'
+        redirect_to '/requests/forms/transferline'
       # New Request
-      if form == 'new'
+      elsif form == 'new'
         redirect_to '/requests/forms/new'
       # Renew Request
       elsif form == 'renew'
         # check if selected item is owned by user
         # item = item_verification(params[:request_hw])
         redirect_to '/requests/forms/renew'
+      # Stolen or Lost
+      elsif form == 'stolen/lost'
+        redirect_to '/requests/forms/stolenlost'
+      # Technical service
+      elsif form == 'technical service'
+        redirect_to '/requests/forms/technicalservice'
       end
 
     else
-      render json: {message: 'Datos Incorrectos'}
+        render json: {message: 'Datos Incorrectos'}
     end
   end
 
@@ -114,6 +124,32 @@ class RequestsController < ApplicationController
     @smartphones = available_smartphones()
     # Bam Models available_smartphones
     @bam = available_bams()
+    # Check the due date to renew the item
+    @renew_date = renew_date(@user["id"], @user["item"])
+  end
+
+  # Renew Request form
+  def transfer_line
+    # User information in Hash
+    @user = session[:user]
+  end
+
+  # Renew Request form
+  def stolen_lost
+    # User information in Hash
+    @user = session[:user]
+    # Smartphones Models available
+    @smartphones = available_smartphones()
+    # Bam Models available_smartphones
+    @bam = available_bams()
+    # Check the due date to renew the item
+    @renew_date = renew_date(@user["id"], @user["item"])
+  end
+
+  # Renew Request form
+  def technical_service
+    # User information in Hash
+    @user = session[:user]
   end
 
   ####################Trst Views and layouts#########################
