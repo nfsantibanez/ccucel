@@ -41857,3 +41857,1367 @@ Processing by RequestsController#stolen_lost as HTML
 Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 13:10:00 -0300
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (8.3ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#stolen_lost as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/requests_controller.rb:146:in `stolen_lost'
+Started GET "/" for 127.0.0.1 at 2018-01-05 13:10:17 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+Completed 200 OK in 619ms (Views: 605.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-05 13:10:19 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (53.4ms)
+Completed 200 OK in 58ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=stolen%2Flost&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2018-01-05 13:10:28 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"stolen/lost", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (4.0ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (268.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (3.4ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (552.4ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (3.4ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (3.3ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/stolenlost
+Completed 302 Found in 4471ms (ActiveRecord: 3894.3ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 13:10:32 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.5ms)
+  Rendered layouts/_stolen_lost.html.erb (13.3ms)
+  Rendered layouts/_renew_smp.html.erb (152.4ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (229.0ms)
+Completed 200 OK in 240ms (Views: 235.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 13:11:22 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered layouts/_stolen_lost.html.erb (0.7ms)
+  Rendered layouts/_renew_smp.html.erb (4.6ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (17.3ms)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 13:13:24 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered layouts/_stolen_lost.html.erb (0.7ms)
+  Rendered layouts/_renew_smp.html.erb (4.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (15.4ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 14:55:34 -0300
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.4ms)
+  Rendered layouts/_stolen_lost.html.erb (1.5ms)
+  Rendered layouts/_renew_smp.html.erb (83.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (341.6ms)
+Completed 200 OK in 361ms (Views: 353.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 14:56:10 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (12.2ms)
+  Rendered layouts/_stolen_lost.html.erb (1.7ms)
+  Rendered layouts/_renew_smp.html.erb (15.6ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (43.6ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:07:09 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.9ms)
+  Rendered layouts/_stolen_lost.html.erb (1.6ms)
+  Rendered layouts/_renew_smp.html.erb (6.3ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (23.2ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:07:52 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.4ms)
+  Rendered layouts/_stolen_lost.html.erb (8.8ms)
+  Rendered layouts/_renew_smp.html.erb (4.3ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (35.1ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:10:36 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.2ms)
+  Rendered layouts/_stolen_lost.html.erb (1.2ms)
+  Rendered layouts/_renew_smp.html.erb (4.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (17.4ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:11:40 -0300
+  [1m[35m (17.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (41.3ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (24.8ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.1ms)
+  Rendered layouts/_stolen_lost.html.erb (2.7ms)
+  Rendered layouts/_renew_smp.html.erb (107.8ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (370.6ms)
+Completed 200 OK in 388ms (Views: 381.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:12:46 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.8ms)
+  Rendered layouts/_stolen_lost.html.erb (1.6ms)
+  Rendered layouts/_renew_smp.html.erb (6.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (24.4ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:13:08 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (10.7ms)
+  Rendered layouts/_stolen_lost.html.erb (2.5ms)
+  Rendered layouts/_renew_smp.html.erb (6.8ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (34.5ms)
+Completed 200 OK in 40ms (Views: 38.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:13:39 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.3ms)
+  Rendered layouts/_stolen_lost.html.erb (1.8ms)
+  Rendered layouts/_renew_smp.html.erb (6.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (23.0ms)
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:14:26 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.2ms)
+  Rendered layouts/_stolen_lost.html.erb (1.1ms)
+  Rendered layouts/_renew_smp.html.erb (4.3ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (24.0ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:18:02 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered layouts/_stolen_lost.html.erb (174.5ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (184.5ms)
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007f8485060278>:0x007f8485b6e4a8>):
+    32:   <label class="btn btn-primary">
+    33:   Add a file!
+    34:   <span style="display:none;">
+    35:     <%= f.file_field :image, required: true, multiple: true, name: 'picture' %>
+    36:   </span>
+    37:   </label>
+    38:   </div>
+  
+app/views/layouts/_stolen_lost.html.erb:35:in `_app_views_layouts__stolen_lost_html_erb___3855045847237618427_70103462978700'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb__3738425259336683428_70103577884620'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb__3738425259336683428_70103577884620'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:18:26 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered layouts/_stolen_lost.html.erb (1.6ms)
+  Rendered layouts/_renew_smp.html.erb (7.9ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (22.2ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:19:39 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (8.2ms)
+  Rendered layouts/_stolen_lost.html.erb (1.8ms)
+  Rendered layouts/_renew_smp.html.erb (10.8ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (33.8ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:20:23 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.4ms)
+  Rendered layouts/_stolen_lost.html.erb (1.9ms)
+  Rendered layouts/_renew_smp.html.erb (12.5ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (33.2ms)
+Completed 200 OK in 38ms (Views: 37.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:21:10 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered layouts/_stolen_lost.html.erb (1.3ms)
+  Rendered layouts/_renew_smp.html.erb (4.5ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (17.3ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:21:31 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered layouts/_stolen_lost.html.erb (1.2ms)
+  Rendered layouts/_renew_smp.html.erb (5.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (19.8ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:22:20 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.9ms)
+  Rendered layouts/_stolen_lost.html.erb (1.5ms)
+  Rendered layouts/_renew_smp.html.erb (4.4ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (19.0ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:22:55 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered layouts/_stolen_lost.html.erb (1.2ms)
+  Rendered layouts/_renew_smp.html.erb (4.5ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (17.6ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:23:10 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.5ms)
+  Rendered layouts/_stolen_lost.html.erb (1.2ms)
+  Rendered layouts/_renew_smp.html.erb (4.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (18.2ms)
+Completed 200 OK in 23ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:24:14 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered layouts/_stolen_lost.html.erb (1.4ms)
+  Rendered layouts/_renew_smp.html.erb (4.5ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (17.8ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-05 15:24:24 -0300
+Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5VhuxerHb9yndDhoxzJV8yk1VGcv8Jt1rJi4broT8eysVqGgIXn9vS1MeDzm0XABlGye10W0bmZejUVSQYfpEw==", "item"=>"smartphone", "user_id"=>"10000", "start_date"=>"", "file"=>[#<ActionDispatch::Http::UploadedFile:0x007f84703df198 @tempfile=#<Tempfile:/tmp/RackMultipart20180105-4638-1qrzl67.txt>, @original_filename="Ubuntu.txt", @content_type="text/plain", @headers="Content-Disposition: form-data; name=\"file[]\"; filename=\"Ubuntu.txt\"\r\nContent-Type: text/plain\r\n">], "comment"=>"", "model"=>"1", "checkbox"=>"0", "model_text"=>"", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "commit"=>"Enviar"}
+Unpermitted parameters: :utf8, :authenticity_token, :item, :start_date, :file, :model, :checkbox, :model_text, :want_sim, :want_new_number, :number, :commit
+  [1m[35m (212.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3989.0ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (16.3ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('REQUESTS_seq')[0m
+  [1m[36mPrimary Key (20.2ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mSequence (13.6ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (15.3ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[35m (1829.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Load (27.4ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+  Rendering requests/new.html.erb within layouts/general_view
+  Rendered requests/_form.html.erb (44.8ms)
+  Rendered requests/new.html.erb within layouts/general_view (47.3ms)
+Completed 200 OK in 11954ms (Views: 57.1ms | ActiveRecord: 11602.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-05 15:40:42 -0300
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (11.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.7ms)
+Completed 200 OK in 253ms (Views: 243.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-05 15:40:44 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (13.9ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=stolen%2Flost&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2018-01-05 15:40:52 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"stolen/lost", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (4.4ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (52.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (7.5ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (534.3ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (3.1ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (5.6ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/stolenlost
+Completed 302 Found in 2344ms (ActiveRecord: 2063.1ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:40:55 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (7.7ms)
+  Rendered layouts/_stolen_lost.html.erb (1.3ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (47.2ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected tIVAR, expecting ')'
+...me, params[:file] @content_type );@output_buffer.safe_append...
+...                               ^):
+  
+app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected tIVAR, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb___2067639124901045519_69994823244220'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb___2067639124901045519_69994823244220'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:41:30 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered layouts/_stolen_lost.html.erb (19.5ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (31.1ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:42: syntax error, unexpected '<'
+  </div>
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:45: unknown regexp options - prdda
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:45: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected '<'
+    <br>
+     ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:48: syntax error, unexpected tCONSTANT, expecting ')'
+...m.label :comment, 'Descripción Robo/Pérdida' );@output_buf...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:48: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...t, 'Descripción Robo/Pérdida' );@output_buffer.safe_append...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:50: syntax error, unexpected '<', expecting ')'
+  </div>
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:52: unknown regexp options - dv
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected '<'
+</body>
+ ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:55: unknown regexp options - htl
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:56: unterminated string meets end of file
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:56: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:42: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:45: unknown regexp options - prdda
+app/views/layouts/_stolen_lost.html.erb:45: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:48: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:48: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_stolen_lost.html.erb:50: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_stolen_lost.html.erb:52: unknown regexp options - dv
+app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:55: unknown regexp options - htl
+app/views/layouts/_stolen_lost.html.erb:56: unterminated string meets end of file
+app/views/layouts/_stolen_lost.html.erb:56: syntax error, unexpected end-of-input, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb___2067639124901045519_69994847183100'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb___2067639124901045519_69994847183100'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:41:49 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.4ms)
+  Rendered layouts/_stolen_lost.html.erb (0.6ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (13.1ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '<'
+  </div>
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:44: unknown regexp options - prdda
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:46: syntax error, unexpected '<'
+    <br>
+     ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tCONSTANT, expecting ')'
+...m.label :comment, 'Descripción Robo/Pérdida' );@output_buf...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...t, 'Descripción Robo/Pérdida' );@output_buffer.safe_append...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:49: syntax error, unexpected '<', expecting ')'
+  </div>
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:51: unknown regexp options - dv
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:53: syntax error, unexpected '<'
+</body>
+ ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:54: unknown regexp options - htl
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:55: unterminated string meets end of file
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:55: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:44: unknown regexp options - prdda
+app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+app/views/layouts/_stolen_lost.html.erb:46: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_stolen_lost.html.erb:49: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_stolen_lost.html.erb:51: unknown regexp options - dv
+app/views/layouts/_stolen_lost.html.erb:53: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:54: unknown regexp options - htl
+app/views/layouts/_stolen_lost.html.erb:55: unterminated string meets end of file
+app/views/layouts/_stolen_lost.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb___2067639124901045519_69994832940460'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb___2067639124901045519_69994832940460'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:42:02 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered layouts/_stolen_lost.html.erb (0.6ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (11.9ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '<', expecting ')'
+  </div>
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:44: unknown regexp options - prdda
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:46: syntax error, unexpected '<'
+    <br>
+     ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tCONSTANT, expecting ')'
+...m.label :comment, 'Descripción Robo/Pérdida' );@output_buf...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...t, 'Descripción Robo/Pérdida' );@output_buffer.safe_append...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:49: syntax error, unexpected '<', expecting ')'
+  </div>
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:51: unknown regexp options - dv
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:53: syntax error, unexpected '<'
+</body>
+ ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:54: unknown regexp options - htl
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:55: unterminated string meets end of file
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:55: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_stolen_lost.html.erb:44: unknown regexp options - prdda
+app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+app/views/layouts/_stolen_lost.html.erb:46: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_stolen_lost.html.erb:49: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_stolen_lost.html.erb:51: unknown regexp options - dv
+app/views/layouts/_stolen_lost.html.erb:53: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:54: unknown regexp options - htl
+app/views/layouts/_stolen_lost.html.erb:55: unterminated string meets end of file
+app/views/layouts/_stolen_lost.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb___2067639124901045519_69994821524840'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb___2067639124901045519_69994821524840'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:42:35 -0300
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (9.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.4ms)
+  Rendered layouts/_stolen_lost.html.erb (1.3ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (252.2ms)
+Completed 500 Internal Server Error in 262ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '<', expecting ')'
+  </div>
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:44: unknown regexp options - prdda
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:46: syntax error, unexpected '<'
+    <br>
+     ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tCONSTANT, expecting ')'
+...m.label :comment, 'Descripción Robo/Pérdida' );@output_buf...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...t, 'Descripción Robo/Pérdida' );@output_buffer.safe_append...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:49: syntax error, unexpected '<', expecting ')'
+  </div>
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:51: unknown regexp options - dv
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:53: syntax error, unexpected '<'
+</body>
+ ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:54: unknown regexp options - htl
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:55: unterminated string meets end of file
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:55: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_stolen_lost.html.erb:44: unknown regexp options - prdda
+app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+app/views/layouts/_stolen_lost.html.erb:46: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:47: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_stolen_lost.html.erb:49: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_stolen_lost.html.erb:51: unknown regexp options - dv
+app/views/layouts/_stolen_lost.html.erb:53: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:54: unknown regexp options - htl
+app/views/layouts/_stolen_lost.html.erb:55: unterminated string meets end of file
+app/views/layouts/_stolen_lost.html.erb:55: syntax error, unexpected end-of-input, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb__2054822812744163296_69907174207000'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb__2054822812744163296_69907174207000'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:43:40 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered layouts/_stolen_lost.html.erb (0.6ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (11.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '<', expecting ')'
+  <!-- Descripcion robo/perdida-->
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+  <!-- Descripcion robo/perdida-->
+                       ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:43: syntax error, unexpected '<'
+    <br>
+     ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected tCONSTANT, expecting ')'
+...m.label :comment, 'Descripción Robo/Pérdida' );@output_buf...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...t, 'Descripción Robo/Pérdida' );@output_buffer.safe_append...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:46: syntax error, unexpected '<', expecting ')'
+  </div>
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:48: unknown regexp options - dv
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:50: syntax error, unexpected '<'
+</body>
+ ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:51: unknown regexp options - htl
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:52: unterminated string meets end of file
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+app/views/layouts/_stolen_lost.html.erb:43: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_stolen_lost.html.erb:46: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_stolen_lost.html.erb:48: unknown regexp options - dv
+app/views/layouts/_stolen_lost.html.erb:50: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:51: unknown regexp options - htl
+app/views/layouts/_stolen_lost.html.erb:52: unterminated string meets end of file
+app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected end-of-input, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb__2054822812744163296_69907001684400'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb__2054822812744163296_69907001684400'
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=stolen%2Flost&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2018-01-05 15:43:45 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"stolen/lost", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (5.1ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (79.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (5.4ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (559.9ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (5.9ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (2.9ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.7ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/stolenlost
+Completed 302 Found in 2304ms (ActiveRecord: 2033.8ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:43:48 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered layouts/_stolen_lost.html.erb (0.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (13.4ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '<', expecting ')'
+  <!-- Descripcion robo/perdida-->
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+  <!-- Descripcion robo/perdida-->
+                       ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:43: syntax error, unexpected '<'
+    <br>
+     ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected tCONSTANT, expecting ')'
+...m.label :comment, 'Descripción Robo/Pérdida' );@output_buf...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...t, 'Descripción Robo/Pérdida' );@output_buffer.safe_append...
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:46: syntax error, unexpected '<', expecting ')'
+  </div>
+   ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:48: unknown regexp options - dv
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:50: syntax error, unexpected '<'
+</body>
+ ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:51: unknown regexp options - htl
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:52: unterminated string meets end of file
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/layouts/_stolen_lost.html.erb:41: syntax error, unexpected '\n', expecting keyword_do_LAMBDA or tLAMBEG
+app/views/layouts/_stolen_lost.html.erb:43: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:44: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/_stolen_lost.html.erb:46: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_stolen_lost.html.erb:48: unknown regexp options - dv
+app/views/layouts/_stolen_lost.html.erb:50: syntax error, unexpected '<'
+app/views/layouts/_stolen_lost.html.erb:51: unknown regexp options - htl
+app/views/layouts/_stolen_lost.html.erb:52: unterminated string meets end of file
+app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected end-of-input, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb__2054822812744163296_69906939757600'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb__2054822812744163296_69906939757600'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:44:07 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered layouts/_stolen_lost.html.erb (2.3ms)
+  Rendered layouts/_renew_smp.html.erb (68.8ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (83.3ms)
+Completed 200 OK in 89ms (Views: 88.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:44:32 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.4ms)
+  Rendered layouts/_stolen_lost.html.erb (163.9ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (177.9ms)
+Completed 500 Internal Server Error in 180ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `file' for #<#<Class:0x007f2910924ce0>:0x007f28fc0db458>
+Did you mean?  fail):
+    36:     </label>
+    37:   </div>
+    38: 
+    39:   <%= puts(file) %>
+    40: 
+    41:   <!-- Descripcion robo/perdida-->
+    42:   <div class="field-center">
+  
+app/views/layouts/_stolen_lost.html.erb:39:in `_app_views_layouts__stolen_lost_html_erb___2577652479690031865_69906989969520'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb__2054822812744163296_69907002179740'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb__2054822812744163296_69907002179740'
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-05 15:44:42 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (4.1ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=stolen%2Flost&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2018-01-05 15:44:47 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"stolen/lost", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (7.7ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (5.1ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/stolenlost
+Completed 302 Found in 40ms (ActiveRecord: 20.5ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:44:47 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered layouts/_stolen_lost.html.erb (1.3ms)
+  Rendered layouts/_renew_smp.html.erb (4.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (20.4ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:46:33 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.9ms)
+  Rendered layouts/_stolen_lost.html.erb (1.4ms)
+  Rendered layouts/_renew_smp.html.erb (4.5ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (18.1ms)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:47:03 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered layouts/_stolen_lost.html.erb (2.1ms)
+  Rendered layouts/_renew_smp.html.erb (4.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (16.9ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:51:06 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered layouts/_stolen_lost.html.erb (1.2ms)
+  Rendered layouts/_renew_smp.html.erb (3.8ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (16.5ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:53:40 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered layouts/_stolen_lost.html.erb (1.1ms)
+  Rendered layouts/_renew_smp.html.erb (3.9ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (16.4ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:54:16 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered layouts/_stolen_lost.html.erb (1.1ms)
+  Rendered layouts/_renew_smp.html.erb (3.6ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (15.6ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:58:13 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (12.3ms)
+  Rendered layouts/_stolen_lost.html.erb (1.5ms)
+  Rendered layouts/_renew_smp.html.erb (6.3ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (28.4ms)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:59:29 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.2ms)
+  Rendered layouts/_stolen_lost.html.erb (1.7ms)
+  Rendered layouts/_renew_smp.html.erb (7.6ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (25.9ms)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:59:37 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.9ms)
+  Rendered layouts/_stolen_lost.html.erb (1.5ms)
+  Rendered layouts/_renew_smp.html.erb (4.9ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (19.0ms)
+Completed 200 OK in 23ms (Views: 22.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 15:59:50 -0300
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (13.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.5ms)
+  Rendered layouts/_stolen_lost.html.erb (2.8ms)
+  Rendered layouts/_renew_smp.html.erb (108.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (377.7ms)
+Completed 200 OK in 396ms (Views: 388.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-05 16:00:56 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.3ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:02:05 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.7ms)
+  Rendered layouts/_stolen_lost.html.erb (0.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (15.6ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:34: syntax error, unexpected ')', expecting =>
+...ange: puts(params,'nnnn'*20)} );@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:34: syntax error, unexpected ')', expecting =>
+app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb__2281693734017280164_69824327375820'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb__2281693734017280164_69824327375820'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:03:14 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered layouts/_stolen_lost.html.erb (1.9ms)
+  Rendered layouts/_renew_smp.html.erb (4.1ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (17.0ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:06:39 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered layouts/_stolen_lost.html.erb (0.6ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (10.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:34: syntax error, unexpected ')', expecting =>
+...ange: puts(params,'nnnn'*20)} );@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:34: syntax error, unexpected ')', expecting =>
+app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb__2281693734017280164_69824224181680'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb__2281693734017280164_69824224181680'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:07:10 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.3ms)
+  Rendered layouts/_stolen_lost.html.erb (0.6ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (11.2ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:34: syntax error, unexpected ')', expecting =>
+...eg', {onChange: puts(params)} );@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:34: syntax error, unexpected ')', expecting =>
+app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb__2281693734017280164_69824256455320'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb__2281693734017280164_69824256455320'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:07:22 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.1ms)
+  Rendered layouts/_stolen_lost.html.erb (0.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (11.9ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:34: syntax error, unexpected ')', expecting =>
+...eg', {onChange: puts('nico')} );@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:34: syntax error, unexpected ')', expecting =>
+app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb__2281693734017280164_69824349144440'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb__2281693734017280164_69824349144440'
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:07:24 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered layouts/_stolen_lost.html.erb (0.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (12.3ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:34: syntax error, unexpected ')', expecting =>
+...eg', {onChange: puts('nico')} );@output_buffer.safe_append='
+...                               ^
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+/home/nico/ccu web/ccucel/app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/layouts/_stolen_lost.html.erb:34: syntax error, unexpected ')', expecting =>
+app/views/layouts/_stolen_lost.html.erb:52: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/_stolen_lost.html.erb:54: syntax error, unexpected keyword_end, expecting ')'
+app/views/requests/stolen_lost.html.erb:77:in `block in _app_views_requests_stolen_lost_html_erb__2281693734017280164_69824330769820'
+app/views/requests/stolen_lost.html.erb:66:in `_app_views_requests_stolen_lost_html_erb__2281693734017280164_69824330769820'
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:07:44 -0300
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:07:45 -0300
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:07:47 -0300
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:07:49 -0300
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:07:51 -0300
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:07:52 -0300
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:07:55 -0300
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:08:02 -0300
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:08:10 -0300
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:08:12 -0300
+Started POST "/__web_console/repl_sessions/3374ae6d57544b0a28e279e0ed364ec1/trace" for 127.0.0.1 at 2018-01-05 16:08:13 -0300
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:08:58 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.6ms)
+  Rendered layouts/_stolen_lost.html.erb (1.5ms)
+  Rendered layouts/_renew_smp.html.erb (4.4ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (20.8ms)
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:11:31 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.2ms)
+  Rendered layouts/_stolen_lost.html.erb (1.6ms)
+  Rendered layouts/_renew_smp.html.erb (4.4ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (18.4ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:19:43 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered layouts/_stolen_lost.html.erb (3.6ms)
+  Rendered layouts/_renew_smp.html.erb (4.4ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (19.3ms)
+Completed 200 OK in 23ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:19:54 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.5ms)
+  Rendered layouts/_stolen_lost.html.erb (2.1ms)
+  Rendered layouts/_renew_smp.html.erb (3.9ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (18.0ms)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:20:08 -0300
+  [1m[35m (16.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (707.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (13.4ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.0ms)
+  Rendered layouts/_stolen_lost.html.erb (3.4ms)
+  Rendered layouts/_renew_smp.html.erb (80.0ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (333.7ms)
+Completed 200 OK in 355ms (Views: 346.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:20:41 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (12.2ms)
+  Rendered layouts/_stolen_lost.html.erb (6.9ms)
+  Rendered layouts/_renew_smp.html.erb (13.3ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (46.9ms)
+Completed 200 OK in 55ms (Views: 53.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:20:56 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.4ms)
+  Rendered layouts/_stolen_lost.html.erb (2.9ms)
+  Rendered layouts/_renew_smp.html.erb (6.1ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (24.3ms)
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:25:38 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered layouts/_stolen_lost.html.erb (2.0ms)
+  Rendered layouts/_renew_smp.html.erb (4.3ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (18.4ms)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:27:11 -0300
+  [1m[35m (86.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (160.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (307.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.2ms)
+  Rendered layouts/_stolen_lost.html.erb (3.0ms)
+  Rendered layouts/_renew_smp.html.erb (78.3ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (317.8ms)
+Completed 200 OK in 339ms (Views: 329.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:28:48 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (12.3ms)
+  Rendered layouts/_stolen_lost.html.erb (4.9ms)
+  Rendered layouts/_renew_smp.html.erb (14.9ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (47.7ms)
+Completed 200 OK in 55ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:33:58 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (8.8ms)
+  Rendered layouts/_stolen_lost.html.erb (2.0ms)
+  Rendered layouts/_renew_smp.html.erb (4.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (24.6ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:35:11 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered layouts/_stolen_lost.html.erb (1.8ms)
+  Rendered layouts/_renew_smp.html.erb (4.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (17.6ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:35:59 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.8ms)
+  Rendered layouts/_stolen_lost.html.erb (1.9ms)
+  Rendered layouts/_renew_smp.html.erb (4.4ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (19.0ms)
+Completed 200 OK in 23ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:36:11 -0300
+  [1m[35m (6.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (17.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (6.3ms)
+  Rendered layouts/_stolen_lost.html.erb (4.0ms)
+  Rendered layouts/_renew_smp.html.erb (100.9ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (367.9ms)
+Completed 200 OK in 386ms (Views: 377.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:37:50 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.9ms)
+  Rendered layouts/_stolen_lost.html.erb (2.5ms)
+  Rendered layouts/_renew_smp.html.erb (7.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (28.4ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:41:02 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (10.8ms)
+  Rendered layouts/_stolen_lost.html.erb (2.8ms)
+  Rendered layouts/_renew_smp.html.erb (6.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (31.7ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:41:34 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered layouts/_stolen_lost.html.erb (1.9ms)
+  Rendered layouts/_renew_smp.html.erb (4.1ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (25.2ms)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:42:30 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.6ms)
+  Rendered layouts/_stolen_lost.html.erb (2.1ms)
+  Rendered layouts/_renew_smp.html.erb (4.0ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (17.5ms)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=stolen%2Flost&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2018-01-05 16:42:58 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"stolen/lost", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (8.9ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (40.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (462.2ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (2.9ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (3.5ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (5.6ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/stolenlost
+Completed 302 Found in 1809ms (ActiveRecord: 1707.2ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:42:59 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.7ms)
+  Rendered layouts/_stolen_lost.html.erb (2.0ms)
+  Rendered layouts/_renew_smp.html.erb (4.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (19.5ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:44:05 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.1ms)
+  Rendered layouts/_stolen_lost.html.erb (1.8ms)
+  Rendered layouts/_renew_smp.html.erb (3.9ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (16.2ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:45:13 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (4.0ms)
+  Rendered layouts/_stolen_lost.html.erb (1.9ms)
+  Rendered layouts/_renew_smp.html.erb (4.6ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (18.3ms)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:48:10 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered layouts/_stolen_lost.html.erb (1.9ms)
+  Rendered layouts/_renew_smp.html.erb (4.1ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (17.8ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:48:58 -0300
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (11.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.7ms)
+  Rendered layouts/_stolen_lost.html.erb (3.4ms)
+  Rendered layouts/_renew_smp.html.erb (86.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (341.3ms)
+Completed 200 OK in 362ms (Views: 354.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:49:40 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (11.4ms)
+  Rendered layouts/_stolen_lost.html.erb (4.6ms)
+  Rendered layouts/_renew_smp.html.erb (14.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (45.5ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:50:17 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.6ms)
+  Rendered layouts/_stolen_lost.html.erb (2.5ms)
+  Rendered layouts/_renew_smp.html.erb (6.2ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (25.8ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:50:40 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.8ms)
+  Rendered layouts/_stolen_lost.html.erb (2.9ms)
+  Rendered layouts/_renew_smp.html.erb (8.0ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (27.8ms)
+Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:51:08 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.5ms)
+  Rendered layouts/_stolen_lost.html.erb (2.7ms)
+  Rendered layouts/_renew_smp.html.erb (6.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (25.1ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:51:35 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.5ms)
+  Rendered layouts/_stolen_lost.html.erb (2.5ms)
+  Rendered layouts/_renew_smp.html.erb (6.3ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (24.0ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-05 16:52:01 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (5.2ms)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=stolen%2Flost&request_hw_renew_tech=smartphone&request_hw_lost=sim&user_rut=&commit=Enviar" for 127.0.0.1 at 2018-01-05 16:52:08 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"stolen/lost", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"sim", "user_rut"=>"", "commit"=>"Enviar"}
+  [1m[35m (8.3ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = ''[0m
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=stolen%2Flost&request_hw_renew_tech=smartphone&request_hw_lost=bam&user_rut=10021284-6&commit=Enviar" for 127.0.0.1 at 2018-01-05 16:52:16 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"stolen/lost", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"bam", "user_rut"=>"10021284-6", "commit"=>"Enviar"}
+  [1m[35m (17.6ms)[0m  [1m[34mselect * from sysadm.ps_v88rh_emplee_vw where emplid = '10021284-6'[0m
+  [1m[35m (466.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mUser Exists (13.9ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[35m (2406.1ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[36mSequence (16.4ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'SYSADM' and us.sequence_name = upper('USERS_seq')[0m
+  [1m[36mPrimary Key (17.6ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'SYSADM' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "10021284-6"], ["LIMIT", 1]]
+  [1m[36mUser Exists (16.7ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "OsRein@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/stolenlost
+Completed 302 Found in 5987ms (ActiveRecord: 5596.2ms)
+
+
+Started GET "/requests/forms/stolenlost" for 127.0.0.1 at 2018-01-05 16:52:22 -0300
+Processing by RequestsController#stolen_lost as HTML
+  Rendering requests/stolen_lost.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.4ms)
+  Rendered layouts/_stolen_lost.html.erb (1.9ms)
+  Rendered layouts/_renew_bam.html.erb (0.7ms)
+  Rendered requests/stolen_lost.html.erb within layouts/general_view (14.5ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (13.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (43.3ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (13.8ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (14.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (14.9ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (15.0ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (17.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (15.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (15.7ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+Migrating to CreatePlans (20171227194658)
+  [1m[35m (1738.2ms)[0m  [1m[35mDROP TABLE "PLANS"[0m
+  [1m[35m (57.6ms)[0m  [1m[35mDROP SEQUENCE "PLANS_SEQ"[0m
+  [1m[35mSQL (29.3ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171227194658"]]
+Migrating to CreateUserRecords (20171221132708)
+  [1m[35m (226.8ms)[0m  [1m[35mDROP TABLE "USER_RECORDS"[0m
+  [1m[35m (15.2ms)[0m  [1m[35mDROP SEQUENCE "USER_RECORDS_SEQ"[0m
+  [1m[35mSQL (12.3ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132708"]]
+Migrating to CreateSmartphones (20171221132707)
+  [1m[35m (112.1ms)[0m  [1m[35mDROP TABLE "SMARTPHONES"[0m
+  [1m[35m (22.0ms)[0m  [1m[35mDROP SEQUENCE "SMARTPHONES_SEQ"[0m
+  [1m[35mSQL (15.9ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132707"]]
+Migrating to CreateBams (20171221132706)
+  [1m[35m (227.3ms)[0m  [1m[35mDROP TABLE "BAMS"[0m
+  [1m[35m (44.1ms)[0m  [1m[35mDROP SEQUENCE "BAMS_SEQ"[0m
+  [1m[35mSQL (404.1ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132706"]]
+Migrating to CreateRequests (20171221132705)
+  [1m[35m (86.3ms)[0m  [1m[35mDROP TABLE "REQUESTS"[0m
+  [1m[35m (20.6ms)[0m  [1m[35mDROP SEQUENCE "REQUESTS_SEQ"[0m
+  [1m[35mSQL (16.5ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132705"]]
+Migrating to CreateSims (20171221132704)
+  [1m[35m (75.9ms)[0m  [1m[35mDROP TABLE "SIMS"[0m
+  [1m[35m (18.6ms)[0m  [1m[35mDROP SEQUENCE "SIMS_SEQ"[0m
+  [1m[35mSQL (14.6ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132704"]]
+Migrating to CreateUsers (20171221132703)
+  [1m[35m (147.0ms)[0m  [1m[35mDROP TABLE "USERS"[0m
+  [1m[35m (19.8ms)[0m  [1m[35mDROP SEQUENCE "USERS_SEQ"[0m
+  [1m[35mSQL (20.6ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132703"]]
+  [1m[35m (15.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (15.3ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+  [1m[35m (231.9ms)[0m  [1m[34mSELECT LOWER(mview_name) FROM all_mviews WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (72.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'PS_AA_COST_RT_JPN' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[36mPrimary Keys (1099.2ms)[0m  [1m[34mSELECT cc.column_name
+  FROM all_constraints c, all_cons_columns cc
+ WHERE c.owner = 'SYSADM'
+   AND c.table_name = 'PS_AA_COST_RT_JPN'
+   AND c.constraint_type = 'P'
+   AND cc.owner = c.owner
+   AND cc.constraint_name = c.constraint_name
+   order by cc.position
+[0m
+  [1m[35m (52.6ms)[0m  [1m[34mSELECT temporary FROM all_tables WHERE table_name = 'PS_AA_COST_RT_JPN' and owner = SYS_CONTEXT('userenv', 'session_user')[0m
+  [1m[35m (29.5ms)[0m  [1m[34m            SELECT comments FROM all_tab_comments
+            WHERE owner = 'SYSADM'
+              AND table_name = 'PS_AA_COST_RT_JPN'
+[0m
+  [1m[35m (171.5ms)[0m  [1m[34mSELECT LOWER(default_tablespace) FROM user_users WHERE username = SYS_CONTEXT('userenv', 'current_schema')[0m
+  [1m[35m (15.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+  [1m[35m (42.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+  [1m[35m (14.6ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
