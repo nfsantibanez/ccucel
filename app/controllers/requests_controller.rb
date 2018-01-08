@@ -70,7 +70,7 @@ class RequestsController < ApplicationController
     user = rut_verification(params[:user_rut])
     form = params[:request_type]
     # Redirect to correct form
-    if user != 0
+    if user != 0 and user != -1
       # User data
       session[:user] = user.attributes
       # selected request and item data
@@ -101,8 +101,11 @@ class RequestsController < ApplicationController
         redirect_to '/requests/forms/technicalservice'
       end
 
+    elsif user == 0
+      render json: {message: 'El usuario con Identificador nacional: '+params[:user_rut].to_s+ 'No se encuentra en la Base de datos de CCU'}
     else
-        render json: {message: 'Datos Incorrectos'}
+      render json: {message: 'No se puede conectar a la Base de datos de CCU, intente mas tarde'}
+      
     end
   end
 

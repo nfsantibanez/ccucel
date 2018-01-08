@@ -4,11 +4,10 @@ class Bam < ApplicationRecord
 
   # Validations
   validates :model, presence: true, allow_blank: false
-  validates :imei, presence: true, allow_blank: false, length: { in: 14..16 }, uniqueness: true
+  validates :imei, presence: true, allow_blank: false, length: { in: 14..16 }
   validates :price, presence: true, allow_blank: false
   validates :state, presence: true, allow_blank: false
   validate :valid_state
-
 
   private
 

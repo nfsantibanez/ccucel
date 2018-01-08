@@ -6,7 +6,7 @@ class CreateSmartphones < ActiveRecord::Migration[5.1]
       t.string :category, null: false
       t.string :country, null: false
       t.string :last_owner, null: false, default: 'first owner'
-      t.string :imei, null: false
+      t.string :imei, null: false, default: '000000000000000'
       t.integer :price, null: false
       t.string :state, null: false, default: 'new'
       t.boolean :available, null: false, default: true

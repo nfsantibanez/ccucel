@@ -5,12 +5,11 @@ class Smartphone < ApplicationRecord
   # Validations
   validates :model, presence: true, allow_blank: false
   validates :category, presence: true, allow_blank: false
-  validates :imei, presence: true, allow_blank: false, length: { in: 14..16 }, uniqueness: true
+  validates :imei, presence: true, allow_blank: false, length: { in: 14..16 }
   validates :price, presence: true, allow_blank: false
   validates :state, presence: true, allow_blank: false
   validate :valid_state
   validate :valid_category, on: :create
-
 
   private
 
@@ -21,8 +20,9 @@ class Smartphone < ApplicationRecord
   end
 
   def valid_category
-   if category != 'gerente' && category != 'subgerente' && category != 'jefe venta/vendedor' &&
-     category != 'profesional/tecnico' && category != 'empleado/operario' && category != 'multiusuario'
+   if category != 'gerente' && category != 'subgerente' && category != 'jefe de venta/vendedor' &&
+     category != 'profesional/tecnico' && category != 'empleado/operario' && category != 'multiusuario' &&
+     category != 'otro' && category != 'all'
      errors.add(:request, 'invalid category field')
    end
   end

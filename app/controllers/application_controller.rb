@@ -8,14 +8,21 @@ class ApplicationController < ActionController::Base
     rut.delete!(".")
 
     # Query to CCU DB
-    query_1 = "select * from sysadm.ps_v88rh_emplee_vw where "
-    query_2 = "emplid = '"+rut+"'"
-    view= ActiveRecord::Base.connection.execute(query_1+query_2)
-    db_user = view.fetch_hash
+    begin
+      query_1 = "select * from sysadm.ps_v88rh_emplee_vw where "
+      query_2 = "emplid = '"+rut+"'"
+      view= ActiveRecord::Base.connection.execute(query_1+query_2)
+      db_user = view.fetch_hash
+    # If there is no connection to DB
+    rescue
+      db_user = -1
+    end
 
     # Verify is user exists
     if !db_user
       return 0
+    elsif db_user == -1 and Rails.env.test?
+      return User.where(national_id: rut).first
     else
       return convert_user(db_user)
     end
@@ -36,12 +43,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Convert info user form CCU DB
+  # Convert info user from CCU DB
   def convert_user(user)
     # split name and last_name
     name = user["NAME"].split(",")[0]
     last_name = user["NAME"].split(",")[1]
-    # save or update user info
+    # save or update user info in app DB
     if !User.where(national_id: user["NATIONAL_ID"]).empty?
       user_db = User.where(national_id: user["NATIONAL_ID"]).first
       user_db.update_attributes!(jobtitle: user["JOBTITLE"], company: user["COMPANY"],
