@@ -15,5 +15,20 @@
   <%= @plan.price %>
 </p>
 
+<p>
+  <strong>Detail:</strong>
+  <%= @plan.detail %>
+</p>
+
+<p>
+  <strong>Nid_country:</strong>
+  <%= @plan.nid_country %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @plan.category %>
+</p>
+
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
 <%= link_to 'Back', plans_path %>

@@ -5,6 +5,7 @@ class CreateUserRecords < ActiveRecord::Migration[5.1]
       t.references :sim, foreign_key: true
       t.references :bam, foreign_key: true
       t.references :user, foreign_key: true
+      t.references :plan, foreign_key: true
 
       t.timestamps
     end

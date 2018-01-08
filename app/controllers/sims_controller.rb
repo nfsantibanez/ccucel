@@ -70,6 +70,7 @@ class SimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sim_params
-      params.require(:sim).permit(:phone_number, :last_owner, :state, :available, :last_assign_at)
+      params.require(:sim).permit(:phone_number, :serial_number, :country,
+        :last_owner, :state, :available, :last_assign_at)
     end
 end

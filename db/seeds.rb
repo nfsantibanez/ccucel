@@ -215,13 +215,13 @@ puts(bams)
 
 # Bams ARG
 bams = Bam.create!([
-  {model: 'Huaewi E5573', imei:'952427835802167', price: 35990,
+  {model: 'Huawei E5573', imei:'952427835802167', price: 35990,
     last_owner: 'Joaquin Zunino', code: '205167', state: 'used', country: 'ARG'},
-  {model: 'Huaewi E5573', imei:'984557575805360', price: 35990,
+  {model: 'Huawei E5573', imei:'984557575805360', price: 35990,
     last_owner: 'Francisca Irarrazaval', code: '205167', state: 'used', country: 'ARG'},
-  {model: 'Huaewi E5573', imei:'996883330106421', price: 35990, code: '205167', country: 'ARG'},
-  {model: 'Huaewi E8372', imei:'918813063325600', price: 55990, code: '205250', country: 'ARG'},
-  {model: 'Huaewi E8372', imei:'932414072893167', price: 55990,
+  {model: 'Huawei E5573', imei:'996883330106421', price: 35990, code: '205167', country: 'ARG'},
+  {model: 'Huawei E8372', imei:'918813063325600', price: 55990, code: '205250', country: 'ARG'},
+  {model: 'Huawei E8372', imei:'932414072893167', price: 55990,
     last_owner: 'Mariana Fernandez', code: '205250', state: 'used', country: 'ARG'}
 ])
 puts(bams)
@@ -245,15 +245,15 @@ puts(plans)
 # plans/bags ARG for bams and roaming
 # Bams ARG
 plans = Plan.create!([
-  {item: 'bam', name:'BAM Utra 8 Gb', price: 10882, nid_country: 'CHL',
+  {item: 'bam', name:'BAM Utra 8 Gb', price: 10882, nid_country: 'ARG',
     detail:' El plan incluye: 8 Gb / vel. descarga nacional promedio: 2,5 Mbps (nacional) y 1,5 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Ultra 15 Gb', price: 15924, nid_country: 'CHL',
+  {item: 'bam', name:'BAM Ultra 15 Gb', price: 15924, nid_country: 'ARG',
     detail:' El plan incluye: 15 Gb / vel. descarga nacional promedio: 2,5 Mbps (nacional) y 1,5 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Ultra 20 Gb', price: 19286, nid_country: 'CHL',
+  {item: 'bam', name:'BAM Ultra 20 Gb', price: 19286, nid_country: 'ARG',
     detail:' El plan incluye: 20 Gb / vel. descarga nacional promedio: 4,5 Mbps (nacional) y 3,5 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Ultra 25 Gb', price: 25168, nid_country: 'CHL',
+  {item: 'bam', name:'BAM Ultra 25 Gb', price: 25168, nid_country: 'ARG',
     detail:' El plan incluye: 25 Gb / vel. descarga nacional promedio: 5,5 Mbps (nacional) y 5,0 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Ultra 30 Gb', price: 32807, nid_country: 'CHL',
+  {item: 'bam', name:'BAM Ultra 30 Gb', price: 32807, nid_country: 'ARG',
     detail:' El plan incluye: 30 Gb / vel. descarga nacional promedio: 5,5 Mbps (nacional) y 5,0 Mbps (internacional) '}
 ])
 puts(plans)

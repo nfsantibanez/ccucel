@@ -20,8 +20,6 @@
   }
   </style>
 
-  <%= javascript_include_tag "jquery.min" %>
-
   <script type="text/javascript">
   $(document).ready(function(){
 
@@ -58,9 +56,8 @@
 
   <!-- Fecha robo/perdida -->
   <div class="field-center">
-    <br>
-    <%= form.label :start_date, 'Fecha Robo/Pérdida' %>
-    <%= form.date_field :start_date, max: Date.today %>
+    <%= form.label :lost_date, 'Fecha Robo/Pérdida' %>
+    <%= form.date_field :lost_date, max: Date.today %>
   </div>
   <!-- Constancia Carabineros -->
   <div class="field-center">
@@ -74,7 +71,7 @@
       Archivo Cargado
     </div>
     <span style="display:none">
-      <%= form.file_field :file, required: true, multiple: false, name: "file", accept: 'image/png,image/gif,image/jpeg' %>
+      <%= form.file_field :file, multiple: false, name: "file", accept: 'image/png,image/gif,image/jpeg' %>
     </span>
     </label>
   </div>
@@ -82,8 +79,8 @@
   <!-- Descripcion robo/perdida-->
   <div class="field-center text_area">
     <br>
-    <%= form.label :comment, 'Descripción Robo/Pérdida' %>
-    <%= text_area_tag :comment, nil, :rows => 4, :cols => 25 %>
+    <%= form.label :comment_stolen_lost, 'Descripción Robo/Pérdida' %>
+    <%= text_area_tag :comment_stolen_lost, nil, :rows => 4, :cols => 25 %>
   </div>
 
   </div>

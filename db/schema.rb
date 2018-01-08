@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.integer "price", null: false
     t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-08 13:42:00", null: false
-    t.datetime "last_assign_at", default: "2018-01-08 13:42:00", null: false
+    t.datetime "renovation_at", default: "2020-01-08 20:05:13", null: false
+    t.string "order_note"
+    t.datetime "last_assign_at", default: "2018-01-08 20:05:13", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,7 +49,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.binary "contract"
     t.binary "file"
     t.string "status", default: "created", null: false
-    t.string "comment"
+    t.string "comment_model"
+    t.string "comment_stolen_lost"
     t.datetime "closed_at"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -63,13 +65,16 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "last_owner", default: "first owner", null: false
     t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
-    t.datetime "last_assign_at", default: "2018-01-08 13:42:00", null: false
+    t.string "order_note"
+    t.datetime "last_assign_at", default: "2018-01-08 20:05:13", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "smartphones", force: :cascade do |t|
     t.string "model", null: false
+    t.string "phone_number"
+    t.string "order_note"
     t.string "code", null: false
     t.string "category", null: false
     t.string "country", null: false
@@ -78,8 +83,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.integer "price", null: false
     t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-08 13:42:01", null: false
-    t.datetime "last_assign_at", default: "2018-01-08 13:42:01", null: false
+    t.datetime "renovation_at", default: "2020-01-08 20:05:13", null: false
+    t.datetime "last_assign_at", default: "2018-01-08 20:05:13", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -91,9 +96,11 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.integer "sim_id"
     t.integer "bam_id"
     t.integer "user_id"
+    t.integer "plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bam_id"], name: "index_user_records_on_bam_id"
+    t.index ["plan_id"], name: "index_user_records_on_plan_id"
     t.index ["sim_id"], name: "index_user_records_on_sim_id"
     t.index ["smartphone_id"], name: "index_user_records_on_smartphone_id"
     t.index ["user_id"], name: "index_user_records_on_user_id"

@@ -17,13 +17,16 @@
   $(document).ready(function(){
 
     // Submit Event
-    $("form").submit(function(e){
+    $("#submit").click(function(e){
       var phone = $.trim($('input[name="number"]').val());
       var w_sim = $('input:checked[name="want_sim"]').val();
       var w_new_number = $('input:checked[name="want_new_number"]').val();
       var item = $("#item").val();
       var text = $.trim($("#model_text").val());
       var check = $("#checkbox").is(":checked");
+      var file = $.trim($('input[name="file"]').val());
+      var date = new Date($('input[name="lost_date"]').val());
+      var comment = $.trim($("#comment_stolen_lost").val());
 
       if(( item == "smartphone" || item == "sim") && w_sim == 'true' && w_new_number == 'false'){
         if( phone.length != 8 || !$.isNumeric(phone)){
@@ -47,8 +50,41 @@
             confirmButtonColor: "#DD6B55",
           });
           e.preventDefault();
-        }
-    });
+      }
+
+      else if(file.length == 0){
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Debes Subir un archivo con la Constancia de Carabineros del Robo o Pérdida',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
+      }
+
+      else if(isNaN(date)){
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Debes Ingresar una Fecha válida de cuando ocurrió el Robo o Pérdida',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
+      }
+
+      else if(comment.length < 10){
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Debes Ingresar una descripción del Robo o Pérdida de al menos 10 caracteres',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
+      }
+  });
 
 
   });
@@ -90,6 +126,7 @@
     <div id= "submit">
     <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
     </div>
+
   <% end %>
 
 </div>

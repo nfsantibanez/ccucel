@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
-
+  layout 'general_view'
   # GET /plans
   # GET /plans.json
   def index
@@ -69,6 +69,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:item, :name, :price)
+      params.require(:plan).permit(:item, :name, :price, :detail, :nid_country, :category)
     end
 end

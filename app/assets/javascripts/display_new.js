@@ -15,6 +15,7 @@ $(document).ready(function(){
             $("#show_all_models").hide();
             $("#select_all_models").hide();
             $(".model_text").hide();
+            $("#cesion").hide();
 
             if(request == 'smartphone'){
                 $("#want_sim").show();

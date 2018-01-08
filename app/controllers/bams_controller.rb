@@ -70,6 +70,6 @@ class BamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bam_params
-      params.require(:bam).permit(:model, :last_owner, :imei, :price, :state, :available, :last_assign_at, :sim_id)
+      params.require(:bam).permit(:model, :code, :country, :last_owner, :imei, :price, :state, :available, :renovation_at, :last_assign_at, :sim_id)
     end
 end

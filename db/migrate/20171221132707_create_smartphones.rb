@@ -2,6 +2,8 @@ class CreateSmartphones < ActiveRecord::Migration[5.1]
   def change
     create_table :smartphones do |t|
       t.string :model, null: false
+      t.string :phone_number
+      t.string :order_note
       t.string :code, null: false
       t.string :category, null: false
       t.string :country, null: false

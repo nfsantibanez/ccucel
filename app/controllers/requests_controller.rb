@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
-  layout 'general_view', :except => [:index]
+  layout 'general_view'
 
   # GET /requests
   # GET /requests.json
@@ -105,7 +105,7 @@ class RequestsController < ApplicationController
       render json: {message: 'El usuario con Identificador nacional: '+params[:user_rut].to_s+ 'No se encuentra en la Base de datos de CCU'}
     else
       render json: {message: 'No se puede conectar a la Base de datos de CCU, intente mas tarde'}
-      
+
     end
   end
 
@@ -169,6 +169,7 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.permit(:request, :state, :contract, :file, :status, :comment, :closed_at, :user_id)
+      puts('nicoooooooooooooooooooo')
+      params.permit(:request, :item, :model, :plan, :contract, :file, :status, :comment, :closed_at, :user_id)
     end
 end

@@ -70,6 +70,7 @@ class SmartphonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def smartphone_params
-      params.require(:smartphone).permit(:model, :category, :last_owner, :imei, :price, :state, :available, :last_assign_at, :sim_id)
+      params.require(:smartphone).permit(:model, :code, :category, :country, :last_owner,
+        :imei, :price, :state, :available, :renovation_at, :last_assigsn_at, :sim_id)
     end
 end

@@ -16,6 +16,17 @@
   <script type="text/javascript">
   $(document).ready(function(){
 
+    // Manage Cesion text
+    $("#select_cesion").change(function(){
+      var request = $("#select_cesion option:selected").val();
+      if(request == 'liberar'){
+        $("#cesion").hide();
+      }
+      else{
+        $("#cesion").show();
+      }
+    }).change();
+
     // Submit Event
     $("form").submit(function(e){
       var phone = $.trim($('input[name="number"]').val());
@@ -60,6 +71,11 @@
     <h4><strong> Datos de Solicitud</strong></h4>
     <hr>
 
+      <div id= "select_cesion" class="field-center">
+        <%= form.label :cesion_type, 'Seleccione Acción' %>
+        <%= form.select :cesion_type, [['Ceder Línea a CCU', 'ceder'], ['Liberar Línea de CCU', 'liberar']], {} %>
+      </div>
+
       <div id= "number" class="field-center">
         <br>
         <%= form.label :number, 'Ingrese Número a ceder: +56 9' %>
@@ -67,7 +83,7 @@
 
         <p>
 
-        <div class="alert alert-danger">
+        <div id="cesion" class="alert alert-danger">
           Número ingresado no debe estar asociado a un contrato
           vigente con una compañía de telefonía móvi, a menos que sea la misma
           compañía que le presta servicios de telefonía a CCU en su país
