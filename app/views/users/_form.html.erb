@@ -32,6 +32,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :nid_country %>
+    <%= form.text_field :nid_country, id: :user_nid_country %>
+  </div>
+
+  <div class="field">
     <%= form.label :jobtitle %>
     <%= form.text_field :jobtitle, id: :user_jobtitle %>
   </div>
@@ -63,12 +68,27 @@
 
   <div class="field">
     <%= form.label :jobcode %>
-    <%= form.text_field :jobcode, id: :jobcode %>
+    <%= form.text_field :jobcode, id: :user_jobcode %>
   </div>
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location, id: :location %>
+    <%= form.text_field :location, id: :user_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :smartphone_id %>
+    <%= form.text_field :smartphone_id, id: :user_smartphone_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sim_id %>
+    <%= form.text_field :sim_id, id: :user_sim_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bam_id %>
+    <%= form.text_field :bam_id, id: :user_bam_id %>
   </div>
 
   <div class="actions">

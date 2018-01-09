@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "imei", default: "000000000000000", null: false
     t.integer "price", null: false
     t.string "state", default: "new", null: false
-    t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-08 20:05:13", null: false
     t.string "order_note"
-    t.datetime "last_assign_at", default: "2018-01-08 20:05:13", null: false
+    t.boolean "available", default: true, null: false
+    t.datetime "renovation_at", default: "2020-01-09 09:27:54", null: false
+    t.datetime "last_assign_at", default: "2018-01-09 09:27:54", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,8 +49,10 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.binary "contract"
     t.binary "file"
     t.string "status", default: "created", null: false
-    t.string "comment_model"
+    t.string "comment"
     t.string "comment_stolen_lost"
+    t.string "email_sended"
+    t.boolean "want_replacement"
     t.datetime "closed_at"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -66,7 +68,7 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
     t.string "order_note"
-    t.datetime "last_assign_at", default: "2018-01-08 20:05:13", null: false
+    t.datetime "last_assign_at", default: "2018-01-09 09:27:54", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,7 +76,6 @@ ActiveRecord::Schema.define(version: 20171227194658) do
   create_table "smartphones", force: :cascade do |t|
     t.string "model", null: false
     t.string "phone_number"
-    t.string "order_note"
     t.string "code", null: false
     t.string "category", null: false
     t.string "country", null: false
@@ -82,9 +83,10 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "imei", default: "000000000000000", null: false
     t.integer "price", null: false
     t.string "state", default: "new", null: false
+    t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-08 20:05:13", null: false
-    t.datetime "last_assign_at", default: "2018-01-08 20:05:13", null: false
+    t.datetime "renovation_at", default: "2020-01-09 09:27:54", null: false
+    t.datetime "last_assign_at", default: "2018-01-09 09:27:54", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,8 +122,14 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "location", null: false
     t.string "deptname", null: false
     t.string "business_unit"
+    t.integer "smartphone_id"
+    t.integer "bam_id"
+    t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["bam_id"], name: "index_users_on_bam_id"
+    t.index ["sim_id"], name: "index_users_on_sim_id"
+    t.index ["smartphone_id"], name: "index_users_on_smartphone_id"
   end
 
 end

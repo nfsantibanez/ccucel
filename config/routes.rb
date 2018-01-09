@@ -27,8 +27,5 @@ Rails.application.routes.draw do
   # Technical Service Form
   get '/requests/forms/technicalservice' => 'requests#technical_service'
 
-  #########TEST##########
-  get '/test_new' => 'requests#test_new'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -7,6 +7,10 @@
   <style>
   /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
   .row.content {height: 1100px}
+
+  input[type="radio"]{
+    margin: 0 5px 0 20px;
+  }
   </style>
 
   <%= javascript_include_tag "jquery.min" %>
@@ -17,7 +21,7 @@
   $(document).ready(function(){
 
     // Submit Event
-    $("#submit").click(function(e){
+    $("form").submit(function(e){
       var phone = $.trim($('input[name="number"]').val());
       var w_sim = $('input:checked[name="want_sim"]').val();
       var w_new_number = $('input:checked[name="want_new_number"]').val();

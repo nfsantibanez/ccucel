@@ -1,7 +1,10 @@
 class User < ApplicationRecord
   has_many :requests
+  has_one :bam
+  has_one :smarthphone
+  has_many :sims
   has_one :user_record
-
+  
   # Validations
   validates :name, presence: true, allow_blank: false
   validates :national_id, presence: true, allow_blank: false

@@ -117,6 +117,8 @@ class RequestsController < ApplicationController
     @smartphones = available_smartphones()
     # Bam Models available_smartphones
     @bam = available_bams()
+    # get user item_wrapper_class
+    @items = get_items(@user["national_id"])
   end
 
   # Renew Request form
@@ -128,7 +130,9 @@ class RequestsController < ApplicationController
     # Bam Models available_smartphones
     @bam = available_bams()
     # Check the due date to renew the item
-    @renew_date = renew_date(@user["id"], @user["item"])
+    @renew_date = renew_date(@user["national_id"], @user["item"])
+    # get user item_wrapper_class
+    @items = get_items(@user["national_id"])
   end
 
   # Renew Request form
@@ -146,20 +150,18 @@ class RequestsController < ApplicationController
     # Bam Models available_smartphones
     @bam = available_bams()
     # Check the due date to renew the item
-    @renew_date = renew_date(@user["id"], @user["item"])
+    @renew_date = renew_date(@user["national_id"], @user["item"])
+    # get user item_wrapper_class
+    @items = get_items(@user["national_id"])
   end
 
   # Renew Request form
   def technical_service
     # User information in Hash
     @user = session[:user]
+    # get user item_wrapper_class
+    @items = get_items(@user["national_id"])
   end
-
-  ####################Trst Views and layouts#########################
-  def test_new
-    puts('nico')
-  end
-  ####################Trst Views and layouts#########################
 
   private
     # Use callbacks to share common setup or constraints between actions.

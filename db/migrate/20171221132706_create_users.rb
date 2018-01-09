@@ -14,6 +14,9 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :location, null: false
       t.string :deptname, null: false
       t.string :business_unit
+      t.references :smartphone, foreign_key: true
+      t.references :bam, foreign_key: true
+      t.references :sim, foreign_key: true
 
       t.timestamps
     end

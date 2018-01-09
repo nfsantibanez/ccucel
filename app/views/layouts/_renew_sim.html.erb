@@ -15,31 +15,15 @@
   <h4><strong> Datos de Solicitud Sim </strong></h4>
   <hr>
 
-  <div class="field-center">
-    <%= form.label :sim_options, 'Opciones número para SIM'%>
-    <%= form.select :sim_options, [['Quiero el número que tenía asignado', 'asignado'], ['Quiero nuevo número', 'nuevo'], ['Quiero portar otro nuevo', 'portar']], {} %>
-  </div>
-
   <div id= "same_number" class="field-center">
-    <br>
-    <%= form.label :number, 'Número asignado: +56 9'%>
-    <%= form.text_field :name, value: 12345678, disabled: true, class:"text-center", size: "8" %>
-  </div>
-
-  <div id= "portar_number" class="field-center">
-    <br>
-    <%= form.label :number, 'Ingrese Número: +56 9' %>
-    <%= form.text_field :number %>
+    <%= form.label :number, 'Número asignado: '%>
+    <%= form.text_field :name, value: '+56 9 12345678', disabled: true, class:"text-center", size: "12" %>
 
     <p>
 
-    <div class="alert alert-danger">Número ingresado no debe estar asociado a un contrato
-      vigente con una compañía de telefonía móvi, a menos que sea la misma compañía que le
-    presta servicios de telefonía a CCU en su país</div>
+    <div class="alert alert-danger">Se le asignará el mismo número de teléfono que la SIM
+    perdida/robada</div>
   </div>
-
-
-
 
   </div>
 

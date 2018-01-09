@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Identifiación de Usuario y Solicitud</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .text_area * {
+      vertical-align: middle;
+    }
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 1100px}
+
+    input[type="radio"]{
+      margin: 0 5px 0 20px;
+    }
+  </style>
+
+  <%= javascript_include_tag "jquery.min" %>
+  <%= javascript_include_tag "sweetalert-dev" %>
+  <%= stylesheet_link_tag "sweetalert" %>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    // Submit Event
+    $("form").submit(function(e){
+        var comment = $.trim($("#comment").val());
+
+        if(comment.length < 50){
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Debes Ingresar al menos 50 caracteres en la Descripción de la Falla',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
+        }
+  });
+
+  });
+  </script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+  <h1><strong> Formulario </strong></h1>
+  <hr>
+  <h3> Formulario para Servicio Técnico </h3>
+  <hr>
+
+  <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
+    <div class="well form-horizontal">
+
+      <%= form.hidden_field :item, value: @user["item"], id: "item" %>
+      <%= form.hidden_field :user_id, value: @user["id"] %>
+
+      <!-- Cargar Informacion del usuario para mostrar -->
+      <%= render partial: '/layouts/user_info', locals: {form: form} %>
+    </div>
+
+    <!-- Formulario de informacion del dispositivo -->
+      <%= render partial: '/layouts/item_info', locals: {form: form} %>
+
+    <!-- Formulario de servicio tecnico -->
+      <%= render partial: '/layouts/technical_service', locals: {form: form} %>
+    <br>
+
+    <!-- Enviar Formulario -->
+    <div id= "submit">
+    <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
+    </div>
+
+  <% end %>
+
+</div>
+
+</body>
+</html>

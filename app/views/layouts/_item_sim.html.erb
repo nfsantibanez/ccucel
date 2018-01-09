@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+  });
+  </script>
+
+
+</head>
+<body>
+
+  <div class="well form-horizontal">
+
+  <!-- Desplegar informacion del dispositivo -->
+  <h4><strong> Datos del Dispositivo Sim </strong></h4>
+  <hr>
+
+  <div class="field-center">
+  </div>
+
+  <p>
+    <strong>Número de Teléfono:</strong>
+    <%= @items[:sim].phone_number %>
+  </p>
+
+  <p>
+    <strong>Código de Serie:</strong>
+    <%= @items[:sim].serial_number %>
+  </p>
+
+  <p>
+    <strong>Pais:</strong>
+    <%= @items[:sim].country %>
+  </p>
+
+  <p>
+    <strong>Estado:</strong>
+    <%= @items[:sim].state %>
+  </p>
+
+  </div>
+
+</body>
+</html>

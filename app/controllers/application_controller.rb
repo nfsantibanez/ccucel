@@ -81,5 +81,24 @@ class ApplicationController < ActionController::Base
     return days
   end
 
+  # know if user have an item assigned and return info
+  def get_items(rut)
+    user = User.find_by_national_id(rut)
+    items= {}
+    if user.smartphone_id
+      sp = Smartphone.find(user.smartphone_id)
+      items[:sp] = sp
+    end
+    if user.bam_id
+      bam = Bam.find(user.bam_id)
+      items[:bam] = bam
+    end
+    if user.sim_id
+      sim = Sim.find(user.sim_id)
+      items[:sim] = sim
+    end
+    return items
+  end
+
 
 end

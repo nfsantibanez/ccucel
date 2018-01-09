@@ -129,7 +129,7 @@ puts(smartphones)
 smartphones = Smartphone.create!([
   {model: 'Samsung Galaxy S8', category: 'gerente', imei:'353227075802167',
     price: 200836, last_owner: 'Marco Sepulveda', code: '106616', state: 'used',
-    sim_id: 10002, country: 'CHL'},
+    country: 'CHL'},
   {model: 'Samsung Galaxy S8', category: 'gerente', imei:'359878069666630',
     price: 200836, last_owner: 'Carolina Arredondo', code: '106616', state: 'used',
     country: 'CHL'},
@@ -138,7 +138,7 @@ smartphones = Smartphone.create!([
     country: 'CHL'},
   {model: 'Samsung Galaxy J7', category: 'profesional/tecnico', imei:'35881306155560',
     price: 50417, last_owner: 'Felipe Arriagada', code: '106586', state: 'used',
-    sim_id: 10007, country: 'CHL'},
+    country: 'CHL'},
   {model: 'Samsung Galaxy J7', category: 'profesional/tecnico', imei:'52141079023186',
     price: 50417, code: '106586', country: 'CHL'},
   {model: 'Samsung Galaxy S7', category: 'jefe de venta/vendedor', imei:'359878063788620',
@@ -158,30 +158,30 @@ puts(smartphones)
 
 # Smartphones to ARG users
 smartphones = Smartphone.create!([
-  {model: 'iPhone X', category: 'gerente', imei:'353227075802167',
+  {model: 'iPhone X', category: 'gerente', imei:'783227075802167',
     price: 200836, last_owner: 'Marco Sepulveda', code: '106616', state: 'used',
-    sim_id: 10002, country: 'ARG'},
-  {model: 'iPhone X', category: 'gerente', imei:'359878069666630',
+    country: 'ARG'},
+  {model: 'iPhone X', category: 'gerente', imei:'789878069666630',
     price: 200836, last_owner: 'Carolina Arredondo', code: '106616', state: 'used',
     country: 'ARG'},
-  {model: 'iPhone 8 Plus', category: 'subgerente', imei:'35688706001064',
+  {model: 'iPhone 8 Plus', category: 'subgerente', imei:'78688706001064',
     price: 158820, last_owner: 'Kathy Whiting', code: '106553', state: 'used',
     country: 'ARG'},
-  {model: 'iPhone 7 Plus', category: 'profesional/tecnico', imei:'35881306155560',
+  {model: 'iPhone 7 Plus', category: 'profesional/tecnico', imei:'78881306155560',
     price: 50417, last_owner: 'Felipe Arriagada', code: '106586', state: 'used',
-    sim_id: 10007, country: 'ARG'},
-  {model: 'iPhone 7', category: 'profesional/tecnico', imei:'52141079023186',
+    country: 'ARG'},
+  {model: 'iPhone 7', category: 'profesional/tecnico', imei:'78141079023186',
     price: 50417, code: '106586', country: 'ARG'},
-  {model: 'iPhone 8', category: 'jefe de venta/vendedor', imei:'359878063788620',
+  {model: 'iPhone 8', category: 'jefe de venta/vendedor', imei:'789878063788620',
     price: 158820, code: '106553', country: 'ARG'},
-  {model: 'iPhone 8', category: 'jefe de venta/vendedor', imei:'35687805120863',
+  {model: 'iPhone 8', category: 'jefe de venta/vendedor', imei:'78687805120863',
     price: 158820, code: '106553', country: 'ARG'},
-  {model: 'iPhone 6s', category: 'empleado/operario', imei:'359878069666481',
+  {model: 'iPhone 6s', category: 'empleado/operario', imei:'789878069666481',
     price: 40333, last_owner: 'Andres Soto', code: '106583', state: 'used',
     country: 'ARG'},
-  {model: 'iPhone 6s', category: 'empleado/operario', imei:'35214073409175',
+  {model: 'iPhone 6s', category: 'empleado/operario', imei:'78214073409175',
     price: 40333, code: '106583', country: 'ARG'},
-  {model: 'iPhone 6', category: 'multiusuario', imei:'359048050341094',
+  {model: 'iPhone 6', category: 'multiusuario', imei:'789048050341094',
     price: 40333, last_owner: 'Guillermo Aguilar', code: '106583', state: 'used',
     country: 'ARG'}
 ])
@@ -215,13 +215,13 @@ puts(bams)
 
 # Bams ARG
 bams = Bam.create!([
-  {model: 'Huawei E5573', imei:'952427835802167', price: 35990,
+  {model: 'Huawei E5573', imei:'882427835802167', price: 35990,
     last_owner: 'Joaquin Zunino', code: '205167', state: 'used', country: 'ARG'},
-  {model: 'Huawei E5573', imei:'984557575805360', price: 35990,
+  {model: 'Huawei E5573', imei:'884557575805360', price: 35990,
     last_owner: 'Francisca Irarrazaval', code: '205167', state: 'used', country: 'ARG'},
-  {model: 'Huawei E5573', imei:'996883330106421', price: 35990, code: '205167', country: 'ARG'},
-  {model: 'Huawei E8372', imei:'918813063325600', price: 55990, code: '205250', country: 'ARG'},
-  {model: 'Huawei E8372', imei:'932414072893167', price: 55990,
+  {model: 'Huawei E5573', imei:'886883330106421', price: 35990, code: '205167', country: 'ARG'},
+  {model: 'Huawei E8372', imei:'888813063325600', price: 55990, code: '205250', country: 'ARG'},
+  {model: 'Huawei E8372', imei:'882414072893167', price: 55990,
     last_owner: 'Mariana Fernandez', code: '205250', state: 'used', country: 'ARG'}
 ])
 puts(bams)
@@ -258,39 +258,41 @@ plans = Plan.create!([
 ])
 puts(plans)
 
+# user
+user1 = User.find_by_national_id('13362555-0')
+user2 = User.find_by_national_id('16054341-8')
+puts(user1,user2)
+# Smartphone
+sp1 = Smartphone.find_by_imei('359878069666481')
+sp2 = Smartphone.find_by_imei('789878063788620')
+puts(sp1,sp2)
+# Bam
+bam1 = Bam.find_by_imei('952427835802167')
+bam2 = Bam.find_by_imei('882427835802167')
+puts(bam1,bam2)
+# Sim
+sim1 = Sim.find_by_phone_number(82099147)
+sim2 = Sim.find_by_phone_number(93192570)
+puts(sim1,sim2)
+#add to user1
+user1.update_attributes(smartphone_id: sp1.id, bam_id: bam1.id, sim_id: sim1.id)
+sp1.update_attributes(available: false)
+bam1.update_attributes(available: false)
+sim1.update_attributes(available: false)
+#add to user2
+user2.update_attributes(smartphone_id: sp2.id, bam_id: bam2.id, sim_id: sim2.id)
+sp2.update_attributes(available: false)
+bam2.update_attributes(available: false)
+sim2.update_attributes(available: false)
 
 
 =begin
 
 # Assign smartphones, bam and sims to users
 records = UserRecord.create!([
-  {user_id: 10000, bam_id: 10004, sim_id: 10000},
-  {user_id: 10001, bam_id: 10001, sim_id: 10001},
-  {user_id: 10002, smartphone_id: 10000, sim_id: 10002},
-  {user_id: 10003, smartphone_id: 10005},
-  {user_id: 10004, smartphone_id: 10003, sim_id: 10007},
-  {user_id: 10005, smartphone_id: 10002},
-  {user_id: 10008, sim_id: 10005},
-  {user_id: 10009, sim_id: 10006}
+  {user_id: 10000, bam_id: 10004, sim_id: 10000}
 ])
 puts(records)
-
-# Change available value of all hardwares assigned
-# Smartphone
-[10000,10002,10003,10005].each do |h|
-  hw = Smartphone.find(h)
-  hw.update_attributes(available: false)
-end
-# Bam
-[10001,10003].each do |h|
-  hw = Bam.find(h)
-  hw.update_attributes(available: false)
-end
-# Sim
-[10000,10001,10005,10006].each do |h|
-  hw = Sim.find(h)
-  hw.update_attributes(available: false)
-end
 
 # Requests
 requests = Request.create!([

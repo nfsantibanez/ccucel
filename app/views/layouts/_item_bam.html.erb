@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+  });
+  </script>
+
+
+</head>
+<body>
+
+  <div class="well form-horizontal">
+
+  <!-- Desplegar informacion del dispositivo -->
+  <h4><strong> Datos del Dispositivo BAM </strong></h4>
+  <hr>
+
+  <div class="field-center">
+  </div>
+
+  <p>
+    <strong>Modelo:</strong>
+    <%= @items[:bam].model %>
+  </p>
+
+  <p>
+    <strong>Codigo:</strong>
+    <%= @items[:bam].code %>
+  </p>
+
+  <p>
+    <strong>Pais:</strong>
+    <%= @items[:bam].country %>
+  </p>
+
+  <p>
+    <strong>Imei:</strong>
+    <%= @items[:bam].imei %>
+  </p>
+
+  <p>
+    <strong>Estado:</strong>
+    <%= @items[:bam].state %>
+  </p>
+
+  <p>
+    <strong>Fecha de Renovación:</strong>
+    <%= @items[:bam].renovation_at %>
+  </p>
+
+  <p>
+    <strong>Sim asignada:</strong>
+    <%= @items[:bam].sim %>
+  </p>
+
+  </div>
+
+</body>
+</html>

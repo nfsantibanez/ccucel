@@ -8,8 +8,12 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.binary :contract
       t.binary :file
       t.string :status, null: false, default: 'created'
-      t.string :comment_model
+      t.string :comment
       t.string :comment_stolen_lost
+      t.string :email_sended
+      t.boolean :want_replacement
+      t.boolean :want_sim
+      t.string :phone_number
       t.datetime :closed_at
       t.references :user, foreign_key: true
 

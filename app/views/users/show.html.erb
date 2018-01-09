@@ -21,6 +21,11 @@
 </p>
 
 <p>
+  <strong>Nid Country:</strong>
+  <%= @user.nid_country %>
+</p>
+
+<p>
   <strong>JobTitle:</strong>
   <%= @user.jobtitle %>
 </p>
@@ -58,6 +63,21 @@
 <p>
   <strong>Location:</strong>
   <%= @user.location %>
+</p>
+
+<p>
+  <strong>Smartphone id:</strong>
+  <%= @user.smartphone_id %>
+</p>
+
+<p>
+  <strong>Bam id:</strong>
+  <%= @user.bam_id %>
+</p>
+
+<p>
+  <strong>Sim id:</strong>
+  <%= @user.sim_id %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

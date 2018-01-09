@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+  });
+  </script>
+
+
+</head>
+<body>
+
+  <div class="well form-horizontal">
+
+  <!-- Desplegar informacion del dispositivo -->
+  <h4><strong> Datos del Dispositivo Smartphone</strong></h4>
+  <hr>
+
+  <div class="field-center">
+  </div>
+
+  <p>
+    <strong>Modelo:</strong>
+    <%= @items[:sp].model %>
+  </p>
+
+  <p>
+    <strong>Codigo:</strong>
+    <%= @items[:sp].code %>
+  </p>
+
+  <p>
+    <strong>Categoria:</strong>
+    <%= @items[:sp].category %>
+  </p>
+
+  <p>
+    <strong>Pais:</strong>
+    <%= @items[:sp].country %>
+  </p>
+
+  <p>
+    <strong>Imei:</strong>
+    <%= @items[:sp].imei %>
+  </p>
+
+  <p>
+    <strong>Estado:</strong>
+    <%= @items[:sp].state %>
+  </p>
+
+  <p>
+    <strong>Fecha de Renovación:</strong>
+    <%= @items[:sp].renovation_at %>
+  </p>
+
+  <p>
+    <strong>Sim asignada:</strong>
+    <%= @items[:sp].sim %>
+  </p>
+
+  </div>
+
+</body>
+</html>
