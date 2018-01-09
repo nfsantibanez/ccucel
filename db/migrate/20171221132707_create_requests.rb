@@ -14,6 +14,7 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.boolean :want_replacement
       t.boolean :want_sim
       t.string :phone_number
+      t.string :price
       t.datetime :closed_at
       t.references :user, foreign_key: true
 

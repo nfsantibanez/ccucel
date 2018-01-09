@@ -51,15 +51,15 @@
       ['Reparación Equipo', 'technical service']], {} %>
     </div>
 
-    <br>
-
     <div id= "request_hw_renew_tech" class="field-center">
+      <br>
       <%= form.label :request_hw_renew_tech, 'Seleccione Equipo/Servicio' %>
       <%= form.select :request_hw_renew_tech, [['Smartphone', 'smartphone'],
       ['BAM', 'bam']], {} %>
     </div>
 
     <div id= "request_hw_lost" class="field-center">
+      <br>
       <%= form.label :request_hw_lost, 'Seleccione Equipo/Servicio' %>
       <%= form.select :request_hw_lost, [['Smartphone', 'smartphone'], ['Sim', 'sim'],
       ['BAM', 'bam']], {} %>
@@ -69,7 +69,7 @@
 
     <div class="field-center">
       <%= form.label :user_rut, 'Identificación de Usuario' %>
-      <%= form.text_field :user_rut, id: :request_request, placeholder: "rut ej: 17.395.384-2" %>
+      <%= form.text_field :user_rut, id: :request_request, placeholder: "ej: 17395384-2" %>
     </div>
   </div>
 

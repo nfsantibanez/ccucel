@@ -114,9 +114,10 @@ class RequestsController < ApplicationController
     # User information in Hash
     @user = session[:user]
     # Smartphones Models available
-    @smartphones = available_smartphones()
+    @all_smartphones = available_smartphones_all(@user["nid_country"])
+    @cat_smartphones = available_smartphones_category(@user["nid_country"], @user["jobcode"])
     # Bam Models available_smartphones
-    @bam = available_bams()
+    @bam = available_bams(@user["nid_country"])
     # get user item_wrapper_class
     @items = get_items(@user["national_id"])
   end
@@ -126,9 +127,10 @@ class RequestsController < ApplicationController
     # User information in Hash
     @user = session[:user]
     # Smartphones Models available
-    @smartphones = available_smartphones()
+    @all_smartphones = available_smartphones_all(@user["nid_country"])
+    @cat_smartphones = available_smartphones_category(@user["nid_country"], @user["jobcode"])
     # Bam Models available_smartphones
-    @bam = available_bams()
+    @bam = available_bams(@user["nid_country"])
     # Check the due date to renew the item
     @renew_date = renew_date(@user["national_id"], @user["item"])
     # get user item_wrapper_class
@@ -138,7 +140,7 @@ class RequestsController < ApplicationController
   # Renew Request form
   def transfer_line
     # User information in Hash
-    @user = session[:user]
+    @usernid_countryion[:user]
   end
 
   # Renew Request form
@@ -146,9 +148,10 @@ class RequestsController < ApplicationController
     # User information in Hash
     @user = session[:user]
     # Smartphones Models available
-    @smartphones = available_smartphones()
+    @all_smartphones = available_smartphones_all(@user["nid_country"])
+    @cat_smartphones = available_smartphones_category(@user["nid_country"], @user["jobcode"])
     # Bam Models available_smartphones
-    @bam = available_bams()
+    @bam = available_bams(@user["nid_country"])
     # Check the due date to renew the item
     @renew_date = renew_date(@user["national_id"], @user["item"])
     # get user item_wrapper_class
@@ -171,7 +174,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      puts('nicoooooooooooooooooooo')
       params.permit(:request, :item, :model, :plan, :contract, :file, :status, :comment, :closed_at, :user_id)
     end
 end

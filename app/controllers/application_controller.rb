@@ -28,21 +28,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Convert to official request types
-  def form_convert(type)
-    if type == "1"
-      return 'new'
-    elsif  type == "2"
-      return 'renew'
-    elsif  type == "3"
-      return 'stolen/lost'
-    elsif  type == "4"
-      return 'technical service'
-    else
-      return 0
-    end
-  end
-
   # Convert info user from CCU DB
   def convert_user(user)
     # split name and last_name
@@ -65,13 +50,25 @@ class ApplicationController < ActionController::Base
     return user_db
   end
 
-  # Get smartphones availables for user jobtitle
-  def available_smartphones
+  # Get all smartphones availables for the country
+  def available_smartphones_all(country)
+    sp = Smartphone.select('model, code, price').where('state= ? AND country= ?','catalog',country).uniq(&:code)
+    # Format to show in view
+    smp = sp.map { |m| [m.model, m] }
+    return smp
+  end
+
+  # Get smartphones availables for the country by category
+  def available_smartphones_category(country, category)
+    sp = Smartphone.select('model, code, price category').where('state= ? AND country= ? AND (category= ? OR category= ?)','catalog',country, category, 'all')
+    # Format to show in view
+    smp = sp.map { |m| [m.model, m] }
+    return smp
 
   end
 
   # Get bams availables for user jobtitle
-  def available_bams
+  def available_bams(country)
 
   end
 

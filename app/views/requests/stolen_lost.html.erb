@@ -24,7 +24,7 @@
     $("form").submit(function(e){
       var phone = $.trim($('input[name="number"]').val());
       var w_sim = $('input:checked[name="want_sim"]').val();
-      var w_new_number = $('input:checked[name="want_new_number"]').val();
+      var w_new_number = $("#want_number option:selected").val();
       var item = $("#item").val();
       var text = $.trim($("#model_text").val());
       var check = $("#checkbox").is(":checked");
@@ -32,7 +32,7 @@
       var date = new Date($('input[name="lost_date"]').val());
       var comment = $.trim($("#comment_stolen_lost").val());
 
-      if(( item == "smartphone" || item == "sim") && w_sim == 'true' && w_new_number == 'false'){
+      if(( item == "smartphone" || item == "sim") && w_sim == 'true' && w_new_number == 'port'){
         if( phone.length != 8 || !$.isNumeric(phone)){
           swal({
             title: 'Datos Inválidos!',

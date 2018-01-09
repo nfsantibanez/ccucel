@@ -15,16 +15,19 @@
   <h4><strong> Datos de Solicitud Sim </strong></h4>
   <hr>
 
-  <div id= "same_number" class="field-center">
-    <%= form.label :number, 'Número asignado: '%>
-    <%= form.text_field :name, value: '+56 9 12345678', disabled: true, class:"text-center", size: "12" %>
-
-    <p>
-
-    <div class="alert alert-danger">Se le asignará el mismo número de teléfono que la SIM
-    perdida/robada</div>
-  </div>
-
+    <div id= "same_number" class="field-center">
+      <% if @items.has_key?(:sim) %>
+        <%= form.label :number, 'Número asignado: '%>
+        <%= form.label :number, '+56 9 '+@items[:sim].phone_number.to_s, class:"text-center", size: "12" %>
+        <p></p>
+        <div class="alert alert-danger">Se le asignará el mismo número de teléfono que la SIM
+        perdida/robada</div>
+        <% if  @items[:sim].phone_number.to_s.empty?%>
+            <p></p>
+            <div class="alert alert-danger">Sim no tiene un número de teléfono asociado en el sistema</div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
 </body>

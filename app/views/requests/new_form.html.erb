@@ -63,13 +63,13 @@
     <div id= "models" class="field-center">
       <br>
       <%= form.label :model, 'Seleccione Modelo Smartphone' %>
-      <%= form.select :model, [['Galaxy J7', 1], ['Galaxy S5', 2], ['Iphone 6s', 3], ['Iphone X', 4]], {} %>
+      <%= form.select :model, @cat_smartphones, {} %>
     </div>
 
     <div id= "select_all_models" class="field-center">
       <br>
       <%= form.label :model, 'Seleccione Modelo Smartphone' %>
-      <%= form.select :model, [['Galaxy 1', 1], ['Galaxy 2', 2], ['Galaxy 3', 3], ['Galaxy 4', 4]], {} %>
+      <%= form.select :model, @all_smartphones, {} %>
     </div>
 
     <div id= "show_all_models" class="field-center">
@@ -141,7 +141,7 @@
       <%= form.label :number, 'Ingrese Número: +56 9' %>
       <%= form.text_field :number %>
 
-      <p>
+      <p></p>
 
       <div class="alert alert-danger">Número ingresado no debe estar asociado a un contrato
         vigente con una compañía de telefonía móvi, a menos que sea la misma compañía que le
@@ -249,7 +249,7 @@
       <%= form.select :plan, [['Bolsa 15 MB', 1], ['Bolsa 25 MB', 2],
       ['Bolsa 50 MB', 3], ['Bolsa 100 MB', 4], ['Bolsa 200 MB', 5],
       ['Bolsa 400 MB', 6]], {} %>
-      <p>
+      <p></p>
 
       <div class="alert alert-danger"> Bolsa solo incluye plan de datos </div>
     </div>

@@ -46,15 +46,22 @@
     // Display Sim and Number menu
     var display_menus = function(){
       var w_sim = $('input:checked[name="want_sim"]').val();
-      var w_number = $('input:checked[name="want_new_number"]').val();
+      var w_number = $("#want_number option:selected").val();
       if(w_sim == 'true') {
           $("#want_number").show();
-          if(w_number == 'false'){
+          if(w_number == 'port'){
               $("#number").show();
           }
           else{
               $("#number").hide();
           }
+          if(w_number == 'same'){
+              $("#same_number").show();
+          }
+          else{
+              $("#same_number").hide();
+          }
+
       }
       else{
           $("#want_number").hide();
@@ -63,7 +70,7 @@
     };
 
     $('input[name="want_sim"]').change(display_menus);
-    $('input[name="want_new_number"]').change(display_menus);
+    $("#want_number").change(display_menus);
     $("#show_all_models").change(all_models);
     $(all_models);
     $(display_menus);
@@ -88,12 +95,12 @@
 
   <div id= "models" class="field-center">
     <%= form.label :model, 'Seleccione Modelo Smartphone' %>
-    <%= form.select :model, [['Galaxy J7', 1], ['Galaxy S5', 2], ['Iphone 6s', 3], ['Iphone X', 4]], {} %>
+    <%= form.select :model, @cat_smartphones, {} %>
   </div>
 
   <div id= "select_all_models" class="field-center">
     <%= form.label :model, 'Seleccione Modelo Smartphone' %>
-    <%= form.select :model, [['Galaxy 1', 1], ['Galaxy 2', 2], ['Galaxy 3', 3], ['Galaxy 4', 4]], {} %>
+    <%= form.select :model, @all_smartphones, {} %>
   </div>
 
   <div id= "show_all_models" class="field-center">
@@ -117,16 +124,28 @@
   </div>
 
   <div id= "want_number" class="field-center">
-  <br>
-  <%= form.label :want_new_number, 'Desea un número nuevo?'%>
-  <%= form.collection_radio_buttons :want_new_number, [[true, 'Si'], [false, 'No, quiero portar un numero']], :first, :last,
-  :item_wrapper_class => 'inline', checked: true%>
+    <br>
+    <%= form.label :want_new_number, 'Desea un número nuevo?' %>
+    <%= form.select :want_new_number, [['No, quiero mantener mi número', 'same'],
+    ['No, quiero portar otro número', 'port'], ['Si, quiero nuevo número', 'new']], {} %>
   </div>
+
+  <% if @items.has_key?(:sp) %>
+    <div id= "same_number" class="field-center">
+      <br>
+      <%= form.label :number, 'Número asignado: '%>
+      <%= form.label :number, '+56 9 '+@items[:sp].phone_number.to_s, class:"text-center", size: "12" %>
+      <% if  @items[:sp].phone_number.to_s.empty?%>
+        <p></p>
+        <div class="alert alert-danger">Smartphone no tiene un número de teléfono asociado en el sistema</div>
+      <% end %>
+    </div>
+  <% end %>
 
   <div id= "number" class="field-center">
   <br>
   <%= form.label :number, 'Ingrese Número: +56 9' %>
-  <%= form.text_field :number%>
+  <%= form.text_field :number %>
   </div>
 
   </div>
