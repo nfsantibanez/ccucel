@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-09 18:00:07", null: false
-    t.datetime "last_assign_at", default: "2018-01-09 18:00:07", null: false
+    t.datetime "renovation_at", default: "2020-01-10 14:58:53", null: false
+    t.datetime "last_assign_at", default: "2018-01-10 14:58:53", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,11 +32,12 @@ ActiveRecord::Schema.define(version: 20171227194658) do
 
   create_table "plans", force: :cascade do |t|
     t.string "item", null: false
+    t.string "plan_type", null: false
     t.string "name", null: false
     t.string "detail"
     t.integer "price", null: false
     t.string "category", default: "all"
-    t.string "nid_country", null: false
+    t.string "country", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.boolean "want_replacement"
     t.boolean "want_sim"
     t.string "phone_number"
+    t.string "price"
     t.datetime "closed_at"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -70,7 +72,7 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
     t.string "order_note"
-    t.datetime "last_assign_at", default: "2018-01-09 18:00:07", null: false
+    t.datetime "last_assign_at", default: "2018-01-10 14:58:53", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,8 +89,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-09 18:00:07", null: false
-    t.datetime "last_assign_at", default: "2018-01-09 18:00:07", null: false
+    t.datetime "renovation_at", default: "2020-01-10 14:58:53", null: false
+    t.datetime "last_assign_at", default: "2018-01-10 14:58:53", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -8,10 +8,6 @@
     .text_area * {
       vertical-align: middle;
     }
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {
-        height: 1500px
-    }
 
     .alert-info {
       margin-top: 5px;
@@ -87,40 +83,22 @@
 
     <div id= "bam_models" class="field-center">
       <br>
-      <%= form.label :model, 'Seleccione Plan BAM' %>
-      <%= form.select :model, [['BAM Pro 4 GB', 1], ['BAM Pro 8 GB', 2], ['BAM Pro 12 GB', 3],
-      ['BAM Pro 20 GB', 4], ['BAM Pro 30 GB', 5]], {} %>
+      <%= form.label :model, 'Seleccione Modelo Bam' %>
+      <%= form.select :model, @bams, {} %>
     </div>
 
-    <div id= "bam_details_1" class="field-center bam_details">
+    <div id= "bam_plans" class="field-center">
       <br>
-      <div class="alert alert-success"> El plan incluye: 2 Gb / vel. descarga nacional
-        promedio: 3 Mbps (nacional) y 2.2 Mbps (internacional) </div>
+      <%= form.label :plan_id, 'Seleccione Plan BAM' %>
+      <%= form.select :plan_id, @bam_plans[0], {} %>
     </div>
 
-    <div id= "bam_details_2" class="field-center bam_details">
-      <br>
-      <div class="alert alert-success"> El plan incluye: 4 Gb / vel. descarga nacional
-        promedio: 3 Mbps (nacional) y 2.2 Mbps (internacional) </div>
-    </div>
-
-    <div id= "bam_details_3" class="field-center bam_details">
-      <br>
-      <div class="alert alert-success"> El plan incluye: 6 Gb / vel. descarga nacional
-        promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) </div>
-    </div>
-
-    <div id= "bam_details_4" class="field-center bam_details">
-      <br>
-      <div class="alert alert-success"> El plan incluye: 10 Gb / vel. descarga nacional
-        promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) </div>
-    </div>
-
-    <div id= "bam_details_5" class="field-center bam_details">
-      <br>
-      <div class="alert alert-success"> El plan incluye: 15 Gb / vel. descarga nacional
-        promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) </div>
-    </div>
+    <% @bam_plans[1].each do |plan| %>
+      <div id= "bam_details_<%=plan[0]%>" class="field-center bam_details">
+        <br>
+        <div class="alert alert-success"> <%=plan[1]%> </div>
+      </div>
+    <% end %>
 
     <div id= "want_sim" class="field-center">
       <br>
@@ -239,41 +217,24 @@
     <div id= "plan" class="field-center roaming_plan_bag">
       <br>
       <%= form.label :plan, 'Planes disponible' %>
-      <%= form.select :plan, [['Programa Viajero 150 MB', 1], ['Programa Viajero Pro 150 MB', 2],
-      ['Programa Viajero 300 MB', 3], ['Programa Viajero Pro 300 MB', 4]], {} %>
+      <%= form.select :plan, @roaming_plans[0], {} %>
     </div>
 
     <div id= "bag" class="field-center roaming_plan_bag">
       <br>
       <%= form.label :plan, 'Bolsas disponibles' %>
-      <%= form.select :plan, [['Bolsa 15 MB', 1], ['Bolsa 25 MB', 2],
-      ['Bolsa 50 MB', 3], ['Bolsa 100 MB', 4], ['Bolsa 200 MB', 5],
-      ['Bolsa 400 MB', 6]], {} %>
+      <%= form.select :plan, @roaming_bags[0], {} %>
       <p></p>
 
-      <div class="alert alert-danger"> Bolsa solo incluye plan de datos </div>
+      <div class="alert alert-danger"> Bolsa dura 30 dias y solo incluye plan de datos </div>
     </div>
 
-    <div id= "details_1" class="field-center roaming_details">
-      <br>
-      <div class="alert alert-success">El plan incluye: 150 MB + WHATSAPP ILIMITADO</div>
-    </div>
-
-    <div id= "details_2" class="field-center roaming_details">
-      <br>
-      <div class="alert alert-success">El plan incluye: 150 MB + 15 MIN + 15 SMS + WHATSAPP ILIMITADO</div>
-    </div>
-
-    <div id= "details_3" class="field-center roaming_details">
-      <br>
-      <div class="alert alert-success">El plan incluye: 300 MB + WHATSAPP ILIMITADO</div>
-    </div>
-
-    <div id= "details_4" class="field-center roaming_details">
-      <br>
-      <div class="alert alert-success">El plan incluye: 300 MB + 30 MIN + 30 SMS + WHATSAPP ILIMITADO</div>
-    </div>
-
+    <% @roaming_plans[1].each do |plan| %>
+      <div id= "details_<%=plan[0]%>" class="field-center roaming_details">
+        <br>
+        <div class="alert alert-success"> <%=plan[1]%> </div>
+      </div>
+    <% end %>
 
 
     </div>

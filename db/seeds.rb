@@ -189,14 +189,14 @@ puts(smartphones)
 
 # Bams Catalog ARG
 bams = Bam.create!([
-  {model: 'Huaewi E5573', imei:'859048050341921', price: 35990, code: '205167', state: 'catalog', country: 'ARG'},
-  {model: 'Huaewi E8372', imei:'859048050341308', price: 55990, code: '205250', state: 'catalog', country: 'ARG'}
+  {model: 'Huaewi E5573', price: 35990, code: '205167', state: 'catalog', country: 'ARG'},
+  {model: 'Huaewi E8372', price: 55990, code: '205250', state: 'catalog', country: 'ARG'}
 ])
 puts(bams)
 
 # Bams Catalog CHL
 bams = Bam.create!([
-  {model: 'BAM E8372H LTE', imei:'859048050341835', price: 0, code: '133167', state: 'catalog', country: 'CHL'}
+  {model: 'BAM E8372H LTE', price: 0, code: '133167', state: 'catalog', country: 'CHL'}
 ])
 puts(bams)
 
@@ -227,34 +227,93 @@ bams = Bam.create!([
 puts(bams)
 
 # plans/bags CHL for bams and roaming
-# Bams ARG
+# Bams Plans CHL
 plans = Plan.create!([
-  {item: 'bam', name:'BAM Pro 4 Gb Normal', price: 15882, nid_country: 'CHL',
+  {item: 'bam', name:'1452 BAM Pro 4 Gb Normal', price: 15882, country: 'CHL', plan_type: 'plan',
     detail:' El plan incluye: 2 Gb / vel. descarga nacional promedio: 3 Mbps (nacional) y 2,2 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Pro 8 Gb Normal', price: 20924, nid_country: 'CHL',
+  {item: 'bam', name:'1453 BAM Pro 8 Gb Normal', price: 20924, country: 'CHL', plan_type: 'plan',
     detail:' El plan incluye: 4 Gb / vel. descarga nacional promedio: 3 Mbps (nacional) y 2,2 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Pro 12 Gb Normal', price: 24286, nid_country: 'CHL',
+  {item: 'bam', name:'1454 BAM Pro 12 Gb Normal', price: 24286, country: 'CHL', plan_type: 'plan',
     detail:' El plan incluye: 6 Gb / vel. descarga nacional promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Pro 20 Gb Normal', price: 30168, nid_country: 'CHL',
+  {item: 'bam', name:'1455 BAM Pro 20 Gb Normal', price: 30168, country: 'CHL', plan_type: 'plan',
     detail:' El plan incluye: 10 Gb / vel. descarga nacional promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Pro 30 Gb Normal', price: 37807, nid_country: 'CHL',
+  {item: 'bam', name:'1456 BAM Pro 30 Gb Normal', price: 37807, country: 'CHL', plan_type: 'plan',
     detail:' El plan incluye: 15 Gb / vel. descarga nacional promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) '}
 ])
 puts(plans)
 
-# plans/bags ARG for bams and roaming
-# Bams ARG
+# Bams Plans ARG
 plans = Plan.create!([
-  {item: 'bam', name:'BAM Utra 8 Gb', price: 10882, nid_country: 'ARG',
+  {item: 'bam', name:'BAM Utra 8 Gb', price: 10882, country: 'ARG', plan_type: 'plan',
     detail:' El plan incluye: 8 Gb / vel. descarga nacional promedio: 2,5 Mbps (nacional) y 1,5 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Ultra 15 Gb', price: 15924, nid_country: 'ARG',
+  {item: 'bam', name:'BAM Ultra 15 Gb', price: 15924, country: 'ARG', plan_type: 'plan',
     detail:' El plan incluye: 15 Gb / vel. descarga nacional promedio: 2,5 Mbps (nacional) y 1,5 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Ultra 20 Gb', price: 19286, nid_country: 'ARG',
+  {item: 'bam', name:'BAM Ultra 20 Gb', price: 19286, country: 'ARG', plan_type: 'plan',
     detail:' El plan incluye: 20 Gb / vel. descarga nacional promedio: 4,5 Mbps (nacional) y 3,5 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Ultra 25 Gb', price: 25168, nid_country: 'ARG',
+  {item: 'bam', name:'BAM Ultra 25 Gb', price: 25168, country: 'ARG', plan_type: 'plan',
     detail:' El plan incluye: 25 Gb / vel. descarga nacional promedio: 5,5 Mbps (nacional) y 5,0 Mbps (internacional) '},
-  {item: 'bam', name:'BAM Ultra 30 Gb', price: 32807, nid_country: 'ARG',
+  {item: 'bam', name:'BAM Ultra 30 Gb', price: 32807, country: 'ARG', plan_type: 'plan',
     detail:' El plan incluye: 30 Gb / vel. descarga nacional promedio: 5,5 Mbps (nacional) y 5,0 Mbps (internacional) '}
+])
+puts(plans)
+
+# Roaming Plans CHL
+plans = Plan.create!([
+  {item: 'roaming', name:'Programa Viajero 150 MB', price: 9990, country: 'CHL',
+    plan_type: 'plan', detail:'El plan incluye: 150 MB + WHATSAPP ILIMITADO'},
+  {item: 'roaming', name:'Programa Viajero Pro 150 MB', price: 12990, country: 'CHL',
+    plan_type: 'plan', detail:'El plan incluye: 150 MB + 15 MIN + 15 SMS + WHATSAPP ILIMITADO'},
+  {item: 'roaming', name:'Programa Viajero 300 MB', price: 17990, country: 'CHL',
+    plan_type: 'plan', detail:'El plan incluye: 300 MB + WHATSAPP ILIMITADO'},
+  {item: 'roaming', name:'Programa Viajero Pro 300 MB', price: 22990, country: 'CHL',
+    plan_type: 'plan', detail:'El plan incluye: 300 MB + 30 MIN + 30 SMS + WHATSAPP ILIMITADO'}
+])
+puts(plans)
+
+# Roaming Plans ARG
+plans = Plan.create!([
+  {item: 'roaming', name:'Viajero 200', price: 4990, country: 'ARG',
+    plan_type: 'plan', detail:'El plan incluye: 200 MB + WhatsApp Y Twitter ILIMITADO'},
+  {item: 'roaming', name:'Viajero Pro 200', price: 17990, country: 'ARG',
+    plan_type: 'plan', detail:'El plan incluye: 200 MB + 15 MIN + 15 SMS + Redes Sociales ILIMITADO'},
+  {item: 'roaming', name:'Viajero 500', price: 12990, country: 'ARG',
+    plan_type: 'plan', detail:'El plan incluye: 500 MB + WhatsApp Y Twitter ILIMITADO'},
+  {item: 'roaming', name:'Viajero Pro 500', price: 17990, country: 'ARG',
+    plan_type: 'plan', detail:'El plan incluye: 500 MB + 30 MIN + 30 SMS + Redes Sociales ILIMITADO'}
+])
+puts(plans)
+
+# Roaming Bags CHL
+plans = Plan.create!([
+  {item: 'roaming', name:'Bolsa 30 Dias Roaming 15MB ', price: 29990, country: 'CHL',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
+  {item: 'roaming', name:'Bolsa 30 Dias Roaming 25MB ', price: 45990, country: 'CHL',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
+  {item: 'roaming', name:'Bolsa 30 Dias Roaming 50MB ', price: 79990, country: 'CHL',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
+  {item: 'roaming', name:'Bolsa 30 Dias Roaming 100MB ', price: 144990, country: 'CHL',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
+  {item: 'roaming', name:'Bolas 30 Dias Roaming 200MB ', price: 239990, country: 'CHL',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
+  {item: 'roaming', name:'Bolsa 30 Dias Roaming 400MB ', price: 449990, country: 'CHL',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'}
+])
+puts(plans)
+
+# Roaming Bags ARG
+plans = Plan.create!([
+  {item: 'roaming', name:'Bolsa Roaming 15MB ', price: 9990, country: 'ARG',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
+  {item: 'roaming', name:'Bolsa Roaming 25MB ', price: 25990, country: 'ARG',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
+  {item: 'roaming', name:'Bolsa Roaming 50MB ', price: 59990, country: 'ARG',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
+  {item: 'roaming', name:'Bolsa Roaming 100MB ', price: 104990, country: 'ARG',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
+  {item: 'roaming', name:'Bolsa Roaming 200MB ', price: 159990, country: 'ARG',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
+  {item: 'roaming', name:'Bolsa Roaming 400MB ', price: 229990, country: 'ARG',
+    plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'}
 ])
 puts(plans)
 

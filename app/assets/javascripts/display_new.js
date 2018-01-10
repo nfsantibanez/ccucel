@@ -7,6 +7,7 @@ $(document).ready(function(){
             var w_sim = $('input:checked[name="want_sim"]').val();
             var w_number = $('input:checked[name="want_new_number"]').val();
             $("#models").hide();
+            $("#bam_plans").hide();
             $("#bam_models").hide();
             $(".roaming").hide();
             $("#want_sim").hide();
@@ -18,6 +19,7 @@ $(document).ready(function(){
             $("#cesion").hide();
 
             if(request == 'smartphone'){
+                $('.row.content').css({ 'height': '1100px' });
                 $("#want_sim").show();
                 $("#show_all_models").show();
 
@@ -36,6 +38,7 @@ $(document).ready(function(){
                 }
             }
             else if(request == 'sim'){
+              $('.row.content').css({ 'height': '970px' });
               $("#want_number").show();
               if(w_number == 'false'){
                   $("#number").show();
@@ -45,9 +48,12 @@ $(document).ready(function(){
               }
             }
             else if(request == 'bam'){
+                $('.row.content').css({ 'height': '1120px' });
+                $("#bam_plans").show();
                 $("#bam_models").show();
             }
             else if(request == 'roaming'){
+                $('.row.content').css({ 'height': '1390px' });
                 $(".roaming").show();
             }
         });
@@ -127,10 +133,10 @@ $(document).ready(function(){
     }).change();
 
     // Display plan details bam
-    $("#bam_models, .select_1").change(function(){
-        $("#bam_models").find("option:selected").each(function(){
+    $("#bam_plans, .select_1").change(function(){
+        $("#bam_plans").find("option:selected").each(function(){
             var request = $(".select_1 option:selected").val();
-            var detail = $("#bam_models option:selected").val();
+            var detail = $("#bam_plans option:selected").val();
             $(".bam_details").hide()
             if(request == 'bam'){
               $("#bam_details_"+detail).show()

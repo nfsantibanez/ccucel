@@ -52,7 +52,8 @@ class ApplicationController < ActionController::Base
 
   # Get all smartphones availables for the country
   def available_smartphones_all(country)
-    sp = Smartphone.select('model, code, price').where('state= ? AND country= ?','catalog',country).uniq(&:code)
+    sp = Smartphone.select('model, code, price').where('state= ? AND country= ?',
+      'catalog',country).uniq(&:code)
     # Format to show in view
     smp = sp.map { |m| [m.model, m] }
     return smp
@@ -60,16 +61,54 @@ class ApplicationController < ActionController::Base
 
   # Get smartphones availables for the country by category
   def available_smartphones_category(country, category)
-    sp = Smartphone.select('model, code, price category').where('state= ? AND country= ? AND (category= ? OR category= ?)','catalog',country, category, 'all')
+    sp = Smartphone.select('model, code, price category').where('state= ? AND country= ? AND (category= ? OR category= ?)',
+    'catalog',country, category, 'all')
     # Format to show in view
     smp = sp.map { |m| [m.model, m] }
     return smp
 
   end
 
-  # Get bams availables for user jobtitle
+  # Get bams availables for users (all categories can access the models)
   def available_bams(country)
+    bm = Bam.select('model, code, price').where('state= ? AND country= ?','catalog',
+      country)
+    # Format to show in view
+    bam = bm.map { |m| [m.model, m] }
+    return bam
+  end
 
+  # Get bams availables plans for users (all categories can access the plans)
+  def plans_available_bam(country)
+    plan = Plan.select('id, name, detail, price').where('country= ? AND item= ?',
+      country, 'bam')
+    # Format to show in view
+    plans = plan.map { |m| [m.name, m.id] }
+    # Format to display details of plans
+    details = plan.map {|m| [m.id, m.detail]}
+    return [plans, details]
+  end
+
+  # Get Roamming availables plans for users (all categories can access the plans)
+  def roaming_plans(country)
+    plan = Plan.select('id, name, detail, price').where('country= ? AND plan_type = ? AND item= ?',
+      country, 'plan', 'roaming')
+    # Format to show in view
+    plans = plan.map { |m| [m.name, m.id] }
+    # Format to display details of plans
+    details = plan.map {|m| [m.id, m.detail]}
+    return [plans, details]
+  end
+
+  # Get Roamming availables bags for users (all categories can access the plans)
+  def roaming_bags(country)
+    plan = Plan.select('id, name, detail, price').where('country= ? AND plan_type = ? AND item= ?',
+      country, 'bag', 'roaming')
+    # Format to show in view
+    plans = plan.map { |m| [m.name, m.id] }
+    # Format to display details of plans
+    details = plan.map {|m| [m.id, m.detail]}
+    return [plans, details]
   end
 
   # Get missing days to renew item

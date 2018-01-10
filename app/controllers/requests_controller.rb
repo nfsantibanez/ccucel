@@ -116,9 +116,15 @@ class RequestsController < ApplicationController
     # Smartphones Models available
     @all_smartphones = available_smartphones_all(@user["nid_country"])
     @cat_smartphones = available_smartphones_category(@user["nid_country"], @user["jobcode"])
-    # Bam Models available_smartphones
-    @bam = available_bams(@user["nid_country"])
-    # get user item_wrapper_class
+    # Bam Models available
+    @bams =  available_bams(@user["nid_country"])
+    # Bams Plans available
+    @bam_plans = plans_available_bam(@user["nid_country"])
+    # Roaming plans
+    @roaming_plans = roaming_plans(@user["nid_country"])
+    # Roaming bags
+    @roaming_bags = roaming_bags(@user["nid_country"])
+    # get user items
     @items = get_items(@user["national_id"])
   end
 
@@ -129,18 +135,18 @@ class RequestsController < ApplicationController
     # Smartphones Models available
     @all_smartphones = available_smartphones_all(@user["nid_country"])
     @cat_smartphones = available_smartphones_category(@user["nid_country"], @user["jobcode"])
-    # Bam Models available_smartphones
-    @bam = available_bams(@user["nid_country"])
+    # Bam Models available
+    @bams = available_bams(@user["nid_country"])
     # Check the due date to renew the item
     @renew_date = renew_date(@user["national_id"], @user["item"])
-    # get user item_wrapper_class
+    # get user items
     @items = get_items(@user["national_id"])
   end
 
   # Renew Request form
   def transfer_line
     # User information in Hash
-    @usernid_countryion[:user]
+    @user = session[:user]
   end
 
   # Renew Request form
@@ -150,11 +156,13 @@ class RequestsController < ApplicationController
     # Smartphones Models available
     @all_smartphones = available_smartphones_all(@user["nid_country"])
     @cat_smartphones = available_smartphones_category(@user["nid_country"], @user["jobcode"])
-    # Bam Models available_smartphones
-    @bam = available_bams(@user["nid_country"])
+    # Bam Models available
+    @bams =  available_bams(@user["nid_country"])
+    # Bams Plans available
+    @bam_plans = plans_available_bam(@user["nid_country"])
     # Check the due date to renew the item
     @renew_date = renew_date(@user["national_id"], @user["item"])
-    # get user item_wrapper_class
+    # get user items
     @items = get_items(@user["national_id"])
   end
 

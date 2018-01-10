@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
   </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    // Display plan details bam
+    $("#bam_plans").change(function(){
+        $("#bam_plans").find("option:selected").each(function(){
+            var request = $(".select_1 option:selected").val();
+            var detail = $("#bam_plans option:selected").val();
+            $(".bam_details").hide()
+            $("#bam_details_"+detail).show()
+        });
+    }).change();
+
+  });
+  </script>
+
 </head>
 <body>
 
@@ -15,21 +32,39 @@
   <h4><strong> Datos de Solicitud BAM </strong></h4>
   <hr>
 
-  <% if @renew_date > 0 && @user["request"] == "renew" %>
-  <div class="alert alert-danger">
-    Faltan <%= @renew_date %> dias para que termine el periodo de renovación. Al estar fuera de plazo se incurrirá en costos adicionales
-  </div>
-  <% end %>
+  <% if @user["request"] == "renew" %>
+    <% if  @renew_date > 0 %>
+      <div class="alert alert-danger">
+        Faltan <%= @renew_date %> dias para que termine el periodo de renovación. Al estar fuera de plazo se incurrirá en costos adicionales
+      </div>
+    <% end %>
 
-  <div class="field-center">
-      <%= form.label :request, 'Equipo Seleccionado' %>
-      <%= form.text_field :request, value: 'Default BAM model', disabled: true, class:"text-center", size: "30" %>
+    <div class="field-center">
+      <%= form.label :model, 'Seleccione Modelo Smartphone' %>
+      <%= form.select :model, @bams, {} %>
       <p></p>
       <div class="alert alert-danger"> Se mantendrá el mismo plan asociado al dispositivo BAM</div>
+    </div>
 
-  </div>
+  <% elsif  @user["request"] == "stolen/lost" %>
+    <div id= "bam_models" class="field-center">
+      <%= form.label :model, 'Seleccione Modelo Bam' %>
+      <%= form.select :model, @bams, {} %>
+    </div>
 
+    <div id= "bam_plans" class="field-center">
+      <br>
+      <%= form.label :plan, 'Seleccione Plan BAM' %>
+      <%= form.select :plan, @bam_plans[0], {} %>
+    </div>
 
+    <% @bam_plans[1].each do |plan| %>
+      <div id= "bam_details_<%=plan[0]%>" class="field-center bam_details">
+        <br>
+        <div class="alert alert-success"> <%=plan[1]%> </div>
+      </div>
+    <% end %>
+  <% end %>
 
   </div>
 
