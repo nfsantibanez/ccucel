@@ -1,67 +1,8 @@
 $(document).ready(function(){
 
-    // Display request types
-    $(".select_1").change(function(){
-        $(this).find("option:selected").each(function(){
-            var request = $(this).val();
-            var w_sim = $('input:checked[name="want_sim"]').val();
-            var w_number = $('input:checked[name="want_new_number"]').val();
-            $("#models").hide();
-            $("#bam_plans").hide();
-            $("#bam_models").hide();
-            $(".roaming").hide();
-            $("#want_sim").hide();
-            $("#want_number").hide();
-            $("#number").hide();
-            $("#show_all_models").hide();
-            $("#select_all_models").hide();
-            $(".model_text").hide();
-            $("#cesion").hide();
-
-            if(request == 'smartphone'){
-                $('.row.content').css({ 'height': '1380px' });
-                $("#want_sim").show();
-                $("#show_all_models").show();
-
-                if(w_sim == 'true'){
-                  $("#want_number").show();
-                  if(w_number == 'false'){
-                      $("#number").show();
-                  }
-                  else{
-                      $("#number").hide();
-                  }
-                }
-                else{
-                  $("#want_number").hide();
-                  $("#number").hide();
-                }
-            }
-            else if(request == 'sim'){
-              $('.row.content').css({ 'height': '1120px' });
-              $("#want_number").show();
-              if(w_number == 'false'){
-                  $("#number").show();
-              }
-              else{
-                  $("#number").hide();
-              }
-            }
-            else if(request == 'bam'){
-                $('.row.content').css({ 'height': '1150px' });
-                $("#bam_plans").show();
-                $("#bam_models").show();
-            }
-            else if(request == 'roaming'){
-                $('.row.content').css({ 'height': '1400px' });
-                $(".roaming").show();
-            }
-        });
-    }).change();
-
-    // Display all smartphones models
-    $("#show_all_models, .select_1").change(function(){
-      var request = $(".select_1 option:selected").val();
+    // Display all smartphones models or category models
+    $("#show_all_models").change(function(){
+      var request =  $("input[name=item]").val();
       var check = $("#checkbox").is(":checked");
       if(request == 'smartphone'){
         if(check){
@@ -77,12 +18,12 @@ $(document).ready(function(){
       }
     }).change();
 
-    // Display secondary menus
+    // Display sim and number for portability
     var display_menus = function(){
-      var request = $(".select_1 option:selected").val();
+      var request = $("input[name=item]").val();
       var w_sim = $('input:checked[name="want_sim"]').val();
       var w_number = $('input:checked[name="want_new_number"]').val();
-      if(w_sim == 'true') {
+      if(w_sim == 'true' || request == 'sim') {
           $("#want_number").show();
           if(w_number == 'false'){
               $("#number").show();
@@ -91,7 +32,7 @@ $(document).ready(function(){
               $("#number").hide();
           }
       }
-      else if(w_sim == 'false'){
+      else if(w_sim == 'false' || request == 'sim'){
         if (request != 'sim'){
           $("#want_number").hide();
           $("#number").hide();
@@ -108,10 +49,10 @@ $(document).ready(function(){
     };
 
     // Display countries and plan/bag details
-    $("#region, .select_1, .roaming_country, .roaming_plan_bag").change(function(){
+    $("#region, .roaming_country, .roaming_plan_bag").change(function(){
         $("#region").find("option:selected").each(function(){
             var region = $("#region option:selected").val();
-            var request = $(".select_1 option:selected").val();
+            var request =  $("input[name=item]").val();
             var country = $("#"+region+" option:selected").val();
             var plan = $("#plan option:selected").val();
             $(".roaming_country").hide()
@@ -133,9 +74,9 @@ $(document).ready(function(){
     }).change();
 
     // Display plan details bam
-    $("#bam_plans, .select_1").change(function(){
+    $("#bam_plans").change(function(){
         $("#bam_plans").find("option:selected").each(function(){
-            var request = $(".select_1 option:selected").val();
+            var request =  $("input[name=item]").val();
             var detail = $("#bam_plans option:selected").val();
             $(".bam_details").hide()
             if(request == 'bam'){
@@ -147,7 +88,7 @@ $(document).ready(function(){
     // Submit Event
     $("form").submit(function(e){
       var phone = $.trim($('input[name="number"]').val());
-      var request = $(".select_1 option:selected").val();
+      var request =  $("input[name=item]").val();
       var w_sim = $('input:checked[name="want_sim"]').val();
       var w_new_number = $('input:checked[name="want_new_number"]').val();
       var start_date = new Date($('input[name="start_date"]').val());
@@ -214,8 +155,8 @@ $(document).ready(function(){
     });
 
     // Link events to function
+    $(display_menus)
     $('input[name="want_sim"]').change(display_menus);
     $('input[name="want_new_number"]').change(display_menus);
-    $(".roaming_country").hide();
 
   });

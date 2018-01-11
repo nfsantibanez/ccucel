@@ -33,209 +33,32 @@
 <body>
 
 <div class="container-fluid">
+  <h1><strong> Formulario </strong></h1>
   <hr>
-  <h1><strong> Formulario Nuevo Equipo </strong></h1>
+  <h3> Formulario Nuevo </h3>
   <hr>
+
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
     <div class="well form-horizontal">
+
+      <%= form.hidden_field :item, value: @user["item"] %>
+      <%= form.hidden_field :user_id, value: @user["id"] %>
+      <%= form.hidden_field :request, value: @user["request"] %>
+
       <!-- Cargar Informacion del usuario para mostrar -->
       <%= render partial: '/layouts/user_info', locals: {form: form} %>
     </div>
-    <div class="well form-horizontal">
-      <%= form.hidden_field :user_id, value: @user["id"] %>
-      <%= form.hidden_field :request, value: @user["request"] %>
-    <!-- Obtener nueva informacion del Formulario -->
-    <h4><strong> Datos de Solicitud</strong></h4>
-    <hr>
 
-    <div class="field-center">
-      <%= form.label :item, 'Seleccione Equipo/Servicio' %>
-      <%= form.select :item, [['Smartphone', 'smartphone'], ['Sim', 'sim'], ['BAM', 'bam'], ['Roaming', 'roaming']], {},
-    { :class => 'select_1' } %>
-    </div>
+      <% if @user["item"] == 'smartphone' %>
+        <%= render partial: '/layouts/new_smp', locals: {form: form} %>
+      <% elsif @user["item"] == 'bam' %>
+      <%= render partial: '/layouts/new_bam', locals: {form: form} %>
+      <% elsif @user["item"] == 'sim' %>
+      <%= render partial: '/layouts/new_sim', locals: {form: form} %>
+      <% elsif @user["item"] == 'roaming' %>
+      <%= render partial: '/layouts/new_roaming', locals: {form: form} %>
+      <% end %>
 
-    <div id= "models" class="field-center">
-      <br>
-      <%= form.label :model, 'Seleccione Modelo Smartphone' %>
-      <%= form.select :model, @cat_smartphones, {} %>
-    </div>
-
-    <div id= "select_all_models" class="field-center">
-      <br>
-      <%= form.label :model, 'Seleccione Modelo Smartphone' %>
-      <%= form.select :model, @all_smartphones, {} %>
-    </div>
-
-    <div id= "show_all_models" class="field-center">
-      <div class="alert alert-info">
-        Mostrar modelos que no corresponden a mi cargo
-        <%= form.check_box :checkbox, { id: "checkbox" } %>
-      </div>
-    </div>
-
-    <div class="field-center model_text text_area">
-      <br>
-      <%= form.label :model_text , 'Motivo elección' %>
-      <%= text_area_tag :model_text , nil, :rows => 4, :cols => 25 %>
-    </div>
-
-    <div id= "bam_models" class="field-center">
-      <br>
-      <%= form.label :model, 'Seleccione Modelo Bam' %>
-      <%= form.select :model, @bams, {} %>
-    </div>
-
-    <div id= "bam_plans" class="field-center">
-      <br>
-      <%= form.label :plan_id, 'Seleccione Plan Bam' %>
-      <%= form.select :plan_id, @bam_plans[0], {} %>
-    </div>
-
-    <% @bam_plans[1].each do |plan| %>
-      <div id= "bam_details_<%=plan[0]%>" class="field-center bam_details">
-        <br>
-        <div class="alert alert-success"> <%=plan[1]%> </div>
-      </div>
-    <% end %>
-
-    <div id= "want_sim" class="field-center">
-      <br>
-      <%= form.label :want_sim, 'Desea Incluir Tarjeta Sim?' %>
-      <%= form.collection_radio_buttons :want_sim, [[true, 'Si'], [false, 'No']], :first, :last,
-    :item_wrapper_class => 'inline', checked: true%>
-    </div>
-
-    <div id= "want_number" class="field-center">
-      <br>
-      <%= form.label :want_new_number, 'Desea un número nuevo?'%>
-      <%= form.collection_radio_buttons :want_new_number, [['true', 'Si'], ['false', 'No, quiero portar un numero']], :first, :last,
-    :item_wrapper_class => 'inline', checked: true%>
-    </div>
-
-    <div id= "number" class="field-center">
-      <br>
-      <%= form.label :number, 'Ingrese Número: +56 9' %>
-      <%= form.text_field :number %>
-
-      <p></p>
-
-      <div class="alert alert-danger">Número ingresado no debe estar asociado a un contrato
-        vigente con una compañía de telefonía móvi, a menos que sea la misma compañía que le
-      presta servicios de telefonía a CCU en su país</div>
-      </div>
-
-    <div class="field-center roaming">
-      <br>
-      <%= form.label :start_date, 'Fecha Inicio viaje' %>
-      <%= form.date_field :start_date, min: Date.today %>
-    </div>
-
-    <div id= "end_date" class="field-center roaming">
-      <br>
-      <%= form.label :end_date, 'Fecha Término viaje' %>
-      <%= form.date_field :end_date, min: Date.today %>
-    </div>
-
-    <div class="field-center roaming text_area">
-      <br>
-      <%= form.label :comment, 'Motivo Viaje' %>
-      <%= text_area_tag :comment, nil, :rows => 4, :cols => 25 %>
-    </div>
-
-    <div id= "region" class="field-center roaming">
-      <br>
-      <%= form.label :region, 'Seleccione Región de destino' %>
-      <%= form.select :region, [['Sudamérica', 'sudamerica'], ['Centroamérica', 'centroamerica'],
-      ['Norteamérica', 'norteamerica'], ['Europa', 'europa'], ['Oceanía', 'oceania'],
-      ['Asia', 'asia'], ['África', 'africa']], {} %>
-    </div>
-
-    <div id= "sudamerica" class="field-center roaming_country">
-      <br>
-      <%= form.label :country, 'Seleccione País de destino' %>
-      <%= form.select :country, [['Argentina', 'argentina'], ['Bolivia', 'bolivia'],
-      ['Brasil', 'brasil'], ['Colombia', 'colombia'], ['Ecuador', 'ecuador'],
-      ['Paraguay', 'paraguay'], ['Perú', 'peru'] , ['Uruguay', 'uruguay'], ['Otro', 'otro']], {} %>
-    </div>
-
-    <div id= "centroamerica" class="field-center roaming_country">
-      <br>
-      <%= form.label :country, 'Seleccione País de destino' %>
-      <%= form.select :country, [['Costa Rica', 'costa rica'], ['El Salvador', 'el salvador'],
-      ['Guatemala', 'guatemala'], ['Honduras', 'honduras'], ['México', 'mexico'],
-      ['Nicaragua', 'nicaragua'], ['Panamá', 'panama'] , ['Puerto Rico', 'puerto rico'],
-      ['Otro', 'otro']], {} %>
-    </div>
-
-    <div id= "norteamerica" class="field-center roaming_country">
-      <br>
-      <%= form.label :country, 'Seleccione País de destino' %>
-      <%= form.select :country, [['Estados Unidos', 'estados unidos'], ['Canadá', 'canada'],
-      ['Otro', 'otro']], {} %>
-    </div>
-
-    <div id= "europa" class="field-center roaming_country">
-      <br>
-      <%= form.label :country, 'Seleccione País de destino' %>
-      <%= form.select :country, [['Albania', 'albania'], ['Alemania', 'alemania'],
-      ['Austria', 'austria'], ['Bélgica', 'belgica'], ['Croacia', 'croacia'],
-      ['Dinamarca', 'dinamarca'], ['Escocia', 'escocia'] , ['Eslovaquia', 'eslovaquia'],
-      ['España', 'españa'], ['Estonia', 'estonia'], ['Finlandia', 'finlandia'],
-      ['Francia', 'francia'], ['Gales', 'gales'], ['Grecia', 'grecia'], ['Holanda', 'holanda'],
-      ['Hungría', 'hungría'], ['Inglaterra', 'inglaterra'], ['Irlanda', 'irlanda'],
-      ['Irlanda del Norte', 'irlanda del norte'], ['Italia', 'italia'], ['Letonia', 'letonia'],
-      ['Lituania', 'lituania'], ['Luxemburgo', 'luxemburgo'] , ['Malta', 'malta'],
-      ['Polonia', 'polonia'], ['Portugal', 'portugal'], ['República Checa', 'republica checa'],
-      ['Rumania', 'rumania'], ['Rusia', 'rusia'], ['Suecia', 'suecia'],
-      ['Suiza', 'suiza'], ['Ucrania', 'ucrania'], ['Noruega', 'noruega'], ['Otro', 'otro']], {} %>
-    </div>
-
-    <div id= "oceania" class="field-center roaming_country">
-      <br>
-      <%= form.label :country, 'Seleccione País de destino' %>
-      <%= form.select :country, [['Australia', 'australia'], ['Nueva Zelanda', 'nueva zelanda'],
-      ['Otro', 'otro']], {} %>
-    </div>
-
-    <div id= "asia" class="field-center roaming_country">
-      <br>
-      <%= form.label :country, 'Seleccione País de destino' %>
-      <%= form.select :country, [['China', 'china'], ['Hong Kong', 'hong kong'],
-      ['Japón', 'japon'], ['Israel', 'israel'], ['Pakistán', 'pakistán'],
-      ['Singapur', 'singapur'], ['Taiwán', 'taiwan'], ['Otro', 'otro']], {} %>
-    </div>
-
-    <div id= "africa" class="field-center roaming_country">
-      <br>
-      <%= form.label :country, 'Seleccione País de destino' %>
-      <%= form.select :country, [['Congo', 'congo'], ['Mozambique', 'mozambique'],
-      ['Sudáfrica', 'sudafrica'], ['Tanzania', 'tanzania'], ['Otro', 'otro']], {} %>
-    </div>
-
-    <div id= "plan" class="field-center roaming_plan_bag">
-      <br>
-      <%= form.label :plan, 'Planes disponible' %>
-      <%= form.select :plan, @roaming_plans[0], {} %>
-    </div>
-
-    <div id= "bag" class="field-center roaming_plan_bag">
-      <br>
-      <%= form.label :plan, 'Bolsas disponibles' %>
-      <%= form.select :plan, @roaming_bags[0], {} %>
-      <p></p>
-
-      <div class="alert alert-danger"> Bolsa dura 30 dias y solo incluye plan de datos </div>
-    </div>
-
-    <% @roaming_plans[1].each do |plan| %>
-      <div id= "details_<%=plan[0]%>" class="field-center roaming_details">
-        <br>
-        <div class="alert alert-success"> <%=plan[1]%> </div>
-      </div>
-    <% end %>
-
-
-    </div>
     <br>
     <!-- Enviar Formulario -->
     <div id= "submit">

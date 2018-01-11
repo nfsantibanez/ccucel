@@ -76,8 +76,12 @@ class RequestsController < ApplicationController
 
       if params[:request_type] == 'renew' || params[:request_type] == 'technical service'
         session[:user]["item"] = params[:request_hw_renew_tech]
-      else
+      elsif params[:request_type] == 'new'
+        session[:user]["item"] = params[:request_hw_new]
+      elsif params[:request_type] == 'stolen/lost'
         session[:user]["item"] = params[:request_hw_lost]
+      else
+        session[:user]["item"] = "smartphone"
       end
 
       # Transfer Line

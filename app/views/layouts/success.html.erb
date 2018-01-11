@@ -60,7 +60,6 @@
   $(document).ready(function(){
     // Display secondary menus
     request_id = $('#request_id').val();
-    console.log(request_id);
     swal({
       title: 'Solicitud Creada Exitosamente!',
       text: 'n° de Solicitud: '+request_id,
@@ -73,7 +72,6 @@
 
 </head>
 <body>
-<%puts('HOMEEE')%>
 <%= hidden_field_tag :request_id, params[:request_id] %>
 
 <nav class="navbar navbar-inverse">

@@ -16,17 +16,17 @@
     $("#request").change(function(){
         $(this).find("option:selected").each(function(){
             var request = $(this).attr("value");
-            if(request == 'new' || request == 'transfer line'){
-              $("#request_hw_renew_tech").hide()
-              $("#request_hw_lost").hide()
+            $("#request_hw_new").hide()
+            $("#request_hw_renew_tech").hide()
+            $("#request_hw_lost").hide()
+            if(request == 'new'){
+              $("#request_hw_new").show()
             }
             else if(request == 'renew' || request == 'technical service'){
               $("#request_hw_renew_tech").show()
-              $("#request_hw_lost").hide()
             }
             else if(request == 'stolen/lost'){
               $("#request_hw_lost").show()
-              $("#request_hw_renew_tech").hide()
             }
         });
     }).change();
@@ -50,6 +50,13 @@
       ['Reparar Equipo', 'technical service']], {} %>
     </div>
 
+    <div id= "request_hw_new" class="field-center">
+      <br>
+      <%= form.label :request_hw_new, 'Seleccione Equipo/Servicio' %>
+      <%= form.select :request_hw_new, [['Smartphone', 'smartphone'],
+      ['Sim', 'sim'], ['Bam', 'bam'], ['Roaming', 'roaming']], {} %>
+    </div>
+
     <div id= "request_hw_renew_tech" class="field-center">
       <br>
       <%= form.label :request_hw_renew_tech, 'Seleccione Equipo/Servicio' %>
@@ -61,7 +68,7 @@
       <br>
       <%= form.label :request_hw_lost, 'Seleccione Equipo/Servicio' %>
       <%= form.select :request_hw_lost, [['Smartphone', 'smartphone'], ['Sim', 'sim'],
-      ['BAM', 'bam']], {} %>
+      ['Bam', 'bam']], {} %>
     </div>
 
     <br>
