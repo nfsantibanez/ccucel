@@ -21,9 +21,8 @@ class Smartphone < ApplicationRecord
   end
 
   def valid_category
-   if category != 'gerente' && category != 'subgerente' && category != 'jefe de venta/vendedor' &&
-     category != 'profesional/tecnico' && category != 'empleado/operario' && category != 'multiusuario' &&
-     category != 'otro' && category != 'all'
+   if category != 'GE' && category != 'EJ' && category != 'VE' && category != 'PT' &&
+     category != 'EE' && category != 'OO' && category != 'ALL'
      errors.add(:request, 'invalid category field')
    end
   end

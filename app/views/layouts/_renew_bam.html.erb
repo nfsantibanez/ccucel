@@ -40,7 +40,7 @@
     <% end %>
 
     <div class="field-center">
-      <%= form.label :model, 'Seleccione Modelo Smartphone' %>
+      <%= form.label :model, 'Seleccione Modelo Bam' %>
       <%= form.select :model, @bams, {} %>
       <p></p>
       <div class="alert alert-danger"> Se mantendrá el mismo plan asociado al dispositivo BAM</div>
@@ -54,7 +54,7 @@
 
     <div id= "bam_plans" class="field-center">
       <br>
-      <%= form.label :plan, 'Seleccione Plan BAM' %>
+      <%= form.label :plan, 'Seleccione Plan Bam' %>
       <%= form.select :plan, @bam_plans[0], {} %>
     </div>
 

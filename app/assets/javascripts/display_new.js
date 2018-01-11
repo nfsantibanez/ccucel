@@ -19,7 +19,7 @@ $(document).ready(function(){
             $("#cesion").hide();
 
             if(request == 'smartphone'){
-                $('.row.content').css({ 'height': '1100px' });
+                $('.row.content').css({ 'height': '1380px' });
                 $("#want_sim").show();
                 $("#show_all_models").show();
 
@@ -38,7 +38,7 @@ $(document).ready(function(){
                 }
             }
             else if(request == 'sim'){
-              $('.row.content').css({ 'height': '970px' });
+              $('.row.content').css({ 'height': '1120px' });
               $("#want_number").show();
               if(w_number == 'false'){
                   $("#number").show();
@@ -48,12 +48,12 @@ $(document).ready(function(){
               }
             }
             else if(request == 'bam'){
-                $('.row.content').css({ 'height': '1120px' });
+                $('.row.content').css({ 'height': '1150px' });
                 $("#bam_plans").show();
                 $("#bam_models").show();
             }
             else if(request == 'roaming'){
-                $('.row.content').css({ 'height': '1390px' });
+                $('.row.content').css({ 'height': '1400px' });
                 $(".roaming").show();
             }
         });

@@ -12,17 +12,17 @@
   <hr>
 
     <div class="field-center">
-        <%= form.label :name, 'Name' %>
+        <%= form.label :name, 'Nombre' %>
         <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
     </div>
 
     <div class="field-center">
-        <%= form.label :last_name, 'Last Name' %>
+        <%= form.label :last_name, 'Apellidos' %>
         <%= form.text_field :last_name, value: @user["last_name"], disabled: true, class:"text-center", size: "30" %>
     </div>
 
     <div class="field-center">
-        <%= form.label :national_id, 'National id' %>
+        <%= form.label :national_id, 'Rut' %>
         <%= form.text_field :national_id, value: @user["national_id"], disabled: true, class:"text-center", size: "30" %>
     </div>
 
@@ -32,38 +32,48 @@
     </div>
 
     <div class="field-center">
-        <%= form.label :nid_country, 'Country' %>
-        <%= form.text_field :nid_country, value: @user["nid_country"], disabled: true, class:"text-center", size: "30" %>
-    </div>
-
-    <div class="field-center">
-        <%= form.label :jobtitle, 'Job Title' %>
+        <%= form.label :jobtitle, 'Cargo' %>
         <%= form.text_field :jobtitle, value: @user["jobtitle"], disabled: true, class:"text-center", size: "30" %>
     </div>
 
     <div class="field-center">
-        <%= form.label :supervisor, 'Supervisor RUT' %>
-        <%= form.text_field :supervisor, value: @user["supervisor"], disabled: true, class:"text-center", size: "30" %>
+        <%= form.label :job_family, 'Cargo' %>
+        <%= form.text_field :job_family, value: @user["job_family"], disabled: true, class:"text-center", size: "30" %>
     </div>
 
     <div class="field-center">
-        <%= form.label :company, 'Company' %>
+        <%= form.label :company, 'Compañía' %>
         <%= form.text_field :company, value: @user["company"], disabled: true, class:"text-center", size: "30" %>
     </div>
 
     <div class="field-center">
-        <%= form.label :deptname, 'Departament' %>
+        <%= form.label :country, 'Pais' %>
+        <%= form.text_field :country, value: @user["country"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :deptname, 'Centro de Costos' %>
         <%= form.text_field :deptname, value: @user["deptname"], disabled: true, class:"text-center", size: "30" %>
     </div>
 
     <div class="field-center">
-        <%= form.label :business_unit, 'Business Unit' %>
-        <%= form.text_field :business_unit, value: @user["business_unit"], disabled: true, class:"text-center", size: "30" %>
+        <%= form.label :location, 'Ubicación' %>
+        <%= form.text_field :location, value: @user["location"], disabled: true, class:"text-center", size: "30" %>
     </div>
 
     <div class="field-center">
-        <%= form.label :location, 'Location' %>
-        <%= form.text_field :location, value: @user["location"], disabled: true, class:"text-center", size: "30" %>
+        <%= form.label :supervisor, 'Supervisor' %>
+        <%= form.text_field :supervisor, value: @user["supervisor"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :supervisor, 'Cargo Supervisor' %>
+        <%= form.text_field :supervisor, value: @user["supervisor_jobtitle"], disabled: true, class:"text-center", size: "30" %>
+    </div>
+
+    <div class="field-center">
+        <%= form.label :supervisor_email, 'Correo Supervisor' %>
+        <%= form.text_field :supervisor_email, value: @user["supervisor_email"], disabled: true, class:"text-center", size: "30" %>
     </div>
 
 </body>

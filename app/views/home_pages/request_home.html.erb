@@ -37,9 +37,8 @@
 <body>
 
 <div class="container-fluid">
-  <h1><strong> Formulario </strong></h1>
   <hr>
-  <h3> Identificación de Usuario y Solicitud </h3>
+  <h1><strong> Identificación de Usuario y Solicitud </strong></h1>
   <hr>
   <%= form_with url: "validate", method: "get" do |form| %>
    <div class="well form-horizontal">
@@ -48,7 +47,7 @@
       <%= form.label :request_type, 'Seleccione Tipo de Solicitud' %>
       <%= form.select :request_type, [['Cesión de línea', 'transfer line'],
       ['Nuevo Equipo', 'new'], ['Renovar Equipo', 'renew'], ['Robo/Pérdida Equipo', 'stolen/lost'],
-      ['Reparación Equipo', 'technical service']], {} %>
+      ['Reparar Equipo', 'technical service']], {} %>
     </div>
 
     <div id= "request_hw_renew_tech" class="field-center">

@@ -17,8 +17,9 @@
   $(document).ready(function(){
 
     // Manage Cesion text
-    $("#select_cesion").change(function(){
-      var request = $("#select_cesion option:selected").val();
+    $("#select_type").change(function(){
+      var request = $("#select_type option:selected").val();
+      console.log(request);
       if(request == 'liberar'){
         $("#cesion").hide();
       }
@@ -29,7 +30,7 @@
 
     // Submit Event
     $("form").submit(function(e){
-      var phone = $.trim($('input[name="number"]').val());
+      var phone = $.trim($('input[name="phone_number"]').val());
 
       if( phone.length != 8 || !$.isNumeric(phone)){
         swal({
@@ -50,16 +51,16 @@
 <body>
 
 <div class="container-fluid">
-  <h1><strong> Formulario </strong></h1>
   <hr>
-  <h3> Formulario Cesión de Línea </h3>
+  <h1><strong> Formulario Cesión de Línea </strong></h1>
   <hr>
 
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
     <div class="well form-horizontal">
 
-      <%= form.hidden_field :item, value: @user["item"], id: "item" %>
+      <%= form.hidden_field :item, value: @user["item"] %>
       <%= form.hidden_field :user_id, value: @user["id"] %>
+      <%= form.hidden_field :request, value: @user["request"] %>
 
       <!-- Cargar Informacion del usuario para mostrar -->
       <%= render partial: '/layouts/user_info', locals: {form: form} %>
@@ -71,15 +72,15 @@
     <h4><strong> Datos de Solicitud</strong></h4>
     <hr>
 
-      <div id= "select_cesion" class="field-center">
-        <%= form.label :cesion_type, 'Seleccione Acción' %>
-        <%= form.select :cesion_type, [['Ceder Línea a CCU', 'ceder'], ['Liberar Línea de CCU', 'liberar']], {} %>
+      <div id= "select_type" class="field-center">
+        <%= form.label :transfer_line_type, 'Seleccione Acción' %>
+        <%= form.select :transfer_line_type, [['Ceder Línea a CCU', 'ceder'], ['Liberar Línea de CCU', 'liberar']], {} %>
       </div>
 
       <div id= "number" class="field-center">
         <br>
-        <%= form.label :number, 'Ingrese Número a ceder: +56 9' %>
-        <%= form.text_field :number %>
+        <%= form.label :phone_number, 'Ingrese Número a ceder: +56 9' %>
+        <%= form.text_field :phone_number %>
 
         <p>
 

@@ -33,11 +33,9 @@
 <body>
 
 <div class="container-fluid">
-  <h1><strong> Formulario </strong></h1>
   <hr>
-  <h3> Formulario Nuevo </h3>
+  <h1><strong> Formulario Nuevo Equipo </strong></h1>
   <hr>
-
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
     <div class="well form-horizontal">
       <!-- Cargar Informacion del usuario para mostrar -->
@@ -89,7 +87,7 @@
 
     <div id= "bam_plans" class="field-center">
       <br>
-      <%= form.label :plan_id, 'Seleccione Plan BAM' %>
+      <%= form.label :plan_id, 'Seleccione Plan Bam' %>
       <%= form.select :plan_id, @bam_plans[0], {} %>
     </div>
 

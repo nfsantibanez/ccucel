@@ -7,7 +7,7 @@
   <style>
   /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
   .row.content {
-    height: 1150px
+    height: 1330px
   }
   input[type="radio"]{
     margin: 0 5px 0 20px;
@@ -63,15 +63,14 @@
 <body>
 
 <div class="container-fluid">
-  <h1><strong> Formulario </strong></h1>
   <hr>
-  <h3> Formulario Renovación </h3>
+  <h1><strong> Formulario Renovar Equipo </strong></h1>
   <hr>
 
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
     <div class="well form-horizontal">
 
-      <%= form.hidden_field :item, value: @user["item"], id: "item" %>
+      <%= form.hidden_field :item, value: @user["item"] %>
       <%= form.hidden_field :user_id, value: @user["id"] %>
 
       <!-- Cargar Informacion del usuario para mostrar -->

@@ -4,17 +4,17 @@ class User < ApplicationRecord
   has_one :smarthphone
   has_many :sims
   has_one :user_record
-  
+
   # Validations
   validates :name, presence: true, allow_blank: false
   validates :national_id, presence: true, allow_blank: false
   validates :jobtitle, presence: true, allow_blank: false
-  validates :email, presence: true, uniqueness: true, allow_blank: false,
+  validates :email, presence: true, uniqueness: true, allow_blank: true,
   email_format: { message: 'Invalid email format' }
-  validates :supervisor, presence: true, allow_blank: false
-  validates :supervisor_email, presence: true, allow_blank: false,
+  validates :supervisor, presence: true, allow_blank: true
+  validates :supervisor_email, presence: true, allow_blank: true,
   email_format: { message: 'Invalid email format' }
   validates :deptname, presence: true, allow_blank: false
-  validates :nid_country, presence: true, allow_black: false
+  validates :country, presence: true, allow_black: false
 
 end

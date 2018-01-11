@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
-  layout 'general_view'
+  layout 'general_view', except: [:create_user]
 
   # GET /requests
   # GET /requests.json
@@ -25,8 +25,6 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-    puts(params)
-    puts(params)
     @request = Request.new(request_params)
 
     respond_to do |format|
@@ -109,21 +107,48 @@ class RequestsController < ApplicationController
     end
   end
 
+  # Function to create Request by User Request
+  def create_user
+
+    if params["request"] == "transfer line"
+      @request = Request.new(transfer_line_params)
+
+    elsif params["request"] == "new" && params["items"] == "smartphone"
+      @request = Request.new(new_sp_params)
+    end
+
+    # Si se graba exitosamente guardar el id en params
+    params[:request_id] = rand(1000000..9999999)
+    render layout: 'success'
+
+    #if @request.save
+      # Mandar Correo a supervisor
+      # Render de mensaje de exito, numero de solicitud y volver a Home
+      #puts(@request)
+    #else
+      # Render mensaje de error y volver a Solicitudes
+      #puts(@request.errors)
+    #end
+
+
+  end
+
+
   # New Request form
   def new_form
     # User information in Hash
     @user = session[:user]
     # Smartphones Models available
-    @all_smartphones = available_smartphones_all(@user["nid_country"])
-    @cat_smartphones = available_smartphones_category(@user["nid_country"], @user["jobcode"])
+    @all_smartphones = available_smartphones_all(@user["country"])
+    @cat_smartphones = available_smartphones_category(@user["country"], @user["job_family"])
     # Bam Models available
-    @bams =  available_bams(@user["nid_country"])
+    @bams =  available_bams(@user["country"])
     # Bams Plans available
-    @bam_plans = plans_available_bam(@user["nid_country"])
+    @bam_plans = plans_available_bam(@user["country"])
     # Roaming plans
-    @roaming_plans = roaming_plans(@user["nid_country"])
+    @roaming_plans = roaming_plans(@user["country"])
     # Roaming bags
-    @roaming_bags = roaming_bags(@user["nid_country"])
+    @roaming_bags = roaming_bags(@user["country"])
     # get user items
     @items = get_items(@user["national_id"])
   end
@@ -133,10 +158,10 @@ class RequestsController < ApplicationController
     # User information in Hash
     @user = session[:user]
     # Smartphones Models available
-    @all_smartphones = available_smartphones_all(@user["nid_country"])
-    @cat_smartphones = available_smartphones_category(@user["nid_country"], @user["jobcode"])
+    @all_smartphones = available_smartphones_all(@user["country"])
+    @cat_smartphones = available_smartphones_category(@user["country"], @user["job_family"])
     # Bam Models available
-    @bams = available_bams(@user["nid_country"])
+    @bams = available_bams(@user["country"])
     # Check the due date to renew the item
     @renew_date = renew_date(@user["national_id"], @user["item"])
     # get user items
@@ -154,12 +179,12 @@ class RequestsController < ApplicationController
     # User information in Hash
     @user = session[:user]
     # Smartphones Models available
-    @all_smartphones = available_smartphones_all(@user["nid_country"])
-    @cat_smartphones = available_smartphones_category(@user["nid_country"], @user["jobcode"])
+    @all_smartphones = available_smartphones_all(@user["country"])
+    @cat_smartphones = available_smartphones_category(@user["country"], @user["job_family"])
     # Bam Models available
-    @bams =  available_bams(@user["nid_country"])
+    @bams =  available_bams(@user["country"])
     # Bams Plans available
-    @bam_plans = plans_available_bam(@user["nid_country"])
+    @bam_plans = plans_available_bam(@user["country"])
     # Check the due date to renew the item
     @renew_date = renew_date(@user["national_id"], @user["item"])
     # get user items
@@ -182,6 +207,18 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.permit(:request, :item, :model, :plan, :contract, :file, :status, :comment, :closed_at, :user_id)
+      params.permit(:request, :item, :model, :plan, :contract, :file, :status,
+        :comment, :comment_stolen_lost, :email_sended, :want_replacement,
+        :want_sim, :phone_number, :transfer_line_type, :price, :closed_at, :user_id)
+    end
+
+    def transfer_line_params
+      params.permit(:request, :item, :contract, :file, :status, :email_sended,
+        :phone_number, :transfer_line_type, :closed_at, :user_id)
+    end
+
+    def new_sp_params
+      params.permit(:request, :item, :model, :contract, :file, :status, :comment,
+        :email_sended, :want_sim, :phone_number, :closed_at, :user_id)
     end
 end

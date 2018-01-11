@@ -9,9 +9,12 @@ class ApplicationController < ActionController::Base
 
     # Query to CCU DB
     begin
+      # First view created for web
       query_1 = "select * from sysadm.ps_v88rh_emplee_vw where "
-      query_2 = "emplid = '"+rut+"'"
-      view= ActiveRecord::Base.connection.execute(query_1+query_2)
+      # Second view created for web
+      query_2 = "select * from ps_v88rh_phonereq_vw where "
+      query_id = "emplid = '"+rut+"'"
+      view= ActiveRecord::Base.connection.execute(query_2+query_id)
       db_user = view.fetch_hash
     # If there is no connection to DB
     rescue
@@ -34,18 +37,20 @@ class ApplicationController < ActionController::Base
     name = user["NAME"].split(",")[0]
     last_name = user["NAME"].split(",")[1]
     # save or update user info in app DB
-    if !User.where(national_id: user["NATIONAL_ID"]).empty?
-      user_db = User.where(national_id: user["NATIONAL_ID"]).first
+    if !User.where(national_id: user["EMPLID"]).empty?
+      user_db = User.where(national_id: user["EMPLID"]).first
       user_db.update_attributes!(jobtitle: user["JOBTITLE"], company: user["COMPANY"],
-        deptname: user["DEPTNAME"], business_unit: user["BUSINESS_UNIT"],
-        jobcode: user["JOBCODE"], location: user["LOCATION"], supervisor: user["SUPERVISOR_ID"],
-        supervisor_email: user["SUPERVISOR_ID"]+'@ccu.cl', nid_country: user["NID_COUNTRY"])
+        deptname: user["DEPTNAME"], jobcode: user["JOBCODE"], location: user["LOCATION"],
+        supervisor: user["SUPERVISOR_ID"], supervisor_jobtitle: user["SUPERVISOR_JOBTITLE"],
+        supervisor_email: user["SUPERVISOR_EMAIL"], job_family: user["JOB_FAMILY"],
+        country: user["COUNTRY"])
     else
-      user_db = User.create!(name: name, last_name: last_name, email: name[0..1]+last_name[0..3]+'@ccu.cl',
-        national_id: user["NATIONAL_ID"], jobtitle: user["JOBTITLE"], company: user["COMPANY"],
-        deptname: user["DEPTNAME"], business_unit: user["BUSINESS_UNIT"], jobcode: user["JOBCODE"],
-        location: user["LOCATION"], supervisor: user["SUPERVISOR_ID"],
-        supervisor_email: user["SUPERVISOR_ID"]+'@ccu.cl', nid_country: user["NID_COUNTRY"])
+      user_db = User.create!(name: name, last_name: last_name, email: user["EMAIL_ADDR"],
+        national_id: user["EMPLID"], jobtitle: user["JOBTITLE"], company: user["COMPANY"],
+        deptname: user["DEPTNAME"], jobcode: user["JOBCODE"], location: user["LOCATION"],
+        supervisor: user["SUPERVISOR_NAME"], supervisor_jobtitle: user["SUPERVISOR_JOBTITLE"],
+        supervisor_email: user["SUPERVISOR_EMAIL"], job_family: user["JOB_FAMILY"],
+        country: user["COUNTRY"])
     end
     return user_db
   end
@@ -61,8 +66,8 @@ class ApplicationController < ActionController::Base
 
   # Get smartphones availables for the country by category
   def available_smartphones_category(country, category)
-    sp = Smartphone.select('model, code, price category').where('state= ? AND country= ? AND (category= ? OR category= ?)',
-    'catalog',country, category, 'all')
+    sp = Smartphone.select('model, code, price, category').where('state= ? AND country= ? AND (category= ? OR category= ?)',
+    'catalog',country, category, 'ALL')
     # Format to show in view
     smp = sp.map { |m| [m.model, m] }
     return smp

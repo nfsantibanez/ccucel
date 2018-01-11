@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # New Form
   get '/requests/forms/new' => 'requests#new_form'
   # save New Form
-  post '/requests/forms/create/new' => 'requests#create'
+  post '/requests/forms/create/new' => 'requests#create_user'
   # Renew Form
   get '/requests/forms/renew' => 'requests#renew_form'
   # Stolen or Lost Form

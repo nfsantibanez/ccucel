@@ -6,53 +6,53 @@
 
 users = User.create!([
   {name: 'Constanza', last_name: 'Calderon Sanchez', national_id:'13362555-0', email:'ccalde@ccu.cl',
-    jobtitle: 'Operario de Maquinas', supervisor: 'Nicolas Santibanez', nid_country: 'CHL',
+    jobtitle: 'Operario de Maquinas', supervisor: 'Nicolas Santibanez', country: 'CHL',
     supervisor_email: 'nisanti@ccu.cl', deptname: '290766000', location: '30_VITA',
-    company: '13', jobcode: 'empleado/operario'},
+    company: '13', job_family: 'OO'},
   {name: 'Sebastian', last_name: 'Claren Rubio', national_id:'16054341-8', email: 'sclaren@ccu.cl',
-    jobtitle: 'Vendedor Santiago', supervisor: 'Felipe Diaz', nid_country: 'ARG',
+    jobtitle: 'Vendedor Santiago', supervisor: 'Felipe Diaz', country: 'ARG',
     supervisor_email: 'nisanti@ccu.cl', deptname: '290501500', location: '10_CERV',
-    company: '13', jobcode: 'jefe de venta/vendedor'},
+    company: '13', job_family: 'VE'},
   {name: 'Claudia', last_name: 'Bonilla Toro', national_id: '14121031-9', email: 'cbonil@ccu.cl',
-    jobtitle: 'Gerente Tecnologia', supervisor: 'Marco Rios', nid_country: 'CHL',
+    jobtitle: 'Gerente Tecnologia', supervisor: 'Marco Rios', country: 'CHL',
     supervisor_email: 'nisanti@ccu.cl', deptname: '290501100', location: '20_EMBOT',
-    company: '23', jobcode: 'gerente'},
+    company: '23', job_family: 'GE'},
   {name: 'Yerko', last_name: 'Araos Ramirez', national_id: '16095197-4', email: 'yaraos@ccu.cl',
-    jobtitle: 'Vendedor Region', supervisor: 'Nicolas Santibanez', nid_country: 'ARG',
+    jobtitle: 'Vendedor Region', supervisor: 'Nicolas Santibanez', country: 'ARG',
     supervisor_email: 'nisanti@ccu.cl', deptname: '290106000', location: '30_VITA',
-    company: '13', jobcode: 'jefe de venta/vendedor'},
+    company: '13', job_family: 'VE'},
   {name: 'Rodrigo', last_name: 'Monardes Nitrihual', national_id: '13679739-5', email: 'rmonar@ccu.cl',
-    jobtitle: 'Jefe Laboratorio', supervisor: 'Felipe Diaz', nid_country: 'CHL',
+    jobtitle: 'Jefe Laboratorio', supervisor: 'Felipe Diaz', country: 'CHL',
     supervisor_email: 'nisanti@ccu.cl', deptname: '290108000', location: '10_CERV',
-    company: '23', jobcode: 'profesional/tecnico'},
+    company: '23', job_family: 'PT'},
   {name: 'Guillermo', last_name: 'Giaconi Rodriguez', national_id: '16943369-0', email: 'ggiaconi@ccu.cl',
-    jobtitle: 'Subgerente systemas', supervisor: 'Marco Rios', nid_country: 'ARG',
+    jobtitle: 'Subgerente systemas', supervisor: 'Marco Rios', country: 'ARG',
     supervisor_email: 'nisanti@ccu.cl', deptname: '290051000', location: '20_EMBOT',
-    company: '13', jobcode: 'subgerente'},
+    company: '13', job_family: 'EJ'},
   {name: 'Javier', last_name: 'Castro Maldonado', national_id: '8208182-8', email: 'jcastro@ccu.cl',
-    jobtitle: 'Gerente Informatica', supervisor: 'Nicolas Santibanez', nid_country: 'CHL',
+    jobtitle: 'Gerente Informatica', supervisor: 'Nicolas Santibanez', country: 'CHL',
     supervisor_email: 'nisanti@ccu.cl', deptname: '290776000', location: '30_VITA',
-    company: '23', jobcode: 'gerente'},
+    company: '23', job_family: 'GE'},
   {name: 'Carmen Gloria', last_name: 'Utili Escudero', national_id: '5192357-K', email: 'cutili@ccu.cl',
-    jobtitle: 'Ejecutiva Aprovisionamiento', supervisor: 'Felipe Diaz', nid_country: 'ARG',
+    jobtitle: 'Ejecutiva Aprovisionamiento', supervisor: 'Felipe Diaz', country: 'ARG',
     supervisor_email: 'nisanti@ccu.cl', deptname: '540796000', location: '10_CERV',
-    company: '13', jobcode: 'profesional/tecnico'},
+    company: '13', job_family: 'PT'},
   {name: 'Marcelo', last_name: 'Cabrera Rubio', national_id: '16371090-0', email: 'mcabrera@ccu.cl',
-    jobtitle: 'Ingeniero de Televenta', supervisor: 'Marco Rios', nid_country: 'CHL',
+    jobtitle: 'Ingeniero de Televenta', supervisor: 'Marco Rios', country: 'CHL',
     supervisor_email: 'nisanti@ccu.cl', deptname: '290501500', location: '20_EMBOT',
-    company: '23', jobcode: 'profesional/tecnico'},
+    company: '23', job_family: 'PT'},
   {name: 'Anain', last_name: 'Venegas Mondaca', national_id: '8634532-3', email: 'avenega@ccu.cl',
-    jobtitle: 'Tecnico de redes', supervisor: 'Nicolas Santibanez', nid_country: 'ARG',
+    jobtitle: 'Tecnico de redes', supervisor: 'Nicolas Santibanez', country: 'ARG',
     supervisor_email: 'nisanti@ccu.cl', deptname: '290845000', location: '30_VITA',
-    company: '13', jobcode: 'profesional/tecnico'},
+    company: '13', job_family: 'PT'},
   {name: 'Rodolfo', last_name: 'Williams Inostroza', national_id: '18293586-0', email: 'rwilli@ccu.cl',
-    jobtitle: 'Alumno Practicante', supervisor: 'Felipe Diaz', nid_country: 'CHL',
+    jobtitle: 'Alumno Practicante', supervisor: 'Felipe Diaz', country: 'CHL',
     supervisor_email: 'nisanti@ccu.cl', deptname: '103845490', location: '10_CERV',
-    company: '23', jobcode: 'multiusuario'},
+    company: '23', job_family: 'EE'},
   {name: 'Cecilia', last_name: 'Caceres Diaz', national_id: '8634532-3', email: 'ccace@ccu.cl',
-    jobtitle: 'Alumno Practicante', supervisor: 'Marco Rios', nid_country: 'ARG',
+    jobtitle: 'Alumno Practicante', supervisor: 'Marco Rios', country: 'ARG',
     supervisor_email: 'nisanti@ccu.cl', deptname: '229442940', location: '20_EMBOT',
-    company: '13', jobcode: 'multiusuario'}
+    company: '13', job_family: 'EE'}
 ])
 
 puts(users)
@@ -79,78 +79,78 @@ puts(sims)
 
 # Smartphones Catalog CHL
 smartphones = Smartphone.create!([
-  {model: 'Samsung Galaxy S8', category: 'gerente', price: 200836, code: '106616',
+  {model: 'Samsung Galaxy S8', category: 'GE', price: 200836, code: '106616',
     state: 'catalog', country: 'CHL'},
-  {model: 'Samsung Galaxy S8', category: 'subgerente', price: 200836, code: '106616',
+  {model: 'Samsung Galaxy S8', category: 'EJ', price: 200836, code: '106616',
     state: 'catalog', country: 'CHL'},
-  {model: 'Samsung Galaxy S7', category: 'gerente', price: 158820, code: '106553',
+  {model: 'Samsung Galaxy S7', category: 'GE', price: 158820, code: '106553',
     state: 'catalog', country: 'CHL'},
-  {model: 'Samsung Galaxy S7', category: 'subgerente', price: 158820, code: '106553',
+  {model: 'Samsung Galaxy S7', category: 'EJ', price: 158820, code: '106553',
     state: 'catalog', country: 'CHL'},
-  {model: 'Samsung Galaxy S7', category: 'jefe de venta/vendedor', price: 158820,
+  {model: 'Samsung Galaxy S7', category: 'VE', price: 158820,
     code: '106553', state: 'catalog', country: 'CHL'},
-  {model: 'Samsung Galaxy J7', category: 'profesional/tecnico', price: 50417,
+  {model: 'Samsung Galaxy J7', category: 'PT', price: 50417,
     code: '106586', state: 'catalog', country: 'CHL'},
-  {model: 'Samsung Galaxy J5', category: 'empleado/operario', price: 40333,
+  {model: 'Samsung Galaxy J5', category: 'EE', price: 40333,
     code: '106583', state: 'catalog', country: 'CHL'},
-  {model: 'Samsung Galaxy J5', category: 'otro', price: 40333, code: '106583',
+  {model: 'Samsung Galaxy J5', category: 'OO', price: 40333, code: '106583',
     state: 'catalog', country: 'CHL'},
-  {model: 'Own F1035', category: 'all', price: 40333, code: '162050',
+  {model: 'Own F1035', category: 'ALL', price: 40333, code: '162050',
     state: 'catalog', country: 'CHL'}
 ])
 puts(smartphones)
 
 # Smartphones Catalog ARG
 smartphones = Smartphone.create!([
-  {model: 'iPhone X', category: 'gerente', price: 200836, code: '205616',
+  {model: 'iPhone X', category: 'GE', price: 200836, code: '205616',
     state: 'catalog', country: 'ARG'},
-  {model: 'iPhone X', category: 'subgerente', price: 200836, code: '205616',
+  {model: 'iPhone X', category: 'EJ', price: 200836, code: '205616',
     state: 'catalog', country: 'ARG'},
-  {model: 'iPhone 8 Plus', category: 'gerente', price: 158820, code: '205553',
+  {model: 'iPhone 8 Plus', category: 'GE', price: 158820, code: '205553',
     state: 'catalog', country: 'ARG'},
-  {model: 'iPhone 8 Plus', category: 'subgerente', price: 158820, code: '205553',
+  {model: 'iPhone 8 Plus', category: 'EJ', price: 158820, code: '205553',
     state: 'catalog', country: 'ARG'},
-  {model: 'iPhone 8', category: 'jefe de venta/vendedor', price: 158820,
+  {model: 'iPhone 8', category: 'VE', price: 158820,
     code: '205553',state: 'catalog', country: 'ARG'},
-  {model: 'iPhone 7 Plus', category: 'profesional/tecnico', price: 50417,
+  {model: 'iPhone 7 Plus', category: 'PT', price: 50417,
     code: '205586', state: 'catalog', country: 'ARG'},
-  {model: 'iPhone 7', category: 'profesional/tecnico', price: 50417,
+  {model: 'iPhone 7', category: 'PT', price: 50417,
     code: '205586', state: 'catalog', country: 'ARG'},
-  {model: 'iPhone 6s', category: 'empleado/operario', price: 40333,
+  {model: 'iPhone 6', category: 'EE', price: 40333,
     code: '205583', state: 'catalog', country: 'ARG'},
-  {model: 'iPhone 6', category: 'otro', price: 40333, code: '205583',
+  {model: 'iPhone 6', category: 'OO', price: 40333, code: '205583',
     state: 'catalog', country: 'ARG'},
-  {model: 'Own F1035', category: 'all', price: 40333, code: '205050',
+  {model: 'Own F1035', category: 'ALL', price: 40333, code: '205050',
     state: 'catalog', country: 'ARG'}
 ])
 puts(smartphones)
 
 # Smartphones to CHL users
 smartphones = Smartphone.create!([
-  {model: 'Samsung Galaxy S8', category: 'gerente', imei:'353227075802167',
+  {model: 'Samsung Galaxy S8', category: 'GE', imei:'353227075802167',
     price: 200836, last_owner: 'Marco Sepulveda', code: '106616', state: 'used',
     country: 'CHL', phone_number: 98738446},
-  {model: 'Samsung Galaxy S8', category: 'gerente', imei:'359878069666630',
+  {model: 'Samsung Galaxy S8', category: 'GE', imei:'359878069666630',
     price: 200836, last_owner: 'Carolina Arredondo', code: '106616', state: 'used',
     country: 'CHL', phone_number: 98172663},
-  {model: 'Samsung Galaxy S7', category: 'subgerente', imei:'35688706001064',
+  {model: 'Samsung Galaxy S7', category: 'EJ', imei:'35688706001064',
     price: 158820, last_owner: 'Kathy Whiting', code: '106553', state: 'used',
     country: 'CHL', phone_number: 98837465},
-  {model: 'Samsung Galaxy J7', category: 'profesional/tecnico', imei:'35881306155560',
+  {model: 'Samsung Galaxy J7', category: 'PT', imei:'35881306155560',
     price: 50417, last_owner: 'Felipe Arriagada', code: '106586', state: 'used',
     country: 'CHL', phone_number: 98918207},
-  {model: 'Samsung Galaxy J7', category: 'profesional/tecnico', imei:'52141079023186',
+  {model: 'Samsung Galaxy J7', category: 'PT', imei:'52141079023186',
     price: 50417, code: '106586', country: 'CHL', phone_number: 98293847},
-  {model: 'Samsung Galaxy S7', category: 'jefe de venta/vendedor', imei:'359878063788620',
+  {model: 'Samsung Galaxy S7', category: 'VE', imei:'359878063788620',
     price: 158820, code: '106553', country: 'CHL', phone_number: 98172663},
-  {model: 'Samsung Galaxy S7', category: 'jefe de venta/vendedor', imei:'35687805120863',
+  {model: 'Samsung Galaxy S7', category: 'VE', imei:'35687805120863',
     price: 158820, code: '106553', country: 'CHL', phone_number: 98928374},
-  {model: 'Samsung Galaxy J5', category: 'empleado/operario', imei:'359878069666481',
+  {model: 'Samsung Galaxy J5', category: 'EE', imei:'359878069666481',
     price: 40333, last_owner: 'Andres Soto', code: '106583', state: 'used',
     country: 'CHL', phone_number: 98993847},
-  {model: 'Samsung Galaxy J5', category: 'empleado/operario', imei:'35214073409175',
+  {model: 'Samsung Galaxy J5', category: 'OO', imei:'35214073409175',
     price: 40333, code: '106583', country: 'CHL', phone_number: 98101920},
-  {model: 'Samsung Galaxy J5', category: 'multiusuario', imei:'359048050341094',
+  {model: 'Samsung Galaxy J5', category: 'ALL', imei:'359048050341094',
     price: 40333, last_owner: 'Guillermo Aguilar', code: '106583', state: 'used',
     country: 'CHL', phone_number: 98938432}
 ])
@@ -158,30 +158,30 @@ puts(smartphones)
 
 # Smartphones to ARG users
 smartphones = Smartphone.create!([
-  {model: 'iPhone X', category: 'gerente', imei:'783227075802167',
+  {model: 'iPhone X', category: 'GE', imei:'783227075802167',
     price: 200836, last_owner: 'Marco Sepulveda', code: '106616', state: 'used',
     country: 'ARG', phone_number: 87172663},
-  {model: 'iPhone X', category: 'gerente', imei:'789878069666630',
+  {model: 'iPhone X', category: 'GE', imei:'789878069666630',
     price: 200836, last_owner: 'Carolina Arredondo', code: '106616', state: 'used',
     country: 'ARG', phone_number: 87921834},
-  {model: 'iPhone 8 Plus', category: 'subgerente', imei:'78688706001064',
+  {model: 'iPhone 8 Plus', category: 'EJ', imei:'78688706001064',
     price: 158820, last_owner: 'Kathy Whiting', code: '106553', state: 'used',
     country: 'ARG', phone_number: 87291837},
-  {model: 'iPhone 7 Plus', category: 'profesional/tecnico', imei:'78881306155560',
+  {model: 'iPhone 7 Plus', category: 'PT', imei:'78881306155560',
     price: 50417, last_owner: 'Felipe Arriagada', code: '106586', state: 'used',
     country: 'ARG', phone_number: 87364955},
-  {model: 'iPhone 7', category: 'profesional/tecnico', imei:'78141079023186',
+  {model: 'iPhone 7', category: 'PT', imei:'78141079023186',
     price: 50417, code: '106586', country: 'ARG', phone_number: 87167584},
-  {model: 'iPhone 8', category: 'jefe de venta/vendedor', imei:'789878063788620',
+  {model: 'iPhone 8', category: 'VE', imei:'789878063788620',
     price: 158820, code: '106553', country: 'ARG', phone_number: 87456833},
-  {model: 'iPhone 8', category: 'jefe de venta/vendedor', imei:'78687805120863',
+  {model: 'iPhone 8', category: 'VE', imei:'78687805120863',
     price: 158820, code: '106553', country: 'ARG', phone_number: 87807886},
-  {model: 'iPhone 6s', category: 'empleado/operario', imei:'789878069666481',
+  {model: 'iPhone 6s', category: 'EE', imei:'789878069666481',
     price: 40333, last_owner: 'Andres Soto', code: '106583', state: 'used',
     country: 'ARG', phone_number: 87146351},
-  {model: 'iPhone 6s', category: 'empleado/operario', imei:'78214073409175',
+  {model: 'iPhone 6s', category: 'OO', imei:'78214073409175',
     price: 40333, code: '106583', country: 'ARG', phone_number: 87183932},
-  {model: 'iPhone 6', category: 'multiusuario', imei:'789048050341094',
+  {model: 'iPhone 6', category: 'ALL', imei:'789048050341094',
     price: 40333, last_owner: 'Guillermo Aguilar', code: '106583', state: 'used',
     country: 'ARG', phone_number: 870468977}
 ])
@@ -318,8 +318,13 @@ plans = Plan.create!([
 puts(plans)
 
 # user
-user1 = User.find_by_national_id('13362555-0')
-user2 = User.find_by_national_id('16054341-8')
+if Rails.env.test?
+  user1 = User.find_by_national_id('13362555-0')
+  user2 = User.find_by_national_id('16054341-8')
+elsif Rails.env.development?
+  user1 = User.find_by_national_id('15680498-3')
+  user2 = User.find_by_national_id('10299224-5')
+end
 puts(user1,user2)
 # Smartphone
 sp1 = Smartphone.find_by_imei('359878069666481')
