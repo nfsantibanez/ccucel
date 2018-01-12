@@ -1,11 +1,13 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
-  layout 'general_view', except: [:create_user]
+  layout 'general_view', except: [:create_user, :index]
+  # layout 'admin_view', only: [:index]
 
   # GET /requests
   # GET /requests.json
   def index
     @requests = Request.all
+    render layout: 'admin_view'
   end
 
   # GET /requests/1
@@ -121,18 +123,15 @@ class RequestsController < ApplicationController
       @request = Request.new(new_sp_params)
     end
 
-    # Si se graba exitosamente guardar el id en params
-    params[:request_id] = rand(1000000..9999999)
-    render layout: 'success'
-
-    #if @request.save
+    if @request.save
       # Mandar Correo a supervisor
       # Render de mensaje de exito, numero de solicitud y volver a Home
-      #puts(@request)
-    #else
-      # Render mensaje de error y volver a Solicitudes
-      #puts(@request.errors)
-    #end
+      params[:request_id] = rand(1000000..9999999)
+      render layout: 'success'
+    else
+      # Render mensaje de error y volver a Home
+      render layout: 'error'
+    end
 
 
   end
