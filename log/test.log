@@ -29257,3 +29257,44 @@ FOREIGN KEY ("plan_id")
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "sims" SET "available" = ?, "updated_at" = ? WHERE "sims"."id" = ?[0m  [["available", "f"], ["updated_at", "2018-01-11 14:32:02.631292"], ["id", 2]]
   [1m[35m (61.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2018-01-12 09:19:07 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.6ms)
+Completed 200 OK in 208ms (Views: 4.3ms)
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-12 09:19:12 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (419.3ms)
+Completed 200 OK in 421ms (Views: 421.0ms)
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=15.680.498-3&commit=Enviar" for 127.0.0.1 at 2018-01-12 09:19:21 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"15.680.498-3", "commit"=>"Enviar"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '15680498-3'[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["national_id", "15680498-3"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 109ms (ActiveRecord: 66.7ms)
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=13362555-0&commit=Enviar" for 127.0.0.1 at 2018-01-12 09:19:41 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"13362555-0", "commit"=>"Enviar"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '13362555-0'[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 15ms (ActiveRecord: 0.4ms)
+Started GET "/requests/forms/new" for 127.0.0.1 at 2018-01-12 09:19:41 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[36mSmartphone Load (43.4ms)[0m  [1m[34mSELECT model, code, price FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT model, code, price, category FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL' AND (category= 'OO' OR category= 'ALL'))[0m
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT model, code, price FROM "bams" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND item= 'bam')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'plan' AND item= 'roaming')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'bag' AND item= 'roaming')[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSim Load (0.3ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requests/new_form.html.erb within layouts/application
+  Rendered layouts/_user_info.html.erb (2.2ms)
+  Rendered layouts/_new_smp.html.erb (68.4ms)
+  Rendered requests/new_form.html.erb within layouts/application (75.0ms)
+Completed 200 OK in 193ms (Views: 76.8ms | ActiveRecord: 46.7ms)
+Started GET "/assets/display_new-470e45cb33325456bf33570b1997912c841af58ceb1b730cf150f932d615e54a.js" for 127.0.0.1 at 2018-01-12 09:19:42 -0300

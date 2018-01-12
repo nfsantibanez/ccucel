@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
-  layout 'general_view', except: [:create_user]
+  layout 'general_view', except: [:create_user, :index]
+  layout 'admin_view', only: [:index]
 
   # GET /requests
   # GET /requests.json
@@ -117,22 +118,19 @@ class RequestsController < ApplicationController
     if params["request"] == "transfer line"
       @request = Request.new(transfer_line_params)
 
-    elsif params["request"] == "new" && params["items"] == "smartphone"
+    elsif params["request"] == "new" && params["item"] == "smartphone"
       @request = Request.new(new_sp_params)
     end
 
-    # Si se graba exitosamente guardar el id en params
-    params[:request_id] = rand(1000000..9999999)
-    render layout: 'success'
-
-    #if @request.save
+    if @request.save
       # Mandar Correo a supervisor
       # Render de mensaje de exito, numero de solicitud y volver a Home
-      #puts(@request)
-    #else
-      # Render mensaje de error y volver a Solicitudes
-      #puts(@request.errors)
-    #end
+      params[:request_id] = rand(1000000..9999999)
+      render layout: 'success'
+    else
+      # Render mensaje de error y volver a Home
+      render layout: 'success'
+    end
 
 
   end
