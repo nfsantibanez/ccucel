@@ -29257,3 +29257,1214 @@ FOREIGN KEY ("plan_id")
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "sims" SET "available" = ?, "updated_at" = ? WHERE "sims"."id" = ?[0m  [["available", "f"], ["updated_at", "2018-01-11 14:32:02.631292"], ["id", 2]]
   [1m[35m (61.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=13362555-0&commit=Enviar" for 127.0.0.1 at 2018-01-12 11:22:18 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"13362555-0", "commit"=>"Enviar"}
+  [1m[35m (0.1ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '13362555-0'[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 217ms (ActiveRecord: 2.3ms)
+Started GET "/requests/forms/new" for 127.0.0.1 at 2018-01-12 11:22:18 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT id, model, code, price, category FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL' AND (category= 'OO' OR category= 'ALL'))[0m
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "bams" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND item= 'bam')[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'plan' AND item= 'roaming')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'bag' AND item= 'roaming')[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (5.3ms)
+  Rendered layouts/_new_smp.html.erb (106.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (408.8ms)
+Completed 200 OK in 477ms (Views: 411.8ms | ActiveRecord: 3.0ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-12 11:22:22 -0300
+Processing by RequestsController#create_user as HTML
+  Parameters: {"utf8"=>"✓", "item"=>"smartphone", "user_id"=>"1", "request"=>"new", "model_one"=>"8", "model_all"=>"1", "want_all"=>"0", "model_text"=>"", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "commit"=>"Enviar"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+Started GET "/requests/forms/new" for 127.0.0.1 at 2018-01-12 11:23:19 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT id, model, code, price, category FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL' AND (category= 'OO' OR category= 'ALL'))[0m
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "bams" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND item= 'bam')[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'plan' AND item= 'roaming')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'bag' AND item= 'roaming')[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (2.9ms)
+  Rendered layouts/_new_smp.html.erb (104.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (258.1ms)
+Completed 200 OK in 544ms (Views: 261.3ms | ActiveRecord: 5.1ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-12 11:23:22 -0300
+Processing by RequestsController#create_user as HTML
+  Parameters: {"utf8"=>"✓", "item"=>"smartphone", "user_id"=>"1", "request"=>"new", "model_one"=>"8", "model_all"=>"1", "want_all"=>"0", "model_text"=>"", "want_sim"=>"true", "want_new_number"=>"true", "number"=>"", "commit"=>"Enviar"}
+  Rendering requests/create_user.html.erb within layouts/error
+  Rendered requests/create_user.html.erb within layouts/error (0.6ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-12 15:48:00 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (295.5ms)
+Completed 200 OK in 456ms (Views: 298.7ms)
+Started GET "/requests" for 127.0.0.1 at 2018-01-12 15:48:05 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/admin_view
+  [1m[36mRequest Load (7.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  Rendered requests/index.html.erb within layouts/admin_view (12.2ms)
+Completed 200 OK in 45ms (Views: 14.2ms | ActiveRecord: 8.5ms)
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=transfer+line&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=13362555-0&commit=Enviar" for 127.0.0.1 at 2018-01-12 15:48:10 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"transfer line", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"13362555-0", "commit"=>"Enviar"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '13362555-0'[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/transferline
+Completed 302 Found in 23ms (ActiveRecord: 0.9ms)
+Started GET "/requests/forms/transferline" for 127.0.0.1 at 2018-01-12 15:48:10 -0300
+Processing by RequestsController#transfer_line as HTML
+  Rendering requests/transfer_line.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (2.0ms)
+  Rendered requests/transfer_line.html.erb within layouts/general_view (5.1ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-12 15:48:18 -0300
+Processing by RequestsController#create_user as HTML
+  Parameters: {"utf8"=>"✓", "item"=>"smartphone line", "user_id"=>"1", "request"=>"transfer line", "transfer_line_type"=>"liberar", "phone_number"=>"92105881", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (63.6ms)[0m  [1m[32mINSERT INTO "requests" ("request", "item", "email_sended", "phone_number", "transfer_line_type", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["request", "release line"], ["item", "smartphone line"], ["email_sended", "Constanza Calderon Sanchez, Operario de Maquinas, perteneciente al centro de costos 290766000, a cursado una solicitud para liberar su linea de teléfono con número telefónico: +56 9 92105881"], ["phone_number", "92105881"], ["transfer_line_type", "liberar"], ["user_id", 1], ["created_at", "2018-01-12 18:48:18.699257"], ["updated_at", "2018-01-12 18:48:18.699257"]]
+  [1m[35m (78.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering requests/create_user.html.erb within layouts/success
+  Rendered requests/create_user.html.erb within layouts/success (0.5ms)
+Completed 200 OK in 174ms (Views: 6.8ms | ActiveRecord: 142.2ms)
+Started GET "/requests" for 127.0.0.1 at 2018-01-12 15:48:24 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/admin_view
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered requests/index.html.erb within layouts/admin_view (2.5ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-12 15:48:30 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (19.7ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=transfer+line&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=13362555-0&commit=Enviar" for 127.0.0.1 at 2018-01-12 15:48:36 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"transfer line", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"13362555-0", "commit"=>"Enviar"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '13362555-0'[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/transferline
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+Started GET "/requests/forms/transferline" for 127.0.0.1 at 2018-01-12 15:48:36 -0300
+Processing by RequestsController#transfer_line as HTML
+  Rendering requests/transfer_line.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.3ms)
+  Rendered requests/transfer_line.html.erb within layouts/general_view (3.2ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-12 15:48:46 -0300
+Processing by RequestsController#create_user as HTML
+  Parameters: {"utf8"=>"✓", "item"=>"smartphone line", "user_id"=>"1", "request"=>"transfer line", "transfer_line_type"=>"liberar", "phone_number"=>"92105881", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :commit
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "requests" ("request", "item", "email_sended", "phone_number", "transfer_line_type", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["request", "release line"], ["item", "smartphone line"], ["email_sended", "Constanza Calderon Sanchez, Operario de Maquinas, perteneciente al centro de costos 290766000, a cursado una solicitud para liberar su linea de teléfono con número telefónico: +56 9 92105881"], ["phone_number", "92105881"], ["transfer_line_type", "liberar"], ["user_id", 1], ["created_at", "2018-01-12 18:48:46.083981"], ["updated_at", "2018-01-12 18:48:46.083981"]]
+  [1m[35m (103.9ms)[0m  [1m[36mcommit transaction[0m
+  Rendering requests/create_user.html.erb within layouts/success
+  Rendered requests/create_user.html.erb within layouts/success (0.1ms)
+Completed 200 OK in 115ms (Views: 5.9ms | ActiveRecord: 104.4ms)
+  [1m[35m (20.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (61.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (51.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSims (20171221132703)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "sims" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "phone_number" integer NOT NULL, "serial_number" integer, "country" varchar NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "available" boolean DEFAULT 't' NOT NULL, "order_note" varchar, "last_assign_at" datetime DEFAULT '2018-01-12 18:50:10.953279' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171221132703"]]
+  [1m[35m (67.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBams (20171221132704)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "bams" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "model" varchar NOT NULL, "code" varchar NOT NULL, "country" varchar NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "imei" varchar DEFAULT '000000000000000' NOT NULL, "price" integer NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "order_note" varchar, "available" boolean DEFAULT 't' NOT NULL, "renovation_at" datetime DEFAULT '2020-01-12 18:50:11.031543' NOT NULL, "last_assign_at" datetime DEFAULT '2018-01-12 18:50:11.031753' NOT NULL, "sim_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_d300acfe61"
+FOREIGN KEY ("sim_id")
+  REFERENCES "sims" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_bams_on_sim_id" ON "bams" ("sim_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171221132704"]]
+  [1m[35m (54.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSmartphones (20171221132705)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "smartphones" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "model" varchar NOT NULL, "phone_number" varchar, "code" varchar NOT NULL, "category" varchar NOT NULL, "country" varchar NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "imei" varchar DEFAULT '000000000000000' NOT NULL, "price" integer NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "order_note" varchar, "available" boolean DEFAULT 't' NOT NULL, "renovation_at" datetime DEFAULT '2020-01-12 18:50:11.095558' NOT NULL, "last_assign_at" datetime DEFAULT '2018-01-12 18:50:11.095751' NOT NULL, "sim_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_0bac5a798a"
+FOREIGN KEY ("sim_id")
+  REFERENCES "sims" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_smartphones_on_sim_id" ON "smartphones" ("sim_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171221132705"]]
+  [1m[35m (74.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20171221132706)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "national_id" varchar NOT NULL, "name" varchar NOT NULL, "last_name" varchar NOT NULL, "email" varchar, "country" varchar NOT NULL, "jobtitle" varchar NOT NULL, "job_family" varchar NOT NULL, "company" varchar NOT NULL, "supervisor" varchar, "supervisor_email" varchar, "supervisor_jobtitle" varchar, "jobcode" varchar, "location" varchar NOT NULL, "deptname" varchar NOT NULL, "smartphone_id" integer, "bam_id" integer, "sim_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_645c703a8e"
+FOREIGN KEY ("smartphone_id")
+  REFERENCES "smartphones" ("id")
+, CONSTRAINT "fk_rails_e8ddb5a1ea"
+FOREIGN KEY ("bam_id")
+  REFERENCES "bams" ("id")
+, CONSTRAINT "fk_rails_436f5d8337"
+FOREIGN KEY ("sim_id")
+  REFERENCES "sims" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_users_on_smartphone_id" ON "users" ("smartphone_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_users_on_bam_id" ON "users" ("bam_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_bam_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_users_on_sim_id" ON "users" ("sim_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171221132706"]]
+  [1m[35m (81.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRequests (20171221132707)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "n_request" varchar, "request" varchar NOT NULL, "item" varchar NOT NULL, "model" varchar DEFAULT 'default' NOT NULL, "plan" varchar DEFAULT 'default' NOT NULL, "contract" blob, "file" blob, "status" varchar DEFAULT 'created' NOT NULL, "comment" varchar, "comment_stolen_lost" varchar, "email_sended" varchar, "want_replacement" boolean, "want_sim" boolean, "want_new_number" boolean, "phone_number" varchar, "transfer_line_type" varchar, "price" varchar, "closed_at" datetime, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_8ead8b1e6b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_requests_on_user_id" ON "requests" ("user_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171221132707"]]
+  [1m[35m (72.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePlans (20171221132708)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "plans" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item" varchar NOT NULL, "plan_type" varchar NOT NULL, "name" varchar NOT NULL, "detail" varchar, "price" integer NOT NULL, "category" varchar DEFAULT 'all', "country" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171221132708"]]
+  [1m[35m (77.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUserRecords (20171227194658)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "user_records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "smartphone_id" integer, "sim_id" integer, "bam_id" integer, "user_id" integer, "plan_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_aff0319b64"
+FOREIGN KEY ("smartphone_id")
+  REFERENCES "smartphones" ("id")
+, CONSTRAINT "fk_rails_d53df9c69c"
+FOREIGN KEY ("sim_id")
+  REFERENCES "sims" ("id")
+, CONSTRAINT "fk_rails_67bb80af19"
+FOREIGN KEY ("bam_id")
+  REFERENCES "bams" ("id")
+, CONSTRAINT "fk_rails_7583ac5f75"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_fed753ccbf"
+FOREIGN KEY ("plan_id")
+  REFERENCES "plans" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_smartphone_id" ON "user_records" ("smartphone_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_sim_id" ON "user_records" ("sim_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_bam_id" ON "user_records" ("bam_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_user_id" ON "user_records" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_plan_id" ON "user_records" ("plan_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171227194658"]]
+  [1m[35m (79.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-01-12 18:50:11.551033"], ["updated_at", "2018-01-12 18:50:11.551033"]]
+  [1m[35m (58.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_bams_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_bams_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_requests_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_requests_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_smartphones_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_smartphones_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_plan_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_plan_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_bam_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "bams"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (65.3ms)[0m  [1m[35mCREATE TABLE "bams" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "model" varchar NOT NULL, "code" varchar NOT NULL, "country" varchar NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "imei" varchar DEFAULT '000000000000000' NOT NULL, "price" integer NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "order_note" varchar, "available" boolean DEFAULT 't' NOT NULL, "renovation_at" datetime DEFAULT '2020-01-12 18:50:11' NOT NULL, "last_assign_at" datetime DEFAULT '2018-01-12 18:50:11' NOT NULL, "sim_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (65.4ms)[0m  [1m[35mCREATE  INDEX "index_bams_on_sim_id" ON "bams" ("sim_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "plans"[0m
+  [1m[35m (64.9ms)[0m  [1m[35mCREATE TABLE "plans" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item" varchar NOT NULL, "plan_type" varchar NOT NULL, "name" varchar NOT NULL, "detail" varchar, "price" integer NOT NULL, "category" varchar DEFAULT 'all', "country" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "requests"[0m
+  [1m[35m (64.1ms)[0m  [1m[35mCREATE TABLE "requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "n_request" varchar, "request" varchar NOT NULL, "item" varchar NOT NULL, "model" varchar DEFAULT 'default' NOT NULL, "plan" varchar DEFAULT 'default' NOT NULL, "contract" blob, "file" blob, "status" varchar DEFAULT 'created' NOT NULL, "comment" varchar, "comment_stolen_lost" varchar, "email_sended" varchar, "want_replacement" boolean, "want_sim" boolean, "want_new_number" boolean, "phone_number" varchar, "transfer_line_type" varchar, "price" varchar, "closed_at" datetime, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (65.4ms)[0m  [1m[35mCREATE  INDEX "index_requests_on_user_id" ON "requests" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "sims"[0m
+  [1m[35m (64.7ms)[0m  [1m[35mCREATE TABLE "sims" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "phone_number" integer NOT NULL, "serial_number" integer, "country" varchar NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "available" boolean DEFAULT 't' NOT NULL, "order_note" varchar, "last_assign_at" datetime DEFAULT '2018-01-12 18:50:10' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "smartphones"[0m
+  [1m[35m (64.5ms)[0m  [1m[35mCREATE TABLE "smartphones" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "model" varchar NOT NULL, "phone_number" varchar, "code" varchar NOT NULL, "category" varchar NOT NULL, "country" varchar NOT NULL, "last_owner" varchar DEFAULT 'first owner' NOT NULL, "imei" varchar DEFAULT '000000000000000' NOT NULL, "price" integer NOT NULL, "state" varchar DEFAULT 'new' NOT NULL, "order_note" varchar, "available" boolean DEFAULT 't' NOT NULL, "renovation_at" datetime DEFAULT '2020-01-12 18:50:11' NOT NULL, "last_assign_at" datetime DEFAULT '2018-01-12 18:50:11' NOT NULL, "sim_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (65.1ms)[0m  [1m[35mCREATE  INDEX "index_smartphones_on_sim_id" ON "smartphones" ("sim_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_records"[0m
+  [1m[35m (65.7ms)[0m  [1m[35mCREATE TABLE "user_records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "smartphone_id" integer, "sim_id" integer, "bam_id" integer, "user_id" integer, "plan_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (73.9ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_bam_id" ON "user_records" ("bam_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (71.7ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_plan_id" ON "user_records" ("plan_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_plan_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_plan_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (72.1ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_sim_id" ON "user_records" ("sim_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_plan_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_plan_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (79.8ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_smartphone_id" ON "user_records" ("smartphone_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_smartphone_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_plan_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_plan_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_user_records_on_bam_id' AND type='index'
+[0m
+  [1m[35m (79.0ms)[0m  [1m[35mCREATE  INDEX "index_user_records_on_user_id" ON "user_records" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (73.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "national_id" varchar NOT NULL, "name" varchar NOT NULL, "last_name" varchar NOT NULL, "email" varchar, "country" varchar NOT NULL, "jobtitle" varchar NOT NULL, "job_family" varchar NOT NULL, "company" varchar NOT NULL, "supervisor" varchar, "supervisor_email" varchar, "supervisor_jobtitle" varchar, "jobcode" varchar, "location" varchar NOT NULL, "deptname" varchar NOT NULL, "smartphone_id" integer, "bam_id" integer, "sim_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (65.0ms)[0m  [1m[35mCREATE  INDEX "index_users_on_bam_id" ON "users" ("bam_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_bam_id' AND type='index'
+[0m
+  [1m[35m (80.3ms)[0m  [1m[35mCREATE  INDEX "index_users_on_sim_id" ON "users" ("sim_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_sim_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_sim_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_bam_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_bam_id' AND type='index'
+[0m
+  [1m[35m (70.8ms)[0m  [1m[35mCREATE  INDEX "index_users_on_smartphone_id" ON "users" ("smartphone_id")[0m
+  [1m[35m (82.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (68.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171227194658)[0m
+  [1m[35m (66.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20171221132703),
+(20171221132705),
+(20171221132708),
+(20171221132704),
+(20171221132706),
+(20171221132707);
+
+[0m
+  [1m[35m (68.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-01-12 18:50:20.686998"], ["updated_at", "2018-01-12 18:50:20.686998"]]
+  [1m[35m (61.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ccalde@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "13362555-0"], ["name", "Constanza"], ["last_name", "Calderon Sanchez"], ["email", "ccalde@ccu.cl"], ["country", "CHL"], ["jobtitle", "Operario de Maquinas"], ["job_family", "OO"], ["company", "13"], ["supervisor", "Nicolas Santibanez"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "30_VITA"], ["deptname", "290766000"], ["created_at", "2018-01-12 18:50:20.816127"], ["updated_at", "2018-01-12 18:50:20.816127"]]
+  [1m[35m (60.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sclaren@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "16054341-8"], ["name", "Sebastian"], ["last_name", "Claren Rubio"], ["email", "sclaren@ccu.cl"], ["country", "ARG"], ["jobtitle", "Vendedor Santiago"], ["job_family", "VE"], ["company", "13"], ["supervisor", "Felipe Diaz"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "10_CERV"], ["deptname", "290501500"], ["created_at", "2018-01-12 18:50:20.881213"], ["updated_at", "2018-01-12 18:50:20.881213"]]
+  [1m[35m (59.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "cbonil@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "14121031-9"], ["name", "Claudia"], ["last_name", "Bonilla Toro"], ["email", "cbonil@ccu.cl"], ["country", "CHL"], ["jobtitle", "Gerente Tecnologia"], ["job_family", "GE"], ["company", "23"], ["supervisor", "Marco Rios"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "20_EMBOT"], ["deptname", "290501100"], ["created_at", "2018-01-12 18:50:20.946438"], ["updated_at", "2018-01-12 18:50:20.946438"]]
+  [1m[35m (53.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yaraos@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "16095197-4"], ["name", "Yerko"], ["last_name", "Araos Ramirez"], ["email", "yaraos@ccu.cl"], ["country", "ARG"], ["jobtitle", "Vendedor Region"], ["job_family", "VE"], ["company", "13"], ["supervisor", "Nicolas Santibanez"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "30_VITA"], ["deptname", "290106000"], ["created_at", "2018-01-12 18:50:21.004637"], ["updated_at", "2018-01-12 18:50:21.004637"]]
+  [1m[35m (54.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rmonar@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "13679739-5"], ["name", "Rodrigo"], ["last_name", "Monardes Nitrihual"], ["email", "rmonar@ccu.cl"], ["country", "CHL"], ["jobtitle", "Jefe Laboratorio"], ["job_family", "PT"], ["company", "23"], ["supervisor", "Felipe Diaz"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "10_CERV"], ["deptname", "290108000"], ["created_at", "2018-01-12 18:50:21.064377"], ["updated_at", "2018-01-12 18:50:21.064377"]]
+  [1m[35m (59.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ggiaconi@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "16943369-0"], ["name", "Guillermo"], ["last_name", "Giaconi Rodriguez"], ["email", "ggiaconi@ccu.cl"], ["country", "ARG"], ["jobtitle", "Subgerente systemas"], ["job_family", "EJ"], ["company", "13"], ["supervisor", "Marco Rios"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "20_EMBOT"], ["deptname", "290051000"], ["created_at", "2018-01-12 18:50:21.131176"], ["updated_at", "2018-01-12 18:50:21.131176"]]
+  [1m[35m (51.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jcastro@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "8208182-8"], ["name", "Javier"], ["last_name", "Castro Maldonado"], ["email", "jcastro@ccu.cl"], ["country", "CHL"], ["jobtitle", "Gerente Informatica"], ["job_family", "GE"], ["company", "23"], ["supervisor", "Nicolas Santibanez"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "30_VITA"], ["deptname", "290776000"], ["created_at", "2018-01-12 18:50:21.189410"], ["updated_at", "2018-01-12 18:50:21.189410"]]
+  [1m[35m (59.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "cutili@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "5192357-K"], ["name", "Carmen Gloria"], ["last_name", "Utili Escudero"], ["email", "cutili@ccu.cl"], ["country", "ARG"], ["jobtitle", "Ejecutiva Aprovisionamiento"], ["job_family", "PT"], ["company", "13"], ["supervisor", "Felipe Diaz"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "10_CERV"], ["deptname", "540796000"], ["created_at", "2018-01-12 18:50:21.255137"], ["updated_at", "2018-01-12 18:50:21.255137"]]
+  [1m[35m (53.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mcabrera@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "16371090-0"], ["name", "Marcelo"], ["last_name", "Cabrera Rubio"], ["email", "mcabrera@ccu.cl"], ["country", "CHL"], ["jobtitle", "Ingeniero de Televenta"], ["job_family", "PT"], ["company", "23"], ["supervisor", "Marco Rios"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "20_EMBOT"], ["deptname", "290501500"], ["created_at", "2018-01-12 18:50:21.312352"], ["updated_at", "2018-01-12 18:50:21.312352"]]
+  [1m[35m (55.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "avenega@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "8634532-3"], ["name", "Anain"], ["last_name", "Venegas Mondaca"], ["email", "avenega@ccu.cl"], ["country", "ARG"], ["jobtitle", "Tecnico de redes"], ["job_family", "PT"], ["company", "13"], ["supervisor", "Nicolas Santibanez"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "30_VITA"], ["deptname", "290845000"], ["created_at", "2018-01-12 18:50:21.372635"], ["updated_at", "2018-01-12 18:50:21.372635"]]
+  [1m[35m (59.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rwilli@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "18293586-0"], ["name", "Rodolfo"], ["last_name", "Williams Inostroza"], ["email", "rwilli@ccu.cl"], ["country", "CHL"], ["jobtitle", "Alumno Practicante"], ["job_family", "EE"], ["company", "23"], ["supervisor", "Felipe Diaz"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "10_CERV"], ["deptname", "103845490"], ["created_at", "2018-01-12 18:50:21.439400"], ["updated_at", "2018-01-12 18:50:21.439400"]]
+  [1m[35m (51.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ccace@ccu.cl"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("national_id", "name", "last_name", "email", "country", "jobtitle", "job_family", "company", "supervisor", "supervisor_email", "location", "deptname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["national_id", "8634532-3"], ["name", "Cecilia"], ["last_name", "Caceres Diaz"], ["email", "ccace@ccu.cl"], ["country", "ARG"], ["jobtitle", "Alumno Practicante"], ["job_family", "EE"], ["company", "13"], ["supervisor", "Marco Rios"], ["supervisor_email", "nisanti@ccu.cl"], ["location", "20_EMBOT"], ["deptname", "229442940"], ["created_at", "2018-01-12 18:50:21.499086"], ["updated_at", "2018-01-12 18:50:21.499086"]]
+  [1m[35m (56.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["phone_number", 82099147], ["country", "CHL"], ["last_owner", "Constanza Cabrera"], ["created_at", "2018-01-12 18:50:21.592457"], ["updated_at", "2018-01-12 18:50:21.592457"]]
+  [1m[35m (45.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["phone_number", 93192570], ["country", "ARG"], ["last_owner", "Norma Acuna"], ["created_at", "2018-01-12 18:50:21.641028"], ["updated_at", "2018-01-12 18:50:21.641028"]]
+  [1m[35m (62.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["phone_number", 84099131], ["country", "CHL"], ["last_owner", "Victor Santibanez"], ["created_at", "2018-01-12 18:50:21.707625"], ["updated_at", "2018-01-12 18:50:21.707625"]]
+  [1m[35m (62.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["phone_number", 51999216], ["country", "ARG"], ["last_owner", "Carmen Castro"], ["created_at", "2018-01-12 18:50:21.774175"], ["updated_at", "2018-01-12 18:50:21.774175"]]
+  [1m[35m (62.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["phone_number", 93192661], ["country", "CHL"], ["last_owner", "Jose Luis Cabrera"], ["created_at", "2018-01-12 18:50:21.841179"], ["updated_at", "2018-01-12 18:50:21.841179"]]
+  [1m[35m (45.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 97991465], ["country", "ARG"], ["created_at", "2018-01-12 18:50:21.890886"], ["updated_at", "2018-01-12 18:50:21.890886"]]
+  [1m[35m (45.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 76681990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:21.940966"], ["updated_at", "2018-01-12 18:50:21.940966"]]
+  [1m[35m (54.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 62082805], ["country", "ARG"], ["created_at", "2018-01-12 18:50:21.999214"], ["updated_at", "2018-01-12 18:50:21.999214"]]
+  [1m[35m (54.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 66285644], ["country", "CHL"], ["created_at", "2018-01-12 18:50:22.056876"], ["updated_at", "2018-01-12 18:50:22.056876"]]
+  [1m[35m (56.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 99158447], ["country", "ARG"], ["created_at", "2018-01-12 18:50:22.116038"], ["updated_at", "2018-01-12 18:50:22.116038"]]
+  [1m[35m (54.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 82593542], ["country", "CHL"], ["created_at", "2018-01-12 18:50:22.174445"], ["updated_at", "2018-01-12 18:50:22.174445"]]
+  [1m[35m (45.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["phone_number", 82491446], ["country", "ARG"], ["created_at", "2018-01-12 18:50:22.223277"], ["updated_at", "2018-01-12 18:50:22.223277"]]
+  [1m[35m (56.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["phone_number", 93185497], ["country", "CHL"], ["last_owner", "Felipe Castro"], ["created_at", "2018-01-12 18:50:22.282398"], ["updated_at", "2018-01-12 18:50:22.282398"]]
+  [1m[35m (63.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["phone_number", 42178031], ["country", "ARG"], ["last_owner", "Gonzalo Inostroza"], ["created_at", "2018-01-12 18:50:22.348397"], ["updated_at", "2018-01-12 18:50:22.348397"]]
+  [1m[35m (39.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "sims" ("phone_number", "country", "last_owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["phone_number", 93186475], ["country", "CHL"], ["last_owner", "Claudia Munoz"], ["created_at", "2018-01-12 18:50:22.390267"], ["updated_at", "2018-01-12 18:50:22.390267"]]
+  [1m[35m (55.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S8"], ["code", "106616"], ["category", "GE"], ["country", "CHL"], ["price", 200836], ["state", "catalog"], ["created_at", "2018-01-12 18:50:22.487351"], ["updated_at", "2018-01-12 18:50:22.487351"]]
+  [1m[35m (42.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S8"], ["code", "106616"], ["category", "EJ"], ["country", "CHL"], ["price", 200836], ["state", "catalog"], ["created_at", "2018-01-12 18:50:22.532939"], ["updated_at", "2018-01-12 18:50:22.532939"]]
+  [1m[35m (53.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S7"], ["code", "106553"], ["category", "GE"], ["country", "CHL"], ["price", 158820], ["state", "catalog"], ["created_at", "2018-01-12 18:50:22.591112"], ["updated_at", "2018-01-12 18:50:22.591112"]]
+  [1m[35m (53.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S7"], ["code", "106553"], ["category", "EJ"], ["country", "CHL"], ["price", 158820], ["state", "catalog"], ["created_at", "2018-01-12 18:50:22.649127"], ["updated_at", "2018-01-12 18:50:22.649127"]]
+  [1m[35m (54.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S7"], ["code", "106553"], ["category", "VE"], ["country", "CHL"], ["price", 158820], ["state", "catalog"], ["created_at", "2018-01-12 18:50:22.708000"], ["updated_at", "2018-01-12 18:50:22.708000"]]
+  [1m[35m (53.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J7"], ["code", "106586"], ["category", "PT"], ["country", "CHL"], ["price", 50417], ["state", "catalog"], ["created_at", "2018-01-12 18:50:22.766260"], ["updated_at", "2018-01-12 18:50:22.766260"]]
+  [1m[35m (53.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J5"], ["code", "106583"], ["category", "EE"], ["country", "CHL"], ["price", 40333], ["state", "catalog"], ["created_at", "2018-01-12 18:50:22.823634"], ["updated_at", "2018-01-12 18:50:22.823634"]]
+  [1m[35m (47.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J5"], ["code", "106583"], ["category", "OO"], ["country", "CHL"], ["price", 40333], ["state", "catalog"], ["created_at", "2018-01-12 18:50:22.874507"], ["updated_at", "2018-01-12 18:50:22.874507"]]
+  [1m[35m (53.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Own F1035"], ["code", "162050"], ["category", "ALL"], ["country", "CHL"], ["price", 40333], ["state", "catalog"], ["created_at", "2018-01-12 18:50:22.933184"], ["updated_at", "2018-01-12 18:50:22.933184"]]
+  [1m[35m (61.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone X"], ["code", "205616"], ["category", "GE"], ["country", "ARG"], ["price", 200836], ["state", "catalog"], ["created_at", "2018-01-12 18:50:22.999851"], ["updated_at", "2018-01-12 18:50:22.999851"]]
+  [1m[35m (53.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone X"], ["code", "205616"], ["category", "EJ"], ["country", "ARG"], ["price", 200836], ["state", "catalog"], ["created_at", "2018-01-12 18:50:23.057954"], ["updated_at", "2018-01-12 18:50:23.057954"]]
+  [1m[35m (60.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 8 Plus"], ["code", "205553"], ["category", "GE"], ["country", "ARG"], ["price", 158820], ["state", "catalog"], ["created_at", "2018-01-12 18:50:23.124688"], ["updated_at", "2018-01-12 18:50:23.124688"]]
+  [1m[35m (53.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 8 Plus"], ["code", "205553"], ["category", "EJ"], ["country", "ARG"], ["price", 158820], ["state", "catalog"], ["created_at", "2018-01-12 18:50:23.182253"], ["updated_at", "2018-01-12 18:50:23.182253"]]
+  [1m[35m (63.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 8"], ["code", "205553"], ["category", "VE"], ["country", "ARG"], ["price", 158820], ["state", "catalog"], ["created_at", "2018-01-12 18:50:23.250181"], ["updated_at", "2018-01-12 18:50:23.250181"]]
+  [1m[35m (51.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 7 Plus"], ["code", "205586"], ["category", "PT"], ["country", "ARG"], ["price", 50417], ["state", "catalog"], ["created_at", "2018-01-12 18:50:23.308509"], ["updated_at", "2018-01-12 18:50:23.308509"]]
+  [1m[35m (51.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 7"], ["code", "205586"], ["category", "PT"], ["country", "ARG"], ["price", 50417], ["state", "catalog"], ["created_at", "2018-01-12 18:50:23.366909"], ["updated_at", "2018-01-12 18:50:23.366909"]]
+  [1m[35m (59.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 6"], ["code", "205583"], ["category", "EE"], ["country", "ARG"], ["price", 40333], ["state", "catalog"], ["created_at", "2018-01-12 18:50:23.433028"], ["updated_at", "2018-01-12 18:50:23.433028"]]
+  [1m[35m (52.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 6"], ["code", "205583"], ["category", "OO"], ["country", "ARG"], ["price", 40333], ["state", "catalog"], ["created_at", "2018-01-12 18:50:23.490165"], ["updated_at", "2018-01-12 18:50:23.490165"]]
+  [1m[35m (56.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "code", "category", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Own F1035"], ["code", "205050"], ["category", "ALL"], ["country", "ARG"], ["price", 40333], ["state", "catalog"], ["created_at", "2018-01-12 18:50:23.550165"], ["updated_at", "2018-01-12 18:50:23.550165"]]
+  [1m[35m (51.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S8"], ["phone_number", "98738446"], ["code", "106616"], ["category", "GE"], ["country", "CHL"], ["last_owner", "Marco Sepulveda"], ["imei", "353227075802167"], ["price", 200836], ["state", "used"], ["created_at", "2018-01-12 18:50:23.609221"], ["updated_at", "2018-01-12 18:50:23.609221"]]
+  [1m[35m (50.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S8"], ["phone_number", "98172663"], ["code", "106616"], ["category", "GE"], ["country", "CHL"], ["last_owner", "Carolina Arredondo"], ["imei", "359878069666630"], ["price", 200836], ["state", "used"], ["created_at", "2018-01-12 18:50:23.666804"], ["updated_at", "2018-01-12 18:50:23.666804"]]
+  [1m[35m (51.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S7"], ["phone_number", "98837465"], ["code", "106553"], ["category", "EJ"], ["country", "CHL"], ["last_owner", "Kathy Whiting"], ["imei", "35688706001064"], ["price", 158820], ["state", "used"], ["created_at", "2018-01-12 18:50:23.724599"], ["updated_at", "2018-01-12 18:50:23.724599"]]
+  [1m[35m (70.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J7"], ["phone_number", "98918207"], ["code", "106586"], ["category", "PT"], ["country", "CHL"], ["last_owner", "Felipe Arriagada"], ["imei", "35881306155560"], ["price", 50417], ["state", "used"], ["created_at", "2018-01-12 18:50:23.799645"], ["updated_at", "2018-01-12 18:50:23.799645"]]
+  [1m[35m (53.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J7"], ["phone_number", "98293847"], ["code", "106586"], ["category", "PT"], ["country", "CHL"], ["imei", "52141079023186"], ["price", 50417], ["created_at", "2018-01-12 18:50:23.858520"], ["updated_at", "2018-01-12 18:50:23.858520"]]
+  [1m[35m (76.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S7"], ["phone_number", "98172663"], ["code", "106553"], ["category", "VE"], ["country", "CHL"], ["imei", "359878063788620"], ["price", 158820], ["created_at", "2018-01-12 18:50:23.942256"], ["updated_at", "2018-01-12 18:50:23.942256"]]
+  [1m[35m (69.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy S7"], ["phone_number", "98928374"], ["code", "106553"], ["category", "VE"], ["country", "CHL"], ["imei", "35687805120863"], ["price", 158820], ["created_at", "2018-01-12 18:50:24.016319"], ["updated_at", "2018-01-12 18:50:24.016319"]]
+  [1m[35m (64.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J5"], ["phone_number", "98993847"], ["code", "106583"], ["category", "EE"], ["country", "CHL"], ["last_owner", "Andres Soto"], ["imei", "359878069666481"], ["price", 40333], ["state", "used"], ["created_at", "2018-01-12 18:50:24.084299"], ["updated_at", "2018-01-12 18:50:24.084299"]]
+  [1m[35m (61.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J5"], ["phone_number", "98101920"], ["code", "106583"], ["category", "OO"], ["country", "CHL"], ["imei", "35214073409175"], ["price", 40333], ["created_at", "2018-01-12 18:50:24.150450"], ["updated_at", "2018-01-12 18:50:24.150450"]]
+  [1m[35m (61.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Samsung Galaxy J5"], ["phone_number", "98938432"], ["code", "106583"], ["category", "ALL"], ["country", "CHL"], ["last_owner", "Guillermo Aguilar"], ["imei", "359048050341094"], ["price", 40333], ["state", "used"], ["created_at", "2018-01-12 18:50:24.216380"], ["updated_at", "2018-01-12 18:50:24.216380"]]
+  [1m[35m (64.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone X"], ["phone_number", "87172663"], ["code", "106616"], ["category", "GE"], ["country", "ARG"], ["last_owner", "Marco Sepulveda"], ["imei", "783227075802167"], ["price", 200836], ["state", "used"], ["created_at", "2018-01-12 18:50:24.284392"], ["updated_at", "2018-01-12 18:50:24.284392"]]
+  [1m[35m (69.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone X"], ["phone_number", "87921834"], ["code", "106616"], ["category", "GE"], ["country", "ARG"], ["last_owner", "Carolina Arredondo"], ["imei", "789878069666630"], ["price", 200836], ["state", "used"], ["created_at", "2018-01-12 18:50:24.358970"], ["updated_at", "2018-01-12 18:50:24.358970"]]
+  [1m[35m (61.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 8 Plus"], ["phone_number", "87291837"], ["code", "106553"], ["category", "EJ"], ["country", "ARG"], ["last_owner", "Kathy Whiting"], ["imei", "78688706001064"], ["price", 158820], ["state", "used"], ["created_at", "2018-01-12 18:50:24.425011"], ["updated_at", "2018-01-12 18:50:24.425011"]]
+  [1m[35m (63.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 7 Plus"], ["phone_number", "87364955"], ["code", "106586"], ["category", "PT"], ["country", "ARG"], ["last_owner", "Felipe Arriagada"], ["imei", "78881306155560"], ["price", 50417], ["state", "used"], ["created_at", "2018-01-12 18:50:24.492303"], ["updated_at", "2018-01-12 18:50:24.492303"]]
+  [1m[35m (61.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 7"], ["phone_number", "87167584"], ["code", "106586"], ["category", "PT"], ["country", "ARG"], ["imei", "78141079023186"], ["price", 50417], ["created_at", "2018-01-12 18:50:24.558830"], ["updated_at", "2018-01-12 18:50:24.558830"]]
+  [1m[35m (70.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 8"], ["phone_number", "87456833"], ["code", "106553"], ["category", "VE"], ["country", "ARG"], ["imei", "789878063788620"], ["price", 158820], ["created_at", "2018-01-12 18:50:24.633927"], ["updated_at", "2018-01-12 18:50:24.633927"]]
+  [1m[35m (61.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 8"], ["phone_number", "87807886"], ["code", "106553"], ["category", "VE"], ["country", "ARG"], ["imei", "78687805120863"], ["price", 158820], ["created_at", "2018-01-12 18:50:24.701492"], ["updated_at", "2018-01-12 18:50:24.701492"]]
+  [1m[35m (59.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 6s"], ["phone_number", "87146351"], ["code", "106583"], ["category", "EE"], ["country", "ARG"], ["last_owner", "Andres Soto"], ["imei", "789878069666481"], ["price", 40333], ["state", "used"], ["created_at", "2018-01-12 18:50:24.767236"], ["updated_at", "2018-01-12 18:50:24.767236"]]
+  [1m[35m (61.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 6s"], ["phone_number", "87183932"], ["code", "106583"], ["category", "OO"], ["country", "ARG"], ["imei", "78214073409175"], ["price", 40333], ["created_at", "2018-01-12 18:50:24.833797"], ["updated_at", "2018-01-12 18:50:24.833797"]]
+  [1m[35m (61.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "smartphones" ("model", "phone_number", "code", "category", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "iPhone 6"], ["phone_number", "870468977"], ["code", "106583"], ["category", "ALL"], ["country", "ARG"], ["last_owner", "Guillermo Aguilar"], ["imei", "789048050341094"], ["price", 40333], ["state", "used"], ["created_at", "2018-01-12 18:50:24.900731"], ["updated_at", "2018-01-12 18:50:24.900731"]]
+  [1m[35m (61.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Huaewi E5573"], ["code", "205167"], ["country", "ARG"], ["price", 35990], ["state", "catalog"], ["created_at", "2018-01-12 18:50:25.001733"], ["updated_at", "2018-01-12 18:50:25.001733"]]
+  [1m[35m (52.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Huaewi E8372"], ["code", "205250"], ["country", "ARG"], ["price", 55990], ["state", "catalog"], ["created_at", "2018-01-12 18:50:25.057298"], ["updated_at", "2018-01-12 18:50:25.057298"]]
+  [1m[35m (63.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["model", "BAM E8372H LTE"], ["code", "133167"], ["country", "CHL"], ["price", 0], ["state", "catalog"], ["created_at", "2018-01-12 18:50:25.125207"], ["updated_at", "2018-01-12 18:50:25.125207"]]
+  [1m[35m (51.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "BAM E8372H LTE"], ["code", "133167"], ["country", "CHL"], ["last_owner", "Joaquin Zunino"], ["imei", "952427835802167"], ["price", 0], ["state", "used"], ["created_at", "2018-01-12 18:50:25.183298"], ["updated_at", "2018-01-12 18:50:25.183298"]]
+  [1m[35m (52.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "BAM E8372H LTE"], ["code", "133167"], ["country", "CHL"], ["last_owner", "Francisca Irarrazaval"], ["imei", "984557575805360"], ["price", 0], ["state", "used"], ["created_at", "2018-01-12 18:50:25.241293"], ["updated_at", "2018-01-12 18:50:25.241293"]]
+  [1m[35m (53.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["model", "BAM E8372H LTE"], ["code", "133167"], ["country", "CHL"], ["imei", "996883330106421"], ["price", 0], ["created_at", "2018-01-12 18:50:25.306914"], ["updated_at", "2018-01-12 18:50:25.306914"]]
+  [1m[35m (56.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["model", "BAM E8372H LTE"], ["code", "133167"], ["country", "CHL"], ["imei", "918813063325600"], ["price", 0], ["created_at", "2018-01-12 18:50:25.365984"], ["updated_at", "2018-01-12 18:50:25.365984"]]
+  [1m[35m (54.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "BAM E8372H LTE"], ["code", "133167"], ["country", "CHL"], ["last_owner", "Mariana Fernandez"], ["imei", "932414072893167"], ["price", 0], ["state", "used"], ["created_at", "2018-01-12 18:50:25.424702"], ["updated_at", "2018-01-12 18:50:25.424702"]]
+  [1m[35m (53.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Huawei E5573"], ["code", "205167"], ["country", "ARG"], ["last_owner", "Joaquin Zunino"], ["imei", "882427835802167"], ["price", 35990], ["state", "used"], ["created_at", "2018-01-12 18:50:25.483159"], ["updated_at", "2018-01-12 18:50:25.483159"]]
+  [1m[35m (53.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Huawei E5573"], ["code", "205167"], ["country", "ARG"], ["last_owner", "Francisca Irarrazaval"], ["imei", "884557575805360"], ["price", 35990], ["state", "used"], ["created_at", "2018-01-12 18:50:25.540294"], ["updated_at", "2018-01-12 18:50:25.540294"]]
+  [1m[35m (47.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Huawei E5573"], ["code", "205167"], ["country", "ARG"], ["imei", "886883330106421"], ["price", 35990], ["created_at", "2018-01-12 18:50:25.591230"], ["updated_at", "2018-01-12 18:50:25.591230"]]
+  [1m[35m (53.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "imei", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Huawei E8372"], ["code", "205250"], ["country", "ARG"], ["imei", "888813063325600"], ["price", 55990], ["created_at", "2018-01-12 18:50:25.649744"], ["updated_at", "2018-01-12 18:50:25.649744"]]
+  [1m[35m (53.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "bams" ("model", "code", "country", "last_owner", "imei", "price", "state", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["model", "Huawei E8372"], ["code", "205250"], ["country", "ARG"], ["last_owner", "Mariana Fernandez"], ["imei", "882414072893167"], ["price", 55990], ["state", "used"], ["created_at", "2018-01-12 18:50:25.707994"], ["updated_at", "2018-01-12 18:50:25.707994"]]
+  [1m[35m (53.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "1452 BAM Pro 4 Gb Normal"], ["detail", " El plan incluye: 2 Gb / vel. descarga nacional promedio: 3 Mbps (nacional) y 2,2 Mbps (internacional) "], ["price", 15882], ["country", "CHL"], ["created_at", "2018-01-12 18:50:25.786125"], ["updated_at", "2018-01-12 18:50:25.786125"]]
+  [1m[35m (51.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "1453 BAM Pro 8 Gb Normal"], ["detail", " El plan incluye: 4 Gb / vel. descarga nacional promedio: 3 Mbps (nacional) y 2,2 Mbps (internacional) "], ["price", 20924], ["country", "CHL"], ["created_at", "2018-01-12 18:50:25.841390"], ["updated_at", "2018-01-12 18:50:25.841390"]]
+  [1m[35m (52.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "1454 BAM Pro 12 Gb Normal"], ["detail", " El plan incluye: 6 Gb / vel. descarga nacional promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) "], ["price", 24286], ["country", "CHL"], ["created_at", "2018-01-12 18:50:25.899503"], ["updated_at", "2018-01-12 18:50:25.899503"]]
+  [1m[35m (53.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "1455 BAM Pro 20 Gb Normal"], ["detail", " El plan incluye: 10 Gb / vel. descarga nacional promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) "], ["price", 30168], ["country", "CHL"], ["created_at", "2018-01-12 18:50:25.957489"], ["updated_at", "2018-01-12 18:50:25.957489"]]
+  [1m[35m (45.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "1456 BAM Pro 30 Gb Normal"], ["detail", " El plan incluye: 15 Gb / vel. descarga nacional promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) "], ["price", 37807], ["country", "CHL"], ["created_at", "2018-01-12 18:50:26.006602"], ["updated_at", "2018-01-12 18:50:26.006602"]]
+  [1m[35m (56.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "BAM Utra 8 Gb"], ["detail", " El plan incluye: 8 Gb / vel. descarga nacional promedio: 2,5 Mbps (nacional) y 1,5 Mbps (internacional) "], ["price", 10882], ["country", "ARG"], ["created_at", "2018-01-12 18:50:26.065314"], ["updated_at", "2018-01-12 18:50:26.065314"]]
+  [1m[35m (56.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "BAM Ultra 15 Gb"], ["detail", " El plan incluye: 15 Gb / vel. descarga nacional promedio: 2,5 Mbps (nacional) y 1,5 Mbps (internacional) "], ["price", 15924], ["country", "ARG"], ["created_at", "2018-01-12 18:50:26.123821"], ["updated_at", "2018-01-12 18:50:26.123821"]]
+  [1m[35m (55.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "BAM Ultra 20 Gb"], ["detail", " El plan incluye: 20 Gb / vel. descarga nacional promedio: 4,5 Mbps (nacional) y 3,5 Mbps (internacional) "], ["price", 19286], ["country", "ARG"], ["created_at", "2018-01-12 18:50:26.182494"], ["updated_at", "2018-01-12 18:50:26.182494"]]
+  [1m[35m (45.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "BAM Ultra 25 Gb"], ["detail", " El plan incluye: 25 Gb / vel. descarga nacional promedio: 5,5 Mbps (nacional) y 5,0 Mbps (internacional) "], ["price", 25168], ["country", "ARG"], ["created_at", "2018-01-12 18:50:26.231839"], ["updated_at", "2018-01-12 18:50:26.231839"]]
+  [1m[35m (48.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "BAM Ultra 30 Gb"], ["detail", " El plan incluye: 30 Gb / vel. descarga nacional promedio: 5,5 Mbps (nacional) y 5,0 Mbps (internacional) "], ["price", 32807], ["country", "ARG"], ["created_at", "2018-01-12 18:50:26.282369"], ["updated_at", "2018-01-12 18:50:26.282369"]]
+  [1m[35m (45.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Programa Viajero 150 MB"], ["detail", "El plan incluye: 150 MB + WHATSAPP ILIMITADO"], ["price", 9990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:26.332552"], ["updated_at", "2018-01-12 18:50:26.332552"]]
+  [1m[35m (46.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Programa Viajero Pro 150 MB"], ["detail", "El plan incluye: 150 MB + 15 MIN + 15 SMS + WHATSAPP ILIMITADO"], ["price", 12990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:26.382656"], ["updated_at", "2018-01-12 18:50:26.382656"]]
+  [1m[35m (45.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Programa Viajero 300 MB"], ["detail", "El plan incluye: 300 MB + WHATSAPP ILIMITADO"], ["price", 17990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:26.431971"], ["updated_at", "2018-01-12 18:50:26.431971"]]
+  [1m[35m (47.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Programa Viajero Pro 300 MB"], ["detail", "El plan incluye: 300 MB + 30 MIN + 30 SMS + WHATSAPP ILIMITADO"], ["price", 22990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:26.482495"], ["updated_at", "2018-01-12 18:50:26.482495"]]
+  [1m[35m (54.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Viajero 200"], ["detail", "El plan incluye: 200 MB + WhatsApp Y Twitter ILIMITADO"], ["price", 4990], ["country", "ARG"], ["created_at", "2018-01-12 18:50:26.540182"], ["updated_at", "2018-01-12 18:50:26.540182"]]
+  [1m[35m (55.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Viajero Pro 200"], ["detail", "El plan incluye: 200 MB + 15 MIN + 15 SMS + Redes Sociales ILIMITADO"], ["price", 17990], ["country", "ARG"], ["created_at", "2018-01-12 18:50:26.598572"], ["updated_at", "2018-01-12 18:50:26.598572"]]
+  [1m[35m (46.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Viajero 500"], ["detail", "El plan incluye: 500 MB + WhatsApp Y Twitter ILIMITADO"], ["price", 12990], ["country", "ARG"], ["created_at", "2018-01-12 18:50:26.649221"], ["updated_at", "2018-01-12 18:50:26.649221"]]
+  [1m[35m (53.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Viajero Pro 500"], ["detail", "El plan incluye: 500 MB + 30 MIN + 30 SMS + Redes Sociales ILIMITADO"], ["price", 17990], ["country", "ARG"], ["created_at", "2018-01-12 18:50:26.707617"], ["updated_at", "2018-01-12 18:50:26.707617"]]
+  [1m[35m (53.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa 30 Dias Roaming 15MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 29990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:26.766726"], ["updated_at", "2018-01-12 18:50:26.766726"]]
+  [1m[35m (59.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa 30 Dias Roaming 25MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 45990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:26.831495"], ["updated_at", "2018-01-12 18:50:26.831495"]]
+  [1m[35m (47.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa 30 Dias Roaming 50MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 79990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:26.882565"], ["updated_at", "2018-01-12 18:50:26.882565"]]
+  [1m[35m (53.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa 30 Dias Roaming 100MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 144990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:26.939620"], ["updated_at", "2018-01-12 18:50:26.939620"]]
+  [1m[35m (48.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolas 30 Dias Roaming 200MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 239990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:26.990366"], ["updated_at", "2018-01-12 18:50:26.990366"]]
+  [1m[35m (81.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa 30 Dias Roaming 400MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 449990], ["country", "CHL"], ["created_at", "2018-01-12 18:50:27.075300"], ["updated_at", "2018-01-12 18:50:27.075300"]]
+  [1m[35m (62.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa Roaming 15MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 9990], ["country", "ARG"], ["created_at", "2018-01-12 18:50:27.142223"], ["updated_at", "2018-01-12 18:50:27.142223"]]
+  [1m[35m (62.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa Roaming 25MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 25990], ["country", "ARG"], ["created_at", "2018-01-12 18:50:27.208855"], ["updated_at", "2018-01-12 18:50:27.208855"]]
+  [1m[35m (62.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa Roaming 50MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 59990], ["country", "ARG"], ["created_at", "2018-01-12 18:50:27.275249"], ["updated_at", "2018-01-12 18:50:27.275249"]]
+  [1m[35m (62.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa Roaming 100MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 104990], ["country", "ARG"], ["created_at", "2018-01-12 18:50:27.342049"], ["updated_at", "2018-01-12 18:50:27.342049"]]
+  [1m[35m (62.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa Roaming 200MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 159990], ["country", "ARG"], ["created_at", "2018-01-12 18:50:27.408236"], ["updated_at", "2018-01-12 18:50:27.408236"]]
+  [1m[35m (63.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "plans" ("item", "plan_type", "name", "detail", "price", "country", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa Roaming 400MB "], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 229990], ["country", "ARG"], ["created_at", "2018-01-12 18:50:27.475247"], ["updated_at", "2018-01-12 18:50:27.475247"]]
+  [1m[35m (62.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? LIMIT ?[0m  [["national_id", "16054341-8"], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.5ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "359878069666481"], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."imei" = ? LIMIT ?[0m  [["imei", "789878063788620"], ["LIMIT", 1]]
+  [1m[36mBam Load (0.5ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."imei" = ? LIMIT ?[0m  [["imei", "952427835802167"], ["LIMIT", 1]]
+  [1m[36mBam Load (0.2ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."imei" = ? LIMIT ?[0m  [["imei", "882427835802167"], ["LIMIT", 1]]
+  [1m[36mSim Load (0.7ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."phone_number" = ? LIMIT ?[0m  [["phone_number", 82099147], ["LIMIT", 1]]
+  [1m[36mSim Load (0.2ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."phone_number" = ? LIMIT ?[0m  [["phone_number", 93192570], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "ccalde@ccu.cl"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "smartphone_id" = ?, "bam_id" = ?, "sim_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["smartphone_id", 27], ["bam_id", 4], ["sim_id", 1], ["updated_at", "2018-01-12 18:50:27.566645"], ["id", 1]]
+  [1m[35m (56.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "smartphones" SET "available" = ?, "updated_at" = ? WHERE "smartphones"."id" = ?[0m  [["available", "f"], ["updated_at", "2018-01-12 18:50:27.629640"], ["id", 27]]
+  [1m[35m (65.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "bams" SET "available" = ?, "updated_at" = ? WHERE "bams"."id" = ?[0m  [["available", "f"], ["updated_at", "2018-01-12 18:50:27.700745"], ["id", 4]]
+  [1m[35m (52.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "sims" SET "available" = ?, "updated_at" = ? WHERE "sims"."id" = ?[0m  [["available", "f"], ["updated_at", "2018-01-12 18:50:27.758053"], ["id", 1]]
+  [1m[35m (52.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["email", "sclaren@ccu.cl"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "smartphone_id" = ?, "bam_id" = ?, "sim_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["smartphone_id", 35], ["bam_id", 9], ["sim_id", 2], ["updated_at", "2018-01-12 18:50:27.816540"], ["id", 2]]
+  [1m[35m (59.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "smartphones" SET "available" = ?, "updated_at" = ? WHERE "smartphones"."id" = ?[0m  [["available", "f"], ["updated_at", "2018-01-12 18:50:27.879616"], ["id", 35]]
+  [1m[35m (65.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "bams" SET "available" = ?, "updated_at" = ? WHERE "bams"."id" = ?[0m  [["available", "f"], ["updated_at", "2018-01-12 18:50:27.950869"], ["id", 9]]
+  [1m[35m (60.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "sims" SET "available" = ?, "updated_at" = ? WHERE "sims"."id" = ?[0m  [["available", "f"], ["updated_at", "2018-01-12 18:50:28.016376"], ["id", 2]]
+  [1m[35m (52.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-12 15:54:42 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (168.3ms)
+Completed 200 OK in 332ms (Views: 171.6ms)
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=transfer+line&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=13362555-0&commit=Enviar" for 127.0.0.1 at 2018-01-12 15:54:47 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"transfer line", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"13362555-0", "commit"=>"Enviar"}
+  [1m[35m (0.1ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '13362555-0'[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/transferline
+Completed 302 Found in 50ms (ActiveRecord: 2.1ms)
+Started GET "/requests/forms/transferline" for 127.0.0.1 at 2018-01-12 15:54:47 -0300
+Processing by RequestsController#transfer_line as HTML
+  Rendering requests/transfer_line.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.9ms)
+  Rendered requests/transfer_line.html.erb within layouts/general_view (4.9ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-12 15:54:56 -0300
+Processing by RequestsController#create_user as HTML
+  Parameters: {"utf8"=>"✓", "item"=>"smartphone line", "user_id"=>"1", "request"=>"transfer line", "transfer_line_type"=>"ceder", "phone_number"=>"87777777", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "requests" ("request", "item", "email_sended", "phone_number", "transfer_line_type", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["request", "transfer line"], ["item", "smartphone line"], ["email_sended", "Constanza Calderon Sanchez, Operario de Maquinas, perteneciente al centro de costos 290766000, a cursado una solicitud para ceder su linea de teléfono con número telefónico: +56 9 87777777"], ["phone_number", "87777777"], ["transfer_line_type", "ceder"], ["user_id", 1], ["created_at", "2018-01-12 18:54:56.836514"], ["updated_at", "2018-01-12 18:54:56.836514"]]
+  [1m[35m (81.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "requests" SET "n_request" = ?, "updated_at" = ? WHERE "requests"."id" = ?[0m  [["n_request", "1b96bc5"], ["updated_at", "2018-01-12 18:54:56.921371"], ["id", 1]]
+  [1m[35m (50.8ms)[0m  [1m[36mcommit transaction[0m
+  Rendering requests/create_user.html.erb within layouts/success
+  Rendered requests/create_user.html.erb within layouts/success (1.5ms)
+Completed 200 OK in 180ms (Views: 11.3ms | ActiveRecord: 134.7ms)
+Started GET "/requests" for 127.0.0.1 at 2018-01-12 15:55:00 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/admin_view
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered requests/index.html.erb within layouts/admin_view (3.0ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.3ms)
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-12 15:55:20 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (1.3ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=transfer+line&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=13362555-0&commit=Enviar" for 127.0.0.1 at 2018-01-12 15:55:25 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"transfer line", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"13362555-0", "commit"=>"Enviar"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '13362555-0'[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/transferline
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+Started GET "/requests/forms/transferline" for 127.0.0.1 at 2018-01-12 15:55:25 -0300
+Processing by RequestsController#transfer_line as HTML
+  Rendering requests/transfer_line.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.4ms)
+  Rendered requests/transfer_line.html.erb within layouts/general_view (3.3ms)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-12 15:55:34 -0300
+Processing by RequestsController#create_user as HTML
+  Parameters: {"utf8"=>"✓", "item"=>"smartphone line", "user_id"=>"1", "request"=>"transfer line", "transfer_line_type"=>"liberar", "phone_number"=>"00000000", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "requests" ("request", "item", "email_sended", "phone_number", "transfer_line_type", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["request", "release line"], ["item", "smartphone line"], ["email_sended", "Constanza Calderon Sanchez, Operario de Maquinas, perteneciente al centro de costos 290766000, a cursado una solicitud para liberar su linea de teléfono con número telefónico: +56 9 00000000"], ["phone_number", "00000000"], ["transfer_line_type", "liberar"], ["user_id", 1], ["created_at", "2018-01-12 18:55:34.814671"], ["updated_at", "2018-01-12 18:55:34.814671"]]
+  [1m[35m (95.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "requests" SET "n_request" = ?, "updated_at" = ? WHERE "requests"."id" = ?[0m  [["n_request", "29c73fe"], ["updated_at", "2018-01-12 18:55:34.912589"], ["id", 2]]
+  [1m[35m (47.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering requests/create_user.html.erb within layouts/success
+  Rendered requests/create_user.html.erb within layouts/success (0.0ms)
+Completed 200 OK in 152ms (Views: 2.2ms | ActiveRecord: 143.8ms)
+Started GET "/requests" for 127.0.0.1 at 2018-01-12 15:55:41 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/admin_view
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered requests/index.html.erb within layouts/admin_view (3.5ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.3ms)
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-12 15:56:49 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (1.4ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=13362555-0&commit=Enviar" for 127.0.0.1 at 2018-01-12 15:56:54 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"13362555-0", "commit"=>"Enviar"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '13362555-0'[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+Started GET "/requests/forms/new" for 127.0.0.1 at 2018-01-12 15:56:54 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT id, model, code, price, category FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL' AND (category= 'OO' OR category= 'ALL'))[0m
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "bams" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND item= 'bam')[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'plan' AND item= 'roaming')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'bag' AND item= 'roaming')[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.4ms)
+  Rendered layouts/_new_smp.html.erb (81.9ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (86.8ms)
+Completed 200 OK in 169ms (Views: 88.9ms | ActiveRecord: 3.1ms)
+Started GET "/assets/display_new-44294e91721c3793fee10557edd3090e0637ad0fae1c15b5b603077dd22c6d73.js" for 127.0.0.1 at 2018-01-12 15:56:54 -0300
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-12 15:56:57 -0300
+Processing by RequestsController#create_user as HTML
+  Parameters: {"utf8"=>"✓", "item"=>"smartphone", "user_id"=>"1", "request"=>"new", "model_one"=>"8", "model_all"=>"1", "want_all"=>"0", "comment"=>"", "want_sim"=>"true", "want_new_number"=>"true", "phone_number"=>"", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2018-01-12 16:00:57 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.6ms)
+Completed 200 OK in 168ms (Views: 4.2ms)
+Started GET "/" for 127.0.0.1 at 2018-01-12 16:00:58 -0300
+Processing by HomePagesController#home as HTML
+  Rendering home_pages/home.html.erb within layouts/home
+  Rendered home_pages/home.html.erb within layouts/home (0.0ms)
+Completed 200 OK in 1ms (Views: 0.6ms)
+Started GET "/requests/home/menu" for 127.0.0.1 at 2018-01-12 16:00:59 -0300
+Processing by HomePagesController#request_home as HTML
+  Rendering home_pages/request_home.html.erb within layouts/general_view
+  Rendered home_pages/request_home.html.erb within layouts/general_view (168.2ms)
+Completed 200 OK in 170ms (Views: 169.8ms)
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=13362555-0&commit=Enviar" for 127.0.0.1 at 2018-01-12 16:01:05 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"13362555-0", "commit"=>"Enviar"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '13362555-0'[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 52ms (ActiveRecord: 2.1ms)
+Started GET "/requests/forms/new" for 127.0.0.1 at 2018-01-12 16:01:05 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT id, model, code, price, category FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL' AND (category= 'OO' OR category= 'ALL'))[0m
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "bams" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND item= 'bam')[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'plan' AND item= 'roaming')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'bag' AND item= 'roaming')[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (1.9ms)
+  Rendered layouts/_new_smp.html.erb (83.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (89.3ms)
+Completed 200 OK in 140ms (Views: 90.2ms | ActiveRecord: 2.9ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-12 16:01:08 -0300
+Processing by RequestsController#create_user as HTML
+  Parameters: {"utf8"=>"✓", "item"=>"smartphone", "user_id"=>"1", "request"=>"new", "model_one"=>"8", "model_all"=>"1", "want_all"=>"0", "comment"=>"", "want_sim"=>"true", "want_new_number"=>"true", "phone_number"=>"", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=13362555-0&commit=Enviar" for 127.0.0.1 at 2018-01-12 16:04:10 -0300
+Processing by RequestsController#validate_user as HTML
+  Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"13362555-0", "commit"=>"Enviar"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '13362555-0'[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/requests/forms/new
+Completed 302 Found in 223ms (ActiveRecord: 2.6ms)
+Started GET "/requests/forms/new" for 127.0.0.1 at 2018-01-12 16:04:10 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT id, model, code, price, category FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL' AND (category= 'OO' OR category= 'ALL'))[0m
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "bams" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND item= 'bam')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'plan' AND item= 'roaming')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'bag' AND item= 'roaming')[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.0ms)
+  Rendered layouts/_new_smp.html.erb (106.2ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (261.8ms)
+Completed 200 OK in 331ms (Views: 265.2ms | ActiveRecord: 3.1ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-12 16:04:12 -0300
+Processing by RequestsController#create_user as HTML
+  Parameters: {"utf8"=>"✓", "item"=>"smartphone", "user_id"=>"1", "request"=>"new", "model_one"=>"8", "model_all"=>"1", "want_all"=>"0", "comment"=>"", "want_sim"=>"true", "want_new_number"=>"true", "phone_number"=>"", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+Started GET "/requests/forms/new" for 127.0.0.1 at 2018-01-12 16:06:08 -0300
+Processing by RequestsController#new_form as HTML
+  [1m[36mSmartphone Load (0.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT id, model, code, price, category FROM "smartphones" WHERE (state= 'catalog' AND country= 'CHL' AND (category= 'OO' OR category= 'ALL'))[0m
+  [1m[36mBam Load (0.2ms)[0m  [1m[34mSELECT id, model, code, price FROM "bams" WHERE (state= 'catalog' AND country= 'CHL')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND item= 'bam')[0m
+  [1m[36mPlan Load (0.2ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'plan' AND item= 'roaming')[0m
+  [1m[36mPlan Load (0.1ms)[0m  [1m[34mSELECT id, name, detail, price FROM "plans" WHERE (country= 'CHL' AND plan_type = 'bag' AND item= 'roaming')[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."national_id" = ? LIMIT ?[0m  [["national_id", "13362555-0"], ["LIMIT", 1]]
+  [1m[36mSmartphone Load (0.2ms)[0m  [1m[34mSELECT  "smartphones".* FROM "smartphones" WHERE "smartphones"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mBam Load (0.1ms)[0m  [1m[34mSELECT  "bams".* FROM "bams" WHERE "bams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSim Load (0.1ms)[0m  [1m[34mSELECT  "sims".* FROM "sims" WHERE "sims"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requests/new_form.html.erb within layouts/general_view
+  Rendered layouts/_user_info.html.erb (3.2ms)
+  Rendered layouts/_new_smp.html.erb (106.5ms)
+  Rendered requests/new_form.html.erb within layouts/general_view (266.5ms)
+Completed 200 OK in 552ms (Views: 269.6ms | ActiveRecord: 5.3ms)
+Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-01-12 16:06:11 -0300
+Processing by RequestsController#create_user as HTML
+  Parameters: {"utf8"=>"✓", "item"=>"smartphone", "user_id"=>"1", "request"=>"new", "model_one"=>"8", "model_all"=>"1", "want_all"=>"0", "comment"=>"", "want_sim"=>"true", "want_new_number"=>"true", "phone_number"=>"", "commit"=>"Enviar"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :model_one, :model_all, :want_all, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "requests" ("request", "item", "comment", "want_sim", "want_new_number", "phone_number", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["request", "new"], ["item", "smartphone"], ["comment", ""], ["want_sim", "t"], ["want_new_number", "t"], ["phone_number", ""], ["user_id", 1], ["created_at", "2018-01-12 19:06:11.193176"], ["updated_at", "2018-01-12 19:06:11.193176"]]
+  [1m[35m (62.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "requests" SET "n_request" = ?, "updated_at" = ? WHERE "requests"."id" = ?[0m  [["n_request", "3c5282c"], ["updated_at", "2018-01-12 19:06:11.258165"], ["id", 3]]
+  [1m[35m (60.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering requests/create_user.html.erb within layouts/success
+  Rendered requests/create_user.html.erb within layouts/success (0.4ms)
+Completed 200 OK in 184ms (Views: 4.7ms | ActiveRecord: 124.8ms)
+Started GET "/requests" for 127.0.0.1 at 2018-01-12 16:06:22 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/admin_view
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered requests/index.html.erb within layouts/admin_view (4.8ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.3ms)
+Started GET "/users/1" for 127.0.0.1 at 2018-01-12 16:06:35 -0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/general_view
+  Rendered users/show.html.erb within layouts/general_view (3.4ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+Started GET "/requests/3" for 127.0.0.1 at 2018-01-12 16:07:09 -0300
+Processing by RequestsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering requests/show.html.erb within layouts/general_view
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered requests/show.html.erb within layouts/general_view (1.7ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+Started GET "/requests" for 127.0.0.1 at 2018-01-12 16:07:20 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/admin_view
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered requests/index.html.erb within layouts/admin_view (3.8ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.3ms)
+Started GET "/requests/3" for 127.0.0.1 at 2018-01-12 16:07:24 -0300
+Processing by RequestsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT  "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering requests/show.html.erb within layouts/general_view
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered requests/show.html.erb within layouts/general_view (1.0ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+Started GET "/requests" for 127.0.0.1 at 2018-01-12 16:07:30 -0300
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/admin_view
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered requests/index.html.erb within layouts/admin_view (3.6ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms)

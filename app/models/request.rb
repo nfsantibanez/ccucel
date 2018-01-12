@@ -19,13 +19,14 @@ class Request < ApplicationRecord
   def valid_request
     if request != 'new' && request != 'renew' && request != 'stolen/lost' &&
       request != 'technical service' && request != 'transfer line' && request != 'release line'
-      errors.add(:state, 'invalid state field, must be: transfer line, new, renew, lost, stolen, technical service')
+      errors.add(:request, 'invalid state field, must be: transfer line, new, renew, lost, stolen, technical service')
     end
   end
 
   def valid_item
-    if item != 'bam' && item != 'sim' && item != 'smartphone'  && item != 'roaming'
-      errors.add(:request, 'invalid request field, must be: sim, bam, smartphone or roaming')
+    if item != 'bam' && item != 'sim' && item != 'smartphone'  && item != 'roaming' &&
+      item != 'smartphone line'
+      errors.add(:item, 'invalid request field, must be: sim, bam, smartphone or roaming')
     end
   end
 

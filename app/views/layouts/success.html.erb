@@ -59,7 +59,7 @@
   <script type="text/javascript">
   $(document).ready(function(){
     // Display secondary menus
-    request_id = $('#request_id').val();
+    request_id = $('#n_request').val();
     swal({
       title: 'Solicitud Creada Exitosamente!',
       text: 'n° de Solicitud: '+request_id,
@@ -72,7 +72,7 @@
 
 </head>
 <body>
-<%= hidden_field_tag :request_id, params[:request_id] %>
+<%= hidden_field_tag :n_request, params[:n_request] %>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">

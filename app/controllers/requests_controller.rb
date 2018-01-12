@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  require 'securerandom'
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   layout 'general_view', except: [:create_user, :index]
   # layout 'admin_view', only: [:index]
@@ -83,7 +84,7 @@ class RequestsController < ApplicationController
       elsif params[:request_type] == 'stolen/lost'
         session[:user]["item"] = params[:request_hw_lost]
       else
-        session[:user]["item"] = "smartphone"
+        session[:user]["item"] = "smartphone line"
       end
 
       # Transfer Line
@@ -115,21 +116,39 @@ class RequestsController < ApplicationController
 
   # Function to create Request by User Request
   def create_user
-
+    # Create message to resume Request
+    ms = build_message(params)
+    # add message to params
+    params[:email_sended] = ms
+    
+    # Classify by request type to process params
+    # Transfer line
     if params["request"] == "transfer line"
-      @request = Request.new(transfer_line_params)
 
-    elsif params["request"] == "new" && params["items"] == "smartphone"
-      @request = Request.new(new_sp_params)
+      # Modify request type (transfer line or release line)
+      if params["transfer_line_type"] == "liberar"
+        params["request"] = "release line"
+      end
+      # Create Request
+      @request = Request.new(request_params)
+    # New Smartphone
+    elsif params["request"] == "new" && params["item"] == "smartphone"
+      puts(params)
+      puts('2222222222')
+      @request = Request.new(request_params)
     end
 
     if @request.save
       # Mandar Correo a supervisor
-      # Render de mensaje de exito, numero de solicitud y volver a Home
-      params[:request_id] = rand(1000000..9999999)
+      # Crear request number
+      id = @request.id.to_s+SecureRandom.hex(3)
+      @request.update_attributes(n_request: id)
+      params[:n_request] = id
+      # Render success message
       render layout: 'success'
     else
       # Render mensaje de error y volver a Home
+      params[:errors]= @request.errors.to_json
       render layout: 'error'
     end
 
@@ -212,16 +231,8 @@ class RequestsController < ApplicationController
     def request_params
       params.permit(:request, :item, :model, :plan, :contract, :file, :status,
         :comment, :comment_stolen_lost, :email_sended, :want_replacement,
-        :want_sim, :phone_number, :transfer_line_type, :price, :closed_at, :user_id)
+        :want_sim, :want_new_number, :phone_number, :transfer_line_type, :price,
+        :closed_at, :user_id)
     end
 
-    def transfer_line_params
-      params.permit(:request, :item, :contract, :file, :status, :email_sended,
-        :phone_number, :transfer_line_type, :closed_at, :user_id)
-    end
-
-    def new_sp_params
-      params.permit(:request, :item, :model, :contract, :file, :status, :comment,
-        :email_sended, :want_sim, :phone_number, :closed_at, :user_id)
-    end
 end

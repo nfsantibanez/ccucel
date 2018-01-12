@@ -59,10 +59,10 @@
   <script type="text/javascript">
   $(document).ready(function(){
     // Display secondary menus
-    request_id = $('#request_id').val();
+    errors = $('#errors').val();
     swal({
       title: 'A Ocurrido un Error al Procesar la Solicitud',
-      text: 'Reintente mas Tarde',
+      text: 'Reintente mas Tarde '+ errors,
       type: 'error',
       confirmButtonText: 'Aceptar',
       confirmButtonColor: "#DD6B55",
@@ -72,7 +72,7 @@
 
 </head>
 <body>
-<%= hidden_field_tag :request_id, params[:request_id] %>
+<%= hidden_field_tag :errors, params[:errors] %>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">

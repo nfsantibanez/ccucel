@@ -2,17 +2,17 @@
 <hr>
 <h1>Requests</h1>
 <hr>
+
 <div class="container-fluid">
   <div class="table-responsive">
     <table class="table table-hover table-condensed">
       <thead class="thead-dark">
         <tr>
+          <th scope="col" class= text-center>n° Solicitud</th>
           <th scope="col" class= text-center>Tipo Solicitud</th>
           <th scope="col" class= text-center>Item Solicitado</th>
-          <th scope="col" class= text-center>Solicitud</th>
+          <th scope="col" class= text-center >Solicitud</th>
           <th scope="col" class= text-center>Estado</th>
-          <th scope="col" class= text-center>Modelo</th>
-          <th scope="col" class= text-center>Plan Bam/Roaming</th>
           <th scope="col" class= text-center>Precio</th>
           <th scope="col" class= text-center>Fecha Creacion</th>
           <th scope="col" class= text-center>Fecha Cierre</th>
@@ -26,12 +26,11 @@
       <tbody>
         <% @requests.each do |request| %>
           <tr>
+            <td><%= request.n_request %></td>
             <td><%= request.request %></td>
             <td><%= request.item %></td>
             <td><%= request.email_sended %></td>
             <td><%= request.status %></td>
-            <td><%= request.model %></td>
-            <td><%= request.plan %></td>
             <td><%= request.price %></td>
             <td><%= request.created_at %></td>
             <td><%= request.closed_at %></td>

@@ -1,6 +1,7 @@
 class CreateRequests < ActiveRecord::Migration[5.1]
   def change
     create_table :requests do |t|
+      t.string :n_request
       t.string :request, null: false
       t.string :item, null: false
       t.string :model, null: false, default: 'default'
@@ -13,6 +14,7 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.string :email_sended
       t.boolean :want_replacement
       t.boolean :want_sim
+      t.boolean :want_new_number
       t.string :phone_number
       t.string :transfer_line_type
       t.string :price

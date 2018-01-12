@@ -51,11 +51,6 @@
 </p>
 
 <p>
-  <strong>Business Unit:</strong>
-  <%= @user.business_unit %>
-</p>
-
-<p>
   <strong>JobCode:</strong>
   <%= @user.jobcode %>
 </p>
@@ -66,18 +61,19 @@
 </p>
 
 <p>
-  <strong>Smartphone id:</strong>
-  <%= @user.smartphone_id %>
+  <strong>Smartphone Asignado:</strong>
+  <%= link_to 'Smartphone', @user.smartphone_id%>
 </p>
 
 <p>
-  <strong>Bam id:</strong>
-  <%= @user.bam_id %>
+  <strong>Bam Asignado:</strong>
+  <%= link_to 'Bam', @user.bam_id%>
 </p>
 
 <p>
-  <strong>Sim id:</strong>
-  <%= @user.sim_id %>
+  <strong>Sim Asignada:</strong>
+  <%= link_to 'Sim', @user.sim_id%>
+  <%= @user.attributes %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

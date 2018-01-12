@@ -87,17 +87,16 @@ $(document).ready(function(){
 
     // Submit Event
     $("form").submit(function(e){
-      var phone = $.trim($('input[name="number"]').val());
+      var phone = $.trim($('input[name="phone_number"]').val());
       var request =  $("input[name=item]").val();
       var w_sim = $('input:checked[name="want_sim"]').val();
       var w_new_number = $('input:checked[name="want_new_number"]').val();
       var start_date = new Date($('input[name="start_date"]').val());
       var end_date = new Date($('input[name="end_date"]').val());
       var comment = $.trim($("#comment").val());
-      var text = $.trim($("#model_text").val());
       var check = $("#checkbox").is(":checked");
 
-      if(request == 'smartphone' && check == true && text.length < 10){
+      if(request == 'smartphone' && check == true && comment.length < 10){
         swal({
           title: 'Datos Inválidos!',
           text: 'Debes Ingresar una descripción de al menos 10 caracteres en el motivo de eleccion del modelo que has elegido',

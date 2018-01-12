@@ -57,29 +57,29 @@ class ApplicationController < ActionController::Base
 
   # Get all smartphones availables for the country
   def available_smartphones_all(country)
-    sp = Smartphone.select('model, code, price').where('state= ? AND country= ?',
+    sp = Smartphone.select('id, model, code, price').where('state= ? AND country= ?',
       'catalog',country).uniq(&:code)
     # Format to show in view
-    smp = sp.map { |m| [m.model, m] }
+    smp = sp.map { |m| [m.model, m.id] }
     return smp
   end
 
   # Get smartphones availables for the country by category
   def available_smartphones_category(country, category)
-    sp = Smartphone.select('model, code, price, category').where('state= ? AND country= ? AND (category= ? OR category= ?)',
+    sp = Smartphone.select('id, model, code, price, category').where('state= ? AND country= ? AND (category= ? OR category= ?)',
     'catalog',country, category, 'ALL')
     # Format to show in view
-    smp = sp.map { |m| [m.model, m] }
+    smp = sp.map { |m| [m.model, m.id] }
     return smp
 
   end
 
   # Get bams availables for users (all categories can access the models)
   def available_bams(country)
-    bm = Bam.select('model, code, price').where('state= ? AND country= ?','catalog',
+    bm = Bam.select('id, model, code, price').where('state= ? AND country= ?','catalog',
       country)
     # Format to show in view
-    bam = bm.map { |m| [m.model, m] }
+    bam = bm.map { |m| [m.model, m.id] }
     return bam
   end
 
@@ -139,6 +139,19 @@ class ApplicationController < ActionController::Base
       items[:sim] = sim
     end
     return items
+  end
+
+  # Build message for request and email
+  def build_message(att)
+    user = User.find(att["user_id"])
+    user_info = user["name"]+" "+user["last_name"]+", "+user["jobtitle"]+
+    ", perteneciente al centro de costos "+user["deptname"]+", a cursado una solicitud para "
+
+    if att["request"] == "transfer line"
+      ms = user_info+att["transfer_line_type"]+" su linea de teléfono con número telefónico: +56 9 "+att["phone_number"]
+    end
+
+    return ms
   end
 
 
