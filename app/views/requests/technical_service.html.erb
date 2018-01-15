@@ -53,8 +53,9 @@
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
     <div class="well form-horizontal">
 
-      <%= form.hidden_field :item, value: @user["item"], id: "item" %>
+      <%= form.hidden_field :item, value: @user["item"] %>
       <%= form.hidden_field :user_id, value: @user["id"] %>
+      <%= form.hidden_field :request, value: @user["request"] %>
 
       <!-- Cargar Informacion del usuario para mostrar -->
       <%= render partial: '/layouts/user_info', locals: {form: form} %>

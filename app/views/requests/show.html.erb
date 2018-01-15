@@ -33,12 +33,12 @@
 <%if @request.item == 'roaming'%>
 <p>
   <strong>Fecha Inicio Viaje: </strong>
-  <%= @request.region %>
+  <%= @request.start_date.strftime('%d/%m/%Y')  %>
 </p>
 
 <p>
   <strong>Fecha Término Viaje: </strong>
-  <%= @request.region %>
+  <%= @request.end_date.strftime('%d/%m/%Y')  %>
 </p>
 
 <p>
@@ -96,12 +96,12 @@
 
 <p>
   <strong>Fecha Creación: </strong>
-  <%= @request.created_at.localtime %>
+  <%= @request.created_at.localtime.strftime('%d/%m/%Y %H:%M:%S') %>
 </p>
 
 <p>
   <strong>Fecha Cierre:</strong>
-  <%= @request.closed_at.localtime unless !@request.closed_at%>
+  <%= @request.closed_at.localtime.strftime('%d/%m/%Y %H:%M:%S') unless !@request.closed_at%>
 </p>
 
 <%if @request.request == 'technical service' %>
@@ -131,9 +131,9 @@
   <%if @request.transfer_line_type == 'liberar'%>
     <p>
       <strong>Número de Teléfono a liberar:</strong>
-  <%elsif @request.transfer_line_type == 'ceder'%>
+  <%elsif @request.number_type == 'same'%>
     <p>
-      <strong>Número de Teléfono a ceder:</strong>
+      <strong>Número de Teléfono que mantiene actualmente:</strong>
   <%else%>
     <p>
       <strong>Número de Teléfono cedido:</strong>

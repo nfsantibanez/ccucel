@@ -167,7 +167,8 @@ class ApplicationController < ActionController::Base
 
     # Transfer line
     if params["request"] == "transfer line"
-      ms = user_info+params["transfer_line_type"]+" su linea de teléfono con número telefónico: +56 9 "+params["phone_number"]
+      ms = user_info+params["transfer_line_type"]+" su linea de teléfono con número telefónico: +56 9 "+
+      params["phone_number"]
     # Smartphone
     elsif params["item"] == "smartphone"
       # Get smartphone info
@@ -182,13 +183,36 @@ class ApplicationController < ActionController::Base
       end
       # New
       if params["request"] == "new"
-        ms = user_info+" un nuevo smartphone modelo "+params["model"]["model"]+", con un valor de $"+params["model"]['price'].to_s+". "
+        ms = user_info+" un nuevo smartphone modelo "+params["model"]["model"]+
+        ", con un valor de $"+params["model"]['price'].to_s+". "
         if params["want_sim"] == "true"
           ms+= "El smartphone debe traer tarjeta Sim y el número de teléfono asociado a él "
           if params["want_new_number"] == "true"
             ms+= "debe ser nuevo."
           else
-            ms+= "será cedido por el usuario, correspondiente al número telefónico: +56 9 "+params["phone_number"]+"."
+            ms+= "será cedido por el usuario, correspondiente al número telefónico: +56 9 "+
+            params["phone_number"]+"."
+          end
+        else
+          ms+= "El smartphone no debe traer tarjeta Sim"
+        end
+      # Renew
+      elsif params["request"] == "renew"
+        ms = user_info+" renovar su smartphone, eligiendo el modelo "+params["model"]["model"]+
+        ", con un valor de $"+params["model"]['price'].to_s+". "
+        if params["want_sim"] == "true"
+          ms+= "El smartphone debe traer tarjeta Sim y el número de teléfono asociado a él "
+          if params["number_type"] == "new"
+            ms+= "debe ser nuevo."
+            params["want_new_number"] = true
+          elsif  params["number_type"] == "same"
+            ms+= "será el mismo que tiene asignado actualmente el usuario, correspondiente al número telefónico: +56 9 "+
+            params["same_number"]+"."
+            params["want_new_number"] = false
+          else
+            ms+= "será cedido por el usuario, correspondiente al número telefónico: +56 9 "+
+            params["phone_number"]+"."
+            params["want_new_number"] = false
           end
         else
           ms+= "El smartphone no debe traer tarjeta Sim"
@@ -200,14 +224,14 @@ class ApplicationController < ActionController::Base
     elsif params["item"] == "bam"
       # Get bam model's info
       params["model"] = get_bam(params["model"])
-      puts(params["model"])
-      # Get bam plan''s info
+      # Get bam plan's info
       params["plan"] = get_plan(params["plan"])
-      puts(params["plan"])
       # New
       if params["request"] == "new"
         # Message
-        ms = user_info+" un nuevo Bam modelo "+params["model"]["model"]+", con el plan: "+params["plan"]["name"]+", el cual tiene un valor de $"+params["plan"]['price'].to_s+". "
+        ms = user_info+" un nuevo Bam modelo "+params["model"]["model"]+",
+        con el plan: "+params["plan"]["name"]+", el cual tiene un valor de $"+
+        params["plan"]['price'].to_s+". "
       end
 
     # Sim
@@ -218,9 +242,27 @@ class ApplicationController < ActionController::Base
         ms+= " debe ser nuevo."
       else
         # Message
-        ms+= " será cedido por el usuario, correspondiente al número telefónico: +56 9 "+params["phone_number"]+"."
-
+        ms+= " será cedido por el usuario, correspondiente al número telefónico: +56 9 "+
+        params["phone_number"]+"."
       end
+
+    # Roaming
+    elsif params["item"] == "roaming"
+      # Get Roaming plan's info
+      params["plan"] = get_plan(params["plan"])
+      # Modify date
+      date_split  =  params["start_date"].split("-")
+      params["start_date"] = Date.parse(date_split[2]+"/"+date_split[1]+"/"+date_split[0])
+      puts(params["start_date"])
+
+      date_split  =  params["end_date"].split("-")
+      params["end_date"] = Date.parse(date_split[2]+"/"+date_split[1]+"/"+date_split[0])
+      puts(params["end_date"])
+      # Message
+      ms = user_info+" el servicio Roaming, con el plan: "+params["plan"]["name"]+
+      ", el cual tiene un valor de $"+params["plan"]['price'].to_s+". El servicio
+      se solicita ya que el trabajador viaja al extranjero debido a: "+params["comment"]+
+      ", entre las fechas: "+params["start_date"].strftime('%d/%m/%Y')+" y "+params["end_date"].strftime('%d/%m/%Y')+"."
     end
 
     return ms

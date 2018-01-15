@@ -15,6 +15,7 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.boolean :want_replacement
       t.boolean :want_sim
       t.boolean :want_new_number
+      t.string :number_type
       t.string :phone_number
       t.string :transfer_line_type
       t.string :price

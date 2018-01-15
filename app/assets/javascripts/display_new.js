@@ -49,11 +49,12 @@ $(document).ready(function(){
     };
 
     // Display countries and plan/bag details
-    $("#region, .roaming_country, .roaming_plan_bag").change(function(){
+    var display_plans = function(){
         $("#region").find("option:selected").each(function(){
             var region = $("#region option:selected").val();
             var request =  $("input[name=item]").val();
             var country = $("#"+region+" option:selected").val();
+            $("#africa option:selected").val(country);
             var plan = $("#plan option:selected").val();
             $(".roaming_country").hide()
             $(".roaming_plan_bag").hide()
@@ -61,6 +62,7 @@ $(document).ready(function(){
             if(request == 'roaming'){
               $("#"+region).show()
               if (country != 'otro'){
+                $("#bag option:selected").val(plan);
                 $("#plan").show()
                 $("#bag").hide()
                 $("#details_"+plan).show()
@@ -71,7 +73,7 @@ $(document).ready(function(){
               }
             }
         });
-    }).change();
+    };
 
     // Display plan details bam
     $("#bam_plans").change(function(){
@@ -155,6 +157,8 @@ $(document).ready(function(){
 
     // Link events to function
     $(display_menus)
+    $(display_plans)
+    $("#region, .roaming_country, .roaming_plan_bag").change(display_plans);
     $('input[name="want_sim"]').change(display_menus);
     $('input[name="want_new_number"]').change(display_menus);
 

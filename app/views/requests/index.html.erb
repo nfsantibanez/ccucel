@@ -32,8 +32,8 @@
             <td><%= request.email_sended %></td>
             <td><%= request.status %></td>
             <td><%= request.price %></td>
-            <td><%= request.created_at.localtime %></td>
-            <td><%= request.closed_at.localtime unless !request.closed_at %></td>
+            <td><%= request.created_at.localtime.strftime('%d/%m/%Y %H:%M:%S') %></td>
+            <td><%= request.closed_at.localtime.strftime('%d/%m/%Y %H:%M:%S') unless !request.closed_at %></td>
             <td><%= link_to 'User', request.user %></td>
             <td><%= link_to 'Show', request %></td>
             <td><%= link_to 'Edit', edit_request_path(request) %></td>

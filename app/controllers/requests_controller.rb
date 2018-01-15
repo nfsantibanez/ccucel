@@ -116,6 +116,10 @@ class RequestsController < ApplicationController
 
   # Function to create Request by User Request
   def create_user
+
+    puts('*'*40)
+    puts(params)
+
     # Create message to resume Request
     ms = build_message
     # add message to params
@@ -133,7 +137,7 @@ class RequestsController < ApplicationController
       @request = Request.new(request_params)
 
     # New Smartphone
-    elsif params["request"] == "new" && params["item"] == "smartphone"
+    elsif (params["request"] == "new" || params["request"] == "renew") && params["item"] == "smartphone"
       # Get smartphone models's price
       params["price"] = params["model"]["price"]
       # Get smartphone models's name
@@ -157,8 +161,10 @@ class RequestsController < ApplicationController
 
     # New Roaming
     elsif params["request"] == "new" && params["item"] == "roaming"
-      puts('*'*40)
-      puts(params)
+      # Get Roaming plan's price
+      params["price"] = params["plan"].price
+      # Get Roaming plan's name
+      params["plan"] = params["plan"].name
       @request = Request.new(request_params)
     end
 
@@ -259,7 +265,7 @@ class RequestsController < ApplicationController
       params.permit(:request, :item, :model, :plan, :contract, :file, :status,
         :comment, :comment_stolen_lost, :email_sended, :want_replacement,
         :want_sim, :want_new_number, :phone_number, :transfer_line_type, :price,
-        :closed_at, :user_id)
+        :region, :country, :start_date,  :end_date, :closed_at, :user_id)
     end
 
 end
