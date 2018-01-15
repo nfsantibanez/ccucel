@@ -55,6 +55,24 @@ class ApplicationController < ActionController::Base
     return user_db
   end
 
+  # Get all info of smartphone
+  def get_smartphone(id)
+    sp = Smartphone.find(id)
+    return sp
+  end
+
+  # Get all info of Bam
+  def get_bam(id)
+    bam = Bam.find(id)
+    return bam
+  end
+
+  # Get all info of Plan/bag
+  def get_plan(id)
+    plan = Plan.find(id)
+    return plan
+  end
+
   # Get all smartphones availables for the country
   def available_smartphones_all(country)
     sp = Smartphone.select('id, model, code, price').where('state= ? AND country= ?',
@@ -142,13 +160,67 @@ class ApplicationController < ActionController::Base
   end
 
   # Build message for request and email
-  def build_message(att)
-    user = User.find(att["user_id"])
-    user_info = user["name"]+" "+user["last_name"]+", "+user["jobtitle"]+
+  def build_message
+    user = User.find(params["user_id"])
+    user_info = user["name"]+" "+user["last_name"]+" ("+user["email"]+"), "+user["jobtitle"]+
     ", perteneciente al centro de costos "+user["deptname"]+", a cursado una solicitud para "
 
-    if att["request"] == "transfer line"
-      ms = user_info+att["transfer_line_type"]+" su linea de teléfono con número telefónico: +56 9 "+att["phone_number"]
+    # Transfer line
+    if params["request"] == "transfer line"
+      ms = user_info+params["transfer_line_type"]+" su linea de teléfono con número telefónico: +56 9 "+params["phone_number"]
+    # Smartphone
+    elsif params["item"] == "smartphone"
+      # Get smartphone info
+      if params["want_all"] == '0'
+        params["model"] = get_smartphone(params["model_one"])
+        params["price"] =   params["model"]["price"]
+        motive = ""
+      else
+        params["model"] = get_smartphone(params["model_all"])
+        motive = " El modelo smartphone elegido no corresponde al cargo que tiene el trabajador.
+        El motivo de la elección que ha dado el trabajador es: "+params["comment"]+"."
+      end
+      # New
+      if params["request"] == "new"
+        ms = user_info+" un nuevo smartphone modelo "+params["model"]["model"]+", con un valor de $"+params["model"]['price'].to_s+". "
+        if params["want_sim"] == "true"
+          ms+= "El smartphone debe traer tarjeta Sim y el número de teléfono asociado a él "
+          if params["want_new_number"] == "true"
+            ms+= "debe ser nuevo."
+          else
+            ms+= "será cedido por el usuario, correspondiente al número telefónico: +56 9 "+params["phone_number"]+"."
+          end
+        else
+          ms+= "El smartphone no debe traer tarjeta Sim"
+        end
+      ms+= motive
+      end
+
+    # Bam
+    elsif params["item"] == "bam"
+      # Get bam model's info
+      params["model"] = get_bam(params["model"])
+      puts(params["model"])
+      # Get bam plan''s info
+      params["plan"] = get_plan(params["plan"])
+      puts(params["plan"])
+      # New
+      if params["request"] == "new"
+        # Message
+        ms = user_info+" un nuevo Bam modelo "+params["model"]["model"]+", con el plan: "+params["plan"]["name"]+", el cual tiene un valor de $"+params["plan"]['price'].to_s+". "
+      end
+
+    # Sim
+    elsif params["item"] == "sim"
+      # Message
+      ms = user_info+" una nueva Sim y el número de teléfono asociado a él"
+      if params["want_new_number"] == "true"
+        ms+= " debe ser nuevo."
+      else
+        # Message
+        ms+= " será cedido por el usuario, correspondiente al número telefónico: +56 9 "+params["phone_number"]+"."
+
+      end
     end
 
     return ms

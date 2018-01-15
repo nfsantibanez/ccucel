@@ -18,6 +18,10 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.string :phone_number
       t.string :transfer_line_type
       t.string :price
+      t.string :region
+      t.string :country
+      t.datetime :start_date
+      t.datetime :end_date
       t.datetime :closed_at
       t.references :user, foreign_key: true
 

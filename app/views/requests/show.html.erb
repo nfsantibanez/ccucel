@@ -1,54 +1,160 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Request:</strong>
+  <strong>n° Solicittud: </strong>
+  <%= @request.n_request %>
+</p>
+
+<p>
+  <strong>Tipo de Solicitud: </strong>
   <%= @request.request %>
 </p>
 
 <p>
-  <strong>Item:</strong>
+  <strong>Item Solicitado: </strong>
   <%= @request.item %>
 </p>
 
 <p>
-  <strong>Model:</strong>
-  <%= @request.model %>
+  <strong>Nombre Solicitante:</strong>
+  <%= @request.user.name+" "+@request.user.last_name %>
 </p>
 
+<p>
+  <strong>Correo Solicitante:</strong>
+  <%= @request.user.email %>
+</p>
+
+<p>
+  <strong>Solicitud: </strong>
+  <%= @request.email_sended  %>
+</p>
+
+<%if @request.item == 'roaming'%>
+<p>
+  <strong>Fecha Inicio Viaje: </strong>
+  <%= @request.region %>
+</p>
+
+<p>
+  <strong>Fecha Término Viaje: </strong>
+  <%= @request.region %>
+</p>
+
+<p>
+  <strong>Región de Destino: </strong>
+  <%= @request.region %>
+</p>
+
+<p>
+  <strong>País de Destino: </strong>
+  <%= @request.country %>
+</p>
+<%end%>
+
+<%if @request.item == 'bam' || @request.item == 'smartphone'%>
+<p>
+  <strong>Modelo: </strong>
+  <%= @request.model %>
+</p>
+<%end%>
+
+<%if @request.item == 'bam' || @request.item == 'roaming'%>
 <p>
   <strong>Plan Bam/Roaming:</strong>
   <%= @request.plan %>
 </p>
+<%end%>
 
 <p>
-  <strong>Contract:</strong>
-  <%= @request.contract %>
-</p>
-
-<p>
-  <strong>File:</strong>
-  <%= @request.file %>
-</p>
-
-<p>
-  <strong>Status:</strong>
+  <strong>Estado: </strong>
   <%= @request.status %>
 </p>
 
+
+<%puts(@request.request)%>
+<%if @request.request != 'release line' && @request.request != 'transfer line' && @request.item != 'sim'%>
 <p>
-  <strong>Comment:</strong>
+  <strong>Precio: </strong>
+  <%= '$'+@request.price %>
+</p>
+<%end%>
+
+<%if @request.item == 'smartphone'%>
+<p>
+  <strong>Comentarios Modelo:</strong>
   <%= @request.comment %>
 </p>
+<%end%>
+
+<%if @request.request == 'stolen/lost'%>
+  <p>
+    <strong> Descripción Robo/Pérdida: </strong>
+    <%= @request.comment_stolen_lost %>
+  </p>
+<%end%>
 
 <p>
-  <strong>Closed at:</strong>
-  <%= @request.closed_at %>
+  <strong>Fecha Creación: </strong>
+  <%= @request.created_at.localtime %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @request.user %>
+  <strong>Fecha Cierre:</strong>
+  <%= @request.closed_at.localtime unless !@request.closed_at%>
 </p>
+
+<%if @request.request == 'technical service' %>
+<p>
+  <strong>Quizo Equipo reemplazo?: </strong>
+  <%= @request.want_replacement %>
+</p>
+<%end%>
+
+<%if @request.item == 'smartphone' ||  @request.item == 'sim'%>
+<p>
+  <strong>Quizo Sim?:</strong>
+  <%= @request.want_sim %>
+</p>
+
+<%if @request.want_sim == true%>
+  <p>
+    <strong>Quizo número nuevo?:</strong>
+    <%= @request.want_new_number %>
+  </p>
+  <%end%>
+<%end%>
+
+<%if @request.want_new_number == false || @request.transfer_line_type == 'ceder' ||
+  @request.transfer_line_type == 'liberar'%>
+
+  <%if @request.transfer_line_type == 'liberar'%>
+    <p>
+      <strong>Número de Teléfono a liberar:</strong>
+  <%elsif @request.transfer_line_type == 'ceder'%>
+    <p>
+      <strong>Número de Teléfono a ceder:</strong>
+  <%else%>
+    <p>
+      <strong>Número de Teléfono cedido:</strong>
+  <%end%>
+  <%= '+56 9 '+@request.phone_number %>
+  </p>
+<%end%>
+
+<%if @request.contract %>
+<p>
+  <strong>Contrato: </strong>
+  <%= @request.contract %>
+</p>
+<%end%>
+
+<%if @request.file%>
+<p>
+  <strong>Archivo: </strong>
+  <%= @request.file %>
+</p>
+<%end%>
 
 <%= link_to 'Edit', edit_request_path(@request) %> |
 <%= link_to 'Back', requests_path %>

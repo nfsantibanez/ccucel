@@ -117,10 +117,10 @@ class RequestsController < ApplicationController
   # Function to create Request by User Request
   def create_user
     # Create message to resume Request
-    ms = build_message(params)
+    ms = build_message
     # add message to params
     params[:email_sended] = ms
-    
+
     # Classify by request type to process params
     # Transfer line
     if params["request"] == "transfer line"
@@ -131,19 +131,46 @@ class RequestsController < ApplicationController
       end
       # Create Request
       @request = Request.new(request_params)
+
     # New Smartphone
     elsif params["request"] == "new" && params["item"] == "smartphone"
+      # Get smartphone models's price
+      params["price"] = params["model"]["price"]
+      # Get smartphone models's name
+      params["model"] = params["model"]["model"]
+      @request = Request.new(request_params)
+
+    # New Bam
+    elsif params["request"] == "new" && params["item"] == "bam"
+      # Get bam models's name
+      params["model"] = params["model"].model
+      # Get bam plan's price
+      params["price"] = params["plan"].price
+      # Get bam plan's name
+      params["plan"] = params["plan"].name
+      @request = Request.new(request_params)
+
+    # New Sim
+    elsif params["request"] == "new" && params["item"] == "sim"
+      params["want_sim"] = true
+      @request = Request.new(request_params)
+
+    # New Roaming
+    elsif params["request"] == "new" && params["item"] == "roaming"
+      puts('*'*40)
       puts(params)
-      puts('2222222222')
       @request = Request.new(request_params)
     end
 
+    # If request was successfully created
     if @request.save
       # Mandar Correo a supervisor
       # Crear request number
       id = @request.id.to_s+SecureRandom.hex(3)
-      @request.update_attributes(n_request: id)
       params[:n_request] = id
+      # Update Attributtes
+      @request.update_attributes(n_request: id)
+
       # Render success message
       render layout: 'success'
     else

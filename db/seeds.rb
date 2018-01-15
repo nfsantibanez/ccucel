@@ -95,7 +95,7 @@ smartphones = Smartphone.create!([
     code: '106583', state: 'catalog', country: 'CHL'},
   {model: 'Samsung Galaxy J5', category: 'OO', price: 40333, code: '106583',
     state: 'catalog', country: 'CHL'},
-  {model: 'Own F1035', category: 'ALL', price: 40333, code: '162050',
+  {model: 'Own F1035', category: 'ALL', price: 0, code: '162050',
     state: 'catalog', country: 'CHL'}
 ])
 puts(smartphones)
@@ -120,7 +120,7 @@ smartphones = Smartphone.create!([
     code: '205583', state: 'catalog', country: 'ARG'},
   {model: 'iPhone 6', category: 'OO', price: 40333, code: '205583',
     state: 'catalog', country: 'ARG'},
-  {model: 'Own F1035', category: 'ALL', price: 40333, code: '205050',
+  {model: 'Own F1035', category: 'ALL', price: 0, code: '205050',
     state: 'catalog', country: 'ARG'}
 ])
 puts(smartphones)
