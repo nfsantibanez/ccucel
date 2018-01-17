@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get '/requests/forms/stolenlost' => 'requests#stolen_lost'
   # Technical Service Form
   get '/requests/forms/technicalservice' => 'requests#technical_service'
+  # Technical Service Form
+  get '/requests/files/:id' => 'requests#download_file'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

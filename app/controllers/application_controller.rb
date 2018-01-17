@@ -169,6 +169,14 @@ class ApplicationController < ActionController::Base
     return items
   end
 
+  #Upload file
+  def upload_file(file)
+    File.open(Rails.root.join('public', 'uploads', file.original_filename), 'wb') do |f|
+      f.write(file.read)
+    end
+  end
+
+
   # Build message for request and email
   def build_message
     user = User.find(params["user_id"])
@@ -181,6 +189,7 @@ class ApplicationController < ActionController::Base
       params["phone_number"]
     # Smartphone
     elsif params["item"] == "smartphone"
+      lost = ""
       # Get smartphone info
       if params["want_all"] == '0'
         params["model"] = get_smartphone(params["model_one"])
@@ -204,12 +213,19 @@ class ApplicationController < ActionController::Base
             params["phone_number"]+"."
           end
         else
-          ms+= "El smartphone no debe traer tarjeta Sim"
+          ms+= "El smartphone no debe traer tarjeta Sim."
         end
-      # Renew
-      elsif params["request"] == "renew"
+      # Renew, stolen/lost
+      elsif params["request"] == "renew" || params["request"] == "stolen/lost"
         ms = user_info+" renovar su smartphone, eligiendo el modelo "+params["model"]["model"]+
         ", con un valor de $"+params["model"]['price'].to_s+". "
+
+        if params["request"] == "stolen/lost"
+          ms = user_info+" un nuevo smartphone modelo "+params["model"]["model"]+
+          ", con un valor de $"+params["model"]['price'].to_s+". "
+          lost = " Esta solicitud fue cursada por la pérdido o robo del smartphone que el trabajador tenia asignado anteriormente."
+        end
+
         if params["want_sim"] == "true"
           ms+= "El smartphone debe traer tarjeta Sim y el número de teléfono asociado a él "
           if params["number_type"] == "new"
@@ -228,7 +244,7 @@ class ApplicationController < ActionController::Base
         else
           ms+= "El smartphone no debe traer tarjeta Sim"
         end
-      ms+= motive
+      ms+= motive+lost
       end
 
     # Bam
@@ -237,12 +253,17 @@ class ApplicationController < ActionController::Base
       params["model"] = get_bam(params["model"])
       # Get bam plan's info
       params["plan"] = get_plan(params["plan"])
-      # New
-      if params["request"] == "new"
+      # New, stolen/lost
+      if params["request"] == "new" || params["request"] == "stolen/lost"
         # Message
         ms = user_info+" un nuevo Bam modelo "+params["model"]["model"]+",
         con el plan: "+params["plan"]["name"]+", el cual tiene un valor de $"+
         params["plan"]['price'].to_s+". "
+
+        if params["request"] == "stolen/lost"
+          ms+= " Esta solicitud fue cursada por la pérdido o robo del Bam que el trabajador tenia asignado anteriormente."
+        end
+
       # Renew
       elsif params["request"] == "renew"
         # Message

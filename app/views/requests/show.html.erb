@@ -30,6 +30,13 @@
   <%= @request.email_sended  %>
 </p>
 
+<%if @request.item == 'stolen/lost'%>
+<p>
+  <strong>Fecha del Suceso: </strong>
+  <%= @request.start_date.strftime('%d/%m/%Y')  %>
+</p>
+<%end%>
+
 <%if @request.item == 'roaming'%>
 <p>
   <strong>Fecha Inicio Viaje: </strong>
@@ -148,11 +155,13 @@
 <%end%>
 
 <%if @request.file%>
-<p>
-  <strong>Archivo: </strong>
-  <%= @request.file %>
-</p>
+  <%if @request.request == 'stolen/lost'%>
+    <p>
+      <strong>Copia constancia: </strong>
+      <%= link_to 'Download', 'files/'+@request.n_request %>
+    </p>
+  <%end%>
 <%end%>
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Edit', edit_request_path(@request) %>
 <%= link_to 'Back', requests_path %>

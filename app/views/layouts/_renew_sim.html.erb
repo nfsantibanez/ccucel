@@ -16,18 +16,30 @@
   <hr>
 
     <div id= "same_number" class="field-center">
+      <br>
       <% if @items.has_key?(:sim) %>
-        <%= form.label :number, 'Número asignado: '%>
-        <%= form.label :number, '+56 9 '+@items[:sim].phone_number.to_s, class:"text-center", size: "12" %>
-        <p></p>
-        <div class="alert alert-danger">Se le asignará el mismo número de teléfono que la SIM
-        perdida/robada</div>
-        <% if  @items[:sim].phone_number.to_s.empty?%>
-            <p></p>
-            <div class="alert alert-danger">Sim no tiene un número de teléfono asociado en el sistema</div>
+        <% if !@items[:sim].phone_number.to_s.empty? %>
+          <%= form.label :phone_number, 'Número asignado: '%>
+          <%= form.label :phone_number, '+56 9 '+@items[:sim].phone_number.to_s, class:"text-center", size: "12" %>
+          <%= form.hidden_field :phone_number, value: @items[:sim].phone_number.to_s %>
+        <% else %>
+          <p></p>
+          <div class="alert alert-danger">Sim no tiene un número de teléfono asignado en el sistema,
+            Ingrese el número telefónico actual que tiene asociado a CCU</div>
+          <br>
+          <%= form.label :phone_number, 'Ingrese Número: +56 9' %>
+          <%= form.text_field :phone_number %>
         <% end %>
+      <% else %>
+      <p></p>
+      <div class="alert alert-danger">Usuario no tiene una Sim asignada en el sistema,
+        si tiene una Sim asociada a CCU ingrese el número telefónico de la Sim</div>
+        <br>
+        <%= form.label :phone_number, 'Ingrese Número: +56 9' %>
+        <%= form.text_field :phone_number %>
       <% end %>
     </div>
+
   </div>
 
 </body>

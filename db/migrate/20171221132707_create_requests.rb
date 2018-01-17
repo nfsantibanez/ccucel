@@ -7,7 +7,11 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.string :model, null: false, default: 'default'
       t.string :plan, null: false, default: 'default'
       t.binary :contract
+      t.string :contract_type
+      t.string :contract_name
       t.binary :file
+      t.string :file_type
+      t.string :file_name
       t.string :status, null: false, default: 'created'
       t.string :comment
       t.string :comment_stolen_lost

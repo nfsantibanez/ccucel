@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-17 14:38:19", null: false
-    t.datetime "last_assign_at", default: "2018-01-17 14:38:19", null: false
+    t.datetime "renovation_at", default: "2020-01-17 19:00:26", null: false
+    t.datetime "last_assign_at", default: "2018-01-17 19:00:26", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,7 +49,11 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "model", default: "default", null: false
     t.string "plan", default: "default", null: false
     t.binary "contract"
+    t.string "contract_type"
+    t.string "contract_name"
     t.binary "file"
+    t.string "file_type"
+    t.string "file_name"
     t.string "status", default: "created", null: false
     t.string "comment"
     t.string "comment_stolen_lost"
@@ -80,7 +84,7 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
     t.string "order_note"
-    t.datetime "last_assign_at", default: "2018-01-17 14:38:19", null: false
+    t.datetime "last_assign_at", default: "2018-01-17 19:00:26", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,8 +101,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-17 14:38:19", null: false
-    t.datetime "last_assign_at", default: "2018-01-17 14:38:19", null: false
+    t.datetime "renovation_at", default: "2020-01-17 19:00:27", null: false
+    t.datetime "last_assign_at", default: "2018-01-17 19:00:27", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

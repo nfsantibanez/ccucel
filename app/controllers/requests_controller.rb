@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   require 'securerandom'
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   layout 'general_view', except: [:create_user, :index]
-  # layout 'admin_view', only: [:index]
+
 
   # GET /requests
   # GET /requests.json
@@ -136,23 +136,39 @@ class RequestsController < ApplicationController
       # Create Request
       @request = Request.new(request_params)
 
-    # New, Renew Smartphone
-    elsif (params["request"] == "new" || params["request"] == "renew") && params["item"] == "smartphone"
+    # Item Smartphone
+    elsif params["item"] == "smartphone"
       # Get smartphone models's price
       params["price"] = params["model"]["price"]
       # Get smartphone models's name
       params["model"] = params["model"]["model"]
+
+      # Stolen/lost case
+      if params["request"] == "stolen/lost"
+        # Set file information
+        params[:file_type] = params[:file].content_type
+        params[:file_name] = params[:file].original_filename
+        params[:file] = params[:file].read
+      end
+
       @request = Request.new(request_params)
 
-    # New, Renew Bam
-    elsif (params["request"] == "new" || params["request"] == "renew") && params["item"] == "bam"
-      if params["request"] == "new"
+    # Item Bam
+    elsif  params["item"] == "bam"
+      if params["request"] == "new" || params["request"] == "stolen/lost"
         # Get bam model's name
         params["model"] = params["model"].model
         # Get bam plan's price
         params["price"] = params["plan"].price
         # Get bam plan's name
         params["plan"] = params["plan"].name
+
+        if params["request"] == "stolen/lost"
+          # Set file information
+          params[:file_type] = params[:file].content_type
+          params[:file_name] = params[:file].original_filename
+          params[:file] = params[:file].read
+        end
 
       elsif params["request"] == "renew"
         # Get bam models's price
@@ -185,8 +201,6 @@ class RequestsController < ApplicationController
       @request = Request.new(request_params)
     end
 
-
-
     # If request was successfully created
     if @request.save
       # Mandar Correo a supervisor
@@ -207,6 +221,11 @@ class RequestsController < ApplicationController
 
   end
 
+  # Option to download the file
+  def download_file
+    @request = Request.find_by_n_request(params[:id])
+    send_data(@request.file, type: @request.file_type, filename: @request.file_name)
+  end
 
   # New Request form
   def new_form
@@ -259,8 +278,6 @@ class RequestsController < ApplicationController
     @bams =  available_bams(@user["country"])
     # Bams Plans available
     @bam_plans = plans_available_bam(@user["country"])
-    # Check the due date to renew the item
-    @renew_date = renew_date(@user)
     # get user items
     @items = get_items(@user["national_id"])
   end
@@ -281,10 +298,11 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.permit(:request, :item, :model, :plan, :contract, :file, :status,
-        :comment, :comment_stolen_lost, :email_sended, :want_replacement,
-        :want_sim, :want_new_number, :number_type, :phone_number, :transfer_line_type, :price,
-        :region, :country, :start_date,  :end_date, :closed_at, :user_id)
+      params.permit(:request, :item, :model, :plan, :contract, :contract_type,
+        :contract_name, :file, :file_type, :file_name, :status, :comment, :comment_stolen_lost,
+        :email_sended, :want_replacement, :want_sim, :want_new_number, :number_type,
+        :phone_number, :transfer_line_type, :price, :region, :country, :start_date,
+        :end_date, :closed_at, :user_id)
     end
 
 end
