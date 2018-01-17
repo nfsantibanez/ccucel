@@ -62,18 +62,22 @@
 
 <p>
   <strong>Smartphone Asignado:</strong>
-  <%= link_to 'Smartphone', @user.smartphone_id%>
+  <%=@user.smartphone_id%>
 </p>
 
 <p>
   <strong>Bam Asignado:</strong>
-  <%= link_to 'Bam', @user.bam_id%>
+  <%=@user.bam_id%>
 </p>
 
 <p>
   <strong>Sim Asignada:</strong>
-  <%= link_to 'Sim', @user.sim_id%>
-  <%= @user.attributes %>
+  <%=@user.sim_id%>
+</p>
+
+<p>
+  <strong>Plan Asignado:</strong>
+  <%=@user.plan_id%>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-15 17:54:48", null: false
-    t.datetime "last_assign_at", default: "2018-01-15 17:54:48", null: false
+    t.datetime "renovation_at", default: "2020-01-17 14:38:19", null: false
+    t.datetime "last_assign_at", default: "2018-01-17 14:38:19", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.boolean "want_replacement"
     t.boolean "want_sim"
     t.boolean "want_new_number"
+    t.string "number_type"
     t.string "phone_number"
     t.string "transfer_line_type"
     t.string "price"
@@ -79,7 +80,7 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
     t.string "order_note"
-    t.datetime "last_assign_at", default: "2018-01-15 17:54:48", null: false
+    t.datetime "last_assign_at", default: "2018-01-17 14:38:19", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,8 +97,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-15 17:54:48", null: false
-    t.datetime "last_assign_at", default: "2018-01-15 17:54:48", null: false
+    t.datetime "renovation_at", default: "2020-01-17 14:38:19", null: false
+    t.datetime "last_assign_at", default: "2018-01-17 14:38:19", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -137,9 +138,11 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.integer "smartphone_id"
     t.integer "bam_id"
     t.integer "sim_id"
+    t.integer "plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bam_id"], name: "index_users_on_bam_id"
+    t.index ["plan_id"], name: "index_users_on_plan_id"
     t.index ["sim_id"], name: "index_users_on_sim_id"
     t.index ["smartphone_id"], name: "index_users_on_smartphone_id"
   end

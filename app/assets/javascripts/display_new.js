@@ -113,7 +113,7 @@ $(document).ready(function(){
         if( phone.length != 8 || !$.isNumeric(phone)){
           swal({
             title: 'Datos Inválidos!',
-            text: 'Ingrese número válido',
+            text: 'Ingrese número telefónico válido',
             type: 'error',
             confirmButtonText: 'Aceptar',
             confirmButtonColor: "#DD6B55",

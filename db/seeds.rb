@@ -285,34 +285,34 @@ puts(plans)
 
 # Roaming Bags CHL
 plans = Plan.create!([
-  {item: 'roaming', name:'Bolsa 30 Dias Roaming 15MB ', price: 29990, country: 'CHL',
+  {item: 'roaming', name:'Bolsa 30 Dias Roaming 15MB', price: 29990, country: 'CHL',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
-  {item: 'roaming', name:'Bolsa 30 Dias Roaming 25MB ', price: 45990, country: 'CHL',
+  {item: 'roaming', name:'Bolsa 30 Dias Roaming 25MB', price: 45990, country: 'CHL',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
-  {item: 'roaming', name:'Bolsa 30 Dias Roaming 50MB ', price: 79990, country: 'CHL',
+  {item: 'roaming', name:'Bolsa 30 Dias Roaming 50MB', price: 79990, country: 'CHL',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
-  {item: 'roaming', name:'Bolsa 30 Dias Roaming 100MB ', price: 144990, country: 'CHL',
+  {item: 'roaming', name:'Bolsa 30 Dias Roaming 100MB', price: 144990, country: 'CHL',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
-  {item: 'roaming', name:'Bolas 30 Dias Roaming 200MB ', price: 239990, country: 'CHL',
+  {item: 'roaming', name:'Bolas 30 Dias Roaming 200MB', price: 239990, country: 'CHL',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
-  {item: 'roaming', name:'Bolsa 30 Dias Roaming 400MB ', price: 449990, country: 'CHL',
+  {item: 'roaming', name:'Bolsa 30 Dias Roaming 400MB', price: 449990, country: 'CHL',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'}
 ])
 puts(plans)
 
 # Roaming Bags ARG
 plans = Plan.create!([
-  {item: 'roaming', name:'Bolsa Roaming 15MB ', price: 9990, country: 'ARG',
+  {item: 'roaming', name:'Bolsa Roaming 15MB', price: 9990, country: 'ARG',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
-  {item: 'roaming', name:'Bolsa Roaming 25MB ', price: 25990, country: 'ARG',
+  {item: 'roaming', name:'Bolsa Roaming 25MB', price: 25990, country: 'ARG',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
-  {item: 'roaming', name:'Bolsa Roaming 50MB ', price: 59990, country: 'ARG',
+  {item: 'roaming', name:'Bolsa Roaming 50MB', price: 59990, country: 'ARG',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
-  {item: 'roaming', name:'Bolsa Roaming 100MB ', price: 104990, country: 'ARG',
+  {item: 'roaming', name:'Bolsa Roaming 100MB', price: 104990, country: 'ARG',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
-  {item: 'roaming', name:'Bolsa Roaming 200MB ', price: 159990, country: 'ARG',
+  {item: 'roaming', name:'Bolsa Roaming 200MB', price: 159990, country: 'ARG',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'},
-  {item: 'roaming', name:'Bolsa Roaming 400MB ', price: 229990, country: 'ARG',
+  {item: 'roaming', name:'Bolsa Roaming 400MB', price: 229990, country: 'ARG',
     plan_type: 'bag', detail:'Bolsa solo incluye plan de datos y duración de 30 dias'}
 ])
 puts(plans)
@@ -326,29 +326,38 @@ elsif Rails.env.development?
   user2 = User.find_by_national_id('10299224-5')
 end
 puts(user1,user2)
+
 # Smartphone
 sp1 = Smartphone.find_by_imei('359878069666481')
 sp2 = Smartphone.find_by_imei('789878063788620')
 puts(sp1,sp2)
+
 # Bam
 bam1 = Bam.find_by_imei('952427835802167')
 bam2 = Bam.find_by_imei('882427835802167')
 puts(bam1,bam2)
+
 # Sim
 sim1 = Sim.find_by_phone_number(82099147)
 sim2 = Sim.find_by_phone_number(93192570)
 puts(sim1,sim2)
-#add to user1
-user1.update_attributes(smartphone_id: sp1.id, bam_id: bam1.id, sim_id: sim1.id)
+
+# Bam plan
+plan1 = Plan.find_by_name('1452 BAM Pro 4 Gb Normal')
+plan2 = Plan.find_by_name('BAM Utra 8 Gb')
+puts(plan1,plan2)
+
+# Add to user1
+user1.update_attributes(smartphone_id: sp1.id, bam_id: bam1.id, sim_id: sim1.id, plan_id: plan1.id)
 sp1.update_attributes(available: false)
 bam1.update_attributes(available: false)
 sim1.update_attributes(available: false)
-#add to user2
-user2.update_attributes(smartphone_id: sp2.id, bam_id: bam2.id, sim_id: sim2.id)
+
+# Add to user2
+user2.update_attributes(smartphone_id: sp2.id, bam_id: bam2.id, sim_id: sim2.id, plan_id: plan2.id)
 sp2.update_attributes(available: false)
 bam2.update_attributes(available: false)
 sim2.update_attributes(available: false)
-
 
 =begin
 

@@ -57,19 +57,22 @@ class ApplicationController < ActionController::Base
 
   # Get all info of smartphone
   def get_smartphone(id)
-    sp = Smartphone.find(id)
+    sp = {}
+    sp = Smartphone.find(id) unless id.empty?
     return sp
   end
 
   # Get all info of Bam
   def get_bam(id)
-    bam = Bam.find(id)
+    bam = {}
+    bam = Bam.find(id) unless id.empty?
     return bam
   end
 
   # Get all info of Plan/bag
   def get_plan(id)
-    plan = Plan.find(id)
+    plan = {name: "Información no se encuentra en la Base de Datos"}
+    plan = Plan.find(id) unless id.empty?
     return plan
   end
 
@@ -134,10 +137,13 @@ class ApplicationController < ActionController::Base
     return [plans, details]
   end
 
-  # Get missing days to renew item
-  def renew_date(id, item)
-    days = ((DateTime.now + 2.months) - DateTime.now).to_i
-    return days
+  # Get missing days to renew user's items
+  def renew_date(user)
+    # days = ((DateTime.now + 2.months) - DateTime.now).to_i
+    output = {}
+    output[:sp] = Smartphone.where(id: user["smartphone_id"]).first[:renovation_at].to_datetime unless !user["smartphone_id"]
+    output[:bam] = Bam.where(id: user["bam_id"]).first[:renovation_at].to_datetime unless !user["bam_id"]
+    return output
   end
 
   # know if user have an item assigned and return info
@@ -155,6 +161,10 @@ class ApplicationController < ActionController::Base
     if user.sim_id
       sim = Sim.find(user.sim_id)
       items[:sim] = sim
+    end
+    if user.plan_id
+      plan = Plan.find(user.plan_id)
+      items[:plan] = plan
     end
     return items
   end
@@ -209,6 +219,7 @@ class ApplicationController < ActionController::Base
             ms+= "será el mismo que tiene asignado actualmente el usuario, correspondiente al número telefónico: +56 9 "+
             params["same_number"]+"."
             params["want_new_number"] = false
+            params["phone_number"] = params["same_number"]
           else
             ms+= "será cedido por el usuario, correspondiente al número telefónico: +56 9 "+
             params["phone_number"]+"."
@@ -232,6 +243,11 @@ class ApplicationController < ActionController::Base
         ms = user_info+" un nuevo Bam modelo "+params["model"]["model"]+",
         con el plan: "+params["plan"]["name"]+", el cual tiene un valor de $"+
         params["plan"]['price'].to_s+". "
+      # Renew
+      elsif params["request"] == "renew"
+        # Message
+        ms = user_info+" renovar su dispositivo Bam, eligiendo el modelo "+params["model"]["model"]+
+        ", con un valor de $"+params["model"]['price'].to_s+". El usuario mantendrá el mismo plan"
       end
 
     # Sim
@@ -253,11 +269,9 @@ class ApplicationController < ActionController::Base
       # Modify date
       date_split  =  params["start_date"].split("-")
       params["start_date"] = Date.parse(date_split[2]+"/"+date_split[1]+"/"+date_split[0])
-      puts(params["start_date"])
 
       date_split  =  params["end_date"].split("-")
       params["end_date"] = Date.parse(date_split[2]+"/"+date_split[1]+"/"+date_split[0])
-      puts(params["end_date"])
       # Message
       ms = user_info+" el servicio Roaming, con el plan: "+params["plan"]["name"]+
       ", el cual tiene un valor de $"+params["plan"]['price'].to_s+". El servicio

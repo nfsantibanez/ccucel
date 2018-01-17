@@ -43,6 +43,7 @@
     var display_menus = function(){
       var w_sim = $('input:checked[name="want_sim"]').val();
       var w_number = $("#want_number option:selected").val();
+
       if(w_sim == 'true') {
           $("#want_number").show();
           if(w_number == 'port'){
@@ -84,10 +85,26 @@
   <h4><strong> Datos de Solicitud Smartphone </strong></h4>
   <hr>
 
-  <% if @renew_date > 0 && @user["request"] == "renew" %>
-  <div class="alert alert-danger">
-    Faltan <%= @renew_date %> dias para que termine el periodo de renovación. Al estar fuera de plazo se incurrirá en costos adicionales
-  </div>
+  <% if @user["request"] == "renew" %>
+    <% if  @renew_date.has_key?(:sp) %>
+      <% if (@renew_date[:sp] - DateTime.now).to_i > 0%>
+        <div class="alert alert-danger">
+          Faltan <%= (@renew_date[:sp] - DateTime.now).to_i %>
+          dias para que termine el periodo de renovación. Al estar fuera de plazo
+          se incurrirá en costos adicionales
+        </div>
+      <% else %>
+        <div class="alert alert-sucess">
+          Estas dentro del periodo en que te corresponde renovar tu dispositivo
+        </div>
+      <% end %>
+    <% else %>
+      <div class="alert alert-danger">
+        El sistema no posee la información sobre la fecha en que le corresponde renovación,
+        se incurrirá en costos adicionales si su dispositivo no ha cumpĺido el periodo de
+        24 meses
+      </div>
+    <% end %>
   <% end %>
 
   <div id= "models" class="field-center">
@@ -127,22 +144,30 @@
     ['No, quiero portar otro número', 'port'], ['Si, quiero nuevo número', 'new']], {} %>
   </div>
 
-  <% if @items.has_key?(:sp) %>
-    <div id= "same_number" class="field-center">
-      <br>
-      <%= form.label :same_number, 'Número asignado: '%>
-      <%= form.label :same_number, '+56 9 '+@items[:sp].phone_number.to_s, class:"text-center", size: "12" %>
-      <%= form.hidden_field :same_number, value: @items[:sp].phone_number.to_s %>
-      <% if  @items[:sp].phone_number.to_s.empty?%>
+  <div id= "same_number" class="field-center">
+    <br>
+    <% if @items.has_key?(:sp) %>
+      <% if !@items[:sp].phone_number.to_s.empty? %>
+        <%= form.label :same_number, 'Número asignado: '%>
+        <%= form.label :same_number, '+56 9 '+@items[:sp].phone_number.to_s, class:"text-center", size: "12" %>
+        <%= form.hidden_field :same_number, value: @items[:sp].phone_number.to_s %>
+      <% else %>
         <p></p>
-        <div class="alert alert-danger">Smartphone no tiene un número de teléfono asociado en el sistema</div>
+        <div class="alert alert-danger">Smartphone no tiene un número de teléfono asignado en el sistema,
+          Ingrese el número telefónico actual que tiene asociado a CCU</div>
+        <br>
+        <%= form.label :same_number, 'Ingrese Número: +56 9' %>
+        <%= form.text_field :same_number %>
       <% end %>
-    </div>
-  <% else %>
-  <p></p>
-  <div class="alert alert-danger">Usuario no tiene un Smartphone asociado en el sistema</div>
-  <%= form.hidden_field :same_number, value: "" %>
-  <% end %>
+    <% else %>
+    <p></p>
+    <div class="alert alert-danger">Usuario no tiene un Smartphone asignado en el sistema,
+      si tiene un smartphone asociado a CCU ingrese el número telefónico asociado al dispositivo</div>
+      <br>
+      <%= form.label :same_number, 'Ingrese Número: +56 9' %>
+      <%= form.text_field :same_number %>
+    <% end %>
+  </div>
 
   <div id= "number" class="field-center">
   <br>

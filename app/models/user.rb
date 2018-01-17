@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :requests
   has_one :bam
+  has_one :plan
   has_one :smarthphone
   has_many :sims
   has_one :user_record

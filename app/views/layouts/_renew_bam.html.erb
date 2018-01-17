@@ -32,10 +32,26 @@
   <h4><strong> Datos de Solicitud BAM </strong></h4>
   <hr>
 
+  <%= form.hidden_field :plan, value: @user["plan_id"]%>
+
   <% if @user["request"] == "renew" %>
-    <% if  @renew_date > 0 %>
+    <% if  @renew_date.has_key?(:bam) %>
+      <% if (@renew_date[:bam] - DateTime.now).to_i > 0 %>
+        <div class="alert alert-danger">
+          Faltan <%= (@renew_date[:bam] - DateTime.now).to_i %>
+          dias para que termine el periodo de renovación. Al estar fuera de plazo
+          se incurrirá en costos adicionales
+        </div>
+      <% else %>
+        <div class="alert alert-success">
+          Estas dentro del periodo en que te corresponde renovar tu dispositivo
+        </div>
+      <% end %>
+    <% else %>
       <div class="alert alert-danger">
-        Faltan <%= @renew_date %> dias para que termine el periodo de renovación. Al estar fuera de plazo se incurrirá en costos adicionales
+        El sistema no posee la información sobre la fecha en que le corresponde renovación,
+        se incurrirá en costos adicionales si su dispositivo no ha cumpĺido el periodo de
+        24 meses
       </div>
     <% end %>
 
@@ -43,7 +59,8 @@
       <%= form.label :model, 'Seleccione Modelo Bam' %>
       <%= form.select :model, @bams, {} %>
       <p></p>
-      <div class="alert alert-danger"> Se mantendrá el mismo plan asociado al dispositivo BAM</div>
+      <div class="alert alert-danger"> Se mantendrá el mismo plan asociado al
+        dispositivo BAM</div>
     </div>
 
   <% elsif  @user["request"] == "stolen/lost" %>
@@ -64,6 +81,7 @@
         <div class="alert alert-success"> <%=plan[1]%> </div>
       </div>
     <% end %>
+
   <% end %>
 
   </div>

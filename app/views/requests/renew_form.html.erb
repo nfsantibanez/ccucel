@@ -23,18 +23,29 @@
 
     // Submit Event
     $("form").submit(function(e){
-      var phone = $.trim($('input[name="number"]').val());
+      var phone = $.trim($('input[name="phone_number"]').val());
       var w_sim = $('input:checked[name="want_sim"]').val();
       var w_new_number = $("#want_number option:selected").val();
       var item = $("input[name=item]").val();
       var comment = $.trim($("#comment").val());
       var check = $("#checkbox").is(":checked");
+      var same_number = $("input[name=same_number]").val();
 
-      if(item == "smartphone" && w_sim == 'true' && w_new_number == 'port'){
-        if(phone.length != 8 || !$.isNumeric(phone)){
+      if(item == "smartphone" && w_sim == 'true'){
+        if(w_new_number == 'port' && (phone.length != 8 || !$.isNumeric(phone))){
           swal({
             title: 'Datos Inválidos!',
-            text: 'Ingrese número válido',
+            text: 'Ingrese número telefónico válido',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
+        }
+        if(w_new_number == 'same' && (same_number.length != 8 || !$.isNumeric(same_number))){
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Ingrese número telefónico válido',
             type: 'error',
             confirmButtonText: 'Aceptar',
             confirmButtonColor: "#DD6B55",
@@ -43,8 +54,6 @@
         }
       }
       if(item == 'smartphone' && check == true && comment.length < 10){
-              console.log(comment.length);
-                    console.log(comment.length);
           swal({
             title: 'Datos Inválidos!',
             text: 'Debes Ingresar una descripción de al menos 10 caracteres en el motivo de eleccion del modelo que has elegido',

@@ -136,7 +136,7 @@ class RequestsController < ApplicationController
       # Create Request
       @request = Request.new(request_params)
 
-    # New Smartphone
+    # New, Renew Smartphone
     elsif (params["request"] == "new" || params["request"] == "renew") && params["item"] == "smartphone"
       # Get smartphone models's price
       params["price"] = params["model"]["price"]
@@ -144,14 +144,31 @@ class RequestsController < ApplicationController
       params["model"] = params["model"]["model"]
       @request = Request.new(request_params)
 
-    # New Bam
-    elsif params["request"] == "new" && params["item"] == "bam"
-      # Get bam models's name
-      params["model"] = params["model"].model
-      # Get bam plan's price
-      params["price"] = params["plan"].price
-      # Get bam plan's name
-      params["plan"] = params["plan"].name
+    # New, Renew Bam
+    elsif (params["request"] == "new" || params["request"] == "renew") && params["item"] == "bam"
+      if params["request"] == "new"
+        # Get bam model's name
+        params["model"] = params["model"].model
+        # Get bam plan's price
+        params["price"] = params["plan"].price
+        # Get bam plan's name
+        params["plan"] = params["plan"].name
+
+      elsif params["request"] == "renew"
+        # Get bam models's price
+        params["price"] = params["model"].price
+        # Get bam model's name
+        params["model"] = params["model"].model
+        begin
+          # Get bam plan's name
+          params["plan"] = params["plan"].name
+        rescue NoMethodError
+          # Get bam plan's name
+          params["plan"] = params["plan"]["name"]
+        end
+
+      end
+
       @request = Request.new(request_params)
 
     # New Sim
@@ -167,6 +184,8 @@ class RequestsController < ApplicationController
       params["plan"] = params["plan"].name
       @request = Request.new(request_params)
     end
+
+
 
     # If request was successfully created
     if @request.save
@@ -218,7 +237,7 @@ class RequestsController < ApplicationController
     # Bam Models available
     @bams = available_bams(@user["country"])
     # Check the due date to renew the item
-    @renew_date = renew_date(@user["national_id"], @user["item"])
+    @renew_date = renew_date(@user)
     # get user items
     @items = get_items(@user["national_id"])
   end
@@ -241,7 +260,7 @@ class RequestsController < ApplicationController
     # Bams Plans available
     @bam_plans = plans_available_bam(@user["country"])
     # Check the due date to renew the item
-    @renew_date = renew_date(@user["national_id"], @user["item"])
+    @renew_date = renew_date(@user)
     # get user items
     @items = get_items(@user["national_id"])
   end
@@ -264,7 +283,7 @@ class RequestsController < ApplicationController
     def request_params
       params.permit(:request, :item, :model, :plan, :contract, :file, :status,
         :comment, :comment_stolen_lost, :email_sended, :want_replacement,
-        :want_sim, :want_new_number, :phone_number, :transfer_line_type, :price,
+        :want_sim, :want_new_number, :number_type, :phone_number, :transfer_line_type, :price,
         :region, :country, :start_date,  :end_date, :closed_at, :user_id)
     end
 
