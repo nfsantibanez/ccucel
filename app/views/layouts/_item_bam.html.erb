@@ -23,43 +23,66 @@
   <h4><strong> Datos del Dispositivo BAM </strong></h4>
   <hr>
 
-  <div class="field-center">
-  </div>
+  <% if @items.has_key?(:bam) %>
 
-  <p>
-    <strong>Modelo:</strong>
-    <%= @items[:bam].model %>
-  </p>
+    <div class="field-center">
+    </div>
 
-  <p>
-    <strong>Codigo:</strong>
-    <%= @items[:bam].code %>
-  </p>
+    <p>
+      <strong>Modelo:</strong>
+      <%= @items[:bam].model %>
+    </p>
 
-  <p>
-    <strong>Pais:</strong>
-    <%= @items[:bam].country %>
-  </p>
+    <p>
+      <strong>Codigo:</strong>
+      <%= @items[:bam].code %>
+    </p>
 
-  <p>
-    <strong>Imei:</strong>
-    <%= @items[:bam].imei %>
-  </p>
+    <p>
+      <strong>Pais:</strong>
+      <%= @items[:bam].country %>
+    </p>
 
-  <p>
-    <strong>Estado:</strong>
-    <%= @items[:bam].state %>
-  </p>
+    <p>
+      <strong>Imei:</strong>
+      <%= @items[:bam].imei %>
+    </p>
 
-  <p>
-    <strong>Fecha de Renovación:</strong>
-    <%= @items[:bam].renovation_at %>
-  </p>
+    <p>
+      <strong>Estado:</strong>
+      <%= @items[:bam].state %>
+    </p>
 
-  <p>
-    <strong>Sim asignada:</strong>
-    <%= @items[:bam].sim %>
-  </p>
+    <p>
+      <strong>Fecha de Renovación:</strong>
+      <%= @items[:bam].renovation_at %>
+    </p>
+
+    <p>
+      <strong>Sim asignada:</strong>
+      <%= @items[:bam].sim %>
+    </p>
+
+  <% else %>
+    <div class="alert alert-danger">Usuario no tiene un BAM asignado en el sistema.
+      Ingrese los datos del dispositivo defectuoso que tiene asociado a CCU
+    </div>
+
+    <p>
+      <%= form.label :model, 'Modelo BAM' %>
+      <%= form.text_field :model %>
+    </p>
+
+    <p>
+      <%= form.label :imei, 'número BAM' %>
+      <%= form.text_field :imei %>
+      <div class="alert alert-info">
+        Ingresa <%= link_to 'AQUÍ', "http://comunidad.entel.cl/internet/posts/como-se-cual-es-el-numero-de-mi-bam-entel", target: :_blank%> para informarte de como
+        obtener el número de tu dispositivo BAM
+      </div>
+    </p>
+
+  <% end %>
 
   </div>
 

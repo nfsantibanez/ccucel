@@ -17,11 +17,11 @@
 </head>
 <body>
 <!-- Informacion del dispositivo del usuario -->
-  <% if @user["item"] == 'smartphone' && @items.has_key?(:sp)%>
+  <% if @user["item"] == 'smartphone' %>
     <%= render partial: '/layouts/item_sp', locals: {form: form} %>
-  <% elsif @user["item"] == 'bam' && @items.has_key?(:bam)%>
+  <% elsif @user["item"] == 'bam' %>
     <%= render partial: '/layouts/item_bam', locals: {form: form} %>
-  <% elsif @user["item"] == 'sim' && @items.has_key?(:sim)%>
+  <% elsif @user["item"] == 'sim' %>
     <%= render partial: '/layouts/item_sim', locals: {form: form} %>
   <% end %>
 </body>

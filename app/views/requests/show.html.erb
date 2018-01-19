@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>n° Solicittud: </strong>
+  <strong>n° Solicitud: </strong>
   <%= @request.n_request %>
 </p>
 
@@ -79,17 +79,28 @@
 </p>
 
 <%if @request.request != 'release line' && @request.request != 'transfer line' && @request.item != 'sim'%>
-<p>
-  <strong>Precio: </strong>
-  <%= '$'+@request.price %>
-</p>
+  <p>
+    <%if  @request.request == 'technical service' %>
+      <strong>Precio Presupuesto: </strong>
+    <%else%>
+      <strong>Precio: </strong>
+    <%end%>
+    <%= '$'+@request.price.to_s %>
+  </p>
 <%end%>
 
-<%if @request.item == 'smartphone'%>
-<p>
-  <strong>Comentarios Modelo:</strong>
-  <%= @request.comment %>
-</p>
+<%if @request.item == 'smartphone' && @request.request != 'technical service' %>
+  <p>
+    <strong>Comentarios Modelo:</strong>
+    <%= @request.comment %>
+  </p>
+<%end%>
+
+<%if @request.request == 'technical service'%>
+  <p>
+    <strong>Comentarios Desperfecto:</strong>
+    <%= @request.comment %>
+  </p>
 <%end%>
 
 <%if @request.request == 'stolen/lost'%>
@@ -110,24 +121,26 @@
 </p>
 
 <%if @request.request == 'technical service' %>
-<p>
-  <strong>Quizo Equipo reemplazo?: </strong>
-  <%= @request.want_replacement %>
-</p>
+  <p>
+    <strong>Quizo Equipo reemplazo?: </strong>
+    <%= @request.want_replacement %>
+  </p>
 <%end%>
 
 <%if @request.item == 'smartphone' ||  @request.item == 'sim'%>
-<p>
-  <strong>Quizo Sim?:</strong>
-  <%= @request.want_sim %>
-</p>
-
-<%if @request.want_sim == true%>
-  <p>
-    <strong>Quizo número nuevo?:</strong>
-    <%= @request.want_new_number %>
-  </p>
+  <%if @request.request != 'technical service' %>
+    <p>
+      <strong>Quizo Sim?:</strong>
+      <%= @request.want_sim %>
+    </p>
   <%end%>
+
+  <%if @request.want_sim == true%>
+    <p>
+      <strong>Quizo número nuevo?:</strong>
+      <%= @request.want_new_number %>
+    </p>
+    <%end%>
 <%end%>
 
 <%if @request.want_new_number == false || @request.transfer_line_type == 'ceder' ||

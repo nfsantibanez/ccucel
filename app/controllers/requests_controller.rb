@@ -138,10 +138,13 @@ class RequestsController < ApplicationController
 
     # Item Smartphone
     elsif params["item"] == "smartphone"
-      # Get smartphone models's price
-      params["price"] = params["model"]["price"]
-      # Get smartphone models's name
-      params["model"] = params["model"]["model"]
+
+      if params["request"] != "technical service"
+        # Get smartphone models's price
+        params["price"] = params["model"]["price"]
+        # Get smartphone models's name
+        params["model"] = params["model"]["model"]
+      end
 
       # Stolen/lost case
       if params["request"] == "stolen/lost"
@@ -187,9 +190,22 @@ class RequestsController < ApplicationController
 
       @request = Request.new(request_params)
 
-    # New Sim
-    elsif params["request"] == "new" && params["item"] == "sim"
+    # Item Sim
+    elsif params["item"] == "sim"
+      # Set want_sim to true
       params["want_sim"] = true
+
+      if params["request"] == "stolen/lost"
+        # Set want_new_number to false
+        params["want_new_number"] = false
+        # Set number_type to same
+        params["number_type"] = "same"
+        # Set file information
+        params[:file_type] = params[:file].content_type
+        params[:file_name] = params[:file].original_filename
+        params[:file] = params[:file].read
+      end
+
       @request = Request.new(request_params)
 
     # New Roaming

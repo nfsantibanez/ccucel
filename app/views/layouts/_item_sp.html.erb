@@ -5,6 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    .alert-info {
+      margin-top: 5px;
+      display:inline-block;
+      vertical-align: middle;
+      height: 50%;
+      padding: 1px;
+      margin-top: 1%;
+      margin-bottom: 0%;
+    }
   </style>
 
   <script type="text/javascript">
@@ -19,52 +28,89 @@
 
   <div class="well form-horizontal">
 
-  <!-- Desplegar informacion del dispositivo -->
-  <h4><strong> Datos del Dispositivo Smartphone</strong></h4>
-  <hr>
+    <!-- Desplegar informacion del dispositivo -->
+    <h4><strong> Datos del Dispositivo Smartphone</strong></h4>
+    <hr>
 
-  <div class="field-center">
-  </div>
+    <% if @items.has_key?(:sp) %>
 
-  <p>
-    <strong>Modelo:</strong>
-    <%= @items[:sp].model %>
-  </p>
+      <div class="field-center">
+      </div>
 
-  <p>
-    <strong>Codigo:</strong>
-    <%= @items[:sp].code %>
-  </p>
+      <p>
+        <strong>Modelo:</strong>
+        <%= @items[:sp].model %>
+        <%= form.hidden_field :model, value: @items[:sp].model %>
+      </p>
 
-  <p>
-    <strong>Categoria:</strong>
-    <%= @items[:sp].category %>
-  </p>
+      <p>
+        <strong>Número Telefónico:</strong>
+        <%= @items[:sp].phone_number %>
+        <%= form.hidden_field :phone_number, value: @items[:sp].phone_number %>
+      </p>
 
-  <p>
-    <strong>Pais:</strong>
-    <%= @items[:sp].country %>
-  </p>
+      <p>
+        <strong>Codigo:</strong>
+        <%= @items[:sp].code %>
+      </p>
 
-  <p>
-    <strong>Imei:</strong>
-    <%= @items[:sp].imei %>
-  </p>
+      <p>
+        <strong>Categoria:</strong>
+        <%= @items[:sp].category %>
+      </p>
 
-  <p>
-    <strong>Estado:</strong>
-    <%= @items[:sp].state %>
-  </p>
+      <p>
+        <strong>Pais:</strong>
+        <%= @items[:sp].country %>
+      </p>
 
-  <p>
-    <strong>Fecha de Renovación:</strong>
-    <%= @items[:sp].renovation_at %>
-  </p>
+      <p>
+        <strong>Imei:</strong>
+        <%= @items[:sp].imei %>
+        <%= form.hidden_field :imei, value: @items[:sp].imei %>
+      </p>
 
-  <p>
-    <strong>Sim asignada:</strong>
-    <%= @items[:sp].sim %>
-  </p>
+      <p>
+        <strong>Estado:</strong>
+        <%= @items[:sp].state %>
+      </p>
+
+      <p>
+        <strong>Fecha de Renovación:</strong>
+        <%= @items[:sp].renovation_at %>
+      </p>
+
+      <p>
+        <strong>Sim asignada:</strong>
+        <%= @items[:sp].sim %>
+      </p>
+
+    <% else %>
+
+    <div class="alert alert-danger">Usuario no tiene un Smartphone asignado en el sistema.
+      Ingrese los datos del dispositivo defectuoso que tiene asociado a CCU
+    </div>
+
+    <p>
+      <%= form.label :model, 'Modelo Smartphone' %>
+      <%= form.text_field :model %>
+    </p>
+
+    <p>
+      <%= form.label :phone_number, 'Número Telefónico Smartphone' %>
+      <%= form.text_field :phone_number %>
+    </p>
+
+    <p>
+      <%= form.label :imei, 'IMEI Smartphone' %>
+      <%= form.text_field :imei %>
+      <div class="alert alert-info">
+        Ingrese *#06# en el dispositivo para obtener el IMEI
+      </div>
+    </p>
+
+    <% end %>
+
 
   </div>
 

@@ -190,16 +190,22 @@ class ApplicationController < ActionController::Base
     # Smartphone
     elsif params["item"] == "smartphone"
       lost = ""
-      # Get smartphone info
-      if params["want_all"] == '0'
-        params["model"] = get_smartphone(params["model_one"])
-        params["price"] =   params["model"]["price"]
-        motive = ""
-      else
-        params["model"] = get_smartphone(params["model_all"])
-        motive = " El modelo smartphone elegido no corresponde al cargo que tiene el trabajador.
-        El motivo de la elección que ha dado el trabajador es: "+params["comment"]+"."
+      motive = ""
+
+      #if not technical service
+      if params["request"] != "technical service"
+        # Get smartphone info
+        if params["want_all"] == '0'
+          params["model"] = get_smartphone(params["model_one"])
+          params["price"] =   params["model"]["price"]
+          motive = ""
+        else
+          params["model"] = get_smartphone(params["model_all"])
+          motive = " El modelo smartphone elegido no corresponde al cargo que tiene el trabajador.
+          El motivo de la elección que ha dado el trabajador es: "+params["comment"]+"."
+        end
       end
+
       # New
       if params["request"] == "new"
         ms = user_info+" un nuevo smartphone modelo "+params["model"]["model"]+
@@ -215,6 +221,7 @@ class ApplicationController < ActionController::Base
         else
           ms+= "El smartphone no debe traer tarjeta Sim."
         end
+
       # Renew, stolen/lost
       elsif params["request"] == "renew" || params["request"] == "stolen/lost"
         ms = user_info+" renovar su smartphone, eligiendo el modelo "+params["model"]["model"]+
@@ -244,6 +251,23 @@ class ApplicationController < ActionController::Base
         else
           ms+= "El smartphone no debe traer tarjeta Sim"
         end
+
+      # technical service
+      elsif params["request"] == "technical service"
+
+        #If user want replacement
+        if params["want_replacement"] == "true"
+          replace= "El trabajador va a necesitar un dispositivo de reemplazo durante el periodo en que el smartphone es enviado al servicio técnico"
+        else
+          replace= "El trabajador no necesita un dispositivo de reemplazo durante el periodo en que el smartphone es enviado al servicio técnico"
+        end
+
+        #message
+        ms = user_info+" enviar al servicio técnico su smartphone modelo "+
+        params["model"]+", IMEI "+params["imei"]+", con número telefónico +56 9 "+
+        params["phone_number"]+". El desperfecto que presenta el smartphone es "+
+        params["comment"]+". "+replace
+
       ms+= motive+lost
       end
 
@@ -275,7 +299,11 @@ class ApplicationController < ActionController::Base
     elsif params["item"] == "sim"
       # Message
       ms = user_info+" una nueva Sim y el número de teléfono asociado a él"
-      if params["want_new_number"] == "true"
+
+      if params["request"] == "stolen/lost"
+        ms+= " debe ser el número telefónico: +56 9 "+params["phone_number"]+
+        ". Esta solicitud fue cursada por la pérdido o robo de la Sim que el trabajador tenia asignado anteriormente."
+      elsif params["want_new_number"] == "true"
         ms+= " debe ser nuevo."
       else
         # Message

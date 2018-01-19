@@ -30,7 +30,7 @@
             <td><%= request.request %></td>
             <td><%= request.item %></td>
             <td><%= request.email_sended %></td>
-            <td><%= request.status %></td>
+            <td><strong><%= request.status %></strong></td>
             <td><%= request.price %></td>
             <td><%= request.created_at.localtime.strftime('%d/%m/%Y %H:%M:%S') %></td>
             <td><%= request.closed_at.localtime.strftime('%d/%m/%Y %H:%M:%S') unless !request.closed_at %></td>
