@@ -25,12 +25,56 @@
 
     // Submit Event
     $("form").submit(function(e){
+        var item = $("input[name=item]").val();
         var comment = $.trim($("#comment").val());
+        var model = $.trim($("input[name=model]").val());
+        var imei = $.trim($("input[name=imei]").val());
+        var phone_number = $.trim($("input[name=phone_number]").val());
 
         if(comment.length < 50){
           swal({
             title: 'Datos Inválidos!',
             text: 'Debes Ingresar al menos 50 caracteres en la Descripción de la Falla',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
+        }
+        if(model.length < 5){
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Descripción del Modelo debe contener al menos 5 caracteres',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
+        }
+        else if(item == "smartphone" && (imei.length < 14 || imei.length > 16)){
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Ingrese IMEI válido',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
+        }
+        else if(item == "bam" && (imei.length < 14 || imei.length > 16)){
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Ingrese IMEI válido',
+            type: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: "#DD6B55",
+          });
+          e.preventDefault();
+        }
+        else if(item == "smartphone" && (phone_number.length != 8 || !$.isNumeric(phone))){
+          swal({
+            title: 'Datos Inválidos!',
+            text: 'Ingrese número telefónico válido',
             type: 'error',
             confirmButtonText: 'Aceptar',
             confirmButtonColor: "#DD6B55",
@@ -56,6 +100,7 @@
       <%= form.hidden_field :item, value: @user["item"] %>
       <%= form.hidden_field :user_id, value: @user["id"] %>
       <%= form.hidden_field :request, value: @user["request"] %>
+      <%= form.hidden_field :company, value: @user["company"] %>
 
       <!-- Cargar Informacion del usuario para mostrar -->
       <%= render partial: '/layouts/user_info', locals: {form: form} %>

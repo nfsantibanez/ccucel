@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   require 'securerandom'
+  helper_method :sort_column, :sort_direction
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   layout 'general_view', except: [:create_user, :index]
 
@@ -7,7 +8,7 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
-    @requests = Request.all
+    @requests = Request.order(sort_column + " " + sort_direction)
     render layout: 'admin_view'
   end
 
@@ -312,13 +313,23 @@ class RequestsController < ApplicationController
       @request = Request.find(params[:id])
     end
 
+    # set default value
+    def sort_column
+      Request.column_names.include?(params[:sort]) ? params[:sort] : "n_request"
+    end
+
+    # set default value
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
       params.permit(:request, :item, :model, :plan, :contract, :contract_type,
         :contract_name, :file, :file_type, :file_name, :status, :comment, :comment_stolen_lost,
         :email_sended, :want_replacement, :want_sim, :want_new_number, :number_type,
-        :phone_number, :transfer_line_type, :price, :region, :country, :start_date,
-        :end_date, :closed_at, :user_id)
+        :phone_number, :transfer_line_type, :price, :region, :country, :company,
+        :start_date, :end_date, :closed_at, :user_id)
     end
 
 end

@@ -273,19 +273,23 @@ class ApplicationController < ActionController::Base
 
     # Bam
     elsif params["item"] == "bam"
+
+      if params["request"] != "technical service"
       # Get bam model's info
       params["model"] = get_bam(params["model"])
       # Get bam plan's info
       params["plan"] = get_plan(params["plan"])
+      end
+
       # New, stolen/lost
       if params["request"] == "new" || params["request"] == "stolen/lost"
         # Message
-        ms = user_info+" un nuevo Bam modelo "+params["model"]["model"]+",
+        ms = user_info+" un nuevo dispositivo Bam modelo "+params["model"]["model"]+",
         con el plan: "+params["plan"]["name"]+", el cual tiene un valor de $"+
         params["plan"]['price'].to_s+". "
 
         if params["request"] == "stolen/lost"
-          ms+= " Esta solicitud fue cursada por la pérdido o robo del Bam que el trabajador tenia asignado anteriormente."
+          ms+= " Esta solicitud fue cursada por la pérdido o robo del dispositivo Bam que el trabajador tenia asignado anteriormente."
         end
 
       # Renew
@@ -293,6 +297,19 @@ class ApplicationController < ActionController::Base
         # Message
         ms = user_info+" renovar su dispositivo Bam, eligiendo el modelo "+params["model"]["model"]+
         ", con un valor de $"+params["model"]['price'].to_s+". El usuario mantendrá el mismo plan"
+
+      # Technical service
+    elsif params["request"] == "technical service"
+        #If user want replacement
+        if params["want_replacement"] == "true"
+          replace= "El trabajador va a necesitar un dispositivo de reemplazo durante el periodo en que el dispositivo BAM es enviado al servicio técnico"
+        else
+          replace= "El trabajador no necesita un dispositivo de reemplazo durante el periodo en que el dispositivo BAM es enviado al servicio técnico"
+        end
+        #message
+        ms = user_info+" enviar al servicio técnico su dispositivo BAM modelo "+
+        params["model"]+", IMEI "+params["imei"]+". El desperfecto que presenta el BAM es "+
+        params["comment"]+". "+replace
       end
 
     # Sim
