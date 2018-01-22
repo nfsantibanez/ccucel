@@ -11,11 +11,29 @@
       padding: 0px;
     }
 
-    .btn-info{
+    .btn {
       margin-top: 10px;
     }
 
   </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    // Submit Event
+    $("#clear").click(function(e){
+      $('#1').val('');
+      $('#2').val('');
+      $('#3').val('');
+      $('#4').val('');
+      $('#5').val('');
+      $('#6').val('');
+
+    });
+
+  });
+  </script>
+
 </head>
 <body>
 
@@ -27,44 +45,50 @@
     <%= search_form_for @search do |form|%>
 
       <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-3 text-left">
-          <%= form.label :status_eq, "Estado", class: "pull-left"%>
-          <%= form.text_field :status_eq, placeholder: "search", class: "pull-right", size: "15"%>
+        <div class="col-md-1"></div>
+        <div class="col-md-3 text-left">
+          <%= form.label :status_cont, "Estado", class: "pull-left"%>
+          <%= form.text_field :status_cont, placeholder: "search", class: "pull-right",
+          size: "15", id: "1"%>
         </div>
-        <div class="col-sm-3">
-          <%= form.label :company_eq, "Empresa", class: "pull-left"%>
-          <%= form.text_field :company_eq, placeholder: "search", class: "pull-right", size: "15"%>
+        <div class="col-md-3">
+          <%= form.label :company_cont, "Empresa", class: "pull-left"%>
+          <%= form.text_field :company_cont, placeholder: "search", class: "pull-right",
+          size: "15", id: "2"%>
         </div>
-        <div class="col-sm-3 text-left">
-          <%= form.label :deptname_eq, "C. Costo", class: "pull-left"%>
-          <%= form.text_field :deptname_eq, placeholder: "search", class: "pull-right", size: "15"%>
+        <div class="col-md-3 text-left">
+          <%= form.label :deptname_cont, "C. Costo", class: "pull-left"%>
+          <%= form.text_field :deptname_cont, placeholder: "search", class: "pull-right",
+          size: "15", id: "3"%>
         </div>
         <div class="col-sm-2 text-left"></div>
       </div>
       <hr>
 
       <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-3 text-left">
+        <div class="col-md-1"></div>
+        <div class="col-md-3 text-left">
           <%= form.label :name_cont, "Nombre", class: "pull-left"%>
-          <%= form.text_field :name_cont, placeholder: "search", class: "pull-right", size: "15"%>
+          <%= form.text_field :name_cont, placeholder: "search", class: "pull-right",
+          size: "15", id: "4"%>
         </div>
-        <div class="col-sm-3 text-left">
-          <%= form.label :national_id_cont, "Rut", class: "pull-left"%>
-          <%= form.text_field :national_id_cont, placeholder: "search", class: "pull-right", size: "15"%>
+        <div class="col-md-3 text-left">
+          <%= form.label :national_id_cont, "R.U.T", class: "pull-left"%>
+          <%= form.text_field :national_id_cont, placeholder: "search", class: "pull-right",
+          size: "15", id: "5"%>
         </div>
-        <div class="col-sm-3 text-left">
+        <div class="col-md-3 text-left">
           <%= form.label :email_cont, "Correo", class: "pull-left"%>
-          <%= form.text_field :email_cont, placeholder: "search", class: "pull-right", size: "15"%>
+          <%= form.text_field :email_cont, placeholder: "search", class: "pull-right",
+          size: "15", id: "6"%>
         </div>
-        <div class="col-sm-2 text-left"></div>
+        <div class="col-md-2 text-left"></div>
       </div>
       <hr>
 
       <div class="row">
-        <%= form.submit "Search", class: "btn btn-info btn-md"%>
-        <%= form.button "Clear", class: "btn btn-info btn-md"%>
+        <%= form.submit "Search", class: "btn btn-success btn-md"%>
+        <%= form.button "Clear Filters", class: "btn btn-info btn-md", id: "clear" %>
       </div>
     <% end %>
   </div>

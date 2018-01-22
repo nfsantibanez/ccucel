@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   require 'securerandom'
   helper_method :sort_column, :sort_direction
   before_action :set_request, only: [:show, :edit, :update, :destroy]
-  layout 'general_view', except: [:create_user, :index]
+  layout 'general_view', except: [:create_user, :index, :show, :edit, :update]
 
 
   # GET /requests
@@ -17,6 +17,7 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
+    render layout: 'admin_view'
   end
 
   # GET /requests/new
@@ -26,6 +27,7 @@ class RequestsController < ApplicationController
 
   # GET /requests/1/edit
   def edit
+    render layout: 'admin_view'
   end
 
   # POST /requests
@@ -48,7 +50,7 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1.json
   def update
     respond_to do |format|
-      if @request.update(request_params)
+      if @request.update(request_params_update)
         format.html { redirect_to @request, notice: 'Request was successfully updated.' }
         format.json { render :show, status: :ok, location: @request }
       else
@@ -62,6 +64,7 @@ class RequestsController < ApplicationController
   # DELETE /requests/1.json
   def destroy
     @request.destroy
+    @notice = 'Request was successfully destroyed'
     respond_to do |format|
       format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
       format.json { head :no_content }
@@ -328,6 +331,15 @@ class RequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
       params.permit(:request, :item, :model, :plan, :contract, :contract_type,
+        :contract_name, :file, :file_type, :file_name, :status, :comment, :comment_stolen_lost,
+        :email_sended, :want_replacement, :want_sim, :want_new_number, :number_type,
+        :phone_number, :transfer_line_type, :price, :region, :country, :name, :national_id,
+        :email, :company, :deptname, :start_date, :end_date, :closed_at, :user_id)
+    end
+
+    # params for update
+    def request_params_update
+      params.require(:request).permit(:request, :item, :model, :plan, :contract, :contract_type,
         :contract_name, :file, :file_type, :file_name, :status, :comment, :comment_stolen_lost,
         :email_sended, :want_replacement, :want_sim, :want_new_number, :number_type,
         :phone_number, :transfer_line_type, :price, :region, :country, :name, :national_id,

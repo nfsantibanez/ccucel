@@ -11,52 +11,122 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :request, 'Tipo de solicitud' %>
+    <%= form.label :n_request, 'n° Solicitud' %>
+    <%= form.text_field :n_request, id: :n_request_request %>
+  </div>
+
+  <div class="field">
+    <%= form.label :request, 'Tipo de Solicitud' %>
     <%= form.text_field :request, id: :request_request %>
   </div>
 
   <div class="field">
-    <%= form.label :item %>
+    <%= form.label :item, "Item Solicitado" %>
     <%= form.text_field :item, id: :request_item %>
   </div>
 
   <div class="field">
-    <%= form.label :model %>
+    <%= form.label :email_sended, "Detalle Solicitud" %>
+    <%= form.text_area :email_sended, id: :request_email_sended %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model, "Modelo" %>
     <%= form.text_field :model, id: :request_model %>
   </div>
 
   <div class="field">
-    <%= form.label :plan %>
+    <%= form.label :plan, "Plan Bam/Roaming" %>
     <%= form.text_field :plan, id: :request_plan %>
   </div>
 
   <div class="field">
-    <%= form.label :contract %>
-    <%= form.text_field :contract, id: :request_contract %>
+    <%= form.label :contract, "Contrato" %>
+    <%= form.file_field :contract, multiple: false, name: "file", accept: 'image/png,image/gif,image/jpeg' %>
   </div>
 
   <div class="field">
-    <%= form.label :file %>
-    <%= form.text_field :file, id: :request_file %>
+    <%= form.label :contract_type, "Tipo de archivo del Contrato"%>
+    <%= form.text_field :contract_type, id: :request_contract_type %>
   </div>
 
   <div class="field">
-    <%= form.label :status %>
+    <%= form.label :contract_name, "Nombre del archivo del Contrato"%>
+    <%= form.text_field :contract_name, id: :request_contract_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file, "Constancia"%>
+    <%= form.file_field :file, multiple: false, accept: 'image/png,image/gif,image/jpeg' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file_type, "Tipo de archivo de la Constancia" %>
+    <%= form.text_field :file_type, id: :request_file_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file_name, "Nombre del archivo de la Constancia" %>
+    <%= form.text_field :file_name, id: :request_file_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status, "Estado" %>
     <%= form.text_field :status, id: :request_status %>
   </div>
 
   <div class="field">
-    <%= form.label :comment %>
+    <%= form.label :comment, "Comentarios Modelo/Desperfecto" %>
     <%= form.text_area :comment, id: :request_comment %>
   </div>
 
   <div class="field">
-    <%= form.label :closed_at %>
+    <%= form.label :comment_stolen_lost, "Descripción Robo/Pérdida" %>
+    <%= form.text_area :comment_stolen_lost, id: :request_comment_stolen_lost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number, "Número de Teléfono" %>
+    <%= form.text_field :phone_number, id: :request_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price, "Precio $" %>
+    <%= form.text_field :price, id: :request_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :region, "Region Roaming" %>
+    <%= form.text_field :region, id: :request_region %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country, "Pais Roaming" %>
+    <%= form.text_field :country, id: :request_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date, "Fecha Inicio Viaje/Robo o Pérdida" %>
+    <%= form.datetime_select :start_date, id: :request_start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date, "Fecha Término Viaje" %>
+    <%= form.datetime_select :end_date, id: :request_end_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :created_at, "Fecha Creación Solicitud" %>
+    <%= form.datetime_select :created_at, id: :request_created_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :closed_at, "Fecha de Cierre Solicitud" %>
     <%= form.datetime_select :closed_at, id: :request_closed_at %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
+    <%= form.label :user_id, "id de Usuario" %>
     <%= form.text_field :user_id, id: :request_user_id %>
   </div>
 

@@ -4,22 +4,25 @@
   <title>Solicitud Celulares CCU</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= javascript_include_tag "jquery.min" %>
   <%= stylesheet_link_tag "home_style.min" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrapValidator" %>
+
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders, color dark green */
     .navbar {
-      margin: 0;
+      margin: 0px;
       background-color: #003F2A;
-      padding: 15px;
+      padding: 0px;
+      text-align: center;
+      vertical-align: middle;
     }
 
     .navbar .navbar-nav {
       display: inline-block;
       float: none;
-    }
-
-    .navbar .navbar-collapse {
-      text-align: center;
     }
 
     /* Set white background white and 100% height */
@@ -35,9 +38,8 @@
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="myNavbar">
       <h4>
-          <ul class="nav navbar-nav text-left">
+          <ul class="nav navbar-nav">
               <li ><a href="/">Home</a></li>
               <li ><a href="/requests/home/menu">Solicitudes</a></li>
               <li ><a href="#">Documentos</a></li>
@@ -45,7 +47,6 @@
               <li ><a href="#">Q & A</a></li>
           </ul>
       </h4>
-    </div>
   </div>
 </nav>
 

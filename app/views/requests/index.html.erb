@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
 
 <%= render partial: '/layouts/request_filter' %>
 
-<hr>
-<h3><strong>Solicitudes</strong></h3>
-<hr>
+<div class= "titulo">
+  <hr>
+  <h3><strong>Solicitudes</strong></h3>
+  <hr>
+</div>
 
 <div class="container-fluid">
   <div class="table-responsive">
@@ -13,7 +14,6 @@
         <tr>
           <th scope="col" class= text-center><%= sortable "n_request", "n° Solicitud"%></th>
           <th scope="col" class= text-center><%= sortable "status", "Estado"%></th>
-          <th scope="col" class= text-center><%= sortable "name", "Nombre"%> </th>
           <th scope="col" class= text-center><%= sortable "company", "Empresa"%> </th>
           <th scope="col" class= text-center><%= sortable "request", "Tipo Solicitud"%></th>
           <th scope="col" class= text-center><%= sortable "item", "Item Solicitado"%></th>
@@ -34,7 +34,6 @@
           <tr>
             <td><%= request.n_request %></td>
             <td><strong><%= request.status %></strong></td>
-            <td><%= request.name %></td>
             <td><%= request.user.company %></td>
             <td><%= request.request %></td>
             <td><%= request.item %></td>
@@ -50,7 +49,7 @@
             <td><%= link_to 'User', request.user %></td>
             <td><%= link_to 'Show', request %></td>
             <td><%= link_to 'Edit', edit_request_path(request) %></td>
-            <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Destroy', request, method: "delete", data: { confirm: 'Está Seguro de querer borrar la Solicitud n° '+request.n_request } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -58,5 +57,3 @@
   </div>
 </div>
 <br>
-
-<%= link_to 'New Request', new_request_path %>
