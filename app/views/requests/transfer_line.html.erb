@@ -61,6 +61,10 @@
       <%= form.hidden_field :user_id, value: @user["id"] %>
       <%= form.hidden_field :request, value: @user["request"] %>
       <%= form.hidden_field :company, value: @user["company"] %>
+      <%= form.hidden_field :deptname, value: @user["deptname"] %>
+      <%= form.hidden_field :name, value: @user["name"]+" "+@user["last_name"] %>
+      <%= form.hidden_field :national_id, value: @user["national_id"] %>
+      <%= form.hidden_field :email, value: @user["email"] %>
 
       <!-- Cargar Informacion del usuario para mostrar -->
       <%= render partial: '/layouts/user_info', locals: {form: form} %>

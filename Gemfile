@@ -27,6 +27,8 @@ gem 'jquery-rails'
 # Gem for ORACLE DB
 gem 'activerecord-oracle_enhanced-adapter'
 gem 'ruby-oci8'
+# metasearch for tables
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

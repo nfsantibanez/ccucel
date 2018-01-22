@@ -8,7 +8,9 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
-    @requests = Request.order(sort_column + " " + sort_direction)
+    # @requests = Request.order(sort_column + " " + sort_direction)
+    @search = Request.search(params[:q])
+    @requests = @search.result
     render layout: 'admin_view'
   end
 
@@ -328,8 +330,8 @@ class RequestsController < ApplicationController
       params.permit(:request, :item, :model, :plan, :contract, :contract_type,
         :contract_name, :file, :file_type, :file_name, :status, :comment, :comment_stolen_lost,
         :email_sended, :want_replacement, :want_sim, :want_new_number, :number_type,
-        :phone_number, :transfer_line_type, :price, :region, :country, :company,
-        :start_date, :end_date, :closed_at, :user_id)
+        :phone_number, :transfer_line_type, :price, :region, :country, :name, :national_id,
+        :email, :company, :deptname, :start_date, :end_date, :closed_at, :user_id)
     end
 
 end

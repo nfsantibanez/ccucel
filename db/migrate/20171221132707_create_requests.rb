@@ -25,7 +25,11 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.string :price
       t.string :region
       t.string :country
+      t.string :name
+      t.string :national_id
+      t.string :email
       t.string :company
+      t.string :deptname
       t.datetime :start_date
       t.datetime :end_date
       t.datetime :closed_at

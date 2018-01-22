@@ -16,13 +16,28 @@
 </p>
 
 <p>
-  <strong>Nombre Solicitante:</strong>
-  <%= @request.user.name+" "+@request.user.last_name %>
+  <strong>Nombre Solicitante: </strong>
+  <%= @request.name %>
 </p>
 
 <p>
-  <strong>Correo Solicitante:</strong>
-  <%= @request.user.email %>
+  <strong>Correo Solicitante: </strong>
+  <%= @request.email %>
+</p>
+
+<p>
+  <strong>Rut Solicitante: </strong>
+  <%= @request.national_id %>
+</p>
+
+<p>
+  <strong>Empresa: </strong>
+  <%= @request.company %>
+</p>
+
+<p>
+  <strong>Centro de Costo: </strong>
+  <%= @request.deptname %>
 </p>
 
 <p>
