@@ -2,8 +2,7 @@ class RequestsController < ApplicationController
   require 'securerandom'
   helper_method :sort_column, :sort_direction
   before_action :set_request, only: [:show, :edit, :update, :destroy]
-  layout 'general_view', except: [:create_user, :index, :show, :edit, :update]
-
+  layout 'general_view', except: [:index, :show, :edit, :update]
 
   # GET /requests
   # GET /requests.json
@@ -50,6 +49,14 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1.json
   def update
     respond_to do |format|
+
+      # If contract is updated
+      if params[:contract]
+        params[:request][:contract_type] = params[:contract].content_type
+        params[:request][:contract_name] = params[:contract].original_filename
+        params[:request][:contract] = params[:contract].read
+      end
+
       if @request.update(request_params_update)
         format.html { redirect_to @request, notice: 'Request was successfully updated.' }
         format.json { render :show, status: :ok, location: @request }
@@ -122,9 +129,6 @@ class RequestsController < ApplicationController
 
   # Function to create Request by User Request
   def create_user
-
-    puts('*'*40)
-    puts(params)
 
     # Create message to resume Request
     ms = build_message
@@ -230,8 +234,7 @@ class RequestsController < ApplicationController
       id = @request.id.to_s+SecureRandom.hex(3)
       params[:n_request] = id
       # Update Attributtes
-      @request.update_attributes(n_request: id)
-
+      @request.update_attribute("n_request", id)
       # Render success message
       render layout: 'success'
     else
@@ -246,7 +249,15 @@ class RequestsController < ApplicationController
   # Option to download the file
   def download_file
     @request = Request.find_by_n_request(params[:id])
-    send_data(@request.file, type: @request.file_type, filename: @request.file_name)
+    send_data(@request.file, type: @request.file_type, filename: @request.file_name,
+      disposition: 'attachment')
+  end
+
+  # Option to download contract
+  def download_contract
+    @request = Request.find_by_n_request(params[:id])
+    send_data(@request.contract, type: @request.contract_type, filename: @request.contract_name,
+      disposition: 'attachment')
   end
 
   # New Request form
@@ -330,20 +341,22 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.permit(:request, :item, :model, :plan, :contract, :contract_type,
-        :contract_name, :file, :file_type, :file_name, :status, :comment, :comment_stolen_lost,
-        :email_sended, :want_replacement, :want_sim, :want_new_number, :number_type,
-        :phone_number, :transfer_line_type, :price, :region, :country, :name, :national_id,
-        :email, :company, :deptname, :start_date, :end_date, :closed_at, :user_id)
+      params.permit(:request, :item, :model, :plan, :classification,
+        :contract, :contract_type, :contract_name, :file, :file_type, :file_name,
+        :status, :comment, :comment_stolen_lost, :email_sended, :want_replacement,
+        :want_sim, :want_new_number, :number_type, :phone_number, :transfer_line_type,
+        :price, :region, :country, :name, :national_id, :email, :company, :deptname,
+        :start_date, :end_date, :closed_at, :user_id)
     end
 
     # params for update
     def request_params_update
-      params.require(:request).permit(:request, :item, :model, :plan, :contract, :contract_type,
-        :contract_name, :file, :file_type, :file_name, :status, :comment, :comment_stolen_lost,
-        :email_sended, :want_replacement, :want_sim, :want_new_number, :number_type,
-        :phone_number, :transfer_line_type, :price, :region, :country, :name, :national_id,
-        :email, :company, :deptname, :start_date, :end_date, :closed_at, :user_id)
+      params.require(:request).permit(:request, :item, :model, :plan,
+        :classification, :contract, :contract_type, :contract_name, :file, :file_type,
+        :file_name, :status, :comment, :comment_stolen_lost, :email_sended, :want_replacement,
+        :want_sim, :want_new_number, :number_type, :phone_number, :transfer_line_type,
+        :price, :region, :country, :name, :national_id, :email, :company, :deptname,
+        :start_date, :end_date, :closed_at, :user_id)
     end
 
 end

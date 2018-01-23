@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<hr>
+<h3><strong>Detalle Solicitud</strong></h3>
+<hr>
 
 <p>
   <strong>n° Solicitud: </strong>
@@ -177,16 +179,16 @@
 
 <%if @request.contract %>
 <p>
-  <strong>Contrato: </strong>
-  <%= @request.contract %>
+  <strong>Nota de Pedido: </strong>
+  <%= link_to 'Download', 'contracts/'+@request.n_request, data: {turbolinks: false} %>
 </p>
 <%end%>
 
 <%if @request.file%>
   <%if @request.request == 'stolen/lost'%>
     <p>
-      <strong>Copia constancia: </strong>
-      <%= link_to 'Download', 'files/'+@request.n_request %>
+      <strong>Constancia: </strong>
+      <%= link_to 'Download', 'files/'+@request.n_request,  data: {turbolinks: false}  %>
     </p>
   <%end%>
 <%end%>

@@ -31,8 +31,10 @@ class Request < ApplicationRecord
   end
 
   def valid_status
-    if status != 'created' && status != 'approval pending' && status != 'rejected' && status != 'accepted' &&
-      status != 'canceled' && status != 'in repairs' && status != 'dispatched' && status != 'ready to deliver'
+    if status != 'pendiente aprobacion' && status != 'rechazada' && status != 'cancelada' &&
+      status != 'pendiente entrega dispositivo' && status != 'pendiente presupuesto' &&
+      status != 'en reparaciones' && status != 'disponible para retiro' &&
+      status != 'en curso' && status != 'enviado a trabajador' && status != 'finalizada'
       errors.add(:status, 'invalid status field')
     end
   end

@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-22 11:09:23", null: false
-    t.datetime "last_assign_at", default: "2018-01-22 11:09:23", null: false
+    t.datetime "renovation_at", default: "2020-01-23 15:37:08", null: false
+    t.datetime "last_assign_at", default: "2018-01-23 15:37:08", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,13 +48,14 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "item", null: false
     t.string "model", default: "default", null: false
     t.string "plan", default: "default", null: false
+    t.string "classification", default: "abierto", null: false
     t.binary "contract"
     t.string "contract_type"
     t.string "contract_name"
     t.binary "file"
     t.string "file_type"
     t.string "file_name"
-    t.string "status", default: "created", null: false
+    t.string "status", default: "pendiente aprobacion", null: false
     t.string "comment"
     t.string "comment_stolen_lost"
     t.string "email_sended"
@@ -89,7 +90,7 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
     t.string "order_note"
-    t.datetime "last_assign_at", default: "2018-01-22 11:09:23", null: false
+    t.datetime "last_assign_at", default: "2018-01-23 15:37:08", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -106,8 +107,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-22 11:09:23", null: false
-    t.datetime "last_assign_at", default: "2018-01-22 11:09:23", null: false
+    t.datetime "renovation_at", default: "2020-01-23 15:37:09", null: false
+    t.datetime "last_assign_at", default: "2018-01-23 15:37:09", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

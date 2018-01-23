@@ -18,16 +18,15 @@ Rails.application.routes.draw do
   get '/requests/forms/transferline' => 'requests#transfer_line'
   # New Form
   get '/requests/forms/new' => 'requests#new_form'
-  # save New Form
-  post '/requests/forms/create/new' => 'requests#create_user'
   # Renew Form
   get '/requests/forms/renew' => 'requests#renew_form'
   # Stolen or Lost Form
   get '/requests/forms/stolenlost' => 'requests#stolen_lost'
   # Technical Service Form
   get '/requests/forms/technicalservice' => 'requests#technical_service'
-  # Technical Service Form
+  # files
   get '/requests/files/:id' => 'requests#download_file'
+  get '/requests/contracts/:id' => 'requests#download_contract'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

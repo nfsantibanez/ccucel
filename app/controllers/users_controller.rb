@@ -1,16 +1,18 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  layout 'general_view'
+  layout 'general_view' , except: [:create_user, :index, :show, :edit, :update]
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
+    render layout: 'admin_view'
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    render layout: 'admin_view'
   end
 
   # GET /users/new
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    render layout: 'admin_view'
   end
 
   # POST /users

@@ -1,38 +1,47 @@
+<hr>
+<h3><strong>Información Usuario</strong></h3>
+<hr>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>National_id:</strong>
-  <%= @user.national_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
+  <strong>Apellidos:</strong>
   <%= @user.last_name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>Rut:</strong>
+  <%= @user.national_id %>
+</p>
+
+<p>
+  <strong>e-mail:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>Country:</strong>
-  <%= @user.country %>
-</p>
-
-<p>
-  <strong>JobTitle:</strong>
+  <strong>Cargo:</strong>
   <%= @user.jobtitle %>
 </p>
 
 <p>
-  <strong>Company:</strong>
+  <strong>Familia de Cargo:</strong>
+  <%= @user.jobtitle %>
+</p>
+
+<p>
+  <strong>Empresa:</strong>
   <%= @user.company %>
+</p>
+
+<p>
+  <strong>País:</strong>
+  <%= @user.country %>
 </p>
 
 <p>
@@ -41,22 +50,17 @@
 </p>
 
 <p>
-  <strong>Supervisor email:</strong>
+  <strong>Correo del Supervisor:</strong>
   <%= @user.supervisor_email %>
 </p>
 
 <p>
-  <strong>DeptName:</strong>
+  <strong>Centro de Costos:</strong>
   <%= @user.deptname %>
 </p>
 
 <p>
-  <strong>JobCode:</strong>
-  <%= @user.jobcode %>
-</p>
-
-<p>
-  <strong>Location:</strong>
+  <strong>Ubicación:</strong>
   <%= @user.location %>
 </p>
 
