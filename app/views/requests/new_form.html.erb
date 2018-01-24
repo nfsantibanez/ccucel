@@ -5,22 +5,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    .text_area * {
-      vertical-align: middle;
+    .text_area {
+      vertical-align: top;
     }
 
-    .alert-info {
+    h2 {
+      margin: 0;
+    }
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      padding-top: 7px;
+    }
+
+    .alert {
       margin-top: 5px;
       display:inline-block;
       vertical-align: middle;
       height: 50%;
       padding: 1px;
       margin-top: 1%;
-      margin-bottom: 0%;
+      margin-bottom: 1%;
     }
 
     input[type="radio"]{
-      margin: 0 5px 0 20px;
+      margin: 10px 5px 0px 25px;
     }
 
   </style>
@@ -33,9 +46,8 @@
 <body>
 
 <div class="container-fluid">
-  <h1><strong> Formulario </strong></h1>
   <hr>
-  <h3> Formulario Nuevo </h3>
+  <h2><strong> Formulario Nuevo Equipo/Servicio </strong></h2>
   <hr>
 
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>

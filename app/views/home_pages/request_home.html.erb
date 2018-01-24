@@ -7,6 +7,18 @@
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 720px}
+
+    label {
+      padding-top: 5px;
+    }
+    h2 {
+      margin: 0;
+    }
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
   </style>
   <%= javascript_include_tag "jquery.min" %>
 
@@ -38,45 +50,76 @@
 
 <div class="container-fluid">
   <hr>
-  <h1><strong> Identificación de Usuario y Solicitud </strong></h1>
+  <h2><strong> Identificación de Usuario y Solicitud </strong></h2>
   <hr>
   <%= form_with url: "validate", method: "get" do |form| %>
    <div class="well form-horizontal">
 
-    <div id= "request" class="field-center">
-      <%= form.label :request_type, 'Seleccione Tipo de Solicitud' %>
-      <%= form.select :request_type, [['Cesión de línea', 'transfer line'],
-      ['Nuevo Equipo', 'new'], ['Renovar Equipo', 'renew'], ['Robo/Pérdida Equipo', 'stolen/lost'],
-      ['Reparar Equipo', 'technical service']], {} %>
-    </div>
+     <div id= "request" class="row">
+       <div class="col-md-3"></div>
+       <p class="col-md-4 text-left">
+         <%= form.label :request_type, 'Seleccione Tipo de Solicitud' %>
+       </p>
 
-    <div id= "request_hw_new" class="field-center">
-      <br>
-      <%= form.label :request_hw_new, 'Seleccione Equipo/Servicio' %>
-      <%= form.select :request_hw_new, [['Smartphone', 'smartphone'],
-      ['Sim', 'sim'], ['Bam', 'bam'], ['Roaming', 'roaming']], {} %>
-    </div>
+       <p class="col-md-3 text-left">
+         <%= form.select :request_type, [['Cesión de línea', 'transfer line'],
+         ['Nuevo Equipo/Servicio', 'new'], ['Renovar Equipo', 'renew'], ['Robo/Pérdida Equipo', 'stolen/lost'],
+         ['Reparar Equipo', 'technical service']], {} %>
+       </p>
+       <div class="col-md-2"></div>
+     </div>
 
-    <div id= "request_hw_renew_tech" class="field-center">
-      <br>
-      <%= form.label :request_hw_renew_tech, 'Seleccione Equipo/Servicio' %>
-      <%= form.select :request_hw_renew_tech, [['Smartphone', 'smartphone'],
-      ['BAM', 'bam']], {} %>
-    </div>
+     <div id= "request_hw_new" class="row">
+       <div class="col-md-3"></div>
+       <p class="col-md-4 text-left">
+         <%= form.label :request_hw_new, 'Seleccione Equipo/Servicio' %>
+       </p>
 
-    <div id= "request_hw_lost" class="field-center">
-      <br>
-      <%= form.label :request_hw_lost, 'Seleccione Equipo/Servicio' %>
-      <%= form.select :request_hw_lost, [['Smartphone', 'smartphone'], ['Sim', 'sim'],
-      ['Bam', 'bam']], {} %>
-    </div>
+       <p class="col-md-3 text-left">
+         <%= form.select :request_hw_new, [['Smartphone', 'smartphone'],
+         ['Sim', 'sim'], ['Bam', 'bam'], ['Roaming', 'roaming']], {} %>
+       </p>
+       <div class="col-md-2"></div>
+     </div>
 
-    <br>
+     <div id= "request_hw_renew_tech" class="row">
+       <div class="col-md-3"></div>
+       <p class="col-md-4 text-left">
+         <%= form.label :request_hw_renew_tech, 'Seleccione Equipo/Servicio' %>
+       </p>
 
-    <div class="field-center">
-      <%= form.label :user_rut, 'Identificación de Usuario' %>
-      <%= form.text_field :user_rut, id: :request_request, placeholder: "ej: 17395384-2" %>
-    </div>
+       <p class="col-md-3 text-left">
+         <%= form.select :request_hw_renew_tech, [['Smartphone', 'smartphone'],
+         ['BAM', 'bam']], {} %>
+       </p>
+       <div class="col-md-2"></div>
+     </div>
+
+     <div id= "request_hw_lost" class="row">
+       <div class="col-md-3"></div>
+       <p class="col-md-4 text-left">
+          <%= form.label :request_hw_lost, 'Seleccione Equipo/Servicio' %>
+       </p>
+
+       <p class="col-md-3 text-left">
+         <%= form.select :request_hw_lost, [['Smartphone', 'smartphone'], ['Sim', 'sim'],
+         ['Bam', 'bam']], {} %>
+       </p>
+       <div class="col-md-2"></div>
+     </div>
+
+     <div id= "request_hw_lost" class="row">
+       <div class="col-md-3"></div>
+       <p class="col-md-4 text-left">
+          <%= form.label :user_rut, 'Identificación de Usuario' %>
+       </p>
+
+       <p class="col-md-3 text-left">
+        <%= form.text_field :user_rut, id: :request_request, placeholder: "ej: 17395384-2" %>
+       </p>
+       <div class="col-md-2"></div>
+     </div>
+
   </div>
 
     <br>

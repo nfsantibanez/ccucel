@@ -16,27 +16,53 @@
   <hr>
 
     <div id= "same_number" class="field-center">
-      <br>
       <% if @items.has_key?(:sim) %>
         <% if !@items[:sim].phone_number.to_s.empty? %>
-          <%= form.label :phone_number, 'Número asignado: '%>
-          <%= form.label :phone_number, '+56 9 '+@items[:sim].phone_number.to_s, class:"text-center", size: "12" %>
-          <%= form.hidden_field :phone_number, value: @items[:sim].phone_number.to_s %>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <p class="col-md-4 text-right">
+              <%= form.label :phone_number, 'Número asignado (+56 9): '%>
+            </p>
+
+            <p class="col-md-3 text-left">
+              <%= form.label :phone_number, ' '+@items[:sim].phone_number.to_s %>
+              <%= form.hidden_field :phone_number, value: @items[:sim].phone_number.to_s %>
+            </p>
+            <div class="col-md-2"></div>
+          </div>
+
         <% else %>
           <p></p>
           <div class="alert alert-danger">Sim no tiene un número de teléfono asignado en el sistema,
             Ingrese el número telefónico actual que tiene asociado a CCU</div>
-          <br>
-          <%= form.label :phone_number, 'Ingrese Número: +56 9' %>
-          <%= form.text_field :phone_number %>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <p class="col-md-4 text-right">
+                <%= form.label :phone_number, 'Ingrese Número (+56 9):' %>
+              </p>
+
+              <p class="col-md-3 text-left">
+                <%= form.text_field :phone_number, size: 8 %>
+              </p>
+              <div class="col-md-2"></div>
+            </div>
         <% end %>
+
       <% else %>
       <p></p>
       <div class="alert alert-danger">Usuario no tiene una Sim asignada en el sistema,
         si tiene una Sim asociada a CCU ingrese el número telefónico de la Sim</div>
-        <br>
-        <%= form.label :phone_number, 'Ingrese Número: +56 9' %>
-        <%= form.text_field :phone_number %>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <p class="col-md-4 text-right">
+            <%= form.label :phone_number, 'Ingrese Número (+56 9):' %>
+          </p>
+
+          <p class="col-md-3 text-left">
+            <%= form.text_field :phone_number, size: 8 %>
+          </p>
+          <div class="col-md-2"></div>
+        </div>
       <% end %>
     </div>
 

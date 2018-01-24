@@ -34,56 +34,64 @@
 
     <% if @items.has_key?(:sp) %>
 
-      <div class="field-center">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <p class="col-md-4 text-left">
+          <strong>Modelo:</strong>
+          <%= @items[:sp].model %>
+          <%= form.hidden_field :model, value: @items[:sp].model %>
+        </p>
+
+        <p class="col-md-4 text-left">
+          <strong>Codigo:</strong>
+          <%= @items[:sp].code %>
+        </p>
+        <div class="col-md-2"></div>
       </div>
 
-      <p>
-        <strong>Modelo:</strong>
-        <%= @items[:sp].model %>
-        <%= form.hidden_field :model, value: @items[:sp].model %>
-      </p>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <p class="col-md-4 text-left">
+          <strong>Categoria:</strong>
+          <%= @items[:sp].category %>
+        </p>
 
-      <p>
-        <strong>Número Telefónico:</strong>
-        <%= @items[:sp].phone_number %>
-        <%= form.hidden_field :phone_number, value: @items[:sp].phone_number %>
-      </p>
+        <p class="col-md-4 text-left">
+          <strong>Número Telefónico:</strong>
+          <%= @items[:sp].phone_number %>
+          <%= form.hidden_field :phone_number, value: @items[:sp].phone_number %>
+        </p>
+        <div class="col-md-2"></div>
+      </div>
 
-      <p>
-        <strong>Codigo:</strong>
-        <%= @items[:sp].code %>
-      </p>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <p class="col-md-4 text-left">
+          <strong>Imei:</strong>
+          <%= @items[:sp].imei %>
+          <%= form.hidden_field :imei, value: @items[:sp].imei %>
+        </p>
 
-      <p>
-        <strong>Categoria:</strong>
-        <%= @items[:sp].category %>
-      </p>
+        <p class="col-md-4 text-left">
+          <strong>Pais:</strong>
+          <%= @items[:sp].country %>
+        </p>
+        <div class="col-md-2"></div>
+      </div>
 
-      <p>
-        <strong>Pais:</strong>
-        <%= @items[:sp].country %>
-      </p>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <p class="col-md-4 text-left">
+          <strong>Estado:</strong>
+          <%= @items[:sp].state %>
+        </p>
 
-      <p>
-        <strong>Imei:</strong>
-        <%= @items[:sp].imei %>
-        <%= form.hidden_field :imei, value: @items[:sp].imei %>
-      </p>
-
-      <p>
-        <strong>Estado:</strong>
-        <%= @items[:sp].state %>
-      </p>
-
-      <p>
-        <strong>Fecha de Renovación:</strong>
-        <%= @items[:sp].renovation_at %>
-      </p>
-
-      <p>
-        <strong>Sim asignada:</strong>
-        <%= @items[:sp].sim %>
-      </p>
+        <p class="col-md-4 text-left">
+          <strong>Fecha de Renovación:</strong>
+          <%= @items[:sp].renovation_at.localtime.strftime('%d/%m/%Y') %>
+        </p>
+        <div class="col-md-2"></div>
+      </div>
 
     <% else %>
 
@@ -91,23 +99,42 @@
       Ingrese los datos del dispositivo defectuoso que tiene asociado a CCU
     </div>
 
-    <p>
-      <%= form.label :model, 'Modelo Smartphone' %>
-      <%= form.text_field :model %>
-    </p>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <p class="col-md-3 text-left">
+        <%= form.label :model, 'Modelo Smartphone' %>
+      </p>
+      <p class="col-md-3 pull-left">
+        <%= form.text_field :model %>
+      </p>
+      <div class="col-md-3"></div>
+    </div>
 
-    <p>
-      <%= form.label :phone_number, 'Número Telefónico Smartphone' %>
-      <%= form.text_field :phone_number %>
-    </p>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <p class="col-md-3 text-left">
+        <%= form.label :phone_number, 'Número Telefónico' %>
+      </p>
+      <p class="col-md-3 pull-left">
+        <%= form.text_field :phone_number%>
+      </p>
+      <div class="col-md-3"></div>
+    </div>
 
-    <p>
-      <%= form.label :imei, 'IMEI Smartphone' %>
-      <%= form.text_field :imei %>
-      <div class="alert alert-info">
-        Ingrese *#06# en el dispositivo para obtener el IMEI
-      </div>
-    </p>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <p class="col-md-3 text-left">
+        <%= form.label :imei, 'IMEI Smartphone' %>
+      </p>
+      <p class="col-md-3 pull-left">
+        <%= form.text_field :imei %>
+      </p>
+      <div class="col-md-3"></div>
+    </div>
+
+    <div class="alert alert-info">
+      Ingrese *#06# en el dispositivo para obtener el IMEI
+    </div>
 
     <% end %>
 

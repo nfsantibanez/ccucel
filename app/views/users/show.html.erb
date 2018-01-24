@@ -2,87 +2,121 @@
 <h3><strong>Información Usuario</strong></h3>
 <hr>
 
-<p id="notice"><%= notice %></p>
+<div class="well form-horizontal">
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @user.name %>
-</p>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <strong>Nombre:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Apellidos:</strong>
-  <%= @user.last_name %>
-</p>
+    <p class="col-md-3 text-left">
+      <strong>Apellidos:</strong>
+      <%= @user.last_name %>
+    </p>
+    <div class="col-md-3"></div>
+</div>
 
-<p>
-  <strong>Rut:</strong>
-  <%= @user.national_id %>
-</p>
+<div class="row">
+  <div class="col-md-3"></div>
+  <p class="col-md-3 text-left">
+    <strong>Rut:</strong>
+    <%= @user.national_id %>
+  </p>
 
-<p>
-  <strong>e-mail:</strong>
-  <%= @user.email %>
-</p>
+  <p class="col-md-3 text-left">
+    <strong>e-mail:</strong>
+    <%= @user.email %>
+  </p>
+  <div class="col-md-3"></div>
+</div>
 
-<p>
-  <strong>Cargo:</strong>
-  <%= @user.jobtitle %>
-</p>
+<div class="row">
+  <div class="col-md-3"></div>
+  <p class="col-md-3 text-left">
+    <strong>Cargo:</strong>
+    <%= @user.jobtitle %>
+  </p>
 
-<p>
-  <strong>Familia de Cargo:</strong>
-  <%= @user.jobtitle %>
-</p>
+  <p class="col-md-3 text-left">
+    <strong>Familia de Cargo:</strong>
+    <%= @user.jobtitle %>
+  </p>
+  <div class="col-md-3"></div>
+</div>
 
-<p>
-  <strong>Empresa:</strong>
-  <%= @user.company %>
-</p>
+<div class="row">
+  <div class="col-md-3"></div>
+  <p class="col-md-3 text-left">
+    <strong>Empresa:</strong>
+    <%= @user.company %>
+  </p>
 
-<p>
-  <strong>País:</strong>
-  <%= @user.country %>
-</p>
+  <p class="col-md-3 text-left">
+    <strong>País:</strong>
+    <%= @user.country %>
+  </p>
+  <div class="col-md-3"></div>
+</div>
 
-<p>
-  <strong>Supervisor:</strong>
-  <%= @user.supervisor %>
-</p>
+<div class="row">
+  <div class="col-md-3"></div>
+  <p class="col-md-3 text-left">
+    <strong>Supervisor:</strong>
+    <%= @user.supervisor %>
+  </p>
 
-<p>
-  <strong>Correo del Supervisor:</strong>
-  <%= @user.supervisor_email %>
-</p>
+  <p class="col-md-3 text-left">
+    <strong>Correo Supervisor:</strong>
+    <%= @user.supervisor_email %>
+  </p>
+  <div class="col-md-3"></div>
+</div>
 
-<p>
-  <strong>Centro de Costos:</strong>
-  <%= @user.deptname %>
-</p>
+<div class="row">
+  <div class="col-md-3"></div>
+  <p class="col-md-3 text-left">
+    <strong>Centro de Costos:</strong>
+    <%= @user.deptname %>
+  </p>
 
-<p>
-  <strong>Ubicación:</strong>
-  <%= @user.location %>
-</p>
+  <p class="col-md-3 text-left">
+    <strong>Ubicación:</strong>
+    <%= @user.location %>
+  </p>
+  <div class="col-md-3"></div>
+</div>
 
-<p>
-  <strong>Smartphone Asignado:</strong>
-  <%=@user.smartphone_id%>
-</p>
+<div class="row">
+  <div class="col-md-3"></div>
+  <p class="col-md-3 text-left">
+    <strong>Smartphone Asignado:</strong>
+    <%=@user.smartphone_id%>
+  </p>
 
-<p>
-  <strong>Bam Asignado:</strong>
-  <%=@user.bam_id%>
-</p>
+  <p class="col-md-3 text-left">
+    <strong>Bam Asignado:</strong>
+    <%=@user.bam_id%>
+  </p>
+  <div class="col-md-3"></div>
+</div>
 
-<p>
-  <strong>Sim Asignada:</strong>
-  <%=@user.sim_id%>
-</p>
+<div class="row">
+  <div class="col-md-3"></div>
+  <p class="col-md-3 text-left">
+    <strong>Sim Asignada:</strong>
+    <%=@user.sim_id%>
+  </p>
 
-<p>
-  <strong>Plan Asignado:</strong>
-  <%=@user.plan_id%>
-</p>
+  <p class="col-md-3 text-left">
+    <strong>Plan Asignado:</strong>
+    <%=@user.plan_id%>
+  </p>
+  <div class="col-md-3"></div>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+| <%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %> |
+
+</div>

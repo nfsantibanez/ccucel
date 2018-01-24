@@ -5,12 +5,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-  .row.content {height: 1550px}
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 1550px}
 
-  input[type="radio"]{
-    margin: 0 5px 0 20px;
-  }
+    label {
+      padding-top: 7px;
+    }
+
+    h2 {
+      margin: 0;
+    }
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    input[type="radio"]{
+      margin: 10px 5px 0px 25px;
+    }
+
+    .alert {
+      margin-top: 5px;
+      display:inline-block;
+      vertical-align: middle;
+      height: 50%;
+      padding: 1px;
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
   </style>
 
   <%= javascript_include_tag "jquery.min" %>
@@ -121,7 +144,7 @@
 
 <div class="container-fluid">
   <hr>
-  <h1><strong> Formulario Pérdida/Robo Equipo </strong></h1>
+  <h2><strong> Formulario Pérdida/Robo Equipo </strong></h2>
   <hr>
 
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>

@@ -5,20 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-
-    .text_area * {
-      vertical-align: middle;
-    }
-
-    .alert-info {
-      margin-top: 5px;
-      display:inline-block;
-      vertical-align: middle;
-      height: 50%;
-      padding: 1px;
-      margin-top: 1%;
-      margin-bottom: 0%;
-    }
   </style>
 
   <script type="text/javascript">
@@ -107,72 +93,140 @@
     <% end %>
   <% end %>
 
-  <div id= "models" class="field-center">
-    <%= form.label :model_one, 'Seleccione Modelo Smartphone' %>
-    <%= form.select :model_one, @cat_smartphones, {} %>
+  <div  id= "models" class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :model_one, 'Seleccione Modelo' %>
+    </p>
+
+    <p class="col-md-3 text-left">
+      <%= form.select :model_one, @cat_smartphones, {} %>
+    </p>
+    <div class="col-md-3"></div>
   </div>
 
-  <div id= "select_all_models" class="field-center">
-    <%= form.label :model_all, 'Seleccione Modelo Smartphone' %>
-    <%= form.select :model_all, @all_smartphones, {} %>
+  <div  id= "select_all_models" class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :model_all, 'Seleccione Modelo' %>
+    </p>
+
+    <p class="col-md-3 text-left">
+      <%= form.select :model_all, @all_smartphones, {} %>
+    </p>
+    <div class="col-md-3"></div>
   </div>
 
-  <div id= "show_all_models" class="field-center">
-    <div class="alert alert-info">
-      Mostrar modelos que no corresponden a mi cargo
-      <%= form.check_box :want_all, { id: "checkbox" } %>
-    </div>
+  <div  id= "show_all_models"  class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-6 alert alert-info">
+        Mostrar modelos que no corresponden a mi cargo
+        <%= form.check_box :want_all, { id: "checkbox" } %>
+    </p>
+    <div class="col-md-3"></div>
   </div>
 
-  <div class="field-center model_text text_area">
-    <br>
-    <%= form.label :comment , 'Motivo elección' %>
-    <%= text_area_tag :comment , nil, :rows => 4, :cols => 25 %>
+  <div  id= "models" class="row model_text text_area">
+    <div class="col-md-3 "></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :comment , 'Motivo elección' %>
+    </p>
+
+    <p class="col-md-3 text-left">
+      <%= text_area_tag :comment , nil, :rows => 4, :cols => 25,
+      placeholder: "Describa brevemente el motivo de la elección del modelo"  %>
+    </p>
+    <div class="col-md-3"></div>
   </div>
 
-  <div id= "want_sim" class="field-center">
-  <br>
-  <%= form.label :want_sim, 'Desea Incluir Tarjeta Sim?' %>
-  <%= form.collection_radio_buttons :want_sim, [[true, 'Si'], [false, 'No']], :first, :last,
-  :item_wrapper_class => 'inline', checked: true%>
+  <div  id= "want_sim" class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :want_sim, 'Incluir Tarjeta Sim?' %>
+    </p>
+
+    <p class="col-md-3 text-left">
+      <%= form.collection_radio_buttons :want_sim, [[true, 'Si'], [false, 'No']], :first, :last,
+    :item_wrapper_class => 'inline', checked: true%>
+    </p>
+    <div class="col-md-3"></div>
   </div>
 
-  <div id= "want_number" class="field-center">
-    <br>
-    <%= form.label :number_type, 'Desea un número nuevo?' %>
-    <%= form.select :number_type, [['No, quiero mantener mi número', 'same'],
-    ['No, quiero portar otro número', 'port'], ['Si, quiero nuevo número', 'new']], {} %>
+  <div  id= "want_number" class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :number_type, 'Desea un número nuevo?' %>
+    </p>
+
+    <p class="col-md-6 text-left">
+      <%= form.select :number_type, [['No, quiero mantener mi número', 'same'],
+      ['No, quiero portar otro número', 'port'], ['Si, quiero nuevo número', 'new']], {} %>
+    </p>
   </div>
 
   <div id= "same_number" class="field-center">
-    <br>
     <% if @items.has_key?(:sp) %>
       <% if !@items[:sp].phone_number.to_s.empty? %>
-        <%= form.label :same_number, 'Número asignado: '%>
-        <%= form.label :same_number, '+56 9 '+@items[:sp].phone_number.to_s, class:"text-center", size: "12" %>
-        <%= form.hidden_field :same_number, value: @items[:sp].phone_number.to_s %>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <p class="col-md-3 text-left">
+            <%= form.label :same_number, 'Número asignado: '%>
+          </p>
+
+          <p class="col-md-6 text-left">
+            <%= form.label :same_number, '+56 9 '+@items[:sp].phone_number.to_s, class:"text-center", size: "12" %>
+            <%= form.hidden_field :same_number, value: @items[:sp].phone_number.to_s %>
+          </p>
+        </div>
+
       <% else %>
-        <p></p>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <p class="col-md-3 text-left">
+            <%= form.label :same_number, 'Ingrese Número: +56 9' %>
+          </p>
+
+          <p class="col-md-6 text-left">
+            <%= form.text_field :same_number %>
+          </p>
+        </div>
         <div class="alert alert-danger">Smartphone no tiene un número de teléfono asignado en el sistema,
           Ingrese el número telefónico actual que tiene asociado a CCU</div>
-        <br>
-        <%= form.label :same_number, 'Ingrese Número: +56 9' %>
-        <%= form.text_field :same_number %>
       <% end %>
+
     <% else %>
-    <p></p>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <p class="col-md-3 text-left">
+        <%= form.label :same_number, 'Ingrese Número: +56 9' %>
+      </p>
+
+      <p class="col-md-6 text-left">
+        <%= form.text_field :same_number %>
+      </p>
+    </div>
     <div class="alert alert-danger">Usuario no tiene un Smartphone asignado en el sistema,
       si tiene un smartphone asociado a CCU ingrese el número telefónico del smarthpone</div>
-      <br>
-      <%= form.label :same_number, 'Ingrese Número: +56 9' %>
-      <%= form.text_field :same_number %>
     <% end %>
   </div>
 
   <div id= "number" class="field-center">
-  <br>
-  <%= form.label :phone_number, 'Ingrese Número: +56 9' %>
-  <%= form.text_field :phone_number %>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :phone_number, 'Ingrese Número: +56 9' %>
+    </p>
+
+    <p class="col-md-6 text-left">
+      <%= form.text_field :phone_number %>
+    </p>
+  </div>
+
+  <div class="alert alert-danger">
+    Número ingresado no debe estar asociado a un contrato
+    vigente con una compañía de telefonía móvi, a menos que sea la misma
+    compañía que le presta servicios de telefonía a CCU en su país
+  </div>
   </div>
 
   </div>

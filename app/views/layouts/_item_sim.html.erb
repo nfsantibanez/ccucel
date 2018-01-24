@@ -23,28 +23,33 @@
   <h4><strong> Datos del Dispositivo Sim </strong></h4>
   <hr>
 
-  <div class="field-center">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <p class="col-md-4 text-left">
+      <strong>Número de Teléfono:</strong>
+      <%= @items[:sim].phone_number %>
+    </p>
+
+    <p class="col-md-4 text-left">
+      <strong>Código de Serie:</strong>
+      <%= @items[:sim].serial_number %>
+    </p>
+    <div class="col-md-2"></div>
   </div>
 
-  <p>
-    <strong>Número de Teléfono:</strong>
-    <%= @items[:sim].phone_number %>
-  </p>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <p class="col-md-4 text-left">
+      <strong>Estado:</strong>
+      <%= @items[:sim].state %>
+    </p>
 
-  <p>
-    <strong>Código de Serie:</strong>
-    <%= @items[:sim].serial_number %>
-  </p>
-
-  <p>
-    <strong>Pais:</strong>
-    <%= @items[:sim].country %>
-  </p>
-
-  <p>
-    <strong>Estado:</strong>
-    <%= @items[:sim].state %>
-  </p>
+    <p class="col-md-4 text-left">
+      <strong>Pais:</strong>
+      <%= @items[:sim].country %>
+    </p>
+    <div class="col-md-2"></div>
+  </div>
 
   </div>
 

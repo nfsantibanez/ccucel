@@ -21,18 +21,29 @@
   <hr>
 
   <!-- Dispositivo de reemplazo -->
-  <div class="field-center">
-  <%= form.label :want_replacement, '¿Desea un dispositivo de reemplazo?' %>
-  <%= form.collection_radio_buttons :want_replacement, [[true, 'Si'], [false, 'No']], :first, :last,
-  :item_wrapper_class => 'inline', checked: true%>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :want_replacement, '¿Desea un dispositivo de reemplazo?' %>
+    </p>
+    <p class="col-md-3 pull-left">
+      <%= form.collection_radio_buttons :want_replacement, [[true, 'Si'], [false, 'No']], :first, :last,
+      :item_wrapper_class => 'inline', checked: true%>
+    </p>
+    <div class="col-md-3"></div>
   </div>
 
   <!-- Descripcion falla-->
-  <div class="field-center text_area">
-    <br>
-    <%= form.label :comment, 'Descripción de Falla' %>
-    <%= text_area_tag :comment, nil, rows: 6, cols: 30,
-     placeholder: "Describa lo más detallado posible la falla del dispositivo"%>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :comment, 'Descripción de Falla'%>
+    </p>
+    <p class="col-md-4 pull-left">
+      <%= text_area_tag :comment, nil, rows: 6, cols: 30,
+       placeholder: "Describa lo más detallado posible la falla del dispositivo"%>
+    </p>
+    <div class="col-md-2"></div>
   </div>
 
   </div>

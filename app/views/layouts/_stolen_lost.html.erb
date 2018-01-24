@@ -5,19 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-  .text_area * {
-    vertical-align: middle;
-  }
-
-  .alert-success {
-    margin-top: 5px;
-    display:inline-block;
-    vertical-align: middle;
-    height: 50%;
-    padding: 1px;
-    margin-top: 1%;
-    margin-bottom: 0%;
-  }
   </style>
 
   <script type="text/javascript">
@@ -55,32 +42,52 @@
   <hr>
 
   <!-- Fecha robo/perdida -->
-  <div class="field-center">
-    <%= form.label :start_date, 'Fecha Robo/Pérdida' %>
-    <%= form.date_field :start_date, max: Date.today %>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :start_date, 'Fecha Robo/Pérdida' %>
+    </p>
+    <p class="col-md-3 pull-left">
+      <%= form.date_field :start_date, max: Date.today %>
+    </p>
+    <div class="col-md-3"></div>
   </div>
+
   <!-- Constancia Carabineros -->
-  <div class="field-center">
-    <br>
-    <%= form.label :file, 'Constancia Carabineros' %>
-    <label id= "btn_color" class="btn btn-default btn-md">
-    <div id= "text_1">
-      Subir Archivo...
+  <div class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :file, 'Constancia Carabineros' %>
+    </p>
+    <div class="col-md-3 pull-left">
+      <label id= "btn_color" class="btn btn-default btn-md">
+      <div id= "text_1">
+        Subir Archivo...
+      </div>
+      <div id= "text_2">
+        Archivo Cargado
+      </div>
+      <span style="display:none">
+        <%= form.file_field :file, multiple: false, name: "file",
+        accept: 'image/png,image/gif,image/jpeg' %>
+      </span>
+      </label>
     </div>
-    <div id= "text_2">
-      Archivo Cargado
-    </div>
-    <span style="display:none">
-      <%= form.file_field :file, multiple: false, name: "file", accept: 'image/png,image/gif,image/jpeg' %>
-    </span>
-    </label>
+    <div class="col-md-3"></div>
   </div>
 
   <!-- Descripcion robo/perdida-->
-  <div class="field-center text_area">
-    <br>
-    <%= form.label :comment_stolen_lost, 'Descripción Robo/Pérdida' %>
-    <%= text_area_tag :comment_stolen_lost, nil, :rows => 4, :cols => 25 %>
+  <br>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :comment_stolen_lost, 'Descripción Robo/Pérdida' %>
+    </p>
+    <p class="col-md-3 pull-left">
+      <%= text_area_tag :comment_stolen_lost, nil, rows: 4, cols: 25,
+      placeholder: "Describa brevemente el robo/pérdida" %>
+    </p>
+    <div class="col-md-3"></div>
   </div>
 
   </div>

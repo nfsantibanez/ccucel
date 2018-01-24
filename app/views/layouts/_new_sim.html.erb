@@ -16,24 +16,36 @@
   <h4><strong> Datos de Solicitud Sim </strong></h4>
   <hr>
 
-  <div id= "want_number" class="field-center">
-    <br>
-    <%= form.label :want_new_number, 'Desea un número nuevo?'%>
-    <%= form.collection_radio_buttons :want_new_number, [['true', 'Si'], ['false', 'No, quiero portar un numero']], :first, :last,
-  :item_wrapper_class => 'inline', checked: true%>
+  <div  id= "want_number" class="row">
+    <div class="col-md-3"></div>
+    <p class="col-md-3 text-left">
+      <%= form.label :want_new_number, 'Desea un número nuevo?'%>
+    </p>
+
+    <p class="col-md-6 text-left">
+      <%= form.collection_radio_buttons :want_new_number, [['true', 'Si'], ['false', 'No, quiero portar un numero']], :first, :last,
+    :item_wrapper_class => 'inline', checked: true%>
+    </p>
   </div>
 
-  <div id= "number" class="field-center">
-    <br>
-    <%= form.label :phone_number, 'Ingrese Número: +56 9' %>
-    <%= form.text_field :phone_number %>
+  <div id= "number">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <p class="col-md-3 text-left">
+        <%= form.label :phone_number, 'Ingrese Número (+56 9):' %>
+      </p>
 
-    <p></p>
+      <p class="col-md-3 text-left">
+        <%= form.text_field :phone_number %>
+      </p>
+      <div class="col-md-3"></div>
+    </div>
 
     <div class="alert alert-danger">Número ingresado no debe estar asociado a un contrato
       vigente con una compañía de telefonía móvi, a menos que sea la misma compañía que le
     presta servicios de telefonía a CCU en su país</div>
-    </div>
+  </div>
+
   </div>
 
 </body>

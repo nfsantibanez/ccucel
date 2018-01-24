@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    label {
+      padding-top: 9px;
+    }
   </style>
 
   <script type="text/javascript">
@@ -55,29 +58,49 @@
       </div>
     <% end %>
 
-    <div class="field-center">
-      <%= form.label :model, 'Seleccione Modelo Bam' %>
-      <%= form.select :model, @bams, {} %>
-      <p></p>
-      <div class="alert alert-danger"> Se mantendrá el mismo plan asociado al
-        dispositivo BAM</div>
+    <div  id= "select_all_models" class="row">
+      <div class="col-md-3"></div>
+      <p class="col-md-3 text-left">
+        <%= form.label :model, 'Seleccione Modelo Bam' %>
+      </p>
+
+      <p class="col-md-3 text-left">
+        <%= form.select :model, @bams, {} %>
+      </p>
+      <div class="col-md-3"></div>
     </div>
+
+    <div class="alert alert-danger"> Se mantendrá el mismo plan asociado al
+      dispositivo BAM</div>
 
   <% elsif  @user["request"] == "stolen/lost" %>
-    <div id= "bam_models" class="field-center">
-      <%= form.label :model, 'Seleccione Modelo Bam' %>
-      <%= form.select :model, @bams, {} %>
+
+    <div id= "bam_models" class="row">
+      <div class="col-md-3"></div>
+      <p class="col-md-3 text-left">
+        <%= form.label :model, 'Seleccione Modelo Bam' %>
+      </p>
+
+      <p class="col-md-3 text-left">
+        <%= form.select :model, @bams, {} %>
+      </p>
+      <div class="col-md-3"></div>
     </div>
 
-    <div id= "bam_plans" class="field-center">
-      <br>
-      <%= form.label :plan, 'Seleccione Plan Bam' %>
-      <%= form.select :plan, @bam_plans[0], {} %>
+    <div id= "bam_plans" class="row">
+      <div class="col-md-3"></div>
+      <p class="col-md-3 text-left">
+        <%= form.label :plan, 'Seleccione Plan Bam' %>
+      </p>
+
+      <p class="col-md-3 text-left">
+        <%= form.select :plan, @bam_plans[0], {} %>
+      </p>
+      <div class="col-md-3"></div>
     </div>
 
     <% @bam_plans[1].each do |plan| %>
       <div id= "bam_details_<%=plan[0]%>" class="field-center bam_details">
-        <br>
         <div class="alert alert-success"> <%=plan[1]%> </div>
       </div>
     <% end %>

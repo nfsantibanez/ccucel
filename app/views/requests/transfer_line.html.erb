@@ -5,8 +5,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-  .row.content {height: 1070px}
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 1070px}
+
+    label {
+      padding-top: 7px;
+    }
+
+    h2 {
+      margin: 0;
+    }
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .alert {
+      margin-top: 5px;
+      display:inline-block;
+      vertical-align: middle;
+      height: 50%;
+      padding: 1px;
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
+
   </style>
 
   <%= javascript_include_tag "jquery.min" %>
@@ -51,7 +75,7 @@
 
 <div class="container-fluid">
   <hr>
-  <h1><strong> Formulario Cesión de Línea </strong></h1>
+  <h2><strong> Formulario Cesión de Línea </strong></h2>
   <hr>
 
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
@@ -76,24 +100,36 @@
     <h4><strong> Datos de Solicitud</strong></h4>
     <hr>
 
-      <div id= "select_type" class="field-center">
+    <div id= "select_type" class="row">
+      <div class="col-md-3"></div>
+      <p class="col-md-4 text-left">
         <%= form.label :transfer_line_type, 'Seleccione Acción' %>
+      </p>
+
+      <p class="col-md-3 text-left">
         <%= form.select :transfer_line_type, [['Ceder Línea a CCU', 'ceder'], ['Liberar Línea de CCU', 'liberar']], {} %>
-      </div>
+      </p>
+      <div class="col-md-2"></div>
+    </div>
 
-      <div id= "number" class="field-center">
-        <br>
-        <%= form.label :phone_number, 'Ingrese Número a ceder: +56 9' %>
+    <div id= "number"  class="row">
+      <div class="col-md-3"></div>
+      <p class="col-md-4 text-left">
+        <%= form.label :phone_number, 'Ingrese Número (+56 9): ' %>
+      </p>
+
+      <p class="col-md-3 text-left">
         <%= form.text_field :phone_number %>
+      </p>
+      <div class="col-md-2"></div>
+    </div>
 
-        <p>
+    <div id="cesion" class="alert alert-danger">
+      Número ingresado no debe estar asociado a un contrato
+      vigente con una compañía de telefonía móvi, a menos que sea la misma
+      compañía que le presta servicios de telefonía a CCU en su país
+    </div>
 
-        <div id="cesion" class="alert alert-danger">
-          Número ingresado no debe estar asociado a un contrato
-          vigente con una compañía de telefonía móvi, a menos que sea la misma
-          compañía que le presta servicios de telefonía a CCU en su país
-        </div>
-      </div>
     </div>
 
     <br>

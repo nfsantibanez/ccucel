@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/requests/forms/transferline' => 'requests#transfer_line'
   # New Form
   get '/requests/forms/new' => 'requests#new_form'
+  # Save New Form
+  post '/requests/forms/create/new' => 'requests#create_user'
   # Renew Form
   get '/requests/forms/renew' => 'requests#renew_form'
   # Stolen or Lost Form

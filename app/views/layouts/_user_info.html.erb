@@ -5,75 +5,105 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    .user {
+      margin: 0px;
+    }
   </style>
 </head>
 <body>
-  <h4><strong> Datos del Usuario</strong></h4>
+  <h4><strong>Datos del Usuario</strong></h4>
   <hr>
 
-    <div class="field-center">
-        <%= form.label :name, 'Nombre' %>
-        <%= form.text_field :name, value: @user["name"], disabled: true, class:"text-center", size: "30" %>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :name, 'Nombre:' %></strong>
+        <%= @user["name"] %>
+      </p>
+
+      <p class=" user col-md-4 text-left">
+        <strong><%= form.label :last_name, 'Apellidos:' %></strong>
+        <%= @user["last_name"] %>
+      </p>
+      <div class="col-md-2"></div>
     </div>
 
-    <div class="field-center">
-        <%= form.label :last_name, 'Apellidos' %>
-        <%= form.text_field :last_name, value: @user["last_name"], disabled: true, class:"text-center", size: "30" %>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :national_id, 'Rut:' %></strong>
+        <%= @user["national_id"] %>
+      </p>
+
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :email, 'e-mail:' %></strong>
+        <%= @user["email"] %>
+      </p>
+      <div class="col-md-2"></div>
     </div>
 
-    <div class="field-center">
-        <%= form.label :national_id, 'Rut' %>
-        <%= form.text_field :national_id, value: @user["national_id"], disabled: true, class:"text-center", size: "30" %>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <p class=" user col-md-4 text-left">
+        <strong><%= form.label :jobtitle, 'Cargo:' %></strong>
+        <%= @user["jobtitle"] %>
+      </p>
+
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :job_family, 'Familia del Cargo:' %></strong>
+        <%= @user["job_family"] %>
+      </p>
+      <div class="col-md-2"></div>
     </div>
 
-    <div class="field-center">
-        <%= form.label :email, 'e-mail' %>
-        <%= form.text_field :email, value: @user["email"], disabled: true, class:"text-center", size: "30" %>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :company, 'Empresa:' %></strong>
+        <%= @user["company"] %>
+      </p>
+
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :country, 'Pais:' %></strong>
+        <%= @user["country"] %>
+      </p>
+      <div class="col-md-2"></div>
     </div>
 
-    <div class="field-center">
-        <%= form.label :jobtitle, 'Cargo' %>
-        <%= form.text_field :jobtitle, value: @user["jobtitle"], disabled: true, class:"text-center", size: "30" %>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :deptname, 'Centro de Costos:' %></strong>
+        <%= @user["deptname"] %>
+      </p>
+
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :location, 'Ubicación:' %></strong>
+        <%= @user["location"] %>
+      </p>
+      <div class="col-md-2"></div>
     </div>
 
-    <div class="field-center">
-        <%= form.label :job_family, 'Familia del Cargo' %>
-        <%= form.text_field :job_family, value: @user["job_family"], disabled: true, class:"text-center", size: "30" %>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :supervisor, 'Supervisor:' %></strong>
+        <%= @user["supervisor"] %>
+      </p>
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :supervisor, 'Cargo Supervisor:' %></strong>
+        <%= @user["supervisor_jobtitle"] %>
+      </p>
+      <div class="col-md-2"></div>
     </div>
 
-    <div class="field-center">
-        <%= form.label :company, 'Empresa' %>
-        <%= form.text_field :company, value: @user["company"], disabled: true, class:"text-center", size: "30" %>
-    </div>
-
-    <div class="field-center">
-        <%= form.label :country, 'Pais' %>
-        <%= form.text_field :country, value: @user["country"], disabled: true, class:"text-center", size: "30" %>
-    </div>
-
-    <div class="field-center">
-        <%= form.label :deptname, 'Centro de Costos' %>
-        <%= form.text_field :deptname, value: @user["deptname"], disabled: true, class:"text-center", size: "30" %>
-    </div>
-
-    <div class="field-center">
-        <%= form.label :location, 'Ubicación' %>
-        <%= form.text_field :location, value: @user["location"], disabled: true, class:"text-center", size: "30" %>
-    </div>
-
-    <div class="field-center">
-        <%= form.label :supervisor, 'Supervisor' %>
-        <%= form.text_field :supervisor, value: @user["supervisor"], disabled: true, class:"text-center", size: "30" %>
-    </div>
-
-    <div class="field-center">
-        <%= form.label :supervisor, 'Cargo Supervisor' %>
-        <%= form.text_field :supervisor, value: @user["supervisor_jobtitle"], disabled: true, class:"text-center", size: "30" %>
-    </div>
-
-    <div class="field-center">
-        <%= form.label :supervisor_email, 'Correo Supervisor' %>
-        <%= form.text_field :supervisor_email, value: @user["supervisor_email"], disabled: true, class:"text-center", size: "30" %>
+    <div class="row">
+      <div class="col-md-6"></div>
+      <p class="user col-md-4 text-left">
+        <strong><%= form.label :supervisor_email, 'Correo Supervisor:' %></strong>
+        <%= @user["supervisor_email"] %>
+      </p>
+      <div class="col-md-2"></div>
     </div>
 
 </body>
