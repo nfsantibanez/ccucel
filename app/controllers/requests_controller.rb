@@ -16,7 +16,14 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
-    render layout: 'admin_view'
+    if !@request
+      @request = Request.find_by_n_request(params[:n_request])
+    end
+    if @request
+      render 'show', layout: 'admin_view'
+    else
+      redirect_to '/requests/home/follow_request', alert: 'El n° de Solicitud Ingresado no es Válido'
+    end
   end
 
   # GET /requests/new
@@ -85,44 +92,49 @@ class RequestsController < ApplicationController
     form = params[:request_type]
     # Redirect to correct form
     if user != 0 and user != -1
-      # User data
-      session[:user] = user.attributes
-      # selected request and item data
-      session[:user]["request"] = params[:request_type]
+      if user
+        # User data
+        session[:user] = user.attributes
+        # selected request and item data
+        session[:user]["request"] = params[:request_type]
 
-      if params[:request_type] == 'renew' || params[:request_type] == 'technical service'
-        session[:user]["item"] = params[:request_hw_renew_tech]
-      elsif params[:request_type] == 'new'
-        session[:user]["item"] = params[:request_hw_new]
-      elsif params[:request_type] == 'stolen/lost'
-        session[:user]["item"] = params[:request_hw_lost]
+        if params[:request_type] == 'renew' || params[:request_type] == 'technical service'
+          session[:user]["item"] = params[:request_hw_renew_tech]
+        elsif params[:request_type] == 'new'
+          session[:user]["item"] = params[:request_hw_new]
+        elsif params[:request_type] == 'stolen/lost'
+          session[:user]["item"] = params[:request_hw_lost]
+        else
+          session[:user]["item"] = "smartphone line"
+        end
+
+        # Transfer Line
+        if form == 'transfer line'
+          redirect_to '/requests/forms/transferline'
+        # New Request
+        elsif form == 'new'
+          redirect_to '/requests/forms/new'
+        # Renew Request
+        elsif form == 'renew'
+          # check if selected item is owned by user
+          # item = item_verification(params[:request_hw])
+          redirect_to '/requests/forms/renew'
+        # Stolen or Lost
+        elsif form == 'stolen/lost'
+          redirect_to '/requests/forms/stolenlost'
+        # Technical service
+        elsif form == 'technical service'
+          redirect_to '/requests/forms/technicalservice'
+        end
+
       else
-        session[:user]["item"] = "smartphone line"
-      end
-
-      # Transfer Line
-      if form == 'transfer line'
-        redirect_to '/requests/forms/transferline'
-      # New Request
-      elsif form == 'new'
-        redirect_to '/requests/forms/new'
-      # Renew Request
-      elsif form == 'renew'
-        # check if selected item is owned by user
-        # item = item_verification(params[:request_hw])
-        redirect_to '/requests/forms/renew'
-      # Stolen or Lost
-      elsif form == 'stolen/lost'
-        redirect_to '/requests/forms/stolenlost'
-      # Technical service
-      elsif form == 'technical service'
-        redirect_to '/requests/forms/technicalservice'
+        redirect_to '/requests/home/menu', alert: 'El usuario con Identificador nacional: '+params[:user_rut].to_s+ ' No se encuentra en la Base de datos de CCU'
       end
 
     elsif user == 0
-      render json: {message: 'El usuario con Identificador nacional: '+params[:user_rut].to_s+ 'No se encuentra en la Base de datos de CCU'}
+      redirect_to '/requests/home/menu', alert: 'El usuario con Identificador nacional: '+params[:user_rut].to_s+ ' No se encuentra en la Base de datos de CCU'
     else
-      render json: {message: 'No se puede conectar a la Base de datos de CCU, intente mas tarde'}
+      redirect_to '/requests/home/menu', alert: 'No se puede conectar a la Base de datos de CCU, intente mas tarde'
 
     end
   end
@@ -230,8 +242,12 @@ class RequestsController < ApplicationController
     # If request was successfully created
     if @request.save
       # Mandar Correo a supervisor
-      # Crear request number
-      id = @request.id.to_s+SecureRandom.hex(3)
+
+      # Crear n_request 6 digit hex alphanumberic
+      # id = @request.id.to_s+SecureRandom.hex(3)
+      # Crear n_request 6 digit number only
+      id = @request.id.to_s+((SecureRandom.random_number(9e3) + 1e3).to_i).to_s
+
       params[:n_request] = id
       # Update Attributtes
       @request.update_attribute("n_request", id)
@@ -327,6 +343,8 @@ class RequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_request
       @request = Request.find(params[:id])
+      puts(@request)
+    rescue ActiveRecord::RecordNotFound
     end
 
     # set default value

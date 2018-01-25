@@ -12,13 +12,13 @@
     <table class="table table-hover table-condensed">
       <thead class="thead-dark">
         <tr>
-          <th scope="col" class= text-center><%= sortable "n_request", "n° Solicitud"%></th>
-          <th scope="col" class= text-center><%= sortable "status", "Estado"%></th>
-          <th scope="col" class= text-center><%= sortable "company", "Empresa"%> </th>
-          <th scope="col" class= text-center><%= sortable "request", "Tipo Solicitud"%></th>
-          <th scope="col" class= text-center><%= sortable "item", "Item Solicitado"%></th>
-          <th scope="col" class= text-center><%= sortable "created_at", "Fecha Creacion"%></th>
-          <th scope="col" class= text-center><%= sortable "closed_at", "Fecha Cierre"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :n_request, "n° Solicitud"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :status, "Estado"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :company, "Empresa"%> </th>
+          <th scope="col" class= text-center><%= sort_link @search, :request, "Tipo Solicitud"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :item, "Item Solicitado"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :created_at, "Fecha Creacion"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :closed_at, "Fecha Cierre"%></th>
           <th scope="col" class= text-center>Solicitud</th>
           <th scope="col" class= text-center>Precio</th>
           <th scope="col" class= text-center>Dias Transcurridos</th>
@@ -45,9 +45,9 @@
             <% else %>
               <td><%= (DateTime.now - request.created_at.to_datetime).to_i %></td>
             <% end %>
-            <td><%= link_to 'User', request.user %></td>
-            <td><%= link_to 'Show', request %></td>
-            <td><%= link_to 'Edit', edit_request_path(request) %></td>
+            <td><%= link_to 'Usuario', request.user %></td>
+            <td><%= link_to 'Solicitud', request %></td>
+            <td><%= link_to 'Editar', edit_request_path(request) %></td>
 
           </tr>
         <% end %>

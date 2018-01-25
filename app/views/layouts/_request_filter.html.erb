@@ -28,7 +28,7 @@
       $('#4').val('');
       $('#5').val('');
       $('#6').val('');
-
+      $('#7').val('');
     });
 
   });
@@ -45,50 +45,61 @@
     <%= search_form_for @search do |form|%>
 
       <div class="row">
-        <div class="col-md-1"></div>
+        <div class="col-md-3">
+          <%= form.label :classification_cont, "Clasificación", class: "pull-left"%>
+          <%= form.select :classification_cont, [['Todos', ""], ['Abierto', 'abierto'],
+          ['Cerrado', 'cerrado']], {}, {id: "1", style: "width:100px", class: "pull-right"}%>
+        </div>
         <div class="col-md-3">
           <%= form.label :status_cont, "Estado", class: "pull-left"%>
-          <%= form.text_field :status_cont, placeholder: "search", class: "pull-right",
-          size: "15", id: "1"%>
+          <%= form.select :status_cont, [['Todos', ""], ['Pendiente aprobacion' , 'pendiente aprobacion' ],
+          ['En curso', 'en curso'], ['Rechazada','rechazada'],['Cancelada','cancelada'],
+          ['Pendiente entrega dispositivo','pendiente entrega dispositivo'],
+          ['Pendiente presupuesto', 'pendiente presupuesto'],
+          ['En reparaciones', 'en reparaciones'],['Disponible para retiro', 'disponible para retiro'],
+          ['Enviado a trabajador', 'enviado a trabajador'], ['Finalizada', 'finalizada']],
+          {}, {id: "2", style: "width:150px", class: "pull-right"}%>
         </div>
         <div class="col-md-3">
           <%= form.label :company_cont, "Empresa", class: "pull-left"%>
           <%= form.text_field :company_cont, placeholder: "search", class: "pull-right",
-          size: "15", id: "2"%>
+          size: "15", id: "3"%>
         </div>
         <div class="col-md-3">
           <%= form.label :deptname_cont, "C. Costo", class: "pull-left"%>
           <%= form.text_field :deptname_cont, placeholder: "search", class: "pull-right",
-          size: "15", id: "3"%>
+          size: "15", id: "4"%>
         </div>
-        <div class="col-sm-2 text-left"></div>
       </div>
       <hr>
 
       <div class="row">
-        <div class="col-md-1"></div>
+        <div class="col-md-3">
+          <%= form.label :n_request_cont, "n° Solicitud", class: "pull-left"%>
+          <%= form.text_field :n_request_cont, placeholder: "search", class: "pull-right",
+          size: "9", id: "5"%>
+        </div>
         <div class="col-md-3">
           <%= form.label :name_cont, "Nombre", class: "pull-left"%>
           <%= form.text_field :name_cont, placeholder: "search", class: "pull-right",
-          size: "15", id: "4"%>
+          size: "15", id: "6"%>
         </div>
         <div class="col-md-3">
           <%= form.label :national_id_cont, "R.U.T", class: "pull-left"%>
           <%= form.text_field :national_id_cont, placeholder: "search", class: "pull-right",
-          size: "15", id: "5"%>
+          size: "15", id: "7"%>
         </div>
         <div class="col-md-3">
           <%= form.label :email_cont, "Correo", class: "pull-left"%>
           <%= form.text_field :email_cont, placeholder: "search", class: "pull-right",
-          size: "15", id: "6"%>
+          size: "15", id: "8"%>
         </div>
-        <div class="col-md-2"></div>
       </div>
       <hr>
 
       <div class="row">
-        <%= form.submit "Search", class: "btn btn-success btn-md"%>
-        <%= form.button "Clear Filters", class: "btn btn-info btn-md", id: "clear" %>
+        <%= form.submit "Filtrar", class: "btn btn-primary btn-md"%>
+        <%= form.button "Limpiar Filtros", class: "btn btn-info btn-md", id: "clear" %>
       </div>
     <% end %>
   </div>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Segimiento Solicitud</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= javascript_include_tag "jquery.min" %>
+  <%= javascript_include_tag "bootstrapValidator" %>
+
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 720px}
+
+    label {
+      padding-top: 5px;
+    }
+    h2 {
+      margin: 0;
+    }
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .alert {
+      margin-top: 5px;
+      display:inline-block;
+      vertical-align: middle;
+      height: 50%;
+      padding: 1px;
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="container-fluid">
+  <hr>
+  <h2><strong> Seguimiento Solicitud </strong></h2>
+  <hr>
+
+  <%= form_with url: "follow", method: "get" do |form| %>
+
+   <%= form.hidden_field :request, value: "follow" %>
+
+   <div class="well form-horizontal">
+
+     <div id= "request" class="row">
+       <div class="col-md-3"></div>
+       <div class="col-md-6 text-center">
+         <%= form.label :n_request, 'Ingrese n° de Solicitud' %>
+        <%= form.text_field :n_request %>
+      </div>
+       <div class="col-md-3"></div>
+    </div>
+
+    <div class="alert alert-danger">
+      <p id="alert"><%= alert %></p>
+    </div>
+  </div>
+
+    <br>
+
+    <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
+</div>
+  <% end %>
+
+</body>
+</html>

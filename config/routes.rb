@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   root to: 'home_pages#home'
   # Request Home
   get '/requests/home/menu' => 'home_pages#request_home'
+  # Follow Request
+  get '/requests/home/follow_request' => 'home_pages#follow_request'
+
+  # Show Request for user
+  get '/requests/home/follow' => 'requests#show'
   # Validate User
   get '/requests/home/validate' => 'requests#validate_user'
 

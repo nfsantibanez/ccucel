@@ -21,58 +21,62 @@
 
   <div class="well form-horizontal">
 
-  <div class="row">
-    <div class="col-md-3"></div>
-    <%= form.label :status, "Estado", class: "col-md-2 control-label pull-left" %>
-    <%= form.select :status, [['Pendiente aprobacion' ,  'pendiente aprobacion' ],
-    ['Rechazada','rechazada'],['Cancelada','cancelada'],
-    ['Pendiente entrega dispositivo','pendiente entrega dispositivo'],
-    ['pendiente presupuesto', 'pendiente presupuesto'],
-    ['En reparaciones', 'en reparaciones'],['Disponible para retiro', 'disponible para retiro'],
-    ['En curso', 'en curso'],['Enviado a trabajador', 'enviado a trabajador'],
-    ['Finalizada', 'finalizada']],
-    {selected: @request.status}, {class: "input col-md-3 pull-left"} %>
-    <div class="col-md-4"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-3"></div>
-    <%= form.label :classification, "Clasificación",
-    class: "col-md-2 control-label pull-left"%>
-    <%= form.select :classification, [['Abierto', 'abierto'], ['Cerrado','cerrado']],
-    {selected: @request.classification}, {class: "input col-md-3 pull-left"} %>
-    <div class="col-md-4"></div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-3"></div>
-    <%= form.label :price, "Precio $", class: "col-md-2 control-label pull-left" %>
-    <%= form.text_field :price, id: :request_price, class: "input col-md-3 pull-left" %>
-    <div class="col-md-4"></div>
-  </div>
-
-  <%if @request.contract? %>
     <div class="row">
       <div class="col-md-3"></div>
-      <%= form.label :old_contract, "Nota de Pedido Actual", class: "col-md-2 control-label pull-left" %>
-      <div data-turbolinks="false" class="col-md-3 pull-left ">
-        <%= link_to "Download", controller: :requests, action: :download_contract, id: @request.n_request %>
-      </div>
+      <%= form.label :status, "Estado", class: "col-md-2 control-label pull-left" %>
+      <%= form.select :status, [['Pendiente aprobacion' , 'pendiente aprobacion' ],
+      ['Rechazada','rechazada'],['Cancelada','cancelada'],
+      ['Pendiente entrega dispositivo','pendiente entrega dispositivo'],
+      ['Pendiente presupuesto', 'pendiente presupuesto'],
+      ['En reparaciones', 'en reparaciones'],['Disponible para retiro', 'disponible para retiro'],
+      ['En curso', 'en curso'],['Enviado a trabajador', 'enviado a trabajador'],
+      ['Finalizada', 'finalizada']],
+      {selected: @request.status}, {class: "input col-md-3 pull-left"} %>
       <div class="col-md-4"></div>
     </div>
-  <%end%>
 
-  <div class="row">
-    <div class="col-md-3"></div>
-    <%= form.label :contract, "Subir nueva Nota de Pedido", class: "col-md-2 control-label pull-left" %>
-    <%= form.file_field :contract, multiple: false, name: "contract",
-    accept: 'image/png,image/gif,image/jpeg', class: "input col-md-3 pull-left" %>
-    <div class="col-md-4"></div>
-  </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <%= form.label :classification, "Clasificación",
+      class: "col-md-2 control-label pull-left"%>
+      <%= form.select :classification, [['Abierto', 'abierto'], ['Cerrado','cerrado']],
+      {selected: @request.classification}, {class: "input col-md-3 pull-left"} %>
+      <div class="col-md-4"></div>
+    </div>
 
-  </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <%= form.label :price, "Precio $", class: "col-md-2 control-label pull-left" %>
+      <%= form.text_field :price, id: :request_price, class: "input col-md-3 pull-left" %>
+      <div class="col-md-4"></div>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <%if @request.contract? %>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <%= form.label :old_contract, "Nota de Pedido Actual", class: "col-md-2 control-label pull-left" %>
+        <div data-turbolinks="false" class="col-md-3 pull-left ">
+          <%= link_to "Download", controller: :requests, action: :download_contract, id: @request.n_request %>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    <%end%>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <%= form.label :contract, "Subir nueva Nota de Pedido", class: "col-md-2 control-label pull-left" %>
+      <%= form.file_field :contract, multiple: false, name: "contract",
+      accept: 'image/png,image/gif,image/jpeg', class: "input col-md-3 pull-left" %>
+      <div class="col-md-4"></div>
+    </div>
+
+    <br>
+    <div class="actions">
+      <%= form.submit 'Editar', class: "btn btn-primary btn-md" %>
+    </div>
+
+    <hr>
+    | <%= link_to 'Solicitud', @request %> | <%= link_to 'Solicitudes', requests_path %> |
+
   </div>
 <% end %>
