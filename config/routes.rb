@@ -33,7 +33,9 @@ Rails.application.routes.draw do
   get '/requests/forms/technicalservice' => 'requests#technical_service'
   # files
   get '/requests/files/:id' => 'requests#download_file'
+  get '/requests/home/files/:id' => 'requests#download_file'
+  # Contract
   get '/requests/contracts/:id' => 'requests#download_contract'
-
+  get '/requests/home/contracts/:id' => 'requests#download_contract'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
