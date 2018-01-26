@@ -211,14 +211,14 @@
             <hr>
             <p class="col-md-4 text-left">
               <strong>Nota de Pedido: </strong>
-              <%= link_to 'Download', 'contracts/'+@request.n_request, data: {turbolinks: false} %>
+              <%= link_to 'Download', requests_url+'/contracts/'+@request.n_request, data: {turbolinks: false} %>
             </p>
           <%end%>
           <%if @request.file%>
             <%if @request.request == 'stolen/lost'%>
               <p class="user col-md-4 text-left">
                 <strong>Constancia: </strong>
-                <%= link_to 'Download', 'files/'+@request.n_request,  data: {turbolinks: false}  %>
+                <%= link_to 'Download', requests_url+'/files/'+@request.n_request,  data: {turbolinks: false}  %>
               </p>
             <%end%>
           <%end%>

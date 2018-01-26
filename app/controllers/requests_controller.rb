@@ -175,7 +175,7 @@ class RequestsController < ApplicationController
         params[:file_name] = params[:file].original_filename
         params[:file] = params[:file].read
       end
-
+      # Create Request
       @request = Request.new(request_params)
 
     # Item Bam
@@ -209,7 +209,7 @@ class RequestsController < ApplicationController
         end
 
       end
-
+      # Create Request
       @request = Request.new(request_params)
 
     # Item Sim
@@ -227,7 +227,7 @@ class RequestsController < ApplicationController
         params[:file_name] = params[:file].original_filename
         params[:file] = params[:file].read
       end
-
+      # Create Request
       @request = Request.new(request_params)
 
     # New Roaming
@@ -236,12 +236,16 @@ class RequestsController < ApplicationController
       params["price"] = params["plan"].price
       # Get Roaming plan's name
       params["plan"] = params["plan"].name
+      # Create Request
       @request = Request.new(request_params)
     end
 
     # If request was successfully created
     if @request.save
+      
       # Mandar Correo a supervisor
+      user = User.find_by_id(params[:user_id])
+      UserMailer.supervisor_email(user, @request)
 
       # Crear n_request 6 digit hex alphanumberic
       # id = @request.id.to_s+SecureRandom.hex(3)
