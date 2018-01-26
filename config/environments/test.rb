@@ -29,18 +29,37 @@ Rails.application.configure do
   config.action_controller.allow_forgery_protection = false
   config.action_mailer.perform_caching = false
 
-  # Config mailer for outlook
+  # Config mailer
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
+  # for outlook
+=begin
   config.action_mailer.smtp_settings = {
-   :address              => "smtp.live.com",
-   :port                 => 587,
-   :enable_starttls_auto => true,
-   :user_name            => 'nisanti',
-   :password             => 'NIsan017',
-   :domain               => 'ccu.cl',
-   :authentication       => 'plain'
+    address: "smtp.office365.com",
+    port: 587,
+    enable_starttls_auto:  true,
+    user_name: 'nisanti@ccu.cl',
+    password:  'NIsan017',
+    domain:  'ccu.local',
+
+    authentication: :login #ntlm
+  }
+=end
+  # for gmail
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            'nscnico@gmail.com',
+    password:             'aggrochanger',
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
+
+  # Define host for mailer
+  config.action_mailer.default_url_options = {
+    host: 'localhost:3000'
   }
 
   # Print deprecation notices to the stderr.

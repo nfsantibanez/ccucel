@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/requests/home/follow' => 'requests#show'
   # Validate User
   get '/requests/home/validate' => 'requests#validate_user'
+  # Validates Aproval/reject of request
+
 
   # TransferLine Form
   get '/requests/forms/transferline' => 'requests#transfer_line'

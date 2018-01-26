@@ -1,11 +1,8 @@
 class RequestsController < ApplicationController
   require 'securerandom'
-  helper_method :sort_column, :sort_direction
-  before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_request, only: [:show, :edit, :update]
   layout 'general_view', except: [:index, :show, :edit, :update]
 
-  # GET /requests
-  # GET /requests.json
   def index
     # @requests = Request.order(sort_column + " " + sort_direction)
     @search = Request.search(params[:q])
@@ -13,8 +10,6 @@ class RequestsController < ApplicationController
     render layout: 'admin_view'
   end
 
-  # GET /requests/1
-  # GET /requests/1.json
   def show
     if !@request
       @request = Request.find_by_n_request(params[:n_request])
@@ -26,34 +21,12 @@ class RequestsController < ApplicationController
     end
   end
 
-  # GET /requests/new
-  def new
-    @request = Request.new
-  end
-
   # GET /requests/1/edit
   def edit
     render layout: 'admin_view'
   end
 
-  # POST /requests
-  # POST /requests.json
-  def create
-    @request = Request.new(request_params)
-
-    respond_to do |format|
-      if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
-        format.json { render :show, status: :created, location: @request }
-      else
-        format.html { render :new }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # PATCH/PUT /requests/1
-  # PATCH/PUT /requests/1.json
   def update
     respond_to do |format|
 
@@ -71,17 +44,6 @@ class RequestsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @request.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /requests/1
-  # DELETE /requests/1.json
-  def destroy
-    @request.destroy
-    @notice = 'Request was successfully destroyed'
-    respond_to do |format|
-      format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -242,19 +204,28 @@ class RequestsController < ApplicationController
 
     # If request was successfully created
     if @request.save
-      
-      # Mandar Correo a supervisor
-      user = User.find_by_id(params[:user_id])
-      UserMailer.supervisor_email(user, @request)
 
       # Crear n_request 6 digit hex alphanumberic
       # id = @request.id.to_s+SecureRandom.hex(3)
+
       # Crear n_request 6 digit number only
       id = @request.id.to_s+((SecureRandom.random_number(9e3) + 1e3).to_i).to_s
-
       params[:n_request] = id
-      # Update Attributtes
+      # Update Attributte
       @request.update_attribute("n_request", id)
+
+      # Unique identifier to access request
+      salt =  Digest::SHA256.base64digest @request.national_id
+      url = Digest::SHA256.base64digest salt+@request.n_request
+      params[:link] = url
+      # Update Attributte
+      @request.update_attribute("link", url)
+
+      # Send mail to supervisor
+
+      #user = User.find_by_id(params[:user_id])
+      #UserMailer.supervisor_email(user, @request).deliver_now
+
       # Render success message
       render layout: 'success'
     else
@@ -346,8 +317,19 @@ class RequestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_request
-      @request = Request.find(params[:id])
-      puts(@request)
+      @request = Request.find_by_link(params[:id])
+    rescue ActiveRecord::RecordNotFound
+    end
+
+    # link validation to show request
+    def valid_link
+      # Find keys
+      nat_id = params.has_key?(:national_id) ? params[:national_id] : ""
+      n_req = params.has_key?(:n_request) ? params[:n_request] : ""
+      # Unique link
+      salt =  Digest::SHA256.base64digest nat_id
+      url = Digest::SHA256.base64digest salt+n_req
+      @request = Request.find_by_link(url)
     rescue ActiveRecord::RecordNotFound
     end
 
@@ -368,17 +350,14 @@ class RequestsController < ApplicationController
         :status, :comment, :comment_stolen_lost, :email_sended, :want_replacement,
         :want_sim, :want_new_number, :number_type, :phone_number, :transfer_line_type,
         :price, :region, :country, :name, :national_id, :email, :company, :deptname,
-        :start_date, :end_date, :closed_at, :user_id)
+        :start_date, :end_date, :closed_at, :user_id, :link)
     end
 
     # params for update
     def request_params_update
-      params.require(:request).permit(:request, :item, :model, :plan,
-        :classification, :contract, :contract_type, :contract_name, :file, :file_type,
-        :file_name, :status, :comment, :comment_stolen_lost, :email_sended, :want_replacement,
-        :want_sim, :want_new_number, :number_type, :phone_number, :transfer_line_type,
-        :price, :region, :country, :name, :national_id, :email, :company, :deptname,
-        :start_date, :end_date, :closed_at, :user_id)
+      params.require(:request).permit(:classification, :contract, :contract_type,
+        :contract_name, :file, :file_type, :file_name, :status, :price, :company,
+        :deptname, :closed_at)
     end
 
 end

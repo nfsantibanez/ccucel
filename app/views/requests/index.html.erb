@@ -46,8 +46,8 @@
               <td><%= (DateTime.now - request.created_at.to_datetime).to_i %></td>
             <% end %>
             <td><%= link_to 'Usuario', request.user %></td>
-            <td><%= link_to 'Solicitud', request %></td>
-            <td><%= link_to 'Editar', edit_request_path(request) %></td>
+            <td><%= link_to 'Solicitud', requests_path+"/"+request.link %></td>
+            <td><%= link_to 'Editar', requests_path+"/"+request.link+"/edit" %></td>
 
           </tr>
         <% end %>

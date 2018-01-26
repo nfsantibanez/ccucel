@@ -76,7 +76,7 @@
     </div>
 
     <hr>
-    | <%= link_to 'Solicitud', @request %> | <%= link_to 'Solicitudes', requests_path %> |
+    | <%= link_to 'Solicitud', requests_path+"/"+@request.link %> | <%= link_to 'Solicitudes', requests_path %> | 
 
   </div>
 <% end %>

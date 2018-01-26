@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-23 15:37:08", null: false
-    t.datetime "last_assign_at", default: "2018-01-23 15:37:08", null: false
+    t.datetime "renovation_at", default: "2020-01-26 18:58:33", null: false
+    t.datetime "last_assign_at", default: "2018-01-26 18:58:33", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "closed_at"
+    t.string "link"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -90,7 +91,7 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.boolean "available", default: true, null: false
     t.string "order_note"
-    t.datetime "last_assign_at", default: "2018-01-23 15:37:08", null: false
+    t.datetime "last_assign_at", default: "2018-01-26 18:58:33", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -107,8 +108,8 @@ ActiveRecord::Schema.define(version: 20171227194658) do
     t.string "state", default: "new", null: false
     t.string "order_note"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", default: "2020-01-23 15:37:09", null: false
-    t.datetime "last_assign_at", default: "2018-01-23 15:37:09", null: false
+    t.datetime "renovation_at", default: "2020-01-26 18:58:33", null: false
+    t.datetime "last_assign_at", default: "2018-01-26 18:58:33", null: false
     t.integer "sim_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

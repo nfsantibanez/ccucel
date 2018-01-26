@@ -1,6 +1,6 @@
 class Request < ApplicationRecord
   belongs_to :user
-
+  
   # Validations
   validates :request, presence: true, allow_blank: false
   validates :item, presence: true, allow_blank: false
