@@ -5,15 +5,12 @@ class RequestsController < ApplicationController
     :update_validation]
 
   def index
-    # @requests = Request.order(sort_column + " " + sort_direction)
     @search = Request.search(params[:q])
     @requests = @search.result
     render layout: 'admin_view'
   end
 
   def show
-    puts(params)
-    puts(@request)
     if (@request && params.has_key?(:user_rut) && params[:user_rut] == @request.national_id) ||
       (@request && !params.has_key?(:user_rut))
       render 'show', layout: 'admin_view'

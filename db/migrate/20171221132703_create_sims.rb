@@ -4,11 +4,11 @@ class CreateSims < ActiveRecord::Migration[5.1]
       t.integer :phone_number, null: false
       t.integer :serial_number
       t.string :country, null: false
-      t.string :last_owner, null: false, default: 'first owner'
       t.string :state, null: false, default: 'new'
       t.boolean :available, null: false, default: true
-      t.string :order_note
-      t.datetime :last_assign_at, null: false, default: DateTime.now
+      t.binary :order
+      t.string :order_name
+      t.string :order_type
 
       t.timestamps
     end

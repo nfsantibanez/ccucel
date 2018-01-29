@@ -59,11 +59,11 @@ puts(users)
 
 # Sims CHL and ARG
 sims = Sim.create!([
-  {phone_number: 82099147, last_owner: 'Constanza Cabrera', country: 'CHL'},
-  {phone_number: 93192570, last_owner: 'Norma Acuna', country: 'ARG'},
-  {phone_number: 84099131, last_owner: 'Victor Santibanez', country: 'CHL'},
-  {phone_number: 51999216, last_owner: 'Carmen Castro', country: 'ARG'},
-  {phone_number: 93192661, last_owner: 'Jose Luis Cabrera', country: 'CHL'},
+  {phone_number: 82099147, country: 'CHL'},
+  {phone_number: 93192570, country: 'ARG'},
+  {phone_number: 84099131, country: 'CHL'},
+  {phone_number: 51999216, country: 'ARG'},
+  {phone_number: 93192661, country: 'CHL'},
   {phone_number: 97991465, country: 'ARG'},
   {phone_number: 76681990, country: 'CHL'},
   {phone_number: 62082805, country: 'ARG'},
@@ -71,9 +71,9 @@ sims = Sim.create!([
   {phone_number: 99158447, country: 'ARG'},
   {phone_number: 82593542, country: 'CHL'},
   {phone_number: 82491446, country: 'ARG'},
-  {phone_number: 93185497, last_owner: 'Felipe Castro', country: 'CHL'},
-  {phone_number: 42178031, last_owner: 'Gonzalo Inostroza', country: 'ARG'},
-  {phone_number: 93186475, last_owner: 'Claudia Munoz', country: 'CHL'}
+  {phone_number: 93185497, country: 'CHL'},
+  {phone_number: 42178031, country: 'ARG'},
+  {phone_number: 93186475, country: 'CHL'}
 ])
 puts(sims)
 
@@ -128,16 +128,16 @@ puts(smartphones)
 # Smartphones to CHL users
 smartphones = Smartphone.create!([
   {model: 'Samsung Galaxy S8', category: 'GE', imei:'353227075802167',
-    price: 200836, last_owner: 'Marco Sepulveda', code: '106616', state: 'used',
+    price: 200836, code: '106616', state: 'used',
     country: 'CHL', phone_number: 98738446},
   {model: 'Samsung Galaxy S8', category: 'GE', imei:'359878069666630',
-    price: 200836, last_owner: 'Carolina Arredondo', code: '106616', state: 'used',
+    price: 200836, code: '106616', state: 'used',
     country: 'CHL', phone_number: 98172663},
   {model: 'Samsung Galaxy S7', category: 'EJ', imei:'35688706001064',
-    price: 158820, last_owner: 'Kathy Whiting', code: '106553', state: 'used',
+    price: 158820, code: '106553', state: 'used',
     country: 'CHL', phone_number: 98837465},
   {model: 'Samsung Galaxy J7', category: 'PT', imei:'35881306155560',
-    price: 50417, last_owner: 'Felipe Arriagada', code: '106586', state: 'used',
+    price: 50417, code: '106586', state: 'used',
     country: 'CHL', phone_number: 98918207},
   {model: 'Samsung Galaxy J7', category: 'PT', imei:'52141079023186',
     price: 50417, code: '106586', country: 'CHL', phone_number: 98293847},
@@ -146,12 +146,12 @@ smartphones = Smartphone.create!([
   {model: 'Samsung Galaxy S7', category: 'VE', imei:'35687805120863',
     price: 158820, code: '106553', country: 'CHL', phone_number: 98928374},
   {model: 'Samsung Galaxy J5', category: 'EE', imei:'359878069666481',
-    price: 40333, last_owner: 'Andres Soto', code: '106583', state: 'used',
+    price: 40333, code: '106583', state: 'used',
     country: 'CHL', phone_number: 98993847},
   {model: 'Samsung Galaxy J5', category: 'OO', imei:'35214073409175',
     price: 40333, code: '106583', country: 'CHL', phone_number: 98101920},
   {model: 'Samsung Galaxy J5', category: 'ALL', imei:'359048050341094',
-    price: 40333, last_owner: 'Guillermo Aguilar', code: '106583', state: 'used',
+    price: 40333, code: '106583', state: 'used',
     country: 'CHL', phone_number: 98938432}
 ])
 puts(smartphones)
@@ -159,16 +159,16 @@ puts(smartphones)
 # Smartphones to ARG users
 smartphones = Smartphone.create!([
   {model: 'iPhone X', category: 'GE', imei:'783227075802167',
-    price: 200836, last_owner: 'Marco Sepulveda', code: '106616', state: 'used',
+    price: 200836, code: '106616', state: 'used',
     country: 'ARG', phone_number: 87172663},
   {model: 'iPhone X', category: 'GE', imei:'789878069666630',
-    price: 200836, last_owner: 'Carolina Arredondo', code: '106616', state: 'used',
+    price: 200836, code: '106616', state: 'used',
     country: 'ARG', phone_number: 87921834},
   {model: 'iPhone 8 Plus', category: 'EJ', imei:'78688706001064',
-    price: 158820, last_owner: 'Kathy Whiting', code: '106553', state: 'used',
+    price: 158820, code: '106553', state: 'used',
     country: 'ARG', phone_number: 87291837},
   {model: 'iPhone 7 Plus', category: 'PT', imei:'78881306155560',
-    price: 50417, last_owner: 'Felipe Arriagada', code: '106586', state: 'used',
+    price: 50417, code: '106586', state: 'used',
     country: 'ARG', phone_number: 87364955},
   {model: 'iPhone 7', category: 'PT', imei:'78141079023186',
     price: 50417, code: '106586', country: 'ARG', phone_number: 87167584},
@@ -177,12 +177,12 @@ smartphones = Smartphone.create!([
   {model: 'iPhone 8', category: 'VE', imei:'78687805120863',
     price: 158820, code: '106553', country: 'ARG', phone_number: 87807886},
   {model: 'iPhone 6s', category: 'EE', imei:'789878069666481',
-    price: 40333, last_owner: 'Andres Soto', code: '106583', state: 'used',
+    price: 40333, code: '106583', state: 'used',
     country: 'ARG', phone_number: 87146351},
   {model: 'iPhone 6s', category: 'OO', imei:'78214073409175',
     price: 40333, code: '106583', country: 'ARG', phone_number: 87183932},
   {model: 'iPhone 6', category: 'ALL', imei:'789048050341094',
-    price: 40333, last_owner: 'Guillermo Aguilar', code: '106583', state: 'used',
+    price: 40333, code: '106583', state: 'used',
     country: 'ARG', phone_number: 870468977}
 ])
 puts(smartphones)
@@ -202,27 +202,26 @@ puts(bams)
 
 # Bams CHL
 bams = Bam.create!([
-  {model: 'BAM E8372H LTE', imei:'952427835802167', price: 0,
-    last_owner: 'Joaquin Zunino', code: '133167', state: 'used', country: 'CHL'},
-  {model: 'BAM E8372H LTE', imei:'984557575805360', price: 0,
-    last_owner: 'Francisca Irarrazaval', code: '133167', state: 'used', country: 'CHL'},
+  {model: 'BAM E8372H LTE', imei:'952427835802167', price: 0, code: '133167',
+    state: 'used', country: 'CHL'},
+  {model: 'BAM E8372H LTE', imei:'984557575805360', price: 0, code: '133167',
+    state: 'used', country: 'CHL'},
   {model: 'BAM E8372H LTE', imei:'996883330106421', price: 0, code: '133167', country: 'CHL'},
   {model: 'BAM E8372H LTE', imei:'918813063325600', price: 0, code: '133167', country: 'CHL'},
-  {model: 'BAM E8372H LTE', imei:'932414072893167', price: 0,
-    last_owner: 'Mariana Fernandez', code: '133167', state: 'used', country: 'CHL'}
+  {model: 'BAM E8372H LTE', imei:'932414072893167', price: 0, code: '133167',
+    state: 'used', country: 'CHL'}
 ])
 puts(bams)
 
 # Bams ARG
 bams = Bam.create!([
-  {model: 'Huawei E5573', imei:'882427835802167', price: 35990,
-    last_owner: 'Joaquin Zunino', code: '205167', state: 'used', country: 'ARG'},
-  {model: 'Huawei E5573', imei:'884557575805360', price: 35990,
-    last_owner: 'Francisca Irarrazaval', code: '205167', state: 'used', country: 'ARG'},
+  {model: 'Huawei E5573', imei:'882427835802167', price: 35990, code: '205167',
+    state: 'used', country: 'ARG'},
+  {model: 'Huawei E5573', imei:'884557575805360', price: 35990, code: '205167',
+    state: 'used', country: 'ARG'},
   {model: 'Huawei E5573', imei:'886883330106421', price: 35990, code: '205167', country: 'ARG'},
   {model: 'Huawei E8372', imei:'888813063325600', price: 55990, code: '205250', country: 'ARG'},
-  {model: 'Huawei E8372', imei:'882414072893167', price: 55990,
-    last_owner: 'Mariana Fernandez', code: '205250', state: 'used', country: 'ARG'}
+  {model: 'Huawei E8372', imei:'882414072893167', price: 55990, code: '205250', state: 'used', country: 'ARG'}
 ])
 puts(bams)
 
@@ -358,32 +357,3 @@ user2.update_attributes(smartphone_id: sp2.id, bam_id: bam2.id, sim_id: sim2.id,
 sp2.update_attributes(available: false)
 bam2.update_attributes(available: false)
 sim2.update_attributes(available: false)
-
-=begin
-
-# Assign smartphones, bam and sims to users
-records = UserRecord.create!([
-  {user_id: 10000, bam_id: 10004, sim_id: 10000}
-])
-puts(records)
-
-# Requests
-requests = Request.create!([
-  {user_id: 10005, request: 'smartphone', state: 'new', status: 'accepted',
-    comment: 'Necesito el smartphone lo antes posible'},
-  {user_id: 10002, request: 'smartphone', state: 'lost', status: 'approval pending',
-    comment: 'Se me perdio el smartphone en viaje fuera del pais'},
-  {user_id: 10003, request: 'smartphone', state: 'technical service', status: 'in repairs',
-    comment: 'Se rompio la pantalla en salida a terreno'},
-  {user_id: 10000, request: 'bam', state: 'stolen', status: 'rejected',
-    comment: 'Me robaron aparato BAM'},
-  {user_id: 10001, request: 'bam', state: 'renew', status: 'ready to deliver',
-    comment: 'BAM es muy antiguo y necesito mayor velocidad de navegacion'},
-  {user_id: 10006, request: 'sim', state: 'new', status: 'dispatched',
-    comment: 'Necesito SIM de CCU para instalar en mi smartphone'},
-  {user_id: 10007, request: 'sim', state: 'stolen', status: 'accepted',
-    comment: 'Necesito nueva SIM porque me robaron bolso donde tenia el smartphone con la SIM'}
-])
-puts(requests)
-
-=end
