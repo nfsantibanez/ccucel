@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+
+<p></p>
+<h4><strong>Estimado(a) <%= @supervisor+"," %></strong></h4>
+
+<p>
+<%=@body%>
+</p>
+
+<p>
+Para aprobar/rechazar la solicitud debe ingresar al siguiente <%= link_to "Link", requests_url+"/validations/"+@n_link%>
+</p>
+<br>
+
+<p>
+<strong>Atte.</strong>
+</p>
+<p>
+<strong>Administrador Web Dispositivos y Servicios Móviles | adminweb@ccu.cl</strong>
+</p>
+
+</body>
+</html>

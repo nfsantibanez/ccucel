@@ -5,7 +5,7 @@
 # Users CHL and ARG
 
 users = User.create!([
-  {name: 'Constanza', last_name: 'Calderon Sanchez', national_id:'13362555-0', email:'ccalde@ccu.cl',
+  {name: 'Constanza', last_name: 'Calderon Sanchez', national_id:'13362555-0', email:'nisanti@ccu.cl',
     jobtitle: 'Operario de Maquinas', supervisor: 'Nicolas Santibanez', country: 'CHL',
     supervisor_email: 'nisanti@ccu.cl', deptname: '290766000', location: '30_VITA',
     company: '13', job_family: 'OO'},

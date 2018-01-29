@@ -1,7 +1,8 @@
 class RequestsController < ApplicationController
   require 'securerandom'
-  before_action :set_request, only: [:show, :edit, :update]
-  layout 'general_view', except: [:index, :show, :edit, :update]
+  before_action :set_request, only: [:show, :edit, :update, :update_validation]
+  layout 'general_view', except: [:index, :show, :edit, :update, :validations,
+    :update_validation]
 
   def index
     # @requests = Request.order(sort_column + " " + sort_direction)
@@ -11,13 +12,13 @@ class RequestsController < ApplicationController
   end
 
   def show
-    if !@request
-      @request = Request.find_by_n_request(params[:n_request])
-    end
-    if @request
+    puts(params)
+    puts(@request)
+    if (@request && params.has_key?(:user_rut) && params[:user_rut] == @request.national_id) ||
+      (@request && !params.has_key?(:user_rut))
       render 'show', layout: 'admin_view'
     else
-      redirect_to '/requests/home/follow_request', alert: 'El n° de Solicitud Ingresado no es Válido'
+      redirect_to '/requests/home/follow_request', alert: 'El n° de Solicitud no corresponde al usuario ingresado'
     end
   end
 
@@ -28,26 +29,62 @@ class RequestsController < ApplicationController
 
   # PATCH/PUT /requests/1
   def update
-    respond_to do |format|
+    # If contract is updated
+    if params[:contract]
+      params[:contract_type] = params[:contract].content_type
+      params[:contract_name] = params[:contract].original_filename
+      params[:contract] = params[:contract].read
+    end
 
-      # If contract is updated
-      if params[:contract]
-        params[:request][:contract_type] = params[:contract].content_type
-        params[:request][:contract_name] = params[:contract].original_filename
-        params[:request][:contract] = params[:contract].read
-      end
+    # update classification if status change
+    if params[:status] == 'cancelada' ||  params[:status] == 'finalizada'
+      params[:classification] = 'cerrado'
+      params[:closed_at] = DateTime.now
+    end
 
-      if @request.update(request_params_update)
-        format.html { redirect_to @request, notice: 'Request was successfully updated.' }
-        format.json { render :show, status: :ok, location: @request }
-      else
-        format.html { render :edit }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
-      end
+    if @request.update(request_params_update)
+      render 'show', layout: 'admin_view'
+    else
+      render layout: 'error'
     end
   end
 
-  # Functions for validate data
+  # PATCH/PUT /requests/1
+  def update_validation
+    # set approval for requestt
+    if params[:commit] == "Aprovar"
+      params[:sup_approval] = 'aprobada'
+      params[:classification] = 'abierto'
+      params[:status] = 'pendiente nota de pedido'
+    elsif  params[:commit] == "Rechazar"
+      params[:sup_approval] = 'rechazada'
+      params[:status] = 'rechazada'
+      params[:classification] = 'cerrado'
+      params[:closed_at] = DateTime.now
+    end
+
+    # update request
+    if @request.update(validate_params)
+      params[:request] = 'follow'
+      render 'show', layout: 'admin_view'
+    else
+      render layout: 'error'
+    end
+
+  end
+
+  def validations
+    # find request
+    @request = Request.find_by_link(params[:id])
+    # if request was validated
+    if !@request
+      render json: {message: 'no se encontro solicitud'}
+    else
+      render 'validations', layout: 'admin_view'
+    end
+  end
+
+    # Functions for validate data
   def validate_user
     #Validate rut and form
     user = rut_verification(params[:user_rut])
@@ -215,16 +252,17 @@ class RequestsController < ApplicationController
       @request.update_attribute("n_request", id)
 
       # Unique identifier to access request
-      salt =  Digest::SHA256.base64digest @request.national_id
-      url = Digest::SHA256.base64digest salt+@request.n_request
+      salt =  Digest::SHA256.hexdigest @request.national_id
+      url = Digest::SHA256.hexdigest salt+@request.n_request
       params[:link] = url
       # Update Attributte
       @request.update_attribute("link", url)
 
       # Send mail to supervisor
 
-      #user = User.find_by_id(params[:user_id])
-      #UserMailer.supervisor_email(user, @request).deliver_now
+      # user = User.find_by_id(params[:user_id])
+      # UserMailer.supervisor_email(user, @request).deliver_now
+      puts(requests_url+"/validations/"+@request.link)
 
       # Render success message
       render layout: 'success'
@@ -318,6 +356,9 @@ class RequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_request
       @request = Request.find_by_link(params[:id])
+      if !@request and params.has_key?(:n_request)
+        @request = Request.find_by_n_request(params[:n_request])
+      end
     rescue ActiveRecord::RecordNotFound
     end
 
@@ -327,8 +368,8 @@ class RequestsController < ApplicationController
       nat_id = params.has_key?(:national_id) ? params[:national_id] : ""
       n_req = params.has_key?(:n_request) ? params[:n_request] : ""
       # Unique link
-      salt =  Digest::SHA256.base64digest nat_id
-      url = Digest::SHA256.base64digest salt+n_req
+      salt =  Digest::SHA256.hexdigest nat_id
+      url = Digest::SHA256.hexdigest salt+n_req
       @request = Request.find_by_link(url)
     rescue ActiveRecord::RecordNotFound
     end
@@ -355,9 +396,12 @@ class RequestsController < ApplicationController
 
     # params for update
     def request_params_update
-      params.require(:request).permit(:classification, :contract, :contract_type,
-        :contract_name, :file, :file_type, :file_name, :status, :price, :company,
-        :deptname, :closed_at)
+      params.permit(:classification, :contract, :contract_type, :contract_name,
+        :status, :price, :closed_at)
     end
 
+    # params for update
+    def validate_params
+      params.permit(:sup_approval, :comment_sup, :classification, :status, :closed_at)
+    end
 end

@@ -30,6 +30,7 @@
       <p class="col-md-4 text-left">
         <strong>Modelo:</strong>
         <%= @items[:bam].model %>
+        <%= form.hidden_field :model, value: @items[:bam].model %>
       </p>
 
       <p class="col-md-4 text-left">
@@ -44,6 +45,7 @@
       <p class="col-md-4 text-left">
         <strong>Imei:</strong>
         <%= @items[:bam].imei %>
+        <%= form.hidden_field :imei, value: @items[:bam].imei %>
       </p>
 
       <p class="col-md-4 text-left">

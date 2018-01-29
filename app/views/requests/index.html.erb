@@ -19,6 +19,7 @@
           <th scope="col" class= text-center><%= sort_link @search, :item, "Item Solicitado"%></th>
           <th scope="col" class= text-center><%= sort_link @search, :created_at, "Fecha Creacion"%></th>
           <th scope="col" class= text-center><%= sort_link @search, :closed_at, "Fecha Cierre"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :sup_approval, "Aprobación"%></th>
           <th scope="col" class= text-center>Solicitud</th>
           <th scope="col" class= text-center>Precio</th>
           <th scope="col" class= text-center>Dias Transcurridos</th>
@@ -38,6 +39,7 @@
             <td><%= request.item %></td>
             <td><%= request.created_at.localtime.strftime('%d/%m/%Y %H:%M:%S') %></td>
             <td><%= request.closed_at.localtime.strftime('%d/%m/%Y %H:%M:%S') unless !request.closed_at %></td>
+            <td><%= request.sup_approval %></td>
             <td><%= request.email_sended.truncate(50, separator: ',', omission: ' ...')  %></td>
             <td><%= request.price %></td>
             <% if request.closed_at %>

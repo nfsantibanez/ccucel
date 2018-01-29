@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   # Validate User
   get '/requests/home/validate' => 'requests#validate_user'
   # Validates Aproval/reject of request
-
+  get '/requests/validations/:id' => 'requests#validations'
+  # Update request for supervisor
+  patch '/requests/validations/update/:id' => 'requests#update_validation'
 
   # TransferLine Form
   get '/requests/forms/transferline' => 'requests#transfer_line'

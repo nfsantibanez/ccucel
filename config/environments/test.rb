@@ -33,10 +33,11 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  # for outlook
+  config.action_mailer.asset_host = 'localhost:3000'
 =begin
+  # for outlook
   config.action_mailer.smtp_settings = {
-    address: "smtp.office365.com",
+    address: "correo.ccu.cl", #"smtp.office365.com",
     port: 587,
     enable_starttls_auto:  true,
     user_name: 'nisanti@ccu.cl',
@@ -46,6 +47,7 @@ Rails.application.configure do
     authentication: :login #ntlm
   }
 =end
+
   # for gmail
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
@@ -56,6 +58,7 @@ Rails.application.configure do
     authentication:       :plain,
     enable_starttls_auto: true
   }
+
 
   # Define host for mailer
   config.action_mailer.default_url_options = {

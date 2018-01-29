@@ -52,11 +52,11 @@
         </div>
         <div class="col-md-3">
           <%= form.label :status_cont, "Estado", class: "pull-left"%>
-          <%= form.select :status_cont, [['Todos', ""], ['Pendiente aprobacion' , 'pendiente aprobacion' ],
-          ['En curso', 'en curso'], ['Rechazada','rechazada'],['Cancelada','cancelada'],
-          ['Pendiente entrega dispositivo','pendiente entrega dispositivo'],
-          ['Pendiente presupuesto', 'pendiente presupuesto'],
-          ['En reparaciones', 'en reparaciones'],['Disponible para retiro', 'disponible para retiro'],
+          <%= form.select :status_cont, [['Todos', ""], ['Pendiente aprobación' , 'pendiente aprobacion' ],
+          ['Pendiente Nota de Pedido', 'pendiente nota de pedido'], ['Rechazada','rechazada'],
+          ['Cancelada','cancelada'], ['Pendiente entrega dispositivo','pendiente entrega dispositivo'],
+          ['Pendiente cotización', 'pendiente cotización'], ['En reparaciones', 'en reparaciones'],
+          ['Disponible para retiro', 'disponible para retiro'],
           ['Enviado a trabajador', 'enviado a trabajador'], ['Finalizada', 'finalizada']],
           {}, {id: "2", style: "width:150px", class: "pull-right"}%>
         </div>

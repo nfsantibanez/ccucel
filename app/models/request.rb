@@ -1,6 +1,6 @@
 class Request < ApplicationRecord
   belongs_to :user
-  
+
   # Validations
   validates :request, presence: true, allow_blank: false
   validates :item, presence: true, allow_blank: false
@@ -32,9 +32,9 @@ class Request < ApplicationRecord
 
   def valid_status
     if status != 'pendiente aprobacion' && status != 'rechazada' && status != 'cancelada' &&
-      status != 'pendiente entrega dispositivo' && status != 'pendiente presupuesto' &&
+      status != 'pendiente entrega dispositivo' && status != 'pendiente cotizacion' &&
       status != 'en reparaciones' && status != 'disponible para retiro' &&
-      status != 'en curso' && status != 'enviado a trabajador' && status != 'finalizada'
+      status != 'pendiente nota de pedido' && status != 'enviado a trabajador' && status != 'finalizada'
       errors.add(:status, 'invalid status field')
     end
   end

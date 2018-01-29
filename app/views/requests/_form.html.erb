@@ -1,82 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Solicitud Celulares CCU</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-  .input {
-    margin-top: 3px;
-    margin-bottom: 5px;
-  }
-</style>
+  <style>
+    .input {
+      margin-top: 3px;
+      margin-bottom: 5px;
+    }
+    .alert {
+      margin-top: 5px;
+      display:inline-block;
+      vertical-align: middle;
+      height: 50%;
+      padding: 1px;
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
+  </style>
+</head>
 
-<%= form_with(model: request, local: true) do |form| %>
-  <% if request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
-      <ul>
-      <% request.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<body>
+
+  <%= form_with url: '/requests/'+@request.link , method: "patch" do |form| %>
+
+    <div class="well form-horizontal">
+
+      <div class="row">
+        <p class="col-md-3"></p>
+        <p class="user col-md-2 text-left">
+          <%= form.label :status, "Validación Supervisor"%>
+        </p>
+        <p class=" user col-md-3 text-left">
+          <%= @request.sup_approval %>
+        </p>
+        <p class=" user col-md-4"></p>
+      </div>
+
+      <div class="row">
+        <p class="col-md-3"></p>
+        <p class="user col-md-2 text-left">
+          <%= form.label :classification, "Clasificación" %>
+        </p>
+        <p class=" user col-md-3 text-left">
+          <%= @request.classification %>
+        </p>
+        <p class=" user col-md-4"></p>
+      </div>
+
+      <%if @request.classification == 'abierto' &&  @request.status != 'rechazada' &&
+        @request.status != 'cancelada' &&  @request.status != 'finalizada' %>
+
+        <div class="row">
+          <div class="col-md-3"></div>
+          <%= form.label :status, "Estado", class: "col-md-2 control-label pull-left" %>
+          <%= form.select :status, [['Pendiente aprobación' , 'pendiente aprobacion' ],
+          ['Cancelada','cancelada'], ['Pendiente entrega dispositivo','pendiente entrega dispositivo'],
+          ['Pendiente cotización', 'pendiente cotizacion'], ['En reparaciones', 'en reparaciones'],
+          ['Disponible para retiro', 'disponible para retiro'], ['Pendiente Nota de Pedido', 'pendiente nota de pedido'],
+          ['Enviado a trabajador', 'enviado a trabajador'], ['Finalizada', 'finalizada']],
+          {selected: @request.status}, {class: "input col-md-3 pull-left"} %>
+          <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3"></div>
+          <%= form.label :price, "Precio $", class: "col-md-2 control-label pull-left" %>
+          <%= form.text_field :price, id: :request_price, class: "input col-md-3 pull-left",
+          value: @request.price %>
+          <div class="col-md-4"></div>
+        </div>
+
+        <%if @request.contract? %>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <%= form.label :old_contract, "Nota de Pedido Actual", class: "col-md-2 control-label pull-left" %>
+            <div data-turbolinks="false" class="col-md-3 pull-left ">
+              <%= link_to "Download", controller: :requests, action: :download_contract, id: @request.n_request %>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+        <%end%>
+
+        <div class="row">
+          <div class="col-md-3"></div>
+          <%= form.label :contract, "Subir nueva Nota de Pedido", class: "col-md-2 control-label pull-left" %>
+          <%= form.file_field :contract, multiple: false, name: "contract",
+          accept: 'image/png,image/gif,image/jpeg', class: "input col-md-3 pull-left" %>
+          <div class="col-md-4"></div>
+        </div>
+
+        <br>
+        <div class="actions">
+          <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar la Solicitud')", class: "btn btn-primary btn-md" %>
+        </div>
+
+      <% else %>
+
+        <div class="row">
+          <p class="col-md-3"></p>
+          <p class="user col-md-2 text-left">
+            <%= form.label :status, "Estado" %>
+          </p>
+          <p class=" user col-md-3 text-left">
+            <%= @request.status %>
+          </p>
+          <p class=" user col-md-4"></p>
+        </div>
+
+        <div class="row">
+          <p class="col-md-3"></p>
+          <p class="user col-md-2 text-left">
+            <%= form.label :price, "Precio $" %>
+          </p>
+          <p class=" user col-md-3 text-left">
+            <%= @request.price %>
+          </p>
+          <p class=" user col-md-4"></p>
+        </div>
+
+        <%if @request.contract? %>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <%= form.label :old_contract, "Nota de Pedido Actual", class: "col-md-2 control-label pull-left" %>
+            <p data-turbolinks="false" class="col-md-3 pull-left ">
+              <%= link_to "Download", controller: :requests, action: :download_contract, id: @request.n_request %>
+            </p>
+            <div class="col-md-4"></div>
+          </div>
+        <%end%>
+        <div class="alert alert-danger">
+          La Solicitud no puede ser editada ya que el estado de la solicitud es <strong> <%=@request.status%></strong>
+        </div>
+
       <% end %>
-      </ul>
+
+      <hr>
+      | <%= link_to 'Solicitud', requests_path+"/"+@request.link %> | <%= link_to 'Solicitudes', requests_path %> |
+
     </div>
   <% end %>
 
-
-  <div class="well form-horizontal">
-
-    <div class="row">
-      <div class="col-md-3"></div>
-      <%= form.label :status, "Estado", class: "col-md-2 control-label pull-left" %>
-      <%= form.select :status, [['Pendiente aprobacion' , 'pendiente aprobacion' ],
-      ['Rechazada','rechazada'],['Cancelada','cancelada'],
-      ['Pendiente entrega dispositivo','pendiente entrega dispositivo'],
-      ['Pendiente presupuesto', 'pendiente presupuesto'],
-      ['En reparaciones', 'en reparaciones'],['Disponible para retiro', 'disponible para retiro'],
-      ['En curso', 'en curso'],['Enviado a trabajador', 'enviado a trabajador'],
-      ['Finalizada', 'finalizada']],
-      {selected: @request.status}, {class: "input col-md-3 pull-left"} %>
-      <div class="col-md-4"></div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-3"></div>
-      <%= form.label :classification, "Clasificación",
-      class: "col-md-2 control-label pull-left"%>
-      <%= form.select :classification, [['Abierto', 'abierto'], ['Cerrado','cerrado']],
-      {selected: @request.classification}, {class: "input col-md-3 pull-left"} %>
-      <div class="col-md-4"></div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-3"></div>
-      <%= form.label :price, "Precio $", class: "col-md-2 control-label pull-left" %>
-      <%= form.text_field :price, id: :request_price, class: "input col-md-3 pull-left" %>
-      <div class="col-md-4"></div>
-    </div>
-
-    <%if @request.contract? %>
-      <div class="row">
-        <div class="col-md-3"></div>
-        <%= form.label :old_contract, "Nota de Pedido Actual", class: "col-md-2 control-label pull-left" %>
-        <div data-turbolinks="false" class="col-md-3 pull-left ">
-          <%= link_to "Download", controller: :requests, action: :download_contract, id: @request.n_request %>
-        </div>
-        <div class="col-md-4"></div>
-      </div>
-    <%end%>
-
-    <div class="row">
-      <div class="col-md-3"></div>
-      <%= form.label :contract, "Subir nueva Nota de Pedido", class: "col-md-2 control-label pull-left" %>
-      <%= form.file_field :contract, multiple: false, name: "contract",
-      accept: 'image/png,image/gif,image/jpeg', class: "input col-md-3 pull-left" %>
-      <div class="col-md-4"></div>
-    </div>
-
-    <br>
-    <div class="actions">
-      <%= form.submit 'Editar', class: "btn btn-primary btn-md" %>
-    </div>
-
-    <hr>
-    | <%= link_to 'Solicitud', requests_path+"/"+@request.link %> | <%= link_to 'Solicitudes', requests_path %> | 
-
-  </div>
-<% end %>
+</body>
+</html>
