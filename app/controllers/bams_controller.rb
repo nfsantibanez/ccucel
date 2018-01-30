@@ -1,16 +1,22 @@
 class BamsController < ApplicationController
   before_action :set_bam, only: [:show, :edit, :update, :destroy]
-  layout 'general_view'
+  layout 'general_view', except: [:index, :show, :edit, :update]
 
   # GET /bams
   # GET /bams.json
   def index
-    @bams = Bam.all
+    @search = Bam.search(params[:q])
+    @bams  = @search.result
+    @all_bam = all_bams
+    @all_bam.unshift(['Todos',''])
+
+    render layout: 'admin_view'
   end
 
   # GET /bams/1
   # GET /bams/1.json
   def show
+    render layout: 'admin_view'
   end
 
   # GET /bams/new
@@ -20,6 +26,7 @@ class BamsController < ApplicationController
 
   # GET /bams/1/edit
   def edit
+    render layout: 'admin_view'
   end
 
   # POST /bams
@@ -46,7 +53,7 @@ class BamsController < ApplicationController
         format.html { redirect_to @bam, notice: 'Bam was successfully updated.' }
         format.json { render :show, status: :ok, location: @bam }
       else
-        format.html { render :edit }
+        format.html { redirect_to @bam, alert:  @bam.errors }
         format.json { render json: @bam.errors, status: :unprocessable_entity }
       end
     end

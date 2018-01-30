@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <style>
+
+    hr {
+      margin-top: 3px;
+      margin-bottom: 3px;
+      padding: 0px;
+    }
+
+    .btn {
+      margin-top: 10px;
+    }
+
+  </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    // Submit Event
+    $("#clear").click(function(e){
+      $('#1').val('');
+      $('#2').val('');
+      $('#3').val('');
+      $('#4').val('');
+    });
+
+  });
+  </script>
+
+</head>
+<body>
+
+  <hr>
+  <h4><strong>Filtros</strong></h4>
+  <hr>
+
+  <div class="container-fluid">
+    <%= search_form_for @search do |form|%>
+
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <%= form.label :item_eq, 'Item', class: "pull-left" %>
+          <%= form.select :item_eq, [['Todos',''],['Roaming','roaming'],['Bam', 'bam']],
+          {}, {id: "1", style: "width:120px", class: "pull-right"} %>
+        </div>
+        <div class="col-md-3">
+          <%= form.label :plan_type_eq, "Tipo", class: "pull-left"%>
+          <%= form.select :plan_type_eq, [['Todo',''],['Plan','plan'],
+          ['Bolsa','bag']], {},
+          {id: "2", style: "width:120px", class: "pull-right"}%>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <%= form.submit "Filtrar", class: "btn btn-primary btn-md"%>
+        <%= form.button "Limpiar Filtros", class: "btn btn-info btn-md", id: "clear" %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+
+</body>
+</html>

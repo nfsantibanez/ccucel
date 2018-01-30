@@ -1,10 +1,18 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
-  layout 'general_view'
+  layout 'general_view', except: [:index, :show, :edit, :update]
+
   # GET /plans
   # GET /plans.json
   def index
-    @plans = Plan.all
+  @search = Plan.search(params[:q])
+  @plans  = @search.result
+  @all_bp_roaming = all_bp_roaming
+  @all_bp_roaming.unshift(['Todos',''])
+  @all_p_bam = all_p_bam
+  @all_p_bam.unshift(['Todos',''])
+
+    render layout: 'admin_view'
   end
 
   # GET /plans/1

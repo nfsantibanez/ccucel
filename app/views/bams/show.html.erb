@@ -1,59 +1,120 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Solicitud Celulares CCU</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<p>
-  <strong>Model:</strong>
-  <%= @bam.model %>
-</p>
+  <style>
+      p {
+        margin: 1px 0px 1px 0px;
+      }
+      .alert {
+        margin-top: 5px;
+        display:inline-block;
+        vertical-align: middle;
+        height: 50%;
+        padding: 1px;
+        margin-top: 1%;
+        margin-bottom: 1%;
+      }
+  </style>
 
-<p>
-  <strong>Code:</strong>
-  <%= @bam.code %>
-</p>
+</head>
 
-<p>
-  <strong>Country:</strong>
-  <%= @bam.country %>
-</p>
+<body>
 
-<p>
-  <strong>Last owner:</strong>
-  <%= @bam.last_owner %>
-</p>
+  <hr>
+  <h3><strong>Detalle Bam</strong></h3>
+  <hr>
 
-<p>
-  <strong>Imei:</strong>
-  <%= @bam.imei %>
-</p>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="well form-horizontal col-md-10">
 
-<p>
-  <strong>Price:</strong>
-  <%= @bam.price %>
-</p>
+      <div class="row">
+        <p class="col-md-4 text-left">
+          <strong>Id: </strong>
+          <%= @bam.id %>
+        </p>
+        <p class="user col-md-4 text-left">
+          <strong>Código: </strong>
+          <%= @bam.code %>
+        </p>
+        <p class=" user col-md-4 text-left">
+          <strong>Imei: </strong>
+          <%= @bam.imei %>
+        </p>
+      </div>
 
-<p>
-  <strong>State:</strong>
-  <%= @bam.state %>
-</p>
+      <div class="row">
+        <p class="col-md-4 text-left">
+          <strong>Modelo: </strong>
+          <%= @bam.model %>
+        </p>
+        <p class=" user col-md-4 text-left">
+          <strong>Estado: </strong>
+          <%= @bam.state %>
+        </p>
+        <p class="user col-md-4 text-left">
+        </p>
+      </div>
 
-<p>
-  <strong>Available:</strong>
-  <%= @bam.available %>
-</p>
+      <div class="row">
+        <p class="user col-md-4 text-left">
+          <strong>Precio: </strong>
+          <%= '$'+@bam.price.to_s %>
+        </p>
+        <p class=" user col-md-4 text-left">
+          <strong>Disponible: </strong>
+          <%= @bam.available %>
+        </p>
+        <p class="col-md-4 text-left">
+        </p>
+      </div>
 
-<p>
-  <strong>Renovation at:</strong>
-  <%= @bam.renovation_at %>
-</p>
+      <div class="row">
+        <p class="user col-md-4 text-left">
+          <strong>Pais:</strong>
+          <%= @bam.country %>
+        </p>
+          <p class="col-md-4 text-left">
+            <% if @bam.renovation_at %>
+              <strong>Fecha renovación:</strong>
+              <%= @bam.renovation_at.strftime('%d/%m/%Y') %>
+            <% end %>
+          </p>
+          <p class=" user col-md-4 text-left"> </p>
+      </div>
 
-<p>
-  <strong>Last assign at:</strong>
-  <%= @bam.last_assign_at %>
-</p>
+      <hr>
+      <%= link_to 'Editar', edit_bam_path(@bam) %> |
+      <%= link_to 'Bams', bams_path %>
 
-<p>
-  <strong>Sim:</strong>
-  <%= @bam.sim %>
-</p>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
 
-<%= link_to 'Edit', edit_bam_path(@bam) %> |
-<%= link_to 'Back', bams_path %>
+  <% if notice %>
+  <div class="row">
+    <p class="col-md-4 text-left"></p>
+    <p class="user col-md-4 alert alert-success">
+         <strong> El Bam fue editado exitosamente </strong>
+    </p>
+    <p class=" user col-md-4 text-left"></p>
+  </div>
+  <% elsif alert %>
+  <div class="row">
+    <p class="col-md-2 text-left"></p>
+    <p class="user col-md-8 alert alert-danger">
+      <strong> Los siguientes errores impidieron finalizar la edición exitosamente: </strong>
+      <% alert.each_pair do |k, v| %>
+        <%= " | El campo "+k+" tiene el siguiente error: "+v[0] %>
+      <% end %>
+    </p>
+    <p class=" user col-md-2 text-left"></p>
+  </div>
+  <% end %>
+
+</body>
+</html>

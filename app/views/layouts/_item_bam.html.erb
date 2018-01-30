@@ -64,7 +64,9 @@
 
       <p class="col-md-4 text-left">
         <strong>Fecha de Renovación:</strong>
+        <% if  @items[:bam].renovation_at.present? %>
         <%= @items[:bam].renovation_at.localtime.strftime('%d/%m/%Y') %>
+        <% end %>
       </p>
       <div class="col-md-2"></div>
     </div>

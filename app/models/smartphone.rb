@@ -16,14 +16,14 @@ class Smartphone < ApplicationRecord
 
   def valid_state
    if state != 'new' && state != 'used' && state != 'catalog'
-     errors.add(:state, 'invalid request field, must be: new, used or catalog')
+     errors.add(:state, 'Valor del campo Estado inválido, debe ser: new, used or catalog')
    end
   end
 
   def valid_category
    if category != 'GE' && category != 'EJ' && category != 'VE' && category != 'PT' &&
      category != 'EE' && category != 'OO' && category != 'ALL'
-     errors.add(:request, 'invalid category field')
+     errors.add(:request, 'valor de campo Categoría inválido, debe ser: GE, EJ, VE, PT, EE, OO o ALL')
    end
   end
 

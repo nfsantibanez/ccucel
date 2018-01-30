@@ -1,16 +1,22 @@
 class SmartphonesController < ApplicationController
   before_action :set_smartphone, only: [:show, :edit, :update, :destroy]
-  layout 'general_view'
+  layout 'general_view', except: [:index, :show, :edit, :update]
 
   # GET /smartphones
   # GET /smartphones.json
   def index
-    @smartphones = Smartphone.all
+    @search = Smartphone.search(params[:q])
+    @smartphones  = @search.result
+    @all_smp = all_smartphones
+    @all_smp.unshift(['Todos',''])
+
+    render layout: 'admin_view'
   end
 
   # GET /smartphones/1
   # GET /smartphones/1.json
   def show
+    render layout: 'admin_view'
   end
 
   # GET /smartphones/new
@@ -20,6 +26,7 @@ class SmartphonesController < ApplicationController
 
   # GET /smartphones/1/edit
   def edit
+    render layout: 'admin_view'
   end
 
   # POST /smartphones
@@ -46,7 +53,7 @@ class SmartphonesController < ApplicationController
         format.html { redirect_to @smartphone, notice: 'Smartphone was successfully updated.' }
         format.json { render :show, status: :ok, location: @smartphone }
       else
-        format.html { render :edit }
+        format.html { redirect_to @smartphone, alert:  @smartphone.errors}
         format.json { render json: @smartphone.errors, status: :unprocessable_entity }
       end
     end

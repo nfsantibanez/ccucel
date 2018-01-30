@@ -1,47 +1,78 @@
-<p id="notice"><%= notice %></p>
+<style>
+  .input {
+    margin-top: 3px;
+    margin-bottom: 5px;
+  }
+  .alert {
+    margin-top: 5px;
+    display:inline-block;
+    vertical-align: middle;
+    height: 50%;
+    padding: 1px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+</style>
 
-<h1>Bams</h1>
+<%= render partial: '/layouts/bam_filter' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Model</th>
-      <th>Code</th>
-      <th>Country</th>
-      <th>Last owner</th>
-      <th>Imei</th>
-      <th>Price</th>
-      <th>State</th>
-      <th>Available</th>
-      <th>Renovation at</th>
-      <th>Last assign at</th>
-      <th>Sim</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class= "titulo">
+  <hr>
+  <h3>Bams</h3>
+  <hr>
+</div>
 
-  <tbody>
-    <% @bams.each do |bam| %>
-      <tr>
-        <td><%= bam.model %></td>
-        <td><%= bam.code %></td>
-        <td><%= bam.country %></td>
-        <td><%= bam.last_owner %></td>
-        <td><%= bam.imei %></td>
-        <td><%= bam.price %></td>
-        <td><%= bam.state %></td>
-        <td><%= bam.available %></td>
-        <td><%= bam.renovation_at %></td>
-        <td><%= bam.last_assign_at %></td>
-        <td><%= bam.sim %></td>
-        <td><%= link_to 'Show', bam %></td>
-        <td><%= link_to 'Edit', edit_bam_path(bam) %></td>
-        <td><%= link_to 'Destroy', bam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if notice %>
+  <div class="row">
+    <p class="col-md-4 text-left"></p>
+    <p class="user col-md-4 alert alert-success">
+         <strong> La Bam fue eliminada exitosamente </strong>
+    </p>
+    <p class=" user col-md-4 text-left"></p>
+  </div>
+<% end %>
 
+<div class="container-fluid">
+  <div class="table-responsive">
+    <table class="table table-hover table-condensed">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class= text-center><%= sort_link @search, :id, "id"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :model, "Modelo"%> </th>
+          <th scope="col" class= text-center><%= sort_link @search, :code, "Código"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :state, "Estado"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :available, "Disponible"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :renovation_at, "Fecha Renovación"%></th>
+          <th scope="col" class= text-center>Bam</th>
+          <th scope="col" class= text-center>Editar</th>
+          <th scope="col" class= text-center>Eliminar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @bams.each do |bam| %>
+          <tr>
+            <td><%= bam.id %></td>
+            <td><%= bam.model %></td>
+            <td><%= bam.code %></td>
+            <td><%= bam.state %></td>
+            <td><%= bam.available %></td>
+            <% if bam.renovation_at %>
+            <td><%= bam.renovation_at.strftime('%d/%m/%Y') %></td>
+            <% else %>
+            <td><%= "" %></td>
+            <%end%>
+
+            <td><%= link_to 'Bam', bam %></td>
+            <td><%= link_to 'Editar', edit_bam_path(bam) %></td>
+            <td><%= link_to 'Eliminar', '/bams/delete/'+bam.id.to_s,
+            onclick: "return confirm('Está seguro que desea Eliminar el Bam con id "+bam.id.to_s+ "')" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <br>
 
 <%= link_to 'New Bam', new_bam_path %>

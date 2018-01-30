@@ -34,14 +34,15 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.asset_host = 'localhost:3000'
+
 =begin
   # for outlook
   config.action_mailer.smtp_settings = {
-    address: "correo.ccu.cl", #"smtp.office365.com",
+    address: "smtp.office365.com", #"correo.ccu.cl"
     port: 587,
     enable_starttls_auto:  true,
     user_name: 'nisanti@ccu.cl',
-    password:  'NIsan017',
+    password:  'xxxxxxxx',
     domain:  'ccu.local',
 
     authentication: :login #ntlm

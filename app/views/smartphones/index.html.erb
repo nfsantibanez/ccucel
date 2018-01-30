@@ -1,43 +1,78 @@
-<p id="notice"><%= notice %></p>
+<style>
+  .input {
+    margin-top: 3px;
+    margin-bottom: 5px;
+  }
+  .alert {
+    margin-top: 5px;
+    display:inline-block;
+    vertical-align: middle;
+    height: 50%;
+    padding: 1px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+</style>
 
-<h1>Smartphones</h1>
+<%= render partial: '/layouts/smp_filter' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Model</th>
-      <th>Code</th>
-      <th>Category</th>
-      <th>Country</th>
-      <th>Imei</th>
-      <th>Price</th>
-      <th>State</th>
-      <th>Available</th>
-      <th>Renovation at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class= "titulo">
+  <hr>
+  <h3>Smartphones</h3>
+  <hr>
+</div>
+<% if notice %>
+  <div class="row">
+    <p class="col-md-4 text-left"></p>
+    <p class="user col-md-4 alert alert-success">
+         <strong> El Smartphone fue eliminado exitosamente </strong>
+    </p>
+    <p class=" user col-md-4 text-left"></p>
+  </div>
+<% end %>
 
-  <tbody>
-    <% @smartphones.each do |smartphone| %>
-      <tr>
-        <td><%= smartphone.model %></td>
-        <td><%= smartphone.code %></td>
-        <td><%= smartphone.category %></td>
-        <td><%= smartphone.country %></td>
-        <td><%= smartphone.imei %></td>
-        <td><%= smartphone.price %></td>
-        <td><%= smartphone.state %></td>
-        <td><%= smartphone.available %></td>
-        <td><%= smartphone.renovation_at %></td>
-        <td><%= link_to 'Show', smartphone %></td>
-        <td><%= link_to 'Edit', edit_smartphone_path(smartphone) %></td>
-        <td><%= link_to 'Destroy', smartphone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="table-responsive">
+    <table class="table table-hover table-condensed">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class= text-center><%= sort_link @search, :id, "id"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :model, "Modelo"%> </th>
+          <th scope="col" class= text-center><%= sort_link @search, :category, "Categoria"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :state, "Estado"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :available, "Disponible"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :renovation_at, "Fecha Renovación"%></th>
+          <th scope="col" class= text-center>Número Telefónico</th>
+          <th scope="col" class= text-center>Smartphone</th>
+          <th scope="col" class= text-center>Editar</th>
+          <th scope="col" class= text-center>Eliminar</th>
+        </tr>
+      </thead>
 
+      <tbody>
+        <% @smartphones.each do |smartphone| %>
+          <tr>
+            <td><%= smartphone.id %></td>
+            <td><%= smartphone.model %></td>
+            <td><%= smartphone.category %></td>
+            <td><%= smartphone.state %></td>
+            <td><%= smartphone.available %></td>
+            <% if smartphone.renovation_at %>
+            <td><%= smartphone.renovation_at.strftime('%d/%m/%Y') %></td>
+            <% else %>
+            <td><%= "" %></td>
+            <%end%>
+            <td><%= smartphone.phone_number %></td>
+            <td><%= link_to 'Smartphone', smartphone %></td>
+            <td><%= link_to 'Editar', edit_smartphone_path(smartphone) %></td>
+            <td><%= link_to 'Eliminar', '/smartphones/delete/'+smartphone.id.to_s,
+            onclick: "return confirm('Está seguro que desea Eliminar el Smartphone con id "+smartphone.id.to_s+ "')" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <br>
 
 <%= link_to 'New Smartphone', new_smartphone_path %>

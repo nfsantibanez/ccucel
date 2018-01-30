@@ -55,6 +55,39 @@ class ApplicationController < ActionController::Base
     return user_db
   end
 
+  # Get all catalog smartphones models
+  def all_smartphones
+    sp = Smartphone.select('id, model, code').where(state: 'catalog').uniq(&:code)
+    # Format to show in filters
+    smp = sp.map { |m| [m.model, m.model] }
+    return smp
+  end
+
+  # Get all catalog bams models
+  def all_bams
+    bm = Bam.select('id, model, code').where(state: 'catalog').uniq(&:code)
+    # Format to show in view
+    bam = bm.map { |m| [m.model, m.model] }
+    return bam
+  end
+
+  # Get all plans/bags for Roamming
+  def all_bp_roaming
+    plan = Plan.select('id, name').where('(plan_type = ? OR plan_type = ?) AND item= ?',
+      'plan', 'bag', 'roaming')
+    # Format to show in view
+    plans = plan.map { |m| [m.name, m.name] }
+    return plans
+  end
+
+  # Get all plans for bams
+  def all_p_bam
+    plan = Plan.select('id, name').where('plan_type = ? AND item= ?', 'plan', 'bam')
+    # Format to show in view
+    plans = plan.map { |m| [m.name, m.name] }
+    return plans
+  end
+
   # Get all info of smartphone
   def get_smartphone(id)
     sp = {}
@@ -141,8 +174,11 @@ class ApplicationController < ActionController::Base
   def renew_date(user)
     # days = ((DateTime.now + 2.months) - DateTime.now).to_i
     output = {}
-    output[:sp] = Smartphone.where(id: user["smartphone_id"]).first[:renovation_at].to_datetime unless !user["smartphone_id"]
-    output[:bam] = Bam.where(id: user["bam_id"]).first[:renovation_at].to_datetime unless !user["bam_id"]
+    output[:sp] = Smartphone.where(id: user["smartphone_id"]).first[:renovation_at] unless !user["smartphone_id"]
+    if !output[:sp].present? then output.delete(:sp) else output[:sp].to_datetime end
+    output[:sp] = output[:sp].to_datetime unless !output[:sp]
+    output[:bam] = Bam.where(id: user["bam_id"]).first[:renovation_at] unless !user["bam_id"]
+    if !output[:bam].present? then output.delete(:bam) else output[:bam].to_datetime end
     return output
   end
 

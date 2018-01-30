@@ -1,72 +1,66 @@
 <%= form_with(model: bam, local: true) do |form| %>
-  <% if bam.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bam.errors.count, "error") %> prohibited this bam from being saved:</h2>
 
-      <ul>
-      <% bam.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="well form-horizontal">
+
+    <div class="row">
+      <p class="col-md-4 text-left">
+        <strong>Id: </strong>
+        <%= @bam.id %>
+      </p>
+      <p class="user col-md-4 text-left">
+        <strong>Código: </strong>
+        <%= form.text_field :code, id: :bam_code, class: "pull-right" %>
+      </p>
+      <p class=" user col-md-4 text-left">
+        <strong>Imei: </strong>
+        <%= form.text_field :imei, id: :bam_imei, class: "pull-right" %>
+      </p>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model, id: :bam_model %>
+    <div class="row">
+      <p class="col-md-4 text-left">
+        <strong>Modelo: </strong>
+        <%= form.text_field :model, id: :bam_model, class: "pull-right" %>
+      </p>
+      <p class=" user col-md-4 text-left">
+        <strong>Estado: </strong>
+        <%= form.text_field :state, id: :bam_state, class: "pull-right" %>
+      </p>
+      <p class="user col-md-4 text-left">
+      </p>
+    </div>
+
+    <div class="row">
+      <p class="user col-md-4 text-left">
+        <strong>Precio: </strong>
+        <%= form.number_field :price, id: :bam_price, class: "pull-right"  %>
+      </p>
+      <p class=" user col-md-4 text-left">
+        <strong>Disponible: </strong>
+        <%= form.text_field :available, id: :bam_available, class: "pull-right"  %>
+      </p>
+      <p class="col-md-4 text-left">
+      </p>
+    </div>
+
+    <div class="row">
+      <p class="user col-md-4 text-left">
+        <strong>Pais:</strong>
+        <%= form.text_field :country, id: :bam_country, class: "pull-right"  %>
+      </p>
+        <p class="col-md-6 text-left">
+        <strong>Renovación:</strong>
+        <%= form.datetime_select :renovation_at, id: :bam_renovation_at, order: [:day, :month, :year], class: "pull-right"  %>
+        <p class=" user col-md-2 text-left"> </p>
+    </div>
+
+
+    <br>
+    <div class="actions">
+      <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar el Bam')",
+      class: "btn btn-primary btn-md" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :Code, id: :bam_code %>
-  </div>
 
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country, id: :bam_country %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_owner %>
-    <%= form.text_field :last_owner, id: :bam_last_owner %>
-  </div>
-
-  <div class="field">
-    <%= form.label :imei %>
-    <%= form.text_area :imei, id: :bam_imei %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, id: :bam_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state, id: :bam_state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :available %>
-    <%= form.check_box :available, id: :bam_available %>
-  </div>
-
-  <div class="field">
-    <%= form.label :renovation_at %>
-    <%= form.text_field :renovation_at, id: :bam_renovation_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_assign_at %>
-    <%= form.datetime_select :last_assign_at, id: :bam_last_assign_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sim_id %>
-    <%= form.text_field :sim_id, id: :bam_sim_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

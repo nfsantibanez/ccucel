@@ -5,7 +5,7 @@ class CreatePlans < ActiveRecord::Migration[5.1]
       t.string :plan_type, null: false
       t.string :name, null: false
       t.string :detail
-      t.integer :price, null: false
+      t.integer :price, defaul: 0
       t.string :category, default: 'all'
       t.string :country, null:false
 

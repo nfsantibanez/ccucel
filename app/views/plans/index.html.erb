@@ -1,39 +1,70 @@
-<p id="notice"><%= notice %></p>
+<style>
+  .input {
+    margin-top: 3px;
+    margin-bottom: 5px;
+  }
+  .alert {
+    margin-top: 5px;
+    display:inline-block;
+    vertical-align: middle;
+    height: 50%;
+    padding: 1px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+</style>
 
-<h1>Plans</h1>
+<%= render partial: '/layouts/plan_filter' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Item</th>
-      <th>Tipo de Plan</th>
-      <th>Nombre</th>
-      <th>Precio</th>
-      <th>detalles</th>
-      <th>Categoria</th>
-      <th>Pais</th>
-    </tr>
-  </thead>
+<div class= "titulo">
+  <hr>
+  <h3>Planes/Bolsas</h3>
+  <hr>
+</div>
 
-  <tbody>
-    <% @plans.each do |plan| %>
-      <tr>
-        <td><%= plan.id %></td>
-        <td><%= plan.item %></td>
-        <td><%= plan.plan_type %></td>
-        <td><%= plan.name %></td>
-        <td><%= plan.price %></td>
-        <td><%= plan.detail %></td>
-        <td><%= plan.category %></td>
-        <td><%= plan.country %></td>
-        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
-        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if notice %>
+  <div class="row">
+    <p class="col-md-4 text-left"></p>
+    <p class="user col-md-4 alert alert-success">
+         <strong> El Plan/Bolsa fue eliminado exitosamente </strong>
+    </p>
+    <p class=" user col-md-4 text-left"></p>
+  </div>
+<% end %>
 
+<div class="container-fluid">
+  <div class="table-responsive">
+    <table class="table table-hover table-condensed">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class= text-center><%= sort_link @search, :id, "id"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :item, "Item"%> </th>
+          <th scope="col" class= text-center><%= sort_link @search, :plan_type, "Tipo"%></th>
+          <th scope="col" class= text-center>Nombre</th>
+          <th scope="col" class= text-center>Plan</th>
+          <th scope="col" class= text-center>Editar</th>
+          <th scope="col" class= text-center>Eliminar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @plans.each do |plan| %>
+          <tr>
+            <td><%= plan.id %></td>
+            <td><%= plan.item %></td>
+            <td><%= plan.plan_type %></td>s
+            <td><%= plan.name %></td>
+
+            <td><%= link_to 'Plan', plan %></td>
+            <td><%= link_to 'Editar', edit_plan_path(plan) %></td>
+            <td><%= link_to 'Eliminar', '/plans/delete/'+plan.id.to_s,
+            onclick: "return confirm('Está seguro que desea Eliminar el Plan/bolsa con id "+plan.id.to_s+ "')" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <br>
 
-<%= link_to 'New Plan', new_plan_path %>
+<%= link_to 'New Bam', new_plan_path %>

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :sims
   resources :requests
   resources :bams
-  resources :user_records
 
   # Home HomePage
   root to: 'home_pages#home'
@@ -23,6 +22,16 @@ Rails.application.routes.draw do
   # Update request for supervisor
   patch '/requests/validations/update/:id' => 'requests#update_validation'
 
+  # Delete
+  # smp
+  get '/smartphones/delete/:id' => 'smartphones#destroy'
+  # bam
+  get '/bams/delete/:id' => 'bams#destroy'
+  # sim
+  get '/sims/delete/:id' => 'sims#destroy'
+  # plan
+  get '/plans/delete/:id' => 'plans#destroy'
+
   # TransferLine Form
   get '/requests/forms/transferline' => 'requests#transfer_line'
   # New Form
@@ -39,5 +48,9 @@ Rails.application.routes.draw do
   get '/requests/files/:id' => 'requests#download_file'
   # Contract
   get '/requests/contracts/:id' => 'requests#download_contract'
+
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
