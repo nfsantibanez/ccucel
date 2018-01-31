@@ -1,5 +1,20 @@
-<h1>New Plan</h1>
+<hr>
+<h3><strong>Crear Plan/Bolsa</strong></h3>
+<hr>
 
 <%= render 'form', plan: @plan %>
 
-<%= link_to 'Back', plans_path %>
+<% if alert %>
+<div class="row">
+  <p class="col-md-2 text-left"></p>
+  <p class="user col-md-8 alert alert-danger">
+    <strong> Los siguientes errores impidieron finalizar la creación exitosamente: </strong>
+    <% alert.each_pair do |k, v| %>
+      <%= " | El campo "+k+" tiene el siguiente error: "+v[0] %>
+    <% end %>
+  </p>
+  <p class=" user col-md-2 text-left"></p>
+</div>
+<% end %>
+
+<%= link_to 'Planes/Bolsas', plans_path %>

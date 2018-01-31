@@ -51,19 +51,23 @@
 
      <div id= "request_hw_lost" class="row">
        <div class="col-md-3"></div>
-       <p class="col-md-6 text-left">
-          <%= form.label :user_rut, 'Identificación de Usuario' %>
-          <%= form.text_field :user_rut, placeholder: "ej: 17395384-2" %>
+       <p class="col-md-3 text-left">
+          <%= form.label :user_rut, 'Identificación Usuario' %>
+       </p>
+       <p class="col-md-3 pull-left">
+          <%= form.text_field :user_rut, placeholder: "ej: 17395384-2", style: "width:165px" %>
        </p>
        <p class="col-md-3 text-left"></p>
      </div>
 
      <div id= "request" class="row">
        <div class="col-md-3"></div>
-       <div class="col-md-6 text-left">
-         <%= form.label :n_request, 'Ingrese n° de Solicitud' %>
-        <%= form.text_field :n_request %>
+       <div class="col-md-3 text-left">
+         <%= form.label :n_request, 'n° de Solicitud' %>
       </div>
+      <div class="col-md-3 pull-left">
+       <%= form.text_field :n_request, style: "width:165px"  %>
+     </div>
        <div class="col-md-3"></div>
     </div>
 

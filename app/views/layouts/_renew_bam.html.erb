@@ -5,10 +5,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    .row.content {height: 800px}
+
     label {
       padding-top: 9px;
     }
   </style>
+  <% if params[:action] == 'renew_form' %>
+    <style>
+      .row.content {height: 780px}
+      label {
+        padding-top: 9px;
+      }
+    </style>
+  <% elsif params[:action] == 'stolen_lost'%>
+    <style>
+      .row.content {height: 1080px}
+      label {
+        padding-top: 9px;
+      }
+    </style>
+  <% end %>
 
   <script type="text/javascript">
   $(document).ready(function(){

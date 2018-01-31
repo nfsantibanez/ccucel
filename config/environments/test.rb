@@ -38,11 +38,11 @@ Rails.application.configure do
 =begin
   # for outlook
   config.action_mailer.smtp_settings = {
-    address: "smtp.office365.com", #"correo.ccu.cl"
+    address: "smtp.office365.com",
     port: 587,
     enable_starttls_auto:  true,
-    user_name: 'nisanti@ccu.cl',
-    password:  'xxxxxxxx',
+    user_name: 'solcelulares@ccu.cl',
+    password:  'Abril1985',
     domain:  'ccu.local',
 
     authentication: :login #ntlm

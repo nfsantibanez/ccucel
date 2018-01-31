@@ -4,8 +4,15 @@
   <title>Información de Usuario</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-  </style>
+  <% if params[:action] == 'renew_form' %>
+    <style>
+      .row.content {height: 1050px}
+    </style>
+  <% elsif params[:action] == 'stolen_lost'%>
+    <style>
+      .row.content {height: 1300px}
+    </style>
+  <% end %>
 
   <script type="text/javascript">
   $(document).ready(function(){

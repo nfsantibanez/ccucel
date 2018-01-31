@@ -11,9 +11,14 @@ class RequestsController < ApplicationController
   end
 
   def show
+    puts(params)
     if (@request && params.has_key?(:user_rut) && params[:user_rut] == @request.national_id) ||
       (@request && !params.has_key?(:user_rut))
-      render 'show', layout: 'admin_view'
+      if params.has_key?(:request) && params[:request] == 'follow'
+       render 'show', layout: 'admin_restrict_view'
+      else
+        render 'show', layout: 'admin_view'
+      end
     else
       redirect_to '/requests/home/follow_request', alert: 'El n° de Solicitud no corresponde al usuario ingresado'
     end
@@ -48,11 +53,13 @@ class RequestsController < ApplicationController
 
   # PATCH/PUT /requests/1
   def update_validation
-    # set approval for requestt
-    if params[:commit] == "Aprovar"
+
+    # set approval for request
+    if params[:commit] == "Aprobar"
       params[:sup_approval] = 'aprobada'
       params[:classification] = 'abierto'
       params[:status] = 'pendiente nota de pedido'
+
     elsif  params[:commit] == "Rechazar"
       params[:sup_approval] = 'rechazada'
       params[:status] = 'rechazada'
@@ -62,8 +69,24 @@ class RequestsController < ApplicationController
 
     # update request
     if @request.update(validate_params)
+=begin
+################################################################################
+      # get user
+        user = User.find_by_national_id(@request.national_id)
+      # Approved
+      if params[:commit] == "Aprobar"
+        # Send mail to user
+        UserMailer.change_email(user, @request, 'Aprobada').deliver_now
+
+      # rejected
+      elsif params[:commit] == "Rechazar"
+        # Send mail to user
+        UserMailer.change_email(user, @request, 'Rechazada').deliver_now
+      end
+################################################################################
+=end
       params[:request] = 'follow'
-      render 'show', layout: 'admin_view'
+      render 'show', layout: 'admin_restrict_view'
     else
       render layout: 'error'
     end
@@ -77,7 +100,7 @@ class RequestsController < ApplicationController
     if !@request
       render json: {message: 'no se encontro solicitud'}
     else
-      render 'validations', layout: 'admin_view'
+      render 'validations', layout: 'admin_restrict_view'
     end
   end
 
@@ -255,10 +278,17 @@ class RequestsController < ApplicationController
       # Update Attributte
       @request.update_attribute("link", url)
 
-      # Send mail to supervisor
-
+      # Send mails
       user = User.find_by_id(params[:user_id])
+=begin
+################################################################################
+      # Send mail to user
+      UserMailer.user_email(user, @request).deliver_now
+
+      # Send mail to supervisor
       UserMailer.supervisor_email(user, @request).deliver_now
+################################################################################
+=end
       puts(requests_url+"/validations/"+@request.link)
 
       # Render success message

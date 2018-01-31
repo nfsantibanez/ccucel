@@ -1,52 +1,75 @@
+<style>
+  .text_area {
+    vertical-align: top;
+  }
+</style>
+
 <%= form_with(model: sim, local: true) do |form| %>
-  <% if sim.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sim.errors.count, "error") %> prohibited this sim from being saved:</h2>
 
-      <ul>
-      <% sim.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="well form-horizontal col-md-8">
+
+    <div class="row">
+      <p class="col-md-1 text-left">
+        <strong>Id: </strong>
+      </p>
+      <p class="col-md-3 text-left">
+        <%= @sim.id %>
+      </p>
+      <p class="user col-md-1 text-left">
+        <strong>n° Serie: </strong>
+      </p>
+      <p class="user col-md-3 text-left">
+        <%= form.text_field :serial_number, id: :sim_serial_number, class: "pull-left",
+        style: "width:100px" %>
+      </p>
+      <p class=" user col-md-1 text-left">
+        <strong>n° Teléfono: </strong>
+      </p>
+      <p class=" user col-md-3 text-left">
+        <%= form.text_field :phone_number, id: :sim_phone_number, class: "pull-left",
+        style: "width:100px" %>
+      </p>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :phone_number %>
-    <%= form.number_field :phone_number, id: :sim_phone_number %>
-  </div>
+    <div class="row">
+      <p class=" user col-md-1 text-left">
+        <strong>Estado: </strong>
+      </p>
+      <p class=" user col-md-3">
+        <%= form.select :state, [['Nuevo','new'], ['Usado','used']], {},
+        {id: :sim_state, style: "width:100px", class: "pull-left"}%>
+      </p>
+      <p class="col-md-1 text-left">
+        <strong>Disponible: </strong>
+      </p>
+      <p class=" user col-md-3">
+        <%= form.select :available, [['True', true], ['False', false]],
+        {}, {id: :sim_available, style: "width:100px", class: "pull-left"}%>
+      </p>
+      <p class=" user col-md-1 text-left">
+        <strong>Pais:</strong>
+      </p>
+      <p class=" user col-md-3 ">
+        <%= form.text_field :country, id: :sim_country, class: "pull-left",
+        style: "width:100px"  %>
+      </p>
+    </div>
 
-  <div class="field">
-    <%= form.label :serial_number %>
-    <%= form.number_field :serial_number, id: :sim_serial_number %>
+    <br>
+    <div class="actions">
+      <% if params[:action] == 'new'%>
+        <%= form.submit 'Crear', onclick: "return confirm('Está seguro que desea Crear la Sim')",
+        class: "btn btn-primary btn-md" %>
+      <% else %>
+        <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar la Sim')",
+        class: "btn btn-primary btn-md" %>
+      <% end %>
+    </div>
   </div>
+  <div class="col-md-2"></div>
+</div>
 
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.number_field :country, id: :sim_country %>
-  </div>
 
-  <div class="field">
-    <%= form.label :last_owner %>
-    <%= form.text_field :last_owner, id: :sim_last_owner %>
-  </div>
-
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state, id: :sim_state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :available %>
-    <%= form.check_box :available, id: :sim_available %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_assign_at %>
-    <%= form.datetime_select :last_assign_at, id: :sim_last_assign_at %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

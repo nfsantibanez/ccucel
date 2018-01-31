@@ -1,16 +1,16 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
-  layout 'general_view', except: [:index, :show, :edit, :update]
-
+  layout 'general_view', except: [:index, :show, :edit, :update, :new]
+  layout 'admin_view', only: [:create]
   # GET /plans
   # GET /plans.json
   def index
-  @search = Plan.search(params[:q])
-  @plans  = @search.result
-  @all_bp_roaming = all_bp_roaming
-  @all_bp_roaming.unshift(['Todos',''])
-  @all_p_bam = all_p_bam
-  @all_p_bam.unshift(['Todos',''])
+    @search = Plan.search(params[:q])
+    @plans  = @search.result
+    @all_bp_roaming = all_bp_roaming
+    @all_bp_roaming.unshift(['Todos',''])
+    @all_p_bam = all_p_bam
+    @all_p_bam.unshift(['Todos',''])
 
     render layout: 'admin_view'
   end
@@ -18,15 +18,18 @@ class PlansController < ApplicationController
   # GET /plans/1
   # GET /plans/1.json
   def show
+    render layout: 'admin_view'
   end
 
   # GET /plans/new
   def new
     @plan = Plan.new
+    render layout: 'admin_view'
   end
 
   # GET /plans/1/edit
   def edit
+    render layout: 'admin_view'
   end
 
   # POST /plans
@@ -36,10 +39,10 @@ class PlansController < ApplicationController
 
     respond_to do |format|
       if @plan.save
-        format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
+        format.html { redirect_to @plan, notice: 'Plan/Bolsa fue creado exitosamente' }
         format.json { render :show, status: :created, location: @plan }
       else
-        format.html { render :new }
+        format.html { edirect_to new_plan_url, alert:  @plan.errors }
         format.json { render json: @plan.errors, status: :unprocessable_entity }
       end
     end
@@ -50,10 +53,10 @@ class PlansController < ApplicationController
   def update
     respond_to do |format|
       if @plan.update(plan_params)
-        format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
+        format.html { redirect_to @plan, notice: 'Plan/Bolsa fue editado exitosamente' }
         format.json { render :show, status: :ok, location: @plan }
       else
-        format.html { render :edit }
+        format.html { redirect_to @plan, alert:  @plan.errors }
         format.json { render json: @plan.errors, status: :unprocessable_entity }
       end
     end
@@ -77,6 +80,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:item, :name, :price, :detail, :nid_country, :category)
+      params.require(:plan).permit(:item, :plan_type, :name, :price, :detail, :country, :category)
     end
 end

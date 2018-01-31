@@ -1,66 +1,92 @@
 <%= form_with(model: bam, local: true) do |form| %>
 
-  <div class="well form-horizontal">
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="well form-horizontal col-md-8">
 
     <div class="row">
-      <p class="col-md-4 text-left">
+      <p class="col-md-1 text-left">
         <strong>Id: </strong>
+      <p class="col-md-3 text-left">
         <%= @bam.id %>
       </p>
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-1 text-left">
         <strong>Código: </strong>
-        <%= form.text_field :code, id: :bam_code, class: "pull-right" %>
       </p>
-      <p class=" user col-md-4 text-left">
+      <p class="col-md-3">
+        <%= form.text_field :code, id: :bam_code, class: "pull-left", style: "width:120px" %>
+      </p>
+      <p class=" user col-md-1 text-left">
         <strong>Imei: </strong>
-        <%= form.text_field :imei, id: :bam_imei, class: "pull-right" %>
+      </p>
+      <p class="col-md-3">
+        <%= form.text_field :imei, id: :bam_imei, class: "pull-left", style: "width:140px" %>
       </p>
     </div>
 
     <div class="row">
-      <p class="col-md-4 text-left">
+      <p class="col-md-1 text-left">
         <strong>Modelo: </strong>
-        <%= form.text_field :model, id: :bam_model, class: "pull-right" %>
       </p>
-      <p class=" user col-md-4 text-left">
+      <p class="col-md-3">
+        <%= form.text_field :model, id: :bam_model, class: "pull-left", style: "width:160px" %>
+      </p>
+      <p class=" user col-md-1 text-left">
         <strong>Estado: </strong>
-        <%= form.text_field :state, id: :bam_state, class: "pull-right" %>
       </p>
-      <p class="user col-md-4 text-left">
+      <p class="col-md-3">
+        <%= form.text_field :state, id: :bam_state, class: "pull-left", style: "width:120px" %>
+      </p>
+      <p class="user col-md-1 text-left">
+        <strong>Pais:</strong>
+      </p>
+      <p class="col-md-3 text-left">
+        <%= form.text_field :country, id: :bam_country, class: "pull-left", style: "width:140px" %>
       </p>
     </div>
 
     <div class="row">
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-1 text-left">
         <strong>Precio: </strong>
-        <%= form.number_field :price, id: :bam_price, class: "pull-right"  %>
       </p>
-      <p class=" user col-md-4 text-left">
+      <p class="col-md-3">
+        <%= form.number_field :price, id: :bam_price, class: "pull-left", style: "width:160px" %>
+      </p>
+      <p class=" user col-md-1 text-left">
         <strong>Disponible: </strong>
-        <%= form.text_field :available, id: :bam_available, class: "pull-right"  %>
+      </p>
+      <p class="col-md-3">
+        <%= form.text_field :available, id: :bam_available, class: "pull-left", style: "width:120px" %>
       </p>
       <p class="col-md-4 text-left">
       </p>
     </div>
 
     <div class="row">
-      <p class="user col-md-4 text-left">
-        <strong>Pais:</strong>
-        <%= form.text_field :country, id: :bam_country, class: "pull-right"  %>
-      </p>
-        <p class="col-md-6 text-left">
+      <p class="col-md-1 text-left">
         <strong>Renovación:</strong>
-        <%= form.datetime_select :renovation_at, id: :bam_renovation_at, order: [:day, :month, :year], class: "pull-right"  %>
-        <p class=" user col-md-2 text-left"> </p>
+      </p>
+      <p class="col-md-7">
+        <%= form.datetime_select :renovation_at, {order: [:day, :month, :year]},
+        {id: :bam_renovation_at}  %>
+      </p>
+      <p class="col-md-4"></p>
     </div>
 
 
     <br>
     <div class="actions">
-      <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar el Bam')",
-      class: "btn btn-primary btn-md" %>
+      <% if params[:action] == 'new'%>
+        <%= form.submit 'Crear', onclick: "return confirm('Está seguro que desea Crear el Bam')",
+        class: "btn btn-primary btn-md" %>
+      <% else %>
+        <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar el Bam')",
+        class: "btn btn-primary btn-md" %>
+      <% end %>
     </div>
   </div>
-
+  <div class="col-md-2"></div>
+</div>
 
 <% end %>

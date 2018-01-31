@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <style>
+
+    hr {
+      margin-top: 3px;
+      margin-bottom: 3px;
+      padding: 0px;
+    }
+
+    .btn {
+      margin-top: 10px;
+    }
+
+  </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    // Submit Event
+    $("#clear").click(function(e){
+      $('#1').val('');
+      $('#2').val('');
+      $('#3').val('');
+      $('#4').val('');
+      $('#5').val('');
+      $('#6').val('');
+      $('#7').val('');
+      $('#8').val('');
+    });
+
+  });
+  </script>
+
+</head>
+<body>
+
+  <hr>
+  <h4><strong>Filtros</strong></h4>
+  <hr>
+
+  <div class="container-fluid">
+    <%= search_form_for @search do |form|%>
+
+    <div class="row">
+      <div class="col-md-3">
+        <%= form.label :national_id_cont, "RUT", class: "pull-left"%>
+        <%= form.text_field :national_id_cont, placeholder: "search", class: "pull-right",
+        size: "15", id: "1"%>
+      </div>
+      <div class="col-md-3">
+        <%= form.label :name_cont, "Nombre", class: "pull-left"%>
+        <%= form.text_field :name_cont, placeholder: "search", class: "pull-right",
+        size: "15", id: "2"%>
+      </div>
+      <div class="col-md-3">
+        <%= form.label :last_name_cont, "Apellidos", class: "pull-left"%>
+        <%= form.text_field :last_name_cont, placeholder: "search", class: "pull-right",
+        size: "15", id: "3"%>
+      </div>
+      <div class="col-md-3">
+        <%= form.label :jobtitle_cont, "Cargo", class: "pull-left"%>
+        <%= form.text_field :jobtitle_cont, placeholder: "search", class: "pull-right",
+        size: "15", id: "4"%>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-3">
+        <%= form.label :company_id_cont, "Empresa", class: "pull-left"%>
+        <%= form.text_field :company_cont, placeholder: "search", class: "pull-right",
+        size: "15", id: "5"%>
+      </div>
+      <div class="col-md-3">
+        <%= form.label :deptname_cont, "C. Costos", class: "pull-left"%>
+        <%= form.text_field :deptname_cont, placeholder: "search", class: "pull-right",
+        size: "15", id: "6"%>
+      </div>
+      <div class="col-md-3">
+        <%= form.label :location_cont, "Ubicación", class: "pull-left"%>
+        <%= form.text_field :location_cont, placeholder: "search", class: "pull-right",
+        size: "15", id: "7"%>
+      </div>
+      <div class="col-md-3">
+        <%= form.label :job_family_cont, "Familia", class: "pull-left"%>
+        <%= form.text_field :job_family_cont, placeholder: "search", class: "pull-right",
+        size: "15", id: "8"%>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <%= form.submit "Filtrar", class: "btn btn-primary btn-md"%>
+      <%= form.button "Limpiar Filtros", class: "btn btn-info btn-md", id: "clear" %>
+    </div>
+    <% end %>
+  </div>
+  <br>
+
+</body>
+</html>

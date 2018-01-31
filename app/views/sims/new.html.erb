@@ -1,5 +1,20 @@
-<h1>New Sim</h1>
+<hr>
+<h3><strong>Crear Sim</strong></h3>
+<hr>
 
 <%= render 'form', sim: @sim %>
 
-<%= link_to 'Back', sims_path %>
+<% if alert %>
+<div class="row">
+  <p class="col-md-2 text-left"></p>
+  <p class="user col-md-8 alert alert-danger">
+    <strong> Los siguientes errores impidieron finalizar la creación exitosamente: </strong>
+    <% alert.each_pair do |k, v| %>
+      <%= " | El campo "+k+" tiene el siguiente error: "+v[0] %>
+    <% end %>
+  </p>
+  <p class=" user col-md-2 text-left"></p>
+</div>
+<% end %>
+
+<%= link_to 'Sims', sims_path %>

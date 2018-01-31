@@ -57,50 +57,62 @@
 
      <div id= "request" class="row">
        <div class="col-md-3"></div>
-       <p class="col-md-6 text-left">
-         <%= form.label :request_type, 'Seleccione Tipo de Solicitud' %>
+       <p class="col-md-3 text-left">
+         <%= form.label :request_type, 'Seleccione Solicitud' %>
+       </p>
+       <p class="col-md-3 pull-left">
          <%= form.select :request_type, [['Cesión de línea', 'transfer line'],
          ['Nuevo Equipo/Servicio', 'new'], ['Renovar Equipo', 'renew'], ['Robo/Pérdida Equipo', 'stolen/lost'],
-         ['Reparar Equipo', 'technical service']], {}, {style: "width:165px"} %>
+         ['Reparar Equipo', 'technical service']], {},  {class: "pull-left", style: "width:165px"}  %>
        </p>
        <p class="col-md-3 text-left"></p>
      </div>
 
      <div id= "request_hw_new" class="row">
        <div class="col-md-3"></div>
-       <p class="col-md-6 text-left">
+       <p class="col-md-3 text-left">
          <%= form.label :request_hw_new, 'Seleccione Equipo/Servicio' %>
+       </p>
+       <p class="col-md-3">
          <%= form.select :request_hw_new, [['Smartphone', 'smartphone'],
-         ['Sim', 'sim'], ['Bam', 'bam'], ['Roaming', 'roaming']], {} %>
+         ['Sim', 'sim'], ['Bam', 'bam'], ['Roaming', 'roaming']], {},
+         {class: "pull-left", style: "width:165px"} %>
        </p>
        <p class="col-md-3 text-left"></p>
      </div>
 
      <div id= "request_hw_renew_tech" class="row">
        <div class="col-md-3"></div>
-       <p class="col-md-6 text-left">
+       <p class="col-md-3 text-left">
          <%= form.label :request_hw_renew_tech, 'Seleccione Equipo/Servicio' %>
+       </p>
+       <p class="col-md-3">
          <%= form.select :request_hw_renew_tech, [['Smartphone', 'smartphone'],
-         ['Bam', 'bam']], {} %>
+         ['Bam', 'bam']], {}, {class: "pull-left", style: "width:165px"}  %>
        </p>
        <p class="col-md-3 text-left"></p>
      </div>
 
      <div id= "request_hw_lost" class="row">
        <div class="col-md-3"></div>
-       <p class="col-md-6 text-left">
+       <p class="col-md-3 text-left">
           <%= form.label :request_hw_lost, 'Seleccione Equipo/Servicio' %>
+       </p>
+       <p class="col-md-3">
           <%= form.select :request_hw_lost, [['Smartphone', 'smartphone'], ['Sim', 'sim'],
-          ['Bam', 'bam']], {} %>
+          ['Bam', 'bam']], {}, {class: "pull-left", style: "width:165px"}  %>
        </p>
        <p class="col-md-3 text-left"></p>
      </div>
 
      <div id= "request_hw_lost" class="row">
        <div class="col-md-3"></div>
-       <p class="col-md-6 text-left">
-          <%= form.label :user_rut, 'Identificación de Usuario' %>
-          <%= form.text_field :user_rut, id: :request_request, placeholder: "ej: 17395384-2" %>
+       <p class="col-md-3 text-left">
+          <%= form.label :user_rut, 'Identificación Usuario' %>
+       </p>
+       <p class="col-md-3">
+          <%= form.text_field :user_rut, id: :request_request, placeholder: "ej: 17395384-2",
+          class: "pull-left", style: "width:165px" %>
        </p>
        <p class="col-md-3 text-left"></p>
      </div>

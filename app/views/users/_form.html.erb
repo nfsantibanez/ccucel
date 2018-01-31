@@ -1,97 +1,50 @@
+<style>
+  .text_area {
+    vertical-align: top;
+  }
+</style>
+
 <%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="well form-horizontal">
+
+    <div class="row">
+      <p class="col-md-2 text-left">
+      </p>
+      <p class="col-md-4 text-left">
+        <strong>Smartphone Id: </strong>
+        <%= form.number_field :smartphone_id, id: :user_smartphone_id, class: "pull-right" %>
+      </p>
+      <p class="col-md-4 text-left">
+        <strong>Bam Id: </strong>
+        <%= form.number_field :bam_id, id: :user_bam_id, class: "pull-right" %>
+      </p>
+      <p class="col-md-2 text-left">
+      </p>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :national_id %>
-    <%= form.text_field :national_id, id: :user_national_id %>
+    <div class="row">
+      <p class="col-md-2 text-left">
+      </p>
+      <p class="col-md-4 text-left">
+        <strong>Plan Id: </strong>
+        <%= form.number_field :plan_id, id: :user_plan_id, class: "pull-right" %>
+      </p>
+      <p class="col-md-4 text-left">
+        <strong>Sim Id: </strong>
+        <%= form.number_field :sim_id, id: :user_sim_id, class: "pull-right" %>
+      </p>
+      <p class="col-md-2 text-left">
+      </p>
+    </div>
+
+
+    <br>
+    <div class="actions">
+      <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar el Usuario')",
+      class: "btn btn-primary btn-md" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :user_name %>
-  </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :user_last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country, id: :user_country %>
-  </div>
-
-  <div class="field">
-    <%= form.label :jobtitle %>
-    <%= form.text_field :jobtitle, id: :user_jobtitle %>
-  </div>
-
-  <div class="field">
-    <%= form.label :company %>
-    <%= form.text_field :company, id: :user_company %>
-  </div>
-
-  <div class="field">
-    <%= form.label :supervisor %>
-    <%= form.text_field :supervisor, id: :user_supervisor %>
-  </div>
-
-  <div class="field">
-    <%= form.label :supervisor_email %>
-    <%= form.text_field :supervisor_email, id: :user_supervisor_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :deptname %>
-    <%= form.text_field :deptname, id: :user_depname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :business_unit %>
-    <%= form.text_field :business_unit, id: :user_business_unit %>
-  </div>
-
-  <div class="field">
-    <%= form.label :jobcode %>
-    <%= form.text_field :jobcode, id: :user_jobcode %>
-  </div>
-
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location, id: :user_location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :smartphone_id %>
-    <%= form.text_field :smartphone_id, id: :user_smartphone_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sim_id %>
-    <%= form.text_field :sim_id, id: :user_sim_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bam_id %>
-    <%= form.text_field :bam_id, id: :user_bam_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

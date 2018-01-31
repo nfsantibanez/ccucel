@@ -1,70 +1,109 @@
 <%= form_with(model: smartphone, local: true) do |form| %>
 
-  <div class="well form-horizontal">
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="well form-horizontal col-md-8">
 
     <div class="row">
-      <p class="col-md-4 text-left">
+      <p class="col-md-1 text-left">
         <strong>Id: </strong>
+      </p>
+      <p class="col-md-3 text-left">
         <%= @smartphone.id %>
       </p>
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-1 text-left">
         <strong>Código: </strong>
-        <%= form.text_field :code, id: :smartphone_code, class: "pull-right" %>
       </p>
-      <p class=" user col-md-4 text-left">
+      <p class="col-md-3">
+        <%= form.text_field :code, id: :smartphone_code, class: "pull-left",
+        style: "width:150px" %>
+      </p>
+      <p class=" user col-md-1 text-left">
         <strong>Imei: </strong>
-        <%= form.text_field :imei, id: :smartphone_imei, class: "pull-right" %>
+      </p>
+      <p class="col-md-3">
+        <%= form.text_field :imei, id: :smartphone_imei, class: "pull-left",
+        style: "width:150px" %>
       </p>
     </div>
 
     <div class="row">
-      <p class="col-md-4 text-left">
+      <p class="col-md-1 text-left">
         <strong>Modelo: </strong>
-        <%= form.text_field :model, id: :smartphone_model, class: "pull-right" %>
       </p>
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-3">
+        <%= form.text_field :model, id: :smartphone_model, class: "pull-left",
+        style: "width:150px" %>
+      </p>
+      <p class="user col-md-1 text-left">
         <strong>Categoría: </strong>
-        <%= form.text_field :category, id: :smartphone_category, class: "pull-right" %>
       </p>
-      <p class=" user col-md-4 text-left">
+      <p class="user col-md-3">
+        <%= form.text_field :category, id: :smartphone_category, class: "pull-left",
+        style: "width:150px" %>
+      </p>
+      <p class=" user col-md-1 text-left">
         <strong>Estado: </strong>
-        <%= form.text_field :state, id: :smartphone_state, class: "pull-right" %>
+      </p>
+      <p class=" user col-md-3">
+        <%= form.text_field :state, id: :smartphone_state, class: "pull-left",
+        style: "width:150px" %>
       </p>
     </div>
 
     <div class="row">
-      <p class="col-md-4 text-left">
-        <strong>n° Telefónico:</strong>
-        <%= form.text_field :phone_number, id: :smartphone_phone_number, class: "pull-right"  %>
+      <p class="col-md-1 text-left">
+        <strong>n° Teléfono:</strong>
       </p>
-      <p class="user col-md-4 text-left">
+      <p class="col-md-3">
+        <%= form.text_field :phone_number, id: :smartphone_phone_number, class: "pull-left",
+        style: "width:150px"  %>
+      </p>
+      <p class="user col-md-1 text-left">
         <strong>Precio: </strong>
-        <%= form.number_field :price, id: :smartphone_price, class: "pull-right"  %>
       </p>
-      <p class=" user col-md-4 text-left">
+      <p class="col-md-3">
+        <%= form.number_field :price, id: :smartphone_price, class: "pull-left",
+        style: "width:150px"  %>
+      </p>
+      <p class=" user col-md-1 text-left">
         <strong>Disponible: </strong>
-        <%= form.text_field :available, id: :smartphone_available, class: "pull-right"  %>
+      </p>
+      <p class="col-md-3">
+        <%= form.text_field :available, id: :smartphone_available, class: "pull-left",
+        style: "width:150px"  %>
       </p>
     </div>
 
     <div class="row">
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-1 text-left">
         <strong>Pais:</strong>
-        <%= form.text_field :country, id: :smartphone_country, class: "pull-right"  %>
       </p>
-        <p class="col-md-6 text-left">
+      <p class="col-md-3">
+        <%= form.text_field :country, id: :smartphone_country, class: "pull-left",
+        style: "width:150px"  %>
+      </p>
+      <p class="col-md-1 text-left">
         <strong>Renovación:</strong>
-        <%= form.datetime_select :renovation_at, id: :smartphone_renovation_at, order: [:day, :month, :year], class: "pull-right"  %>
-        <p class=" user col-md-2 text-left"> </p>
+      </p>
+      <p class="col-md-7">
+        <%= form.datetime_select :renovation_at, {order: [:day, :month, :year]},
+        {id: :smartphone_renovation_at}  %>
+      </p>
     </div>
-
 
     <br>
     <div class="actions">
-      <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar el Smartphone')",
-      class: "btn btn-primary btn-md" %>
+      <% if params[:action] == 'new'%>
+        <%= form.submit 'Crear', onclick: "return confirm('Está seguro que desea Crear el Smartphone')",
+        class: "btn btn-primary btn-md" %>
+      <% else %>
+        <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar el Smartphone')",
+        class: "btn btn-primary btn-md" %>
+      <% end %>
     </div>
   </div>
-
+  <div class="col-md-2"></div>
+</div>
 
 <% end %>

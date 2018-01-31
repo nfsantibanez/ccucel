@@ -1,25 +1,33 @@
 class SimsController < ApplicationController
   before_action :set_sim, only: [:show, :edit, :update, :destroy]
-  layout 'general_view'
+  layout 'general_view', except: [:index, :show, :edit, :update, :new]
+  layout 'admin_view', only: [:create]
 
   # GET /sims
   # GET /sims.json
   def index
     @sims = Sim.all
+    @search = Sim.search(params[:q])
+    @sims  = @search.result
+
+    render layout: 'admin_view'
   end
 
   # GET /sims/1
   # GET /sims/1.json
   def show
+    render layout: 'admin_view'
   end
 
   # GET /sims/new
   def new
     @sim = Sim.new
+    render layout: 'admin_view'
   end
 
   # GET /sims/1/edit
   def edit
+    render layout: 'admin_view'
   end
 
   # POST /sims
@@ -29,10 +37,10 @@ class SimsController < ApplicationController
 
     respond_to do |format|
       if @sim.save
-        format.html { redirect_to @sim, notice: 'Sim was successfully created.' }
+        format.html { redirect_to @sim, notice: 'Sim fue creada exitosamente' }
         format.json { render :show, status: :created, location: @sim }
       else
-        format.html { render :new }
+        format.html { redirect_to new_sim_url, alert:  @sim.errors }
         format.json { render json: @sim.errors, status: :unprocessable_entity }
       end
     end
@@ -43,10 +51,10 @@ class SimsController < ApplicationController
   def update
     respond_to do |format|
       if @sim.update(sim_params)
-        format.html { redirect_to @sim, notice: 'Sim was successfully updated.' }
+        format.html { redirect_to @sim, notice: 'Sim fue editada exitosamente' }
         format.json { render :show, status: :ok, location: @sim }
       else
-        format.html { render :edit }
+        format.html  { redirect_to @sim, alert:  @sim.errors }
         format.json { render json: @sim.errors, status: :unprocessable_entity }
       end
     end
@@ -57,7 +65,7 @@ class SimsController < ApplicationController
   def destroy
     @sim.destroy
     respond_to do |format|
-      format.html { redirect_to sims_url, notice: 'Sim was successfully destroyed.' }
+      format.html { redirect_to sims_url, notice: 'Sim fue borrada exitosamente' }
       format.json { head :no_content }
     end
   end
@@ -70,7 +78,7 @@ class SimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sim_params
-      params.require(:sim).permit(:phone_number, :serial_number, :country,
-        :last_owner, :state, :available, :last_assign_at)
+      params.require(:sim).permit(:phone_number, :serial_number, :country, :state,
+        :available, :order, :order_name, :order_type)
     end
 end

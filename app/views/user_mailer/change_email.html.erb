@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+
+<p></p>
+<h4><strong>Estimado(a) <%= @user.name+" "+@user.last_name+','%></strong></h4>
+
+<p>
+<%=@body%><strong><%=@change%></strong>
+</p>
+
+<br>
+
+<p>
+Para ver el estado de su solicitud puede ingresar al siguiente <%= link_to "Link", requests_url+"/home/follow_request"%>
+</p>
+
+<br>
+
+<p>
+<strong>Atte.</strong>
+</p>
+<p>
+<strong>Administrador Web Dispositivos y Servicios Móviles | adminweb@ccu.cl</strong>
+</p>
+
+</body>
+</html>

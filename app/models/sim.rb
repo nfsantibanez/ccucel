@@ -1,7 +1,4 @@
 class Sim < ApplicationRecord
-  has_one :user_record
-  has_one :bam
-  has_one :smarthphone
   belongs_to :user, optional: true
 
   # Validations

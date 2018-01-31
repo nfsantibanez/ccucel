@@ -12,13 +12,32 @@
     margin-top: 1%;
     margin-bottom: 1%;
   }
+  label {
+    padding-top: 7px;
+  }
+  hr {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 0px;
+  }
+
+  h3{
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 0px;
+  }
+
+  .btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 </style>
 
 <%= render partial: '/layouts/smp_filter' %>
 
 <div class= "titulo">
   <hr>
-  <h3>Smartphones</h3>
+  <h3><strong>Smartphones</strong></h3>
   <hr>
 </div>
 <% if notice %>
@@ -73,6 +92,8 @@
     </table>
   </div>
 </div>
-<br>
 
-<%= link_to 'New Smartphone', new_smartphone_path %>
+<hr>
+<%= link_to 'Crear Smartphone', new_smartphone_path, class: "btn btn-primary btn-md" %>
+<hr>
+<br>

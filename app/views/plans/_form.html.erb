@@ -1,47 +1,90 @@
+<style>
+  .text_area {
+    vertical-align: top;
+  }
+</style>
+
 <%= form_with(model: plan, local: true) do |form| %>
-  <% if plan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
 
-      <ul>
-      <% plan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="well form-horizontal col-md-8">
+
+    <div class="row">
+      <p class="col-md-1 text-left">
+        <strong>Id: </strong>
+      </p>
+      <p class="col-md-3 text-left">
+        <%= @plan.id %>
+      </p>
+      <p class="user col-md-1 text-left">
+        <strong>Item: </strong>
+      </p>
+      <p class="user col-md-3">
+        <%= form.select :item, [['Roaming','roaming'],['Bam', 'bam']],
+        {id: :plan_item}, {style: "width:120px", class: "pull-left"} %>
+      </p>
+      <p class=" user col-md-1 text-left">
+        <strong>Tipo: </strong>
+      </p>
+      <p class=" user col-md-3">
+        <%= form.select :plan_type, [['Plan','plan'],['Bolsa','bag']],
+        {id: :plan_plan_type}, {style: "width:120px", class: "pull-left"}%>
+      </p>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :item %>
-    <%= form.text_field :item, id: :plan_item %>
-  </div>
+    <div class="row">
+      <p class=" user col-md-1 text-left">
+        <strong>Nombre: </strong>
+      </p>
+      <p class=" user col-md-3">
+        <%= form.text_field :name, id: :plan_name, class: "pull-left",
+        style: "width:160px" %>
+      </p>
+      <p class="col-md-1 text-left">
+        <strong>Precio: </strong>
+      </p>
+      <p class=" user col-md-3">
+        <%= form.number_field :price, id: :plan_price, class: "pull-left",
+        style: "width:120px" %>
+      </p>
+      <p class=" user col-md-1 text-left">
+        <strong>Categoría: </strong>
+      </p>
+      <p class=" user col-md-3">
+        <%= form.text_field :category, id: :plan_category, class: "pull-left",
+        style: "width:120px" %>
+      </p>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :plan_name %>
-  </div>
+    <div class="row">
+      <p class="user col-md-8 text-left">
+        <strong>Descripción:</strong>
+        <%= form.text_area :detail, id: :plan_detail, :rows => 4, :cols => 35,
+        class: "text_area"%>
+      </p>
+      <p class="user col-md-1 text-left">
+        <strong>País:</strong>
+      </p>
+      <p class=" user col-md-3">
+        <%= form.text_field :country, id: :plan_country, class: "pull-left",
+        style: "width:120px"  %>
+      </p>
+    </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, id: :plan_price %>
-  </div>
 
-  <div class="field">
-    <%= form.label :detail %>
-    <%= form.text_field :detail, id: :plan_detail %>
+    <br>
+    <div class="actions">
+      <% if params[:action] == 'new'%>
+        <%= form.submit 'Crear', onclick: "return confirm('Está seguro que desea Crear el Plan/Bolsa')",
+        class: "btn btn-primary btn-md" %>
+      <% else %>
+        <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar el Plan/Bolsa')",
+        class: "btn btn-primary btn-md" %>
+      <% end %>
+    </div>
   </div>
+  <div class="col-md-2"></div>
+</div>
 
-  <div class="field">
-    <%= form.label :nid_country %>
-    <%= form.text_field :nid_country, id: :plan_nid_country %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category, id: :plan_category %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

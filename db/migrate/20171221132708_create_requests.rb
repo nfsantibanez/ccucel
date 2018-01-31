@@ -14,16 +14,16 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.string :file_type
       t.string :file_name
       t.string :status, null: false, default: 'pendiente aprobacion'
-      t.string :comment
-      t.string :comment_stolen_lost
-      t.string :email_sended
+      t.text :comment
+      t.text :comment_stolen_lost
+      t.text :email_sended
       t.boolean :want_replacement
       t.boolean :want_sim
       t.boolean :want_new_number
       t.string :number_type
       t.string :phone_number
       t.string :transfer_line_type
-      t.string :price, defaul: ''
+      t.string :price, defaul: ""
       t.string :region
       t.string :country
       t.string :name
@@ -36,7 +36,7 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.datetime :closed_at
       t.string :link
       t.string :sup_approval, default: 'pendiente'
-      t.string :comment_sup, default: ''
+      t.text :comment_sup, default: ""
       t.references :user, foreign_key: true
 
       t.timestamps

@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  layout 'general_view' , except: [:create_user, :index, :show, :edit, :update]
+  layout 'general_view' , except: [:create_user, :index, :show, :edit, :update, :new]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @search = User.search(params[:q])
+    @users  = @search.result
     render layout: 'admin_view'
   end
 
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    render layout: 'admin_view'
   end
 
   # GET /users/1/edit
@@ -45,11 +47,14 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
+      puts(params)
       if @user.update(user_params)
+        puts('exito')
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html { render :edit }
+        puts('fracaso')
+        format.html { redirect_to @user, alert:  @user.errors }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -74,7 +79,8 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:national_id, :name, :last_name, :email, :country,
-        :job_title, :job_family, :company, :supervisor, :supervisor_email, :supervisor_jobtitle, :jobcode, :location,
-        :deptname)
+        :jobtitle, :job_family, :company, :supervisor, :supervisor_email,
+        :supervisor_jobtitle, :jobcode, :location, :deptname, :smartphone_id,
+        :bam_id, :sim_id, :plan_id)
     end
 end

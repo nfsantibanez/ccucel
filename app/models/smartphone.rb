@@ -1,7 +1,5 @@
 class Smartphone < ApplicationRecord
-  belongs_to :sim, optional: true
   belongs_to :user, optional: true
-  has_one :user_record
 
   # Validations
   validates :model, presence: true, allow_blank: false

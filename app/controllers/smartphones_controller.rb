@@ -1,6 +1,7 @@
 class SmartphonesController < ApplicationController
   before_action :set_smartphone, only: [:show, :edit, :update, :destroy]
   layout 'general_view', except: [:index, :show, :edit, :update]
+  layout 'admin_view', only: [:create]
 
   # GET /smartphones
   # GET /smartphones.json
@@ -22,6 +23,7 @@ class SmartphonesController < ApplicationController
   # GET /smartphones/new
   def new
     @smartphone = Smartphone.new
+    render layout: 'admin_view'
   end
 
   # GET /smartphones/1/edit
@@ -36,10 +38,10 @@ class SmartphonesController < ApplicationController
 
     respond_to do |format|
       if @smartphone.save
-        format.html { redirect_to @smartphone, notice: 'Smartphone was successfully created.' }
+        format.html { redirect_to @smartphone, notice: 'Smartphone fue creado exitosamente' }
         format.json { render :show, status: :created, location: @smartphone }
       else
-        format.html { render :new }
+        format.html { redirect_to new_smartphone_url, alert:  @smartphone.errors }
         format.json { render json: @smartphone.errors, status: :unprocessable_entity }
       end
     end
@@ -77,7 +79,7 @@ class SmartphonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def smartphone_params
-      params.require(:smartphone).permit(:model, :code, :category, :country, :last_owner,
-        :imei, :price, :state, :available, :renovation_at, :last_assigsn_at, :sim_id)
+      params.require(:smartphone).permit(:model, :phone_number, :code, :category, :country,
+        :imei, :price, :state, :available, :renovation_at, :order, :order_name, :order_type)
     end
 end

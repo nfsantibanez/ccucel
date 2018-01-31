@@ -3,8 +3,7 @@ class User < ApplicationRecord
   has_one :bam
   has_one :plan
   has_one :smarthphone
-  has_many :sims
-  has_one :user_record
+  has_one :sims
 
   # Validations
   validates :name, presence: true, allow_blank: false
@@ -17,5 +16,8 @@ class User < ApplicationRecord
   email_format: { message: 'Invalid email format' }
   validates :deptname, presence: true, allow_blank: false
   validates :country, presence: true, allow_black: false
-
+  validates :smartphone_id, :allow_blank => true, :uniqueness => true
+  validates :bam_id, :allow_blank => true, :uniqueness => true
+  validates :sim_id, :allow_blank => true, :uniqueness => true
+  validates :plan_id, :allow_blank => true, :uniqueness => true
 end

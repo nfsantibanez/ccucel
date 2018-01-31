@@ -1,39 +1,86 @@
-<p id="notice"><%= notice %></p>
+<style>
+  .alert {
+    margin-top: 5px;
+    display:inline-block;
+    vertical-align: middle;
+    height: 50%;
+    padding: 1px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+  label {
+    padding-top: 7px;
+  }
+  hr {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 0px;
+  }
+  h3{
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 0px;
+  }
+  .btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+</style>
 
-<h1>Sims</h1>
+<%= render partial: '/layouts/sim_filter' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Phone number</th>
-      <th>Serial number</th>
-      <th>Country</th>
-      <th>Last owner</th>
-      <th>State</th>
-      <th>Available</th>
-      <th>Last assign at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class= "titulo">
+  <hr>
+  <h3><strong>Sims</strong></h3>
+  <hr>
+</div>
 
-  <tbody>
-    <% @sims.each do |sim| %>
-      <tr>
-        <td><%= sim.phone_number %></td>
-        <td><%= sim.serial_number %></td>
-        <td><%= sim.country %></td>
-        <td><%= sim.last_owner %></td>
-        <td><%= sim.state %></td>
-        <td><%= sim.available %></td>
-        <td><%= sim.last_assign_at %></td>
-        <td><%= link_to 'Show', sim %></td>
-        <td><%= link_to 'Edit', edit_sim_path(sim) %></td>
-        <td><%= link_to 'Destroy', sim, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if notice %>
+  <div class="row">
+    <p class="col-md-4 text-left"></p>
+    <p class="user col-md-4 alert alert-success">
+         <strong> La Sim fue eliminada exitosamente </strong>
+    </p>
+    <p class=" user col-md-4 text-left"></p>
+  </div>
+<% end %>
 
+<div class="container-fluid">
+  <div class="table-responsive">
+    <table class="table table-hover table-condensed">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class= text-center><%= sort_link @search, :id, "id"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :serial_number, "n° de Serie"%> </th>
+          <th scope="col" class= text-center><%= sort_link @search, :phone_number, "n° de Teléfono"%></th>
+          <th scope="col" class= text-center><%= sort_link @search, :available, "Disponible"%> </th>
+          <th scope="col" class= text-center><%= sort_link @search, :state, "Estado"%></th>
+          <th scope="col" class= text-center>Sim</th>
+          <th scope="col" class= text-center>Editar</th>
+          <th scope="col" class= text-center>Eliminar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @sims.each do |sim| %>
+          <tr>
+            <td><%= sim.id %></td>
+            <td><%= sim.serial_number %></td>
+            <td><%= sim.phone_number %></td>
+            <td><%= sim.available %></td>
+            <td><%= sim.state %></td>
+            <td><%= link_to 'Sim', sim %></td>
+            <td><%= link_to 'Editar', edit_sim_path(sim) %></td>
+            <td><%= link_to 'Eliminar', '/sims/delete/'+sim.id.to_s,
+            onclick: "return confirm('Está seguro que desea Eliminar la Sim con id "+sim.id.to_s+ "')" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr>
+<%= link_to 'Crear Sim', new_sim_path, class: "btn btn-primary btn-md" %>
+<hr>
 <br>
-
-<%= link_to 'New Sim', new_sim_path %>

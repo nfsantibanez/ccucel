@@ -29,8 +29,8 @@
   <hr>
 
   <div class="row">
-    <div class="col-md-1"></div>
-    <div class="well form-horizontal col-md-10">
+    <div class="col-md-2"></div>
+    <div class="well form-horizontal col-md-8">
 
       <div class="row">
         <p class="col-md-4 text-left">
@@ -92,14 +92,14 @@
       <%= link_to 'Bams', bams_path %>
 
     </div>
-    <div class="col-md-1"></div>
+    <div class="col-md-2"></div>
   </div>
 
   <% if notice %>
   <div class="row">
     <p class="col-md-4 text-left"></p>
     <p class="user col-md-4 alert alert-success">
-         <strong> El Bam fue editado exitosamente </strong>
+         <strong> <%=notice%> </strong>
     </p>
     <p class=" user col-md-4 text-left"></p>
   </div>

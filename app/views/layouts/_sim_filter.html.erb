@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <style>
+
+    hr {
+      margin-top: 3px;
+      margin-bottom: 3px;
+      padding: 0px;
+    }
+
+    .btn {
+      margin-top: 10px;
+    }
+
+  </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    // Submit Event
+    $("#clear").click(function(e){
+      $('#1').val('');
+      $('#2').val('');
+      $('#3').val('');
+      $('#4').val('');
+    });
+
+  });
+  </script>
+
+</head>
+<body>
+
+  <hr>
+  <h4><strong>Filtros</strong></h4>
+  <hr>
+
+  <div class="container-fluid">
+    <%= search_form_for @search do |form|%>
+
+      <div class="row">
+        <div class="col-md-3">
+          <%= form.label :serial_number, "n° de Serie", class: "pull-left"%>
+          <%= form.text_field :serial_number_cont, placeholder: "search", class: "pull-right",
+          size: "15", id: "1"%>
+        </div>
+        <div class="col-md-3">
+          <%= form.label :phone_number, "n° de Teléfono", class: "pull-left"%>
+          <%= form.text_field :phone_number_cont, placeholder: "search", class: "pull-right",
+          size: "15", id: "2"%>
+        </div>
+        <div class="col-md-3">
+          <%= form.label :state_eq, "Estado", class: "pull-left"%>
+          <%= form.select :state_eq, [['Todos',''],['Nuevos','new'],
+          ['Usados','used']], {},
+          {id: "3", style: "width:100px", class: "pull-right"}%>
+        </div>
+        <div class="col-md-3">
+          <%= form.label :available_true, "Disponible", class: "pull-left"%>
+          <%= form.select :available_true, [['Todos', ''], ['True', true],
+          ['False', false]],
+          {}, {id: "4", style: "width:100px", class: "pull-right"}%>
+      </div>
+      <hr>
+
+      <div class="row">
+        <%= form.submit "Filtrar", class: "btn btn-primary btn-md"%>
+        <%= form.button "Limpiar Filtros", class: "btn btn-info btn-md", id: "clear" %>
+      </div>
+    <% end %>
+  </div>
+  <br>
+
+</body>
+</html>
