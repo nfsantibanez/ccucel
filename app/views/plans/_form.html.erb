@@ -22,14 +22,14 @@
       </p>
       <p class="user col-md-3">
         <%= form.select :item, [['Roaming','roaming'],['Bam', 'bam']],
-        {id: :plan_item}, {style: "width:120px", class: "pull-left"} %>
+        {}, {id: :plan_item, style: "width:120px", class: "pull-left"} %>
       </p>
       <p class=" user col-md-1 text-left">
         <strong>Tipo: </strong>
       </p>
       <p class=" user col-md-3">
         <%= form.select :plan_type, [['Plan','plan'],['Bolsa','bag']],
-        {id: :plan_plan_type}, {style: "width:120px", class: "pull-left"}%>
+        {}, {id: :plan_plan_type, style: "width:120px", class: "pull-left"}%>
       </p>
     </div>
 
@@ -39,7 +39,7 @@
       </p>
       <p class=" user col-md-3">
         <%= form.text_field :name, id: :plan_name, class: "pull-left",
-        style: "width:160px" %>
+        style: "width:180px" %>
       </p>
       <p class="col-md-1 text-left">
         <strong>Precio: </strong>
@@ -52,8 +52,8 @@
         <strong>Categoría: </strong>
       </p>
       <p class=" user col-md-3">
-        <%= form.text_field :category, id: :plan_category, class: "pull-left",
-        style: "width:120px" %>
+        <%= form.select :category, [['Todas', 'ALL']],
+        {}, {id: :plan_category, style: "width:120px", class: "pull-left"}%>
       </p>
     </div>
 
@@ -67,11 +67,10 @@
         <strong>País:</strong>
       </p>
       <p class=" user col-md-3">
-        <%= form.text_field :country, id: :plan_country, class: "pull-left",
-        style: "width:120px"  %>
+        <%= form.select :country, [['Chile', 'CHL']],
+        {}, {id: :plan_country, style: "width:120px", class: "pull-left"}%>
       </p>
     </div>
-
 
     <br>
     <div class="actions">

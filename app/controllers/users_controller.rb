@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   layout 'general_view' , except: [:create_user, :index, :show, :edit, :update, :new]
-
+  layout 'admin_view', only: [:create]
   # GET /users
   # GET /users.json
   def index
@@ -34,10 +34,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Usuario fue creado exitosamente'}
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
+        format.html { redirect_to new_user_url, alert:  @user.errors }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       puts(params)
       if @user.update(user_params)
         puts('exito')
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Usuario fue editado exitosamente' }
         format.json { render :show, status: :ok, location: @user }
       else
         puts('fracaso')
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'Usuario fue borrado exitosamente' }
       format.json { head :no_content }
     end
   end

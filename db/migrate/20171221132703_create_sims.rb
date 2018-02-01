@@ -9,6 +9,7 @@ class CreateSims < ActiveRecord::Migration[5.1]
       t.binary :order
       t.string :order_name
       t.string :order_type
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

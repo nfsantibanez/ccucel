@@ -6,45 +6,56 @@
 
 <%= form_with(model: user, local: true) do |form| %>
 
-  <div class="well form-horizontal">
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="well form-horizontal col-md-6">
 
     <div class="row">
       <p class="col-md-2 text-left">
-      </p>
-      <p class="col-md-4 text-left">
         <strong>Smartphone Id: </strong>
-        <%= form.number_field :smartphone_id, id: :user_smartphone_id, class: "pull-right" %>
       </p>
-      <p class="col-md-4 text-left">
-        <strong>Bam Id: </strong>
-        <%= form.number_field :bam_id, id: :user_bam_id, class: "pull-right" %>
+      <p class="col-md-4">
+        <%= form.number_field :smartphone_id, id: :user_smartphone_id,
+        class: "pull-left", style: "width:120px" %>
       </p>
       <p class="col-md-2 text-left">
+        <strong>Bam Id: </strong>
+      </p>
+      <p class="col-md-4">
+        <%= form.number_field :bam_id, id: :user_bam_id, class: "pull-left",
+        style: "width:120px"  %>
       </p>
     </div>
 
     <div class="row">
       <p class="col-md-2 text-left">
-      </p>
-      <p class="col-md-4 text-left">
         <strong>Plan Id: </strong>
-        <%= form.number_field :plan_id, id: :user_plan_id, class: "pull-right" %>
       </p>
-      <p class="col-md-4 text-left">
-        <strong>Sim Id: </strong>
-        <%= form.number_field :sim_id, id: :user_sim_id, class: "pull-right" %>
+      <p class="col-md-4">
+        <%= form.number_field :plan_id, id: :user_plan_id, class: "pull-left",
+        style: "width:120px"  %>
       </p>
       <p class="col-md-2 text-left">
+        <strong>Sim Id: </strong>
+      </p>
+      <p class="col-md-4">
+        <%= form.number_field :sim_id, id: :user_sim_id, class: "pull-left",
+        style: "width:120px"  %>
       </p>
     </div>
-
 
     <br>
     <div class="actions">
-      <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar el Usuario')",
-      class: "btn btn-primary btn-md" %>
+      <% if params[:action] == 'new'%>
+        <%= form.submit 'Crear', onclick: "return confirm('Está seguro que desea Crear el Usuario')",
+        class: "btn btn-primary btn-md" %>
+      <% else %>
+        <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar el Usuario')",
+        class: "btn btn-primary btn-md" %>
+      <% end %>
     </div>
   </div>
-
+  <div class="col-md-3"></div>
+</div>
 
 <% end %>

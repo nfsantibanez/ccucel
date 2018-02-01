@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_one :bam
   has_one :plan
   has_one :smarthphone
-  has_one :sims
+  has_one :sim
 
   # Validations
   validates :name, presence: true, allow_blank: false

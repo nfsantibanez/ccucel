@@ -6,8 +6,9 @@ class CreatePlans < ActiveRecord::Migration[5.1]
       t.string :name, null: false
       t.string :detail
       t.integer :price, defaul: 0
-      t.string :category, default: 'all'
-      t.string :country, null:false
+      t.string :category, default: 'ALL'
+      t.string :country, null: false
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

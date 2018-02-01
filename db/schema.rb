@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 20171221132708) do
     t.string "order_type"
     t.boolean "available", default: true, null: false
     t.datetime "renovation_at"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bams_on_user_id"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -35,10 +37,12 @@ ActiveRecord::Schema.define(version: 20171221132708) do
     t.string "name", null: false
     t.string "detail"
     t.integer "price"
-    t.string "category", default: "all"
+    t.string "category", default: "ALL"
     t.string "country", null: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -93,8 +97,10 @@ ActiveRecord::Schema.define(version: 20171221132708) do
     t.binary "order"
     t.string "order_name"
     t.string "order_type"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sims_on_user_id"
   end
 
   create_table "smartphones", force: :cascade do |t|
@@ -111,8 +117,10 @@ ActiveRecord::Schema.define(version: 20171221132708) do
     t.string "order_type"
     t.boolean "available", default: true, null: false
     t.datetime "renovation_at"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_smartphones_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

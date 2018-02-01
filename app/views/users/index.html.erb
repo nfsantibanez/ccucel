@@ -73,22 +73,22 @@
             <td><%= link_to 'Usuario', user %></td>
             <td><%= link_to 'Editar', edit_user_path(user) %></td>
             <td>
-              <% if (user.smartphone_id.present?) %>
+              <% if user.smartphone_id.present? && Smartphone.find_by_id(user.smartphone_id)%>
                 <%= link_to 'Smp', smartphone_path(user.smartphone_id) %>
               <%end%>
             </td>
             <td>
-              <% if (user.bam_id.present?) %>
+              <% if user.bam_id.present? && Bam.find_by_id(user.bam_id)%>
                 <%= link_to 'Bam', bam_path(user.bam_id) %>
               <%end%>
             </td>
             <td>
-              <% if (user.plan_id.present?) %>
+              <% if user.plan_id.present? && Plan.find_by_id(user.plan_id)%>
                 <%= link_to 'Plan', plan_path(user.plan_id) %>
               <%end%>
             </td>
             <td>
-              <% if (user.sim_id.present?) %>
+              <% if user.sim_id.present? && Sim.find_by_id(user.sim_id)%>
                 <%= link_to 'Sim', sim_path(user.sim_id) %>
               <%end%>
             </td>

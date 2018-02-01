@@ -39,15 +39,16 @@
         <strong>Categoría: </strong>
       </p>
       <p class="user col-md-3">
-        <%= form.text_field :category, id: :smartphone_category, class: "pull-left",
-        style: "width:150px" %>
+        <%= form.select :category, [['Gerente', 'GE'], ['Subgerente' , 'EJ'],
+        ['Jefes', 'PT'], ['Vendedores','VE'], ['Operarios','OO'], ['Otros','EE'],
+        ['Libre','ALL']], {}, {id: "smartphone_category", style: "width:150px", class: "pull-left"}%>
       </p>
       <p class=" user col-md-1 text-left">
         <strong>Estado: </strong>
       </p>
       <p class=" user col-md-3">
-        <%= form.text_field :state, id: :smartphone_state, class: "pull-left",
-        style: "width:150px" %>
+        <%= form.select :state, [['Catalogo', 'catalog'], ['Nuevo', 'new'], ['Usado' , 'used' ]],
+        {}, {id: :smartphone_state, style: "width:150px", class: "pull-left"}%>
       </p>
     </div>
 
@@ -70,8 +71,8 @@
         <strong>Disponible: </strong>
       </p>
       <p class="col-md-3">
-        <%= form.text_field :available, id: :smartphone_available, class: "pull-left",
-        style: "width:150px"  %>
+        <%= form.select :available, [['True', true], ['False', false]],
+        {}, {id: :smartphone_available, style: "width:150px", class: "pull-left"}%>
       </p>
     </div>
 
@@ -80,15 +81,15 @@
         <strong>Pais:</strong>
       </p>
       <p class="col-md-3">
-        <%= form.text_field :country, id: :smartphone_country, class: "pull-left",
-        style: "width:150px"  %>
+        <%= form.select :country, [['Chile', 'CHL']],
+        {}, {id: :smartphone_country, style: "width:150px", class: "pull-left"}%>
       </p>
       <p class="col-md-1 text-left">
         <strong>Renovación:</strong>
       </p>
       <p class="col-md-7">
-        <%= form.datetime_select :renovation_at, {order: [:day, :month, :year]},
-        {id: :smartphone_renovation_at}  %>
+        <%= form.datetime_select :renovation_at, {order: [:day, :month, :year],
+          default: 24.months.from_now}, {id: :smartphone_renovation_at}  %>
       </p>
     </div>
 

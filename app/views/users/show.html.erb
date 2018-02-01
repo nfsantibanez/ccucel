@@ -1,133 +1,138 @@
-<style>
-    p {
-      margin: 1px 0px 1px 0px;
-    }
-    .alert {
-      margin-top: 5px;
-      display:inline-block;
-      vertical-align: middle;
-      height: 50%;
-      padding: 1px;
-      margin-top: 1%;
-      margin-bottom: 1%;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Solicitud Celulares CCU</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+      p {
+        margin: 1px 0px 1px 0px;
+      }
+      .alert {
+        margin-top: 5px;
+        display:inline-block;
+        vertical-align: middle;
+        height: 50%;
+        padding: 1px;
+        margin-top: 1%;
+        margin-bottom: 1%;
+      }
+  </style>
+
+</head>
+
+<body>
 
 <hr>
 <h3><strong>Información Usuario</strong></h3>
 <hr>
 
-<div class="well form-horizontal">
-
-  <div class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
-      <strong>Nombre:</strong>
-      <%= @user.name %>
-    </p>
-
-    <p class="col-md-3 text-left">
-      <strong>Apellidos:</strong>
-      <%= @user.last_name %>
-    </p>
-    <div class="col-md-3"></div>
-</div>
-
 <div class="row">
   <div class="col-md-3"></div>
-  <p class="col-md-3 text-left">
-    <strong>Rut:</strong>
-    <%= @user.national_id %>
-  </p>
+    <div class="well form-horizontal col-md-6">
 
-  <p class="col-md-3 text-left">
-    <strong>e-mail:</strong>
-    <%= @user.email %>
-  </p>
-  <div class="col-md-3"></div>
-</div>
+      <div class="row">
+        <p class="col-md-6 text-left">
+          <strong>Nombre:</strong>
+          <%= @user.name %>
+        </p>
 
-<div class="row">
-  <div class="col-md-3"></div>
-  <p class="col-md-3 text-left">
-    <strong>Cargo:</strong>
-    <%= @user.jobtitle %>
-  </p>
+        <p class="col-md-6 text-left">
+          <strong>Apellidos:</strong>
+          <%= @user.last_name %>
+        </p>
+    </div>
 
-  <p class="col-md-3 text-left">
-    <strong>Familia de Cargo:</strong>
-    <%= @user.jobtitle %>
-  </p>
-  <div class="col-md-3"></div>
-</div>
+    <div class="row">
+      <p class="col-md-6 text-left">
+        <strong>Rut:</strong>
+        <%= @user.national_id %>
+      </p>
 
-<div class="row">
-  <div class="col-md-3"></div>
-  <p class="col-md-3 text-left">
-    <strong>Empresa:</strong>
-    <%= @user.company %>
-  </p>
+      <p class="col-md-6 text-left">
+        <strong>e-mail:</strong>
+        <%= @user.email %>
+      </p>
+    </div>
 
-  <p class="col-md-3 text-left">
-    <strong>País:</strong>
-    <%= @user.country %>
-  </p>
-  <div class="col-md-3"></div>
-</div>
+    <div class="row">
+      <p class="col-md-6 text-left">
+        <strong>Cargo:</strong>
+        <%= @user.jobtitle %>
+      </p>
 
-<div class="row">
-  <div class="col-md-3"></div>
-  <p class="col-md-3 text-left">
-    <strong>Supervisor:</strong>
-    <%= @user.supervisor %>
-  </p>
+      <p class="col-md-6 text-left">
+        <strong>Familia de Cargo:</strong>
+        <%= @user.jobtitle %>
+      </p>
+    </div>
 
-  <p class="col-md-3 text-left">
-    <strong>Correo Supervisor:</strong>
-    <%= @user.supervisor_email %>
-  </p>
-  <div class="col-md-3"></div>
-</div>
+    <div class="row">
+      <p class="col-md-6 text-left">
+        <strong>Empresa:</strong>
+        <%= @user.company %>
+      </p>
 
-<div class="row">
-  <div class="col-md-3"></div>
-  <p class="col-md-3 text-left">
-    <strong>Centro de Costos:</strong>
-    <%= @user.deptname %>
-  </p>
+      <p class="col-md-6 text-left">
+        <strong>País:</strong>
+        <%= @user.country %>
+      </p>
+    </div>
 
-  <p class="col-md-3 text-left">
-    <strong>Ubicación:</strong>
-    <%= @user.location %>
-  </p>
-  <div class="col-md-3"></div>
-</div>
+    <div class="row">
+      <p class="col-md-6 text-left">
+        <strong>Supervisor:</strong>
+        <%= @user.supervisor %>
+      </p>
 
-<div class="row">
-  <div class="col-md-3"></div>
-  <p class="col-md-3 text-left">
-    <strong>Smartphone Asignado:</strong>
-    <%=@user.smartphone_id%>
-  </p>
+      <p class="col-md-6 text-left">
+        <strong>Correo Supervisor:</strong>
+        <%= @user.supervisor_email %>
+      </p>
+    </div>
 
-  <p class="col-md-3 text-left">
-    <strong>Bam Asignado:</strong>
-    <%=@user.bam_id%>
-  </p>
-  <div class="col-md-3"></div>
-</div>
+    <div class="row">
+      <p class="col-md-6 text-left">
+        <strong>Centro de Costos:</strong>
+        <%= @user.deptname %>
+      </p>
 
-<div class="row">
-  <div class="col-md-3"></div>
-  <p class="col-md-3 text-left">
-    <strong>Sim Asignada:</strong>
-    <%=@user.sim_id%>
-  </p>
+      <p class="col-md-6 text-left">
+        <strong>Ubicación:</strong>
+        <%= @user.location %>
+      </p>
+    </div>
 
-  <p class="col-md-3 text-left">
-    <strong>Plan Asignado:</strong>
-    <%=@user.plan_id%>
-  </p>
+    <div class="row">
+      <p class="col-md-6 text-left">
+        <strong>Smartphone Asignado:</strong>
+        <%=@user.smartphone_id%>
+      </p>
+
+      <p class="col-md-6 text-left">
+        <strong>Bam Asignado:</strong>
+        <%=@user.bam_id%>
+      </p>
+    </div>
+
+    <div class="row">
+      <p class="col-md-6 text-left">
+        <strong>Sim Asignada:</strong>
+        <%=@user.sim_id%>
+      </p>
+
+      <p class="col-md-6 text-left">
+        <strong>Plan Asignado:</strong>
+        <%=@user.plan_id%>
+      </p>
+    </div>
+
+    <hr>
+    | <%= link_to 'Editar', edit_user_path  %> | <%= link_to 'Usuarios', users_path  %> |
+    <%= link_to 'Solicitudes', requests_path+"?q[national_id_cont]="+@user.national_id+"&commit=Filtrar"%> |
+
+    </div>
   <div class="col-md-3"></div>
 </div>
 
@@ -135,7 +140,7 @@
 <div class="row">
   <p class="col-md-4 text-left"></p>
   <p class="user col-md-4 alert alert-success">
-       <strong> El Usuario fue editado exitosamente </strong>
+       <strong> <%=notice%>  </strong>
   </p>
   <p class=" user col-md-4 text-left"></p>
 </div>
@@ -152,8 +157,5 @@
 </div>
 <% end %>
 
-<hr>
-| <%= link_to 'Editar', edit_user_path  %> | <%= link_to 'Usuarios', users_path  %> |
-<%= link_to 'Solicitudes', requests_path%> |
-
-</div>
+</body>
+</html>

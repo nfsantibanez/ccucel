@@ -36,13 +36,15 @@
         <strong>Estado: </strong>
       </p>
       <p class="col-md-3">
-        <%= form.text_field :state, id: :bam_state, class: "pull-left", style: "width:120px" %>
+        <%= form.select :state, [['Catalogo', 'catalog'], ['Nuevo', 'new'], ['Usado' , 'used' ]],
+        {}, {id: :bam_state, style: "width:120px", class: "pull-left"}%>
       </p>
       <p class="user col-md-1 text-left">
         <strong>Pais:</strong>
       </p>
       <p class="col-md-3 text-left">
-        <%= form.text_field :country, id: :bam_country, class: "pull-left", style: "width:140px" %>
+        <%= form.select :country, [['Chile', 'CHL']],
+        {}, {id: :bam_country, style: "width:140px", class: "pull-left"}%>
       </p>
     </div>
 
@@ -57,7 +59,8 @@
         <strong>Disponible: </strong>
       </p>
       <p class="col-md-3">
-        <%= form.text_field :available, id: :bam_available, class: "pull-left", style: "width:120px" %>
+        <%= form.select :available, [['True', true], ['False', false]],
+        {}, {id: :bam_available, style: "width:120px", class: "pull-left"}%>
       </p>
       <p class="col-md-4 text-left">
       </p>
@@ -68,8 +71,8 @@
         <strong>Renovación:</strong>
       </p>
       <p class="col-md-7">
-        <%= form.datetime_select :renovation_at, {order: [:day, :month, :year]},
-        {id: :bam_renovation_at}  %>
+        <%= form.datetime_select :renovation_at, {order: [:day, :month, :year],
+          default: 24.months.from_now}, {id: :bam_renovation_at}  %>
       </p>
       <p class="col-md-4"></p>
     </div>

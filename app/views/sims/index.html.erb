@@ -73,6 +73,7 @@
             <td><%= link_to 'Editar', edit_sim_path(sim) %></td>
             <td><%= link_to 'Eliminar', '/sims/delete/'+sim.id.to_s,
             onclick: "return confirm('Está seguro que desea Eliminar la Sim con id "+sim.id.to_s+ "')" %></td>
+            
           </tr>
         <% end %>
       </tbody>

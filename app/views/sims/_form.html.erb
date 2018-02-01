@@ -52,8 +52,8 @@
         <strong>Pais:</strong>
       </p>
       <p class=" user col-md-3 ">
-        <%= form.text_field :country, id: :sim_country, class: "pull-left",
-        style: "width:100px"  %>
+        <%= form.select :country, [['Chile', 'CHL']],
+        {}, {id: :sim_country, style: "width:100px", class: "pull-left"}%>
       </p>
     </div>
 
