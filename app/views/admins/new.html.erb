@@ -4,6 +4,9 @@
   <title>Sign Up Administrador</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= javascript_include_tag "bootstrapValidator" %>
+
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 720px}
@@ -80,7 +83,7 @@
         </p>
       </div>
 
-      <% if @admin.errors.any? %>
+      <% if @admin && @admin.errors.any? %>
         <div class="row">
           <p class="col-md-12 alert alert-danger">
             <strong><%= alert %></strong>
@@ -96,16 +99,13 @@
           </p>
         </div>
       <% end %>
-
-
-
+      </div>
+      <div class="col-md-4"></div>
     </div>
-    <div class="col-md-4"></div>
-  </div>
-  <br>
-  <div class="actions">
-    <%= f.submit 'Signup', class: "btn btn-primary btn-md" %>
-  </div>
+    <br>
+    <div class="actions">
+      <%= f.submit 'Signup', class: "btn btn-primary btn-md" %>
+    </div>
   <% end %>
 
 </body>

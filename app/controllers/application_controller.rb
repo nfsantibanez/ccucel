@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery prepend: true, with: :exception
+  after_action :update_activity_time
   skip_before_action :verify_authenticity_token
 
   # RUT Verification
@@ -384,5 +385,55 @@ class ApplicationController < ActionController::Base
     return ms
   end
 
+
+  protected
+
+  # User authentication
+  def authenticate_user
+    # manage session user validation
+    if session[:user_id]
+      # set current user object to @current_user object variable
+      @current_user = Admin.find session[:user_id]
+      return true
+    else
+      flash[:alert] = "Debe iniciar sesión para acceder a la página"
+      redirect_to(:controller => 'sessions', action: 'login')
+      return false
+    end
+  end
+
+  # Prevent sign up and log views when session is active
+  def save_login_state
+    if session[:user_id]
+      redirect_to(:controller => 'sessions', action: 'home')
+      return false
+    else
+      return true
+    end
+  end
+
+  # Expire session timer
+  def session_expiry
+    get_session_time_left
+    unless @session_time_left > 0
+      flash[:alert] = "Tu sesión a caducado. Debes logearte nuevamente"
+      sign_out
+    end
+  end
+
+  # Time left for expiration
+  def get_session_time_left
+     expire_time = if session[:expires_at].blank? then (DateTime.now + 30.minutes) else session[:expires_at] end
+     @session_time_left = (expire_time.to_datetime - DateTime.now).to_f
+  end
+
+  # update timer if user is active
+  def update_activity_time
+    session[:expires_at] = DateTime.now + 30.minutes
+  end
+
+  def sign_out
+    session[:user_id] = nil
+  end
 
 end

@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
   layout 'general_view' , except: [:create_user, :index, :show, :edit, :update, :new]
   layout 'admin_view', only: [:create]
+
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # Filter to protect page with login and session
+  before_action :authenticate_user
+  # check session timer
+  before_action :session_expiry
+
   # GET /users
   # GET /users.json
   def index

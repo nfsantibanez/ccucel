@@ -42,12 +42,4 @@ class Admin < ApplicationRecord
   end
 
 
-
-
-
-
-
-
-
-
 end

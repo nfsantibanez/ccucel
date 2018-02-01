@@ -1,8 +1,10 @@
 class AdminsController < ApplicationController
+  layout 'general_view'
+  # can call @current_user in the templates (info aboute login user)
+  before_action :save_login_state, only: [:new, :create]
 
   def new
     @admin = Admin.new
-    render layout: 'general_view'
   end
 
   def create
@@ -12,8 +14,7 @@ class AdminsController < ApplicationController
     else
       flash[:alert] =  "Los siguientes errores impidieron el Sign Up: "
     end
-    render "new", layout: 'general_view', locals: {notice: notice, alert: alert}
-
+    render "new"
   end
 
   private

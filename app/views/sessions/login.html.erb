@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sign Up Administrador</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 720px}
+
+    label {
+      padding-top: 5px;
+    }
+    h2 {
+      margin: 0;
+    }
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .alert {
+      margin-top: 5px;
+      display:inline-block;
+      vertical-align: middle;
+      height: 50%;
+      padding: 1px;
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
+  </style>
+
+</head>
+<body>
+
+<hr>
+<h2><strong>Log In</strong></h2>
+<hr>
+
+<%= form_tag(action: 'login_attempt') do %>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="well form-horizontal col-md-4">
+
+      <div class="row">
+        <p class="col-md-4 text-left">
+          <strong>Usuario o Correo</strong>
+        </p>
+        <p class="col-md-8 text-left">
+          <%= text_field_tag :username_or_email%>
+        </p>
+      </div>
+
+      <div class="row">
+        <p class="col-md-4 text-left">
+          <strong>Contraseña </strong>
+        </p>
+        <p class="col-md-8 text-left">
+          <%= password_field_tag :login_password%></p>
+        </p>
+      </div>
+      <% if alert %>
+        <div class="row">
+          <p class="col-md-12 alert alert-danger">
+            <strong><%= alert %></strong>
+          </p>
+        </div>
+      <% end %>
+
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= submit_tag 'Log In', class: "btn btn-primary btn-md" %>
+  </div>
+<% end %>
+
+
+</body>
+</html>

@@ -1,8 +1,13 @@
 class RequestsController < ApplicationController
   require 'securerandom'
-  before_action :set_request, only: [:show, :edit, :update, :update_validation]
+
   layout 'general_view', except: [:index, :show, :edit, :update, :validations,
     :update_validation]
+  before_action :set_request, only: [:show, :edit, :update, :update_validation]
+  # Filter to protect page with login and session
+  before_action :authenticate_user, only:  [:index]
+  # check session timer
+  before_action :session_expiry, only:  [:index]
 
   def index
     @search = Request.search(params[:q])
