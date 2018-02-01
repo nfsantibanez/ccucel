@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admins/new'
+
   resources :plans
   resources :smartphones
   resources :users
@@ -49,6 +51,14 @@ Rails.application.routes.draw do
   # Contract
   get '/requests/contracts/:id' => 'requests#download_contract'
 
+  # Admin login
+  post 'admins/new'=> 'admins#create'
+  get 'admins/signup' => 'admins#new'
+  get 'login' => "sessions#login"
+  get 'logout' => "sessions#logout"
+  get 'home' => "sessions#home"
+  get 'profile' => "sessions#profile"
+  get 'setting' => "sessions#setting"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

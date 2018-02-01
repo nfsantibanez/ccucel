@@ -29,6 +29,8 @@ gem 'activerecord-oracle_enhanced-adapter'
 gem 'ruby-oci8'
 # metasearch for tables
 gem 'ransack', github: 'activerecord-hackery/ransack'
+# encrypt pass
+gem 'bcrypt', :require => 'bcrypt' 
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
