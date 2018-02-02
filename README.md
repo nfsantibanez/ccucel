@@ -9,3 +9,6 @@ Rails 5.1.4
 
 # Database
 sqlite3
+
+# Version
+3.0
