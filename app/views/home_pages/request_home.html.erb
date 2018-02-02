@@ -7,17 +7,24 @@
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 720px}
-
     label {
       padding-top: 5px;
     }
     h2 {
       margin: 0;
     }
-
     hr {
       margin-top: 10px;
       margin-bottom: 10px;
+    }
+    .alert {
+      margin-top: 5px;
+      display:inline-block;
+      vertical-align: middle;
+      height: 50%;
+      padding: 1px;
+      margin-top: 1%;
+      margin-bottom: 1%;
     }
   </style>
   <%= javascript_include_tag "jquery.min" %>
@@ -119,7 +126,7 @@
 
      <% if alert %>
      <div class="alert alert-danger">
-       <p id="alert"><%= alert %></p>
+       <strong><%= alert %></strong></p>
      </div>
      <% end %>
 

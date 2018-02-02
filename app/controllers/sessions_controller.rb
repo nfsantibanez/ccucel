@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       redirect_to requests_path
     # if not
     else
-      flash[:alert] = "Usuario o Contraseña Inválido"
+      flash.now[:alert] = "Usuario o Contraseña Inválido"
       render "login"
     end
   end

@@ -12,9 +12,9 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
     if @admin.save
-      flash[:notice] = "El Sign Up ha sido exitoso"
+      flash.now[:notice] = "El Sign Up ha sido exitoso"
     else
-      flash[:alert] =  "Los siguientes errores impidieron el Sign Up: "
+      flash.now[:alert] =  "Los siguientes errores impidieron el Sign Up: "
     end
     render "new"
   end
