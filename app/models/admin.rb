@@ -7,6 +7,7 @@ class Admin < ApplicationRecord
   validates_length_of :password, in: 6..20, on: :create
 
   before_save :encrypt_password
+  before_save :clean_fields
   after_save :clear_password
 
   # Encrypt pass
@@ -39,6 +40,14 @@ class Admin < ApplicationRecord
   # Compare pass input and pass in DB
   def match_password(login_password="")
     encrypted_password == BCrypt::Engine.hash_secret(login_password, salt)
+  end
+
+  # to lower case and strip uasename and email
+  def clean_fields
+   self.username.downcase! unless self.username.blank?
+   self.username.strip! unless self.username.blank?
+   self.email.downcase! unless self.email.blank?
+   self.email.strip! unless self.email.blank?
   end
 
 

@@ -50,16 +50,14 @@ Rails.application.routes.draw do
   get '/requests/contracts/:id' => 'requests#download_contract'
 
   # Admin login
-  post 'admins/new'=> 'admins#create'
-  get 'admins/signup' => 'admins#new'
   post 'admins/login_attempt' => 'sessions#login_attempt'
+  get 'admins/login_attempt' => 'sessions#login'
   get 'admins/login' => 'sessions#login'
-
   get 'admins/logout' => 'sessions#logout'
-  get 'admins/home' => 'sessions#home'
-  get 'admins/profile' => 'sessions#profile'
-  get 'admins/setting' => 'sessions#setting'
 
+  # routes to register an admin
+  # post 'admins/new'=> 'admins#create'
+  # get 'admins/signup' => 'admins#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

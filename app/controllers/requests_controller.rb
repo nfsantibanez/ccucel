@@ -5,9 +5,9 @@ class RequestsController < ApplicationController
     :update_validation]
   before_action :set_request, only: [:show, :edit, :update, :update_validation]
   # Filter to protect page with login and session
-  before_action :authenticate_user, only:  [:index]
+  before_action :authenticate_user, only:  [:index, :edit, :update]
   # check session timer
-  before_action :session_expiry, only:  [:index]
+  before_action :session_expiry, only:  [:index, :edit, :update]
 
   def index
     @search = Request.search(params[:q])
@@ -16,12 +16,14 @@ class RequestsController < ApplicationController
   end
 
   def show
-    puts(params)
     if (@request && params.has_key?(:user_rut) && params[:user_rut] == @request.national_id) ||
       (@request && !params.has_key?(:user_rut))
       if params.has_key?(:request) && params[:request] == 'follow'
        render 'show', layout: 'admin_restrict_view'
       else
+        # Just admins can access this
+        authenticate_user
+        # render
         render 'show', layout: 'admin_view'
       end
     else
@@ -389,31 +391,10 @@ class RequestsController < ApplicationController
     def set_request
       @request = Request.find_by_link(params[:id])
       if !@request and params.has_key?(:n_request)
+        params[:n_request].strip!
         @request = Request.find_by_n_request(params[:n_request])
       end
     rescue ActiveRecord::RecordNotFound
-    end
-
-    # link validation to show request
-    def valid_link
-      # Find keys
-      nat_id = params.has_key?(:national_id) ? params[:national_id] : ""
-      n_req = params.has_key?(:n_request) ? params[:n_request] : ""
-      # Unique link
-      salt =  Digest::SHA256.hexdigest nat_id
-      url = Digest::SHA256.hexdigest salt+n_req
-      @request = Request.find_by_link(url)
-    rescue ActiveRecord::RecordNotFound
-    end
-
-    # set default value
-    def sort_column
-      Request.column_names.include?(params[:sort]) ? params[:sort] : "n_request"
-    end
-
-    # set default value
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

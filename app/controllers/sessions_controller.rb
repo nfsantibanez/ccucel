@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
   layout 'general_view'
+  before_action :clean_fields, only: [:login, :login_attempt]
   # Filter to protect page with login and session
-  before_action :authenticate_user, :only => [:home, :profile, :setting]
+  before_action :authenticate_user, only: [:home, :profile, :setting]
   # dont call for sign up or login when active session is up
   before_action :save_login_state, :only => [:login, :login_attempt]
-
+  #
   def login
     #Login Form
   end
@@ -15,8 +16,7 @@ class SessionsController < ApplicationController
     if authorized_user
       # save User id for session
       session[:user_id] = authorized_user.id
-      flash[:notice] = "Bienvenido, te has logeado como: #{authorized_user.username}"
-      redirect_to(action: 'home')
+      redirect_to requests_path
     # if not
     else
       flash[:alert] = "Usuario o Contraseña Inválido"
@@ -37,5 +37,14 @@ class SessionsController < ApplicationController
 
   def setting
   end
+
+  private
+
+  # to lower case and strip uasename or email
+  def clean_fields
+    params[:username_or_email].downcase! unless params[:username_or_email].blank?
+    params[:username_or_email].strip! unless params[:username_or_email].blank?
+  end
+
 
 end

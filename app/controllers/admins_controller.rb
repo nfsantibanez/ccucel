@@ -1,5 +1,7 @@
 class AdminsController < ApplicationController
   layout 'general_view'
+  # Filter to protect page with login and session
+  before_action :authenticate_user, only: [:home, :profile, :setting]
   # can call @current_user in the templates (info aboute login user)
   before_action :save_login_state, only: [:new, :create]
 
