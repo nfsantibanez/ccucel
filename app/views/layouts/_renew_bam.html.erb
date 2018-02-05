@@ -4,23 +4,25 @@
   <title>Información de Usuario</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    .row.content {height: 880px}
 
-    label {
-      padding-top: 9px;
-    }
-  </style>
   <% if params[:action] == 'renew_form' %>
     <style>
-      .row.content {height: 780px}
+      .row.content {height: 800px}
       label {
         padding-top: 9px;
       }
     </style>
   <% elsif params[:action] == 'stolen_lost'%>
     <style>
-      .row.content {height: 1080px}
+      .row.content {height: 1130px}
+      label {
+        padding-top: 9px;
+      }
+    </style>
+  <% else %>
+    <style>
+      .row.content {height: 500px}
+
       label {
         padding-top: 9px;
       }

@@ -7,7 +7,7 @@
   <style>
 
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 720px}
+    .row.content {height: 872px}
 
     label {
       padding-top: 5px;
@@ -41,24 +41,25 @@
 
 <%= form_tag(action: 'login_attempt') do %>
   <div class="row">
-    <div class="col-md-4"></div>
-    <div class="well form-horizontal col-md-4">
+
+    <div class="col-md-4 col-xs-2"></div>
+    <div class="well form-horizontal col-md-4 col-xs-8">
 
       <div class="row">
-        <p class="col-md-4 text-left">
+        <p class="col-md-4 col-xs-6 text-left">
           <strong>Usuario o Correo</strong>
         </p>
-        <p class="col-md-8 text-left">
-          <%= text_field_tag :username_or_email%>
+        <p class="col-md-8 col-xs-6 text-left">
+          <%= text_field_tag :username_or_email, nil, style: "width:85%"%>
         </p>
       </div>
 
       <div class="row">
-        <p class="col-md-4 text-left">
+        <p class="col-md-4 col-xs-6 text-left">
           <strong>Contraseña </strong>
         </p>
-        <p class="col-md-8 text-left">
-          <%= password_field_tag :login_password%></p>
+        <p class="col-md-8 col-xs-6 text-left">
+          <%= password_field_tag :login_password, nil, style: "width:85%"%></p>
         </p>
       </div>
       <% if alert %>
@@ -70,7 +71,7 @@
       <% end %>
 
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4 col-xs-2"></div>
   </div>
   <br>
 

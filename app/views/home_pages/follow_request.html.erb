@@ -10,7 +10,7 @@
 
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 720px}
+    .row.content {height: 872px}
 
     label {
       padding-top: 5px;
@@ -47,39 +47,36 @@
 
    <%= form.hidden_field :request, value: "follow" %>
 
-   <div class="well form-horizontal">
+   <div class="col-md-4 col-xs-2"></div>
+   <div class="well form-horizontal col-md-4 col-xs-8">
 
-     <div id= "request_hw_lost" class="row">
-       <div class="col-md-3"></div>
-       <p class="col-md-3 text-left">
-          <%= form.label :user_rut, 'Identificación Usuario' %>
-       </p>
-       <p class="col-md-3 pull-left">
-          <%= form.text_field :user_rut, placeholder: "ej: 17395384-2", style: "width:165px" %>
-       </p>
-       <p class="col-md-3 text-left"></p>
-     </div>
-
-     <div id= "request" class="row">
-       <div class="col-md-3"></div>
-       <div class="col-md-3 text-left">
-         <%= form.label :n_request, 'n° de Solicitud' %>
+      <div id= "request_hw_lost" class="row">
+         <p class="col-md-6 col-xs-6 text-left">
+            <%= form.label :user_rut, 'Identificación Usuario' %>
+         </p>
+         <p class="col-md-6 col-xs-6 pull-left">
+            <%= form.text_field :user_rut, placeholder: "ej: 17395384-2", style: "width:100%" %>
+         </p>
       </div>
-      <div class="col-md-3 pull-left">
-       <%= form.text_field :n_request, style: "width:165px"  %>
-     </div>
-       <div class="col-md-3"></div>
-    </div>
 
-    <div class="alert alert-danger">
-      <p id="alert"><strong><%= alert %></strong></p>
+      <div id= "request" class="row">
+         <div class="col-md-6 col-xs-6 text-left">
+           <%= form.label :n_request, 'n° de Solicitud' %>
+        </div>
+         <div class="col-md-6 col-xs-6 pull-left">
+          <%= form.text_field :n_request, style: "width:100%"  %>
+        </div>
+      </div>
+
+      <div class="alert alert-danger">
+        <p id="alert"><strong><%= alert %></strong></p>
+      </div>
     </div>
+    <div class="col-md-4 col-xs-2"></div>
   </div>
+  <br>
 
-    <br>
-
-    <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
-</div>
+  <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
   <% end %>
 
 </body>
