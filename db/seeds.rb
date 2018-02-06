@@ -6,11 +6,11 @@
 users = User.create!([
   {name: 'Constanza', last_name: 'Calderon Sanchez', national_id:'13362555-0', email:'nisanti@ccu.cl',
     jobtitle: 'Operario de Maquinas', supervisor: 'Nicolas Santibanez', country: 'CHL',
-    supervisor_email: 'nisanti@ccu.cl', deptname: '290766000', location: '30_VITA',
+    supervisor_email: 'nscnico@gmail.com', deptname: '290766000', location: '30_VITA',
     company: '13', job_family: 'OO'},
   {name: 'Javier', last_name: 'Castro Maldonado', national_id: '8208182-8', email: 'solcelulares@ccu.cl',
     jobtitle: 'Gerente Informatica', supervisor: 'Nicolas Santibanez', country: 'CHL',
-    supervisor_email: 'nisanti@ccu.cl', deptname: '290776000', location: '30_VITA',
+    supervisor_email: 'nscnico@gmail.com', deptname: '290776000', location: '30_VITA',
     company: '23', job_family: 'GE'}
 ])
 puts(users)

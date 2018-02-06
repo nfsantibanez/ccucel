@@ -37,29 +37,15 @@ Rails.application.configure do
 
   # for outlook
   config.action_mailer.smtp_settings = {
+    openssl_verify_mode: "none",
     address: '128.84.0.150',
     port: 587,
     enable_starttls_auto:  true,
-    user_name: 'solcelulares@ccu.cl',
-    password:  'Abril1985'
   }
-
-=begin
-  # for gmail
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            'nscnico@gmail.com',
-    password:             'aggrochanger',
-    authentication:       :plain,
-    enable_starttls_auto: true
-  }
-=end
 
   # Define host for mailer
   config.action_mailer.default_url_options = {
-    host: '128.84.201.201'
+    host: 'localhost:3000'
   }
 
   # Print deprecation notices to the stderr.

@@ -66,15 +66,14 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.asset_host = 'localhost:3000'
+  config.action_mailer.asset_host = '128.84.201.201'
 
   # for outlook
   config.action_mailer.smtp_settings = {
+    openssl_verify_mode: "none",
     address: '128.84.0.150',
     port: 587,
     enable_starttls_auto:  true,
-    user_name: 'solcelulares@ccu.cl',
-    password:  'Abril1985'
   }
   # Define host for mailer
   config.action_mailer.default_url_options = {

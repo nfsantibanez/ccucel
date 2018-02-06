@@ -5,6 +5,10 @@
 </head>
 <body>
 
+<% if !@no_data.blank? %>
+  <strong><p style='color: red;'><%=@no_data%></p></strong>
+<% end %>
+
 <p></p>
 <h4><strong>Estimado(a) <%= @user.name+" "+@user.last_name+','%></strong></h4>
 

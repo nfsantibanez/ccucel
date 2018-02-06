@@ -76,22 +76,24 @@ class RequestsController < ApplicationController
 
     # update request
     if @request.update(validate_params)
-=begin
+
 ################################################################################
       # get user
         user = User.find_by_national_id(@request.national_id)
       # Approved
       if params[:commit] == "Aprobar"
-        # Send mail to user
+        # Send email to user
         UserMailer.change_email(user, @request, 'Aprobada').deliver_now
+        # Send email to supervisor or admin when is aprobed
+        ######User.Mailer.admin_email(user,@request)######
 
       # rejected
       elsif params[:commit] == "Rechazar"
-        # Send mail to user
+        # Send email to user
         UserMailer.change_email(user, @request, 'Rechazada').deliver_now
       end
 ################################################################################
-=end
+
       params[:request] = 'follow'
       render 'show', layout: 'admin_restrict_view'
     else
