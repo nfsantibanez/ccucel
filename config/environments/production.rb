@@ -62,6 +62,25 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "cel_web_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+  # Config mailer
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.asset_host = 'localhost:3000'
+
+  # for outlook
+  config.action_mailer.smtp_settings = {
+    address: '128.84.0.150',
+    port: 587,
+    enable_starttls_auto:  true,
+    user_name: 'solcelulares@ccu.cl',
+    password:  'Abril1985'
+  }
+  # Define host for mailer
+  config.action_mailer.default_url_options = {
+    host: '128.84.201.201'
+  }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
