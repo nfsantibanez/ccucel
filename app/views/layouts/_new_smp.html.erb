@@ -5,12 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-
-    .row.content {height: 1000px}
-
   </style>
-
-
 
   <script type="text/javascript">
   </script>
@@ -25,86 +20,86 @@
   <hr>
 
   <div  id= "models" class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
+    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left">
       <%= form.label :model_one, 'Seleccione Modelo' %>
     </p>
 
-    <p class="col-md-3 text-left">
-      <%= form.select :model_one, @cat_smartphones, {} %>
+    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-5 pull-left">
+      <%= form.select :model_one, @cat_smartphones, {}, style: 'width:100%' %>
     </p>
-    <div class="col-md-3"></div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-1"></div>
   </div>
 
   <div  id= "select_all_models" class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
+    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left">
       <%= form.label :model_all, 'Seleccione Modelo' %>
     </p>
 
-    <p class="col-md-3 text-left">
-      <%= form.select :model_all, @all_smartphones, {} %>
+    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-5 pull-left">
+      <%= form.select :model_all, @all_smartphones, {}, style: 'width:100%' %>
     </p>
-    <div class="col-md-3"></div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-1"></div>
   </div>
 
   <div  id= "show_all_models"  class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-6 alert alert-info">
+    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+    <p class="col-lg-6 col-md-6 col-sm-6 col-xs-12 alert alert-info">
         Mostrar modelos que no corresponden a mi cargo
         <%= form.check_box :want_all, { id: "checkbox" } %>
     </p>
-    <div class="col-md-3"></div>
+    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
   </div>
 
   <div  id= "models" class="row model_text text_area">
-    <div class="col-md-3 "></div>
-    <p class="col-md-3 text-left">
+    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left">
       <%= form.label :comment , 'Motivo elección' %>
     </p>
 
-    <p class="col-md-3 text-left">
-      <%= text_area_tag :comment , nil, :rows => 4, :cols => 25,
+    <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+      <%= text_area_tag :comment , nil, :rows => 4, :cols => 20,
       placeholder: "Describa brevemente el motivo de la elección del modelo"  %>
     </p>
-    <div class="col-md-3"></div>
   </div>
 
   <div  id= "want_sim" class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
+    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left">
       <%= form.label :want_sim, 'Incluir Tarjeta Sim?' %>
     </p>
 
-    <p class="col-md-3 text-left">
+    <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
       <%= form.collection_radio_buttons :want_sim, [[true, 'Si'], [false, 'No']], :first, :last,
     :item_wrapper_class => 'inline', checked: true%>
     </p>
-    <div class="col-md-3"></div>
   </div>
 
   <div  id= "want_number" class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
+    <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+    <p class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left">
       <%= form.label :want_new_number, 'Desea un número telefónico nuevo?'%>
     </p>
 
-    <p class="col-md-6 text-left">
-      <%= form.collection_radio_buttons :want_new_number, [['true', 'Si'], ['false', 'No, quiero portar un numero']], :first, :last,
+    <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+      <%= form.collection_radio_buttons :want_new_number, [['true', 'Si'],
+      ['false', 'No, quiero portar un numero']], :first, :last,
     :item_wrapper_class => 'inline', checked: true%>
     </p>
   </div>
 
   <div id="number">
     <div class="row">
-      <div class="col-md-3"></div>
-      <p class="col-md-3 text-left">
+      <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+      <p class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left">
         <%= form.label :phone_number, 'Ingrese Número (+56 9):' %>
       </p>
 
-      <p class="col-md-6 text-left">
-        <%= form.text_field :phone_number %>
+      <p class="col-lg-3 col-md-3 col-sm-3 col-xs-5 pull-left">
+        <%= form.text_field :phone_number, style: 'width:100%' %>
       </p>
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-1"></div>
     </div>
     <div class="alert alert-danger">
       Número ingresado no debe estar asociado a un contrato

@@ -4,7 +4,7 @@
   <title>Identifiación de Usuario y Solicitud</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
+    <style>
     .text_area {
       vertical-align: top;
     }
@@ -36,6 +36,10 @@
       margin: 10px 5px 0px 25px;
     }
 
+    .btn {
+      margin-bottom: 15px;
+    }
+
   </style>
   <%= javascript_include_tag "jquery.min" %>
   <%= javascript_include_tag "display_new" %>
@@ -51,7 +55,6 @@
   <hr>
 
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
-    <div class="well form-horizontal">
 
       <%= form.hidden_field :item, value: @user["item"] %>
       <%= form.hidden_field :user_id, value: @user["id"] %>
@@ -62,21 +65,33 @@
       <%= form.hidden_field :national_id, value: @user["national_id"] %>
       <%= form.hidden_field :email, value: @user["email"] %>
 
-      <!-- Cargar Informacion del usuario para mostrar -->
-      <%= render partial: '/layouts/user_info', locals: {form: form} %>
-    </div>
+      <div class="row">
+        <div class="col-lg-1 col-md-1 hidden-sm hidden-x"></div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+          <br>
+          <!-- Cargar Informacion del usuario para mostrar -->
+          <%= render partial: '/layouts/user_info2', locals: {form: form} %>
+          <hr>
+        </div>
+        <div class="col-lg-1 col-md-10 hidden-sm hidden-xs"></div>
+      </div>
+      <br>
 
-      <% if @user["item"] == 'smartphone' %>
-        <%= render partial: '/layouts/new_smp', locals: {form: form} %>
-      <% elsif @user["item"] == 'bam' %>
-      <%= render partial: '/layouts/new_bam', locals: {form: form} %>
-      <% elsif @user["item"] == 'sim' %>
-      <%= render partial: '/layouts/new_sim', locals: {form: form} %>
-      <% elsif @user["item"] == 'roaming' %>
-      <%= render partial: '/layouts/new_roaming', locals: {form: form} %>
-      <% end %>
-
-    <br>
+      <div class="row">
+        <div class="col-lg-1 col-md-1 hidden-sm hidden-x"></div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+          <% if @user["item"] == 'smartphone' %>
+            <%= render partial: '/layouts/new_smp', locals: {form: form} %>
+          <% elsif @user["item"] == 'bam' %>
+          <%= render partial: '/layouts/new_bam', locals: {form: form} %>
+          <% elsif @user["item"] == 'sim' %>
+          <%= render partial: '/layouts/new_sim', locals: {form: form} %>
+          <% elsif @user["item"] == 'roaming' %>
+          <%= render partial: '/layouts/new_roaming', locals: {form: form} %>
+          <% end %>
+        </div>
+        <div class="col-lg-4 col-md-3 hidden-sm hidden-xs"></div>
+      </div>
     <!-- Enviar Formulario -->
     <div id= "submit">
       <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>

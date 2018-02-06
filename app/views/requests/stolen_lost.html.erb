@@ -6,10 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
 
-    label {
-      padding-top: 7px;
-    }
-
     h2 {
       margin: 0;
     }
@@ -32,6 +28,11 @@
       margin-top: 1%;
       margin-bottom: 1%;
     }
+    .well {
+      margin: 0px;
+      padding: 0px;
+    }
+
   </style>
 
   <%= javascript_include_tag "jquery.min" %>
@@ -146,7 +147,6 @@
   <hr>
 
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
-    <div class="well form-horizontal">
 
       <%= form.hidden_field :item, value: @user["item"] %>
       <%= form.hidden_field :user_id, value: @user["id"] %>
@@ -157,12 +157,18 @@
       <%= form.hidden_field :national_id, value: @user["national_id"] %>
       <%= form.hidden_field :email, value: @user["email"] %>
 
-      <!-- Cargar Informacion del usuario para mostrar -->
-      <%= render partial: '/layouts/user_info', locals: {form: form} %>
+    <div class="row">
+      <div class="well form-horizontal col-md-6 col-xs-6">
+         <!-- Cargar Informacion del usuario para mostrar -->
+         <%= render partial: '/layouts/user_info', locals: {form: form} %>
+      </div>
+      <div class="col-md-6 col-xs-6">
+        <!-- Formulario del robo o perdida -->
+        <%= render partial: '/layouts/stolen_lost', locals: {form: form} %>
+      </div>
     </div>
 
-    <!-- Formulario del robo o perdida -->
-      <%= render partial: '/layouts/stolen_lost', locals: {form: form} %>
+
 
     <!-- Formulario para nuevo dispositivo -->
       <% if @user["item"] == 'smartphone' %>
@@ -173,7 +179,6 @@
         <%= render partial: '/layouts/renew_sim', locals: {form: form} %>
       <% end %>
     <br>
-
     <!-- Enviar Formulario -->
     <div id= "submit">
     <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>

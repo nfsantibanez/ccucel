@@ -59,60 +59,63 @@
   <hr>
   <h2><strong> Identificación de Usuario y Solicitud </strong></h2>
   <hr>
+  <br>
+  <br>
+
   <%= form_with url: "validate", method: "get" do |form| %>
   <div class="row">
-     <div class="col-md-4 col-xs-2"></div>
-     <div class="well form-horizontal col-md-4 col-xs-8">
+     <div class="col-lg-4 col-md-3 hidden-sm hidden-xs"></div>
+     <div class="well form-horizontal col-lg-4 col-md-6 col-sm-12 col-xs-12">
 
        <div id= "request" class="row">
-         <p class="col-md-5 col-xs-6 text-left">
+         <p class="col-lg-5 col-md-5 text-left">
            <%= form.label :request_type, 'Seleccione Solicitud' %>
          </p>
-         <p class="col-md-7 col-xs-6 pull-left">
+         <p class="col-lg-7 col-md-7 pull-left">
            <%= form.select :request_type, [['Cesión de línea', 'transfer line'],
            ['Nuevo Equipo/Servicio', 'new'], ['Renovar Equipo', 'renew'], ['Robo/Pérdida Equipo', 'stolen/lost'],
-           ['Reparar Equipo', 'technical service']], {},  {class: "pull-left", style: "width:100%"}  %>
+           ['Reparar Equipo', 'technical service']], {},  {style: "width:100%"}  %>
          </p>
        </div>
 
        <div id= "request_hw_new" class="row">
-         <p class="col-md-5 col-xs-6 text-left">
+         <p class="col-lg-5 col-md-5 text-left">
            <%= form.label :request_hw_new, 'Seleccione Equipo/Servicio' %>
          </p>
-         <p class="col-md-6 col-xs-6">
+         <p class="col-lg-7 col-md-7 pull-left">
            <%= form.select :request_hw_new, [['Smartphone', 'smartphone'],
            ['Sim', 'sim'], ['Bam', 'bam'], ['Roaming', 'roaming']], {},
-           {class: "pull-left", style: "width:100%"} %>
+           {style: "width:100%"} %>
          </p>
        </div>
 
        <div id= "request_hw_renew_tech" class="row">
-         <p class="col-md-5 col-xs-6 text-left">
+         <p class="col-lg-5 col-md-5 text-left">
            <%= form.label :request_hw_renew_tech, 'Seleccione Equipo/Servicio' %>
          </p>
-         <p class="col-md-7 col-xs-6">
+         <p class="col-lg-7 col-md-7 pull-left">
            <%= form.select :request_hw_renew_tech, [['Smartphone', 'smartphone'],
-           ['Bam', 'bam']], {}, {class: "pull-left", style: "width:100%"}  %>
+           ['Bam', 'bam']], {}, { style: "width:100%"}  %>
          </p>
        </div>
 
        <div id= "request_hw_lost" class="row">
-         <p class="col-md-5 col-xs-6 text-left">
+         <p class="col-lg-5 col-md-5 text-left">
             <%= form.label :request_hw_lost, 'Seleccione Equipo/Servicio' %>
          </p>
-         <p class="col-md-7 col-xs-6">
+         <p class="col-lg-7 col-md-7 pull-left">
             <%= form.select :request_hw_lost, [['Smartphone', 'smartphone'], ['Sim', 'sim'],
-            ['Bam', 'bam']], {}, {class: "pull-left", style: "width:100%"}  %>
+            ['Bam', 'bam']], {}, {style: "width:100%"}  %>
          </p>
        </div>
 
        <div id= "request_hw_lost" class="row">
-         <p class="col-md-5 col-xs-6 text-left">
+         <p class="col-lg-5 col-md-5 text-left">
             <%= form.label :user_rut, 'Identificación Usuario' %>
          </p>
-         <p class="col-md-7 col-xs-6">
+         <p class="col-lg-7 col-md-7 pull-left">
             <%= form.text_field :user_rut, id: :request_request, placeholder: "ej: 17395384-2",
-            class: "pull-left", style: "width:100%" %>
+            style: "width:100%" %>
          </p>
        </div>
 
@@ -123,9 +126,8 @@
        <% end %>
 
     </div>
-    <div class="col-md-4 col-xs-2"></div>
+  <div class="col-lg-4 col-md-3 hidden-sm hidden-xs"></div>
   </div>
-  <br>
 
     <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
 </div>

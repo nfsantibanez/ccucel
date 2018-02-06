@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     .user {
-      margin: 0px;
+      margin-bottom: 4px;
     }
   </style>
 </head>
@@ -15,95 +15,77 @@
   <hr>
 
     <div class="row">
-      <div class="col-md-2"></div>
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-6 text-left">
         <strong><%= form.label :name, 'Nombre:' %></strong>
         <%= @user["name"] %>
       </p>
-
-      <p class=" user col-md-4 text-left">
+      <p class=" user col-md-6 text-left">
         <strong><%= form.label :last_name, 'Apellidos:' %></strong>
         <%= @user["last_name"] %>
       </p>
-      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-2"></div>
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-6 text-left">
         <strong><%= form.label :national_id, 'Rut:' %></strong>
         <%= @user["national_id"] %>
       </p>
-
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-6 text-left">
         <strong><%= form.label :email, 'e-mail:' %></strong>
         <%= @user["email"] %>
       </p>
-      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-2"></div>
-      <p class=" user col-md-4 text-left">
+      <p class=" user col-md-6 text-left">
         <strong><%= form.label :jobtitle, 'Cargo:' %></strong>
         <%= @user["jobtitle"] %>
       </p>
-
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-6 text-left">
         <strong><%= form.label :job_family, 'Familia del Cargo:' %></strong>
         <%= @user["job_family"] %>
       </p>
-      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-2"></div>
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-6 text-left">
         <strong><%= form.label :company, 'Empresa:' %></strong>
         <%= @user["company"] %>
       </p>
-
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-6 text-left">
         <strong><%= form.label :country, 'Pais:' %></strong>
         <%= @user["country"] %>
       </p>
-      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-2"></div>
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-6 text-left">
         <strong><%= form.label :deptname, 'Centro de Costos:' %></strong>
         <%= @user["deptname"] %>
       </p>
-
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-6 text-left">
         <strong><%= form.label :location, 'Ubicación:' %></strong>
         <%= @user["location"] %>
       </p>
-      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-2"></div>
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-6 text-left">
         <strong><%= form.label :supervisor, 'Supervisor:' %></strong>
         <%= @user["supervisor"] %>
       </p>
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-6 text-left">
         <strong><%= form.label :supervisor, 'Cargo Supervisor:' %></strong>
         <%= @user["supervisor_jobtitle"] %>
       </p>
-      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-6"></div>
-      <p class="user col-md-4 text-left">
+      <p class="user col-md-12 text-left">
         <strong><%= form.label :supervisor_email, 'Correo Supervisor:' %></strong>
         <%= @user["supervisor_email"] %>
       </p>
-      <div class="col-md-2"></div>
+
     </div>
 
 </body>

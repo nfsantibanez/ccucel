@@ -5,6 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    label {
+      padding-top: 0px;
+      padding-left: 10px;
+    }
+    .cons {
+      margin-bottom: 10px;
+    }
   </style>
 
   <script type="text/javascript">
@@ -15,13 +22,9 @@
       var file = $.trim($('input[name="file"]').val());
       if(file.length != 0) {
         $("#btn_color").attr('class', "btn btn-success btn-md")
-        $("#text_2").show();
-        $("#text_1").hide();
       }
       else{
         $("#btn_color").attr('class', "btn btn-default btn-md")
-        $("#text_2").hide();
-        $("#text_1").show();
       }
     };
 
@@ -43,51 +46,34 @@
 
   <!-- Fecha robo/perdida -->
   <div class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
+    <p class="col-md-5 text-left">
       <%= form.label :start_date, 'Fecha Robo/Pérdida' %>
     </p>
-    <p class="col-md-3 pull-left">
-      <%= form.date_field :start_date, max: Date.today %>
+    <p class="col-md-7 pull-left">
+      <%= form.date_field :start_date, {max: Date.today, class: "pull-left", style: 'width:60%'} %>
     </p>
-    <div class="col-md-3"></div>
   </div>
 
   <!-- Constancia Carabineros -->
   <div class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
-      <%= form.label :file, 'Constancia Carabineros' %>
+    <p class="col-md-5 text-left">
+      <%= form.label :file, 'Constancia Robo' %>
     </p>
-    <div class="col-md-3 pull-left">
-      <label id= "btn_color" class="btn btn-default btn-md">
-      <div id= "text_1">
-        Subir Archivo...
-      </div>
-      <div id= "text_2">
-        Archivo Cargado
-      </div>
-      <span style="display:none">
+    <div class="col-md-7 pull-left">
         <%= form.file_field :file, multiple: false, name: "file",
-        accept: 'image/png,image/gif,image/jpeg' %>
-      </span>
-      </label>
+        accept: 'image/png,image/gif,image/jpeg', class: "cons pull-left", style: 'width:80%' %>
     </div>
-    <div class="col-md-3"></div>
   </div>
 
   <!-- Descripcion robo/perdida-->
-  <br>
   <div class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
+    <p class="col-md-5 text-left">
       <%= form.label :comment_stolen_lost, 'Descripción Robo/Pérdida' %>
     </p>
-    <p class="col-md-3 pull-left">
-      <%= text_area_tag :comment_stolen_lost, nil, rows: 4, cols: 25,
+    <p class="col-md-7 text-left">
+      <%= text_area_tag :comment_stolen_lost, nil, rows: 5, cols: 20,
       placeholder: "Describa brevemente el robo/pérdida" %>
     </p>
-    <div class="col-md-3"></div>
   </div>
 
   </div>

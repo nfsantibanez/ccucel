@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .user {
+      margin: 0px;
+      padding-left: 25px;
+    }
+  </style>
+</head>
+<body>
+  <h4><strong>Datos del Usuario</strong></h4>
+  <hr>
+
+    <div class="row">
+      <p class="user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :name, 'Nombre:' %></strong>
+        <%= @user["name"] %>
+      </p>
+      <p class=" user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :last_name, 'Apellidos:' %></strong>
+        <%= @user["last_name"] %>
+      </p>
+      <p class="user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :national_id, 'Rut:' %></strong>
+        <%= @user["national_id"] %>
+      </p>
+    </div>
+
+    <div class="row">
+
+      <p class="user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :email, 'e-mail:' %></strong>
+        <%= @user["email"] %>
+      </p>
+      <p class=" user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :jobtitle, 'Cargo:' %></strong>
+        <%= @user["jobtitle"] %>
+      </p>
+      <p class="user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :job_family, 'Familia del Cargo:' %></strong>
+        <%= @user["job_family"] %>
+      </p>
+    </div>
+
+    <div class="row">
+      <p class="user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :company, 'Empresa:' %></strong>
+        <%= @user["company"] %>
+      </p>
+      <p class="user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :deptname, 'Centro de Costos:' %></strong>
+        <%= @user["deptname"] %>
+      </p>
+      <p class="user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :location, 'Ubicación:' %></strong>
+        <%= @user["location"] %>
+      </p>
+    </div>
+
+
+    <div class="row">
+      <p class="user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :supervisor, 'Supervisor:' %></strong>
+        <%= @user["supervisor"] %>
+      </p>
+      <p class="user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :supervisor, 'Cargo Supervisor:' %></strong>
+        <%= @user["supervisor_jobtitle"] %>
+      </p>
+      <p class="user col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+        <strong><%= form.label :supervisor_email, 'Correo Supervisor:' %></strong>
+        <%= @user["supervisor_email"] %>
+      </p>
+    </div>
+
+
+</body>
+</html>
