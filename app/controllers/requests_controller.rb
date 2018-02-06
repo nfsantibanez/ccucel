@@ -291,7 +291,7 @@ class RequestsController < ApplicationController
 ################################################################################
       # Send mail to user
       UserMailer.user_email(user, @request).deliver_now
-      puts(5*'**********mandando emails**********')
+      puts('**********mandando emails**********')
       # Send mail to supervisor
       UserMailer.supervisor_email(user, @request).deliver_now
 ################################################################################

@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
 
   def supervisor_email(user, request)
-    puts(5*'entrando a super_mailer')
+    puts('entrando a super_mailer')
     @n_link = request.link
     @supervisor = user.supervisor
     @to = 'solcelulares@ccu.cl '# user.supervisor_email
@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
   end
 
   def admin_email(user, request)
-    puts(5*'entrando a admin_mailer')
+    puts('entrando a admin_mailer')
     @user = user
     @request = request
     @to = 'solcelulares@ccu.cl'
@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
   end
 
   def user_email(user, request)
-    puts(5*'entrando a user_mailer')
+    puts('entrando a user_mailer')
     @user = user
     @to = 'solcelulares@ccu.cl' # user.email
     @subject = "Se ha creado la Solicitud n° "+request.n_request
@@ -31,7 +31,7 @@ class UserMailer < ApplicationMailer
   end
 
   def change_email(user, request, change)
-    puts(5*'entrando a change_mailer')
+    puts('entrando a change_mailer')
     @user = user
     @request = request
     @change = change
