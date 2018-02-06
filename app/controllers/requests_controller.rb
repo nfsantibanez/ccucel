@@ -287,7 +287,7 @@ class RequestsController < ApplicationController
 
       # Send mails
       user = User.find_by_id(params[:user_id])
-=begin
+
 ################################################################################
       # Send mail to user
       UserMailer.user_email(user, @request).deliver_now
@@ -295,7 +295,7 @@ class RequestsController < ApplicationController
       # Send mail to supervisor
       UserMailer.supervisor_email(user, @request).deliver_now
 ################################################################################
-=end
+
       puts(requests_url+"/validations/"+@request.link)
 
       # Render success message
