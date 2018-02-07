@@ -14,6 +14,10 @@
     .btn {
       margin-top: 10px;
     }
+    
+    label {
+      margin-right: 10px;
+    }
 
   </style>
 
@@ -45,12 +49,12 @@
     <%= search_form_for @search do |form|%>
 
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :classification_cont, "Clasificación", class: "pull-left"%>
           <%= form.select :classification_cont, [['Todos', ""], ['Abierto', 'abierto'],
-          ['Cerrado', 'cerrado']], {}, {id: "1", style: "width:100px", class: "pull-right"}%>
+          ['Cerrado', 'cerrado']], {}, {id: "1", style: "width:100px", class: "pull-left"}%>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :status_cont, "Estado", class: "pull-left"%>
           <%= form.select :status_cont, [['Todos', ""], ['Pendiente aprobación' , 'pendiente aprobacion' ],
           ['Pendiente Nota de Pedido', 'pendiente nota de pedido'], ['Rechazada','rechazada'],
@@ -58,40 +62,40 @@
           ['Pendiente cotización', 'pendiente cotización'], ['En reparaciones', 'en reparaciones'],
           ['Disponible para retiro', 'disponible para retiro'],
           ['Enviado a trabajador', 'enviado a trabajador'], ['Finalizada', 'finalizada']],
-          {}, {id: "2", style: "width:150px", class: "pull-right"}%>
+          {}, {id: "2", style: "width:150px", class: "pull-left"}%>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :company_cont, "Empresa", class: "pull-left"%>
-          <%= form.text_field :company_cont, placeholder: "search", class: "pull-right",
+          <%= form.text_field :company_cont, placeholder: "search", class: "pull-left",
           size: "15", id: "3"%>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :deptname_cont, "C. Costo", class: "pull-left"%>
-          <%= form.text_field :deptname_cont, placeholder: "search", class: "pull-right",
+          <%= form.text_field :deptname_cont, placeholder: "search", class: "pull-left",
           size: "15", id: "4"%>
         </div>
       </div>
       <hr>
 
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :n_request_cont, "n° Solicitud", class: "pull-left"%>
-          <%= form.text_field :n_request_cont, placeholder: "search", class: "pull-right",
+          <%= form.text_field :n_request_cont, placeholder: "search", class: "pull-left",
           size: "9", id: "5"%>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :name_cont, "Nombre", class: "pull-left"%>
-          <%= form.text_field :name_cont, placeholder: "search", class: "pull-right",
+          <%= form.text_field :name_cont, placeholder: "search", class: "pull-left",
           size: "15", id: "6"%>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :national_id_cont, "R.U.T", class: "pull-left"%>
-          <%= form.text_field :national_id_cont, placeholder: "search", class: "pull-right",
+          <%= form.text_field :national_id_cont, placeholder: "search", class: "pull-left",
           size: "15", id: "7"%>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :email_cont, "Correo", class: "pull-left"%>
-          <%= form.text_field :email_cont, placeholder: "search", class: "pull-right",
+          <%= form.text_field :email_cont, placeholder: "search", class: "pull-left",
           size: "15", id: "8"%>
         </div>
       </div>

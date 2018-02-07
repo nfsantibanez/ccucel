@@ -9,11 +9,10 @@
 </head>
 <body>
 
-  <div class="well form-horizontal">
+  <h4><strong> Datos de Solicitud Sim </strong></h4>
 
   <!-- Obtener nueva informacion del Formulario -->
-  <h4><strong> Datos de Solicitud Sim </strong></h4>
-  <hr>
+  <div class="well form-horizontal">
 
   <div  id= "want_number" class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
@@ -31,14 +30,14 @@
   <div id= "number">
     <div class="row">
       <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
-      <p class="col-lg-3 col-md-3 col-sm-3 col-xs-4 text-left">
-        <%= form.label :phone_number, 'Ingrese Número (+56 9):' %>
+      <p class="col-lg-3 col-md-3 col-sm-3 col-xs-5 text-left">
+        <%= form.label :phone_number, 'Número (+56 9)' %>
       </p>
 
-      <p class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pull-left">
+      <p class="col-lg-3 col-md-3 col-sm-3 col-xs-5 pull-left">
         <%= form.text_field :phone_number, style: 'width:100%' %>
       </p>
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4"></div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-2"></div>
     </div>
 
     <div class="alert alert-danger">Número ingresado no debe estar asociado a un contrato

@@ -5,13 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    label {
-      padding-top: 0px;
-      padding-left: 10px;
-    }
-    .cons {
-      margin-bottom: 10px;
-    }
   </style>
 
   <script type="text/javascript">
@@ -34,43 +27,42 @@
   });
   </script>
 
-
 </head>
 <body>
 
-  <div class="well form-horizontal">
+  <h4><strong> Datos de Pérdida/Robo </strong></h4>
 
   <!-- Obtener nueva informacion del Formulario -->
-  <h4><strong> Datos de Pérdida/Robo </strong></h4>
-  <hr>
+  <div class="well form-horizontal">
 
   <!-- Fecha robo/perdida -->
   <div class="row">
-    <p class="col-md-5 text-left">
+    <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
       <%= form.label :start_date, 'Fecha Robo/Pérdida' %>
     </p>
-    <p class="col-md-7 pull-left">
-      <%= form.date_field :start_date, {max: Date.today, class: "pull-left", style: 'width:60%'} %>
+    <p class="col-lg-4 col-md-5 col-sm-7 col-xs-7 pull-left">
+      <%= form.date_field :start_date, {max: Date.today, class: "pull-left", style: 'width:90%'} %>
     </p>
+    <div class="col-lg-3 col-md-2 hidden-md hidden-xs"></div>
   </div>
 
   <!-- Constancia Carabineros -->
   <div class="row">
-    <p class="col-md-5 text-left">
+    <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
       <%= form.label :file, 'Constancia Robo' %>
     </p>
-    <div class="col-md-7 pull-left">
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pull-left">
         <%= form.file_field :file, multiple: false, name: "file",
-        accept: 'image/png,image/gif,image/jpeg', class: "cons pull-left", style: 'width:80%' %>
+        accept: 'image/png,image/gif,image/jpeg', class: "pull-left", style: 'width:100%' %>
     </div>
   </div>
 
   <!-- Descripcion robo/perdida-->
   <div class="row">
-    <p class="col-md-5 text-left">
+    <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
       <%= form.label :comment_stolen_lost, 'Descripción Robo/Pérdida' %>
     </p>
-    <p class="col-md-7 text-left">
+    <p class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left">
       <%= text_area_tag :comment_stolen_lost, nil, rows: 5, cols: 20,
       placeholder: "Describa brevemente el robo/pérdida" %>
     </p>

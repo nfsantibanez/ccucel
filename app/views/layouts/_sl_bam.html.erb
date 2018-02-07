@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Solicitud</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+  </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    // Display plan details bam
+    $("#bam_plans").change(function(){
+        $("#bam_plans").find("option:selected").each(function(){
+            var request = $(".select_1 option:selected").val();
+            var detail = $("#bam_plans option:selected").val();
+            $(".bam_details").hide()
+            $("#bam_details_"+detail).show()
+        });
+    }).change();
+
+  });
+  </script>
+
+</head>
+<body>
+
+  <h4><strong> Datos de Solicitud Bam </strong></h4>
+
+  <!-- Obtener nueva informacion del Formulario -->
+  <div class="well form-horizontal">
+
+    <%= form.hidden_field :plan, value: @user["plan_id"]%>
+
+      <div id= "bam_models" class="row">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+          <%= form.label :model, 'Seleccione Modelo Bam' %>
+        </p>
+
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <%= form.select :model, @bams, {}, class: "pull-left", style: 'width:100%' %>
+        </p>
+      </div>
+
+      <div id= "bam_plans" class="row">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+          <%= form.label :plan, 'Seleccione Plan Bam' %>
+        </p>
+
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <%= form.select :plan, @bam_plans[0], {}, class: "pull-left", style: 'width:100%' %>
+        </p>
+      </div>
+
+      <% @bam_plans[1].each do |plan| %>
+        <div id= "bam_details_<%=plan[0]%>" class="field-center bam_details">
+          <div class="alert alert-success"> <%=plan[1]%> </div>
+        </div>
+      <% end %>
+
+  </div>
+
+</body>
+</html>

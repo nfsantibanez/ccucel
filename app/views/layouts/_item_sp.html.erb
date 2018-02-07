@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    .row.content {height: 1050px}
     .alert-info {
       margin-top: 5px;
       display:inline-block;
@@ -27,73 +26,64 @@
 </head>
 <body>
 
-  <div class="well form-horizontal">
+  <h4><strong> Datos del Dispositivo Smartphone</strong></h4>
 
-    <!-- Desplegar informacion del dispositivo -->
-    <h4><strong> Datos del Dispositivo Smartphone</strong></h4>
-    <hr>
+  <!-- Desplegar informacion del dispositivo -->
+  <div class="well form-horizontal">
 
     <% if @items.has_key?(:sp) %>
 
       <div class="row">
-        <div class="col-md-2"></div>
-        <p class="col-md-4 text-left">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
           <strong>Modelo:</strong>
           <%= @items[:sp].model %>
           <%= form.hidden_field :model, value: @items[:sp].model %>
         </p>
 
-        <p class="col-md-4 text-left">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
           <strong>Codigo:</strong>
           <%= @items[:sp].code %>
         </p>
-        <div class="col-md-2"></div>
       </div>
 
       <div class="row">
-        <div class="col-md-2"></div>
-        <p class="col-md-4 text-left">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
           <strong>Categoria:</strong>
           <%= @items[:sp].category %>
         </p>
 
-        <p class="col-md-4 text-left">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
           <strong>Número Telefónico:</strong>
           <%= @items[:sp].phone_number %>
           <%= form.hidden_field :phone_number, value: @items[:sp].phone_number %>
         </p>
-        <div class="col-md-2"></div>
       </div>
 
       <div class="row">
-        <div class="col-md-2"></div>
-        <p class="col-md-4 text-left">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
           <strong>Imei:</strong>
           <%= @items[:sp].imei %>
           <%= form.hidden_field :imei, value: @items[:sp].imei %>
         </p>
 
-        <p class="col-md-4 text-left">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
           <strong>Pais:</strong>
           <%= @items[:sp].country %>
         </p>
-        <div class="col-md-2"></div>
       </div>
 
       <div class="row">
-        <div class="col-md-2"></div>
-        <p class="col-md-4 text-left">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
           <strong>Estado:</strong>
           <%= @items[:sp].state %>
         </p>
 
-        <p class="col-md-4 text-left">
+        <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
           <strong>Fecha de Renovación:</strong>
           <% if  @items[:sp].renovation_at.present? %>
           <%= @items[:sp].renovation_at.localtime.strftime('%d/%m/%Y') %>
           <% end %>
         </p>
-        <div class="col-md-2"></div>
       </div>
 
     <% else %>
@@ -103,36 +93,33 @@
     </div>
 
     <div class="row">
-      <div class="col-md-3"></div>
-      <p class="col-md-3 text-left">
+      <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
         <%= form.label :model, 'Modelo Smartphone' %>
       </p>
-      <p class="col-md-3 pull-left">
-        <%= form.text_field :model %>
+      <p class="col-lg-6 col-md-6 col-sm-7 col-xs-6 text-left">
+        <%= form.text_field :model, style: 'width:100%' %>
       </p>
-      <div class="col-md-3"></div>
+      <div class="col-lg-2 col-md-2 col-sm-1 hidden-xs"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-3"></div>
-      <p class="col-md-3 text-left">
+      <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
         <%= form.label :phone_number, 'Número Telefónico' %>
       </p>
-      <p class="col-md-3 pull-left">
-        <%= form.text_field :phone_number%>
+      <p class="col-lg-6 col-md-6 col-sm-7 col-xs-6 text-left">
+        <%= form.text_field :phone_number, style: 'width:100%'%>
       </p>
-      <div class="col-md-3"></div>
+      <div class="col-lg-2 col-md-2 col-sm-1 hidden-xs"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-3"></div>
-      <p class="col-md-3 text-left">
+      <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
         <%= form.label :imei, 'IMEI Smartphone' %>
       </p>
-      <p class="col-md-3 pull-left">
-        <%= form.text_field :imei %>
+      <p class="col-lg-6 col-md-6 col-sm-7 col-xs-6 text-left">
+        <%= form.text_field :imei, style: 'width:100%' %>
       </p>
-      <div class="col-md-3"></div>
+      <div class="col-lg-2 col-md-2 col-sm-1 hidden-xs"></div>
     </div>
 
     <div class="alert alert-info">

@@ -14,6 +14,10 @@
     .btn {
       margin-top: 10px;
     }
+    
+    label {
+      margin-right: 10px;
+    }
 
   </style>
 
@@ -41,23 +45,23 @@
     <%= search_form_for @search do |form|%>
 
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 col-sm-4">
           <%= form.label :model_eq, 'Modelo', class: "pull-left" %>
           <%= form.select :model_eq, @all_bam, {}, {id: "1",
-            style: "width:140px", class: "pull-right"} %>
+            style: "width:140px", class: "pull-left"} %>
 
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 col-sm-4">
           <%= form.label :state_eq, "Estado", class: "pull-left"%>
           <%= form.select :state_eq, [['Todos', ''], ['Catalogo', 'catalog'],
           ['Nuevos', 'new'], ['Usados' , 'used' ]],
-          {}, {id: "2", style: "width:140px", class: "pull-right"}%>
+          {}, {id: "2", style: "width:140px", class: "pull-left"}%>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 col-sm-4">
           <%= form.label :available_true, "Disponible", class: "pull-left"%>
           <%= form.select :available_true, [['Todos', ''], ['True', true],
           ['False', false]],
-          {}, {id: "3", style: "width:140px", class: "pull-right"}%>
+          {}, {id: "3", style: "width:140px", class: "pull-left"}%>
         </div>
       </div>
       <hr>

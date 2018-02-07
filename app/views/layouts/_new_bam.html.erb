@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    .row.content {height: 760px}
   </style>
 
   <script type="text/javascript">
@@ -14,34 +13,33 @@
 </head>
 <body>
 
-  <div class="well form-horizontal">
+  <h4><strong> Datos de Solicitud BAM </strong></h4>
 
   <!-- Obtener nueva informacion del Formulario -->
-  <h4><strong> Datos de Solicitud BAM </strong></h4>
-  <hr>
+  <div class="well form-horizontal">
 
   <div id= "bam_models" class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
+    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+    <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
       <%= form.label :model, 'Seleccione Modelo Bam' %>
     </p>
 
-    <p class="col-md-3 text-left">
-      <%= form.select :model, @bams, {} %>
+    <p class="col-lg-4 col-md-4 col-sm-4 col-xs-5 pull-left">
+      <%= form.select :model, @bams, {}, style: 'width:100%' %>
     </p>
-    <div class="col-md-3"></div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1"></div>
   </div>
 
   <div id= "bam_plans" class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
+    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs"></div>
+    <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
       <%= form.label :plan, 'Seleccione Plan Bam' %>
     </p>
 
-    <p class="col-md-3 text-left">
-      <%= form.select :plan, @bam_plans[0], {} %>
+    <p class="col-lg-4 col-md-4 col-sm-4 col-xs-5 pull-left">
+      <%= form.select :plan, @bam_plans[0], {}, style: 'width:100%' %>
     </p>
-    <div class="col-md-3"></div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1"></div>
   </div>
 
   <% @bam_plans[1].each do |plan| %>

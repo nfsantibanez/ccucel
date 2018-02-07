@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    .row.content {height: 1020px}
   </style>
 
   <script type="text/javascript">
@@ -18,58 +17,51 @@
 </head>
 <body>
 
-  <div class="well form-horizontal">
+  <h4><strong> Datos del Dispositivo BAM </strong></h4>
 
   <!-- Desplegar informacion del dispositivo -->
-  <h4><strong> Datos del Dispositivo BAM </strong></h4>
-  <hr>
+  <div class="well form-horizontal">
 
   <% if @items.has_key?(:bam) %>
 
     <div class="row">
-      <div class="col-md-2"></div>
-      <p class="col-md-4 text-left">
+      <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
         <strong>Modelo:</strong>
         <%= @items[:bam].model %>
         <%= form.hidden_field :model, value: @items[:bam].model %>
       </p>
 
-      <p class="col-md-4 text-left">
+      <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
         <strong>Codigo:</strong>
         <%= @items[:bam].code %>
       </p>
-      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-2"></div>
-      <p class="col-md-4 text-left">
+      <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
         <strong>Imei:</strong>
         <%= @items[:bam].imei %>
         <%= form.hidden_field :imei, value: @items[:bam].imei %>
       </p>
 
-      <p class="col-md-4 text-left">
+      <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
         <strong>Pais:</strong>
         <%= @items[:bam].country %>
       </p>
-      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-2"></div>
-      <p class="col-md-4 text-left">
+      <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
         <strong>Estado:</strong>
         <%= @items[:bam].state %>
       </p>
 
-      <p class="col-md-4 text-left">
+      <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
         <strong>Fecha de Renovación:</strong>
         <% if  @items[:bam].renovation_at.present? %>
         <%= @items[:bam].renovation_at.localtime.strftime('%d/%m/%Y') %>
         <% end %>
       </p>
-      <div class="col-md-2"></div>
     </div>
 
   <% else %>
@@ -79,26 +71,24 @@
     </div>
 
     <div class="row">
-      <div class="col-md-3"></div>
-      <p class="col-md-2 text-left">
+      <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
         <%= form.label :model, 'Modelo BAM' %>
 
       </p>
-      <p class="col-md-3 pull-left">
-        <%= form.text_field :model %>
+      <p class="col-lg-6 col-md-6 col-sm-7 col-xs-6 text-left">
+        <%= form.text_field :model, style: 'width:100%' %>
       </p>
-      <div class="col-md-4"></div>
+      <div class="col-lg-2 col-md-2 col-sm-1 hidden-xs"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-3"></div>
-      <p class="col-md-2 text-left">
+      <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
         <%= form.label :imei, 'Número BAM' %>
       </p>
-      <p class="col-md-3 pull-left">
-        <%= form.text_field :imei %>
+      <p class="col-lg-6 col-md-6 col-sm-7 col-xs-6 text-left">
+        <%= form.text_field :imei, style: 'width:100%' %>
       </p>
-      <div class="col-md-4"></div>
+      <div class="col-lg-2 col-md-2 col-sm-1 hidden-xs"></div>
     </div>
 
     <div class="alert alert-info">

@@ -15,6 +15,10 @@
       margin-top: 10px;
     }
 
+    label {
+      margin-right: 10px;
+    }
+
   </style>
 
   <script type="text/javascript">
@@ -46,48 +50,48 @@
     <%= search_form_for @search do |form|%>
 
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-lg-3 col-lg-3 col-md-3 col-sm-3 col-sm-3">
         <%= form.label :national_id_cont, "RUT", class: "pull-left"%>
-        <%= form.text_field :national_id_cont, placeholder: "search", class: "pull-right",
+        <%= form.text_field :national_id_cont, placeholder: "search", class: "pull-left",
         size: "15", id: "1"%>
       </div>
-      <div class="col-md-3">
+      <div class="col-lg-3 col-md-3 col-sm-3">
         <%= form.label :name_cont, "Nombre", class: "pull-left"%>
-        <%= form.text_field :name_cont, placeholder: "search", class: "pull-right",
+        <%= form.text_field :name_cont, placeholder: "search", class: "pull-left",
         size: "15", id: "2"%>
       </div>
-      <div class="col-md-3">
+      <div class="col-lg-3 col-md-3 col-sm-3">
         <%= form.label :last_name_cont, "Apellidos", class: "pull-left"%>
-        <%= form.text_field :last_name_cont, placeholder: "search", class: "pull-right",
+        <%= form.text_field :last_name_cont, placeholder: "search", class: "pull-left",
         size: "15", id: "3"%>
       </div>
-      <div class="col-md-3">
+      <div class="col-lg-3 col-md-3 col-sm-3">
         <%= form.label :jobtitle_cont, "Cargo", class: "pull-left"%>
-        <%= form.text_field :jobtitle_cont, placeholder: "search", class: "pull-right",
+        <%= form.text_field :jobtitle_cont, placeholder: "search", class: "pull-left",
         size: "15", id: "4"%>
       </div>
     </div>
     <hr>
 
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-lg-3 col-md-3 col-sm-3">
         <%= form.label :company_id_cont, "Empresa", class: "pull-left"%>
-        <%= form.text_field :company_cont, placeholder: "search", class: "pull-right",
+        <%= form.text_field :company_cont, placeholder: "search", class: "pull-left",
         size: "15", id: "5"%>
       </div>
-      <div class="col-md-3">
+      <div class="col-lg-3 col-md-3 col-sm-3">
         <%= form.label :deptname_cont, "C. Costos", class: "pull-left"%>
-        <%= form.text_field :deptname_cont, placeholder: "search", class: "pull-right",
+        <%= form.text_field :deptname_cont, placeholder: "search", class: "pull-left",
         size: "15", id: "6"%>
       </div>
-      <div class="col-md-3">
+      <div class="col-lg-3 col-md-3 col-sm-3">
         <%= form.label :location_cont, "Ubicación", class: "pull-left"%>
-        <%= form.text_field :location_cont, placeholder: "search", class: "pull-right",
+        <%= form.text_field :location_cont, placeholder: "search", class: "pull-left",
         size: "15", id: "7"%>
       </div>
-      <div class="col-md-3">
+      <div class="col-lg-3 col-md-3 col-sm-3">
         <%= form.label :job_family_cont, "Familia", class: "pull-left"%>
-        <%= form.text_field :job_family_cont, placeholder: "search", class: "pull-right",
+        <%= form.text_field :job_family_cont, placeholder: "search", class: "pull-left",
         size: "15", id: "8"%>
       </div>
     </div>

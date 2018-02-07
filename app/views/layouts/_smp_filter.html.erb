@@ -15,6 +15,10 @@
       margin-top: 10px;
     }
 
+    label {
+      margin-right: 10px;
+    }
+
   </style>
 
   <script type="text/javascript">
@@ -42,31 +46,31 @@
     <%= search_form_for @search do |form|%>
 
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :model_eq, 'Modelo', class: "pull-left" %>
           <%= form.select :model_eq, @all_smp, {}, {id: "1",
-            style: "width:120px", class: "pull-right"} %>
+            style: "width:120px", class: "pull-left"} %>
 
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :category_eq, "Categoría", class: "pull-left"%>
           <%= form.select :category_eq, [['Todos', ''], ['Gerente', 'GE'],
           ['Subgerente' , 'EJ'], ['Jefes', 'PT'], ['Vendedores','VE'],
           ['Operarios','OO'], ['Otros','EE'], ['Libre','ALL']],
-          {}, {id: "2", style: "width:120px", class: "pull-right"}%>
+          {}, {id: "2", style: "width:120px", class: "pull-left"}%>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :state_eq, "Estado", class: "pull-left"%>
           <%= form.select :state_eq, [['Todos', ''], ['Catalogo', 'catalog'],
           ['Nuevos', 'new'], ['Usados' , 'used' ]],
-          {}, {id: "3", style: "width:120px", class: "pull-right"}%>
+          {}, {id: "3", style: "width:120px", class: "pull-left"}%>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3">
           <%= form.label :available_true, "Disponible", class: "pull-left"%>
           <%= form.select :available_true, [['Todos', ''], ['True', true],
           ['False', false]],
-          {}, {id: "4", style: "width:120px", class: "pull-right"}%>
+          {}, {id: "4", style: "width:120px", class: "pull-left"}%>
         </div>
       </div>
       <hr>

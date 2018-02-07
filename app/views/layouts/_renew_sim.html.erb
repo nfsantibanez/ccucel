@@ -10,26 +10,25 @@
 </head>
 <body>
 
-  <div class="well form-horizontal">
+  <h4><strong> Datos de Solicitud Sim </strong></h4>
 
   <!-- Obtener nueva informacion del Formulario -->
-  <h4><strong> Datos de Solicitud Sim </strong></h4>
-  <hr>
+  <div class="well form-horizontal">
 
     <div id= "same_number" class="field-center">
       <% if @items.has_key?(:sim) %>
         <% if !@items[:sim].phone_number.to_s.empty? %>
           <div class="row">
-            <div class="col-md-3"></div>
-            <p class="col-md-4 text-right">
-              <%= form.label :phone_number, 'Número asignado (+56 9): '%>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-1"></div>
+            <p class="col-lg-3 col-md-3 col-sm-3 col-xs-5 text-right">
+              <%= form.label :phone_number, 'Número asignado'%>
             </p>
 
-            <p class="col-md-3 text-left">
-              <%= form.label :phone_number, ' '+@items[:sim].phone_number.to_s %>
+            <p class="col-lg-3 col-md-3 col-sm-3 col-xs-5 text-left">
+              <%= form.label :phone_number, '+56 9 '+@items[:sim].phone_number.to_s %>
               <%= form.hidden_field :phone_number, value: @items[:sim].phone_number.to_s %>
             </p>
-            <div class="col-md-2"></div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-1"></div>
           </div>
 
         <% else %>
@@ -37,15 +36,15 @@
           <div class="alert alert-danger">Sim no tiene un número de teléfono asignado en el sistema,
             Ingrese el número telefónico actual que tiene asociado a CCU</div>
             <div class="row">
-              <div class="col-md-3"></div>
-              <p class="col-md-4 text-right">
-                <%= form.label :phone_number, 'Ingrese Número (+56 9):' %>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-1"></div>
+              <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-right">
+                <%= form.label :phone_number, 'Número (+56 9)' %>
               </p>
 
-              <p class="col-md-3 text-left">
+              <p class="col-lg-3 col-md-3 col-sm-3 col-xs-4 text-left">
                 <%= form.text_field :phone_number, size: 8 %>
               </p>
-              <div class="col-md-2"></div>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1"></div>
             </div>
         <% end %>
 
@@ -54,15 +53,15 @@
       <div class="alert alert-danger">Usuario no tiene una Sim asignada en el sistema,
         si tiene una Sim asociada a CCU ingrese el número telefónico de la Sim</div>
         <div class="row">
-          <div class="col-md-3"></div>
-          <p class="col-md-4 text-right">
-            <%= form.label :phone_number, 'Ingrese Número (+56 9):' %>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-1"></div>
+          <p class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-right">
+            <%= form.label :phone_number, 'Número (+56 9):' %>
           </p>
 
-          <p class="col-md-3 text-left">
+          <p class="col-lg-3 col-md-3 col-sm-3 col-xs-4 text-left">
             <%= form.text_field :phone_number, size: 8 %>
           </p>
-          <div class="col-md-2"></div>
+          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1"></div>
         </div>
       <% end %>
     </div>

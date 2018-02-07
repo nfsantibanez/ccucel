@@ -39,8 +39,8 @@
     .btn {
       margin-bottom: 15px;
     }
-
   </style>
+
   <%= javascript_include_tag "jquery.min" %>
   <%= javascript_include_tag "display_new" %>
   <%= javascript_include_tag "sweetalert-dev" %>
@@ -73,25 +73,25 @@
           <%= render partial: '/layouts/user_info2', locals: {form: form} %>
           <hr>
         </div>
-        <div class="col-lg-1 col-md-10 hidden-sm hidden-xs"></div>
+        <div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
       </div>
-      <br>
 
       <div class="row">
-        <div class="col-lg-1 col-md-1 hidden-sm hidden-x"></div>
+        <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
         <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
           <% if @user["item"] == 'smartphone' %>
             <%= render partial: '/layouts/new_smp', locals: {form: form} %>
           <% elsif @user["item"] == 'bam' %>
-          <%= render partial: '/layouts/new_bam', locals: {form: form} %>
+            <%= render partial: '/layouts/new_bam', locals: {form: form} %>
           <% elsif @user["item"] == 'sim' %>
-          <%= render partial: '/layouts/new_sim', locals: {form: form} %>
+            <%= render partial: '/layouts/new_sim', locals: {form: form} %>
           <% elsif @user["item"] == 'roaming' %>
-          <%= render partial: '/layouts/new_roaming', locals: {form: form} %>
+            <%= render partial: '/layouts/new_roaming', locals: {form: form} %>
           <% end %>
         </div>
-        <div class="col-lg-4 col-md-3 hidden-sm hidden-xs"></div>
+        <div class="col-lg-4 col-md-3 col-sm-1 hidden-xs"></div>
       </div>
+
     <!-- Enviar Formulario -->
     <div id= "submit">
       <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>

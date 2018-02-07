@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    .row.content {height: 800px}
     .text_area {
       vertical-align: top;
     }
@@ -13,36 +12,35 @@
 </head>
 <body>
 
-  <div class="well form-horizontal">
+  <h4><strong> Datos de Solicitud Roaming </strong></h4>
 
   <!-- Obtener nueva informacion del Formulario -->
-  <h4><strong> Datos de Solicitud Roaming </strong></h4>
-  <hr>
+  <div class="well form-horizontal">
 
   <div  class="row">
-    <div class="col-md-1"></div>
-    <p class="col-md-5 text-left">
-      <%= form.label :start_date, 'Fecha Inicio viaje' %>
+    <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
+    <p class="col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left">
+      <%= form.label :start_date, 'Inicio viaje' %>
       <%= form.date_field :start_date, min: Date.today %>
     </p>
 
-    <p class="col-md-5 text-left">
-      <%= form.label :end_date, 'Fecha Término viaje' %>
+    <p class="col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left">
+      <%= form.label :end_date, 'Término viaje' %>
       <%= form.date_field :end_date, min: Date.today %>
     </p>
-    <div class="col-md-1"></div>
+    <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
   </div>
 
   <div  class="row">
-    <div class="col-md-1"></div>
-    <p class="col-md-5 text-left">
+    <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
+    <p class="col-lg-5 col-md-5 col-sm-5 col-xs-6  text-left">
       <%= form.label :region, 'Región de destino' %>
       <%= form.select :region, [['Sudamérica', 'sudamerica'], ['Centroamérica', 'centroamerica'],
       ['Norteamérica', 'norteamerica'], ['Europa', 'europa'], ['Oceanía', 'oceania'],
       ['Asia', 'asia'], ['África', 'africa']], {}, id: "region" %>
     </p>
 
-      <div id= "sudamerica" class="roaming_country col-md-5 text-left">
+      <div id= "sudamerica" class="roaming_country col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left">
         <%= form.label :country, 'País de destino' %>
         <%= form.select :country, [['Argentina', 'argentina'], ['Bolivia', 'bolivia'],
         ['Brasil', 'brasil'], ['Colombia', 'colombia'], ['Ecuador', 'ecuador'],
@@ -50,7 +48,7 @@
         ['Otro', 'otro']], {} %>
       </div>
 
-      <div id= "centroamerica" class="roaming_country col-md-5 text-left">
+      <div id= "centroamerica" class="roaming_country col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left">
         <%= form.label :country, 'País de destino' %>
         <%= form.select :country, [['Costa Rica', 'costa rica'], ['El Salvador', 'el salvador'],
         ['Guatemala', 'guatemala'], ['Honduras', 'honduras'], ['México', 'mexico'],
@@ -58,13 +56,13 @@
         ['Otro', 'otro']], {} %>
       </div>
 
-      <div id= "norteamerica" class="roaming_country col-md-5 text-left">
+      <div id= "norteamerica" class="roaming_country col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left">
         <%= form.label :country, 'País de destino' %>
         <%= form.select :country, [['Estados Unidos', 'estados unidos'], ['Canadá', 'canada'],
         ['Otro', 'otro']], {} %>
       </div>
 
-      <div id= "europa" class="roaming_country col-md-5 text-left">
+      <div id= "europa" class="roaming_country col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left">
         <%= form.label :country, 'País de destino' %>
         <%= form.select :country, [['Albania', 'albania'], ['Alemania', 'alemania'],
         ['Austria', 'austria'], ['Bélgica', 'belgica'], ['Croacia', 'croacia'],
@@ -79,30 +77,30 @@
         ['Suiza', 'suiza'], ['Ucrania', 'ucrania'], ['Noruega', 'noruega'], ['Otro', 'otro']], {} %>
       </div>
 
-      <div id= "oceania" class="roaming_country col-md-5 text-left">
+      <div id= "oceania" class="roaming_country col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left">
         <%= form.label :country, 'País de destino' %>
         <%= form.select :country, [['Australia', 'australia'], ['Nueva Zelanda', 'nueva zelanda'],
         ['Otro', 'otro']], {} %>
       </div>
 
-      <div id= "asia" class="roaming_country col-md-5 text-left">
+      <div id= "asia" class="roaming_country col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left">
         <%= form.label :country, 'País de destino' %>
         <%= form.select :country, [['China', 'china'], ['Hong Kong', 'hong kong'],
         ['Japón', 'japon'], ['Israel', 'israel'], ['Pakistán', 'pakistán'],
         ['Singapur', 'singapur'], ['Taiwán', 'taiwan'], ['Otro', 'otro']], {} %>
       </div>
 
-      <div id= "africa" class="roaming_country col-md-5 text-left">
+      <div id= "africa" class="roaming_country col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left">
         <%= form.label :country, 'País de destino' %>
         <%= form.select :country, [['Congo', 'congo'], ['Mozambique', 'mozambique'],
         ['Sudáfrica', 'sudafrica'], ['Tanzania', 'tanzania'], ['Otro', 'otro']], {} %>
       </div>
-    <div class="col-md-1"></div>
+    <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
   </div>
 
   <div  class="row">
-    <div class="col-md-1"></div>
-    <div id= "plan" class="col-md-5 text-left roaming_plan_bag">
+    <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
+    <div id= "plan" class="col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left roaming_plan_bag">
       <%= form.label :plan, 'Planes' %>
       <%= form.select :plan, @roaming_plans[0], {} %>
 
@@ -114,16 +112,17 @@
       <% end %>
     </div>
 
-    <div id= "bag" class="col-md-5 text-left roaming_plan_bag">
+    <div id= "bag" class="col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left roaming_plan_bag">
       <%= form.label :plan, 'Bolsas' %>
       <%= form.select :plan, @roaming_bags[0], {} %>
       <p></p>
       <div class="alert alert-danger"> Bolsa dura 30 dias y solo incluye plan de datos </div>
     </div>
 
-    <div class="col-md-6 text-left text_area">
-      <%= form.label :comment, 'Motivo Viaje' %>
-      <%= text_area_tag :comment, nil, :rows => 4, :cols => 25, class: "text_area" %>
+    <div class="col-lg-6 col-md-6 text-left text_area">
+      <%= form.label :comment, 'Motivo viaje' %>
+      <%= text_area_tag :comment, nil, :rows => 4, :cols => 25, style:"max-width: 100%",
+      class: "text_area", placeholder: "Describa brevemente el motivo del viaje" %>
     </div>
   </div>
 

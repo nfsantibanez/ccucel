@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Solicitud</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    // Display all smartphones models
+    var all_models = function(){
+      var check = $("#checkbox").is(":checked");
+        if(check){
+          $("#select_all_models").show();
+          $(".model_text").show();
+          $("#models").hide();
+        }
+        else{
+          $("#select_all_models").hide();
+          $(".model_text").hide();
+          $("#models").show();
+        }
+    };
+
+    // Display Sim and Number menu
+    var display_menus = function(){
+      var w_sim = $('input:checked[name="want_sim"]').val();
+      var w_number = $("#want_number option:selected").val();
+
+      if(w_sim == 'true') {
+          $("#want_number").show();
+          if(w_number == 'port'){
+              $("#number").show();
+          }
+          else{
+              $("#number").hide();
+          }
+          if(w_number == 'same'){
+              $("#same_number").show();
+          }
+          else{
+              $("#same_number").hide();
+          }
+
+      }
+      else{
+          $("#want_number").hide();
+          $("#same_number").hide();
+          $("#number").hide();
+      }
+    };
+
+    $('input[name="want_sim"]').change(display_menus);
+    $("#want_number").change(display_menus);
+    $("#show_all_models").change(all_models);
+    $(all_models);
+    $(display_menus);
+
+  });
+  </script>
+
+</head>
+<body>
+
+  <h4><strong> Datos de Solicitud Smartphone </strong></h4>
+
+  <!-- Obtener nueva informacion del Formulario -->
+  <div class="well form-horizontal">
+
+    <div  id= "models" class="row">
+      <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+        <%= form.label :model_one, 'Seleccione Modelo' %>
+      </p>
+
+      <p class="col-lg-5 col-md-6 col-sm-7 col-xs-7 pull-left">
+        <%= form.select :model_one, @cat_smartphones, {}, style: 'width:100%'%>
+      </p>
+      <div class="col-lg-2 col-md-1 hidden-sm hidden-xs"></div>
+    </div>
+
+    <div  id= "select_all_models" class="row">
+      <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+        <%= form.label :model_all, 'Seleccione Modelo' %>
+      </p>
+
+      <p class="col-lg-5 col-md-6 col-sm-7 col-xs-7 pull-left">
+        <%= form.select :model_all, @all_smartphones, {}, style: 'width:100%' %>
+      </p>
+    </div>
+
+    <div  id= "show_all_models"  class="row">
+      <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alert alert-info">
+          Mostrar modelos que no corresponden a mi cargo
+          <%= form.check_box :want_all, { id: "checkbox" } %>
+      </p>
+      <div class="col-lg-2 col-md-1 hidden-sm hidden-xs"></div>
+    </div>
+
+    <div  id= "models" class="row model_text text_area">
+      <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+        <%= form.label :comment , 'Motivo elección' %>
+      </p>
+
+      <p class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left">
+        <%= text_area_tag :comment , nil, :rows => 4, :cols => 20, style:"max-width: 100%",
+        placeholder: "Describa brevemente el motivo de la elección del modelo"  %>
+      </p>
+    </div>
+
+    <div  id= "want_sim" class="row">
+      <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+        <%= form.label :want_sim, 'Incluir tarjeta Sim?' %>
+      </p>
+
+      <p class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left">
+        <%= form.collection_radio_buttons :want_sim, [[true, 'Si'], [false, 'No']], :first, :last,
+      :item_wrapper_class => 'inline', checked: true%>
+      </p>
+    </div>
+
+    <div  id= "want_number" class="row">
+      <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+        <%= form.label :number_type, 'Desea un número nuevo?' %>
+      </p>
+
+      <p class="col-lg-6 col-md-7 col-sm-7 col-xs-7 pull-left">
+        <%= form.select :number_type, [['No, quiero mantener mi número', 'same'],
+        ['No, quiero portar otro número', 'port'], ['Si, quiero nuevo número', 'new']],
+        {}, style: 'width:100%'%>
+      </p>
+      <div class="col-lg-1 hidden-md hidden-sm hidden-xs"></div>
+    </div>
+
+    <div id= "same_number" class="field-center">
+      <% if @items.has_key?(:sp) %>
+        <% if !@items[:sp].phone_number.to_s.empty? %>
+          <div class="row">
+            <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+              <%= form.label :same_number, 'Número asignado '%>
+            </p>
+
+            <p class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left">
+              <%= form.label :same_number, '+56 9 '+@items[:sp].phone_number.to_s, class:"text-center", size: "12" %>
+              <%= form.hidden_field :same_number, value: @items[:sp].phone_number.to_s %>
+            </p>
+          </div>
+
+        <% else %>
+          <div class="row">
+            <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+              <%= form.label :same_number, 'Número (+56 9)' %>
+            </p>
+
+            <p class="col-lg-4 col-md-4 col-sm-5 col-xs-7 text-left">
+              <%= form.text_field :same_number %>
+            </p>
+            <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div>
+          </div>
+          <div class="alert alert-danger">Smartphone no tiene un número de teléfono asignado en el sistema,
+            Ingrese el número telefónico actual que tiene asociado a CCU</div>
+        <% end %>
+
+      <% else %>
+      <div class="row">
+        <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+          <%= form.label :same_number, 'Número (+56 9)' %>
+        </p>
+
+        <p class="col-lg-4 col-md-4 col-sm-5 col-xs-7 text-left">
+          <%= form.text_field :same_number, style: 'width:100%' %>
+        </p>
+        <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div>
+      </div>
+      <div class="alert alert-danger">Usuario no tiene un Smartphone asignado en el sistema,
+        si tiene un smartphone asociado a CCU ingrese el número telefónico del smarthpone</div>
+      <% end %>
+      </div>
+
+      <div id= "number" class="field-center">
+      <div class="row">
+        <p class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+          <%= form.label :phone_number, 'Número (+56 9)' %>
+        </p>
+
+        <p class="col-lg-4 col-md-4 col-sm-5 col-xs-7 text-left">
+          <%= form.text_field :phone_number, style: 'width:100%' %>
+        </p>
+        <div class="col-lg-3 col-md-3 col-sm-2 hidden-xs"></div>
+      </div>
+
+      <div class="alert alert-danger">
+        Número ingresado no debe estar asociado a un contrato
+        vigente con una compañía de telefonía móvi, a menos que sea la misma
+        compañía que le presta servicios a CCU
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

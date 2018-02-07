@@ -1,8 +1,7 @@
 class RequestsController < ApplicationController
   require 'securerandom'
 
-  layout 'general_view', except: [:index, :show, :edit, :update, :validations,
-    :update_validation]
+  layout 'general_view', only: [:new_form, :renew_form, :transfer_line]
   before_action :set_request, only: [:show, :edit, :update, :update_validation]
   # Filter to protect page with login and session
   before_action :authenticate_user, only:  [:index, :edit, :update]
@@ -78,19 +77,23 @@ class RequestsController < ApplicationController
     if @request.update(validate_params)
 
 ################################################################################
-      # get user
-        user = User.find_by_national_id(@request.national_id)
-      # Approved
-      if params[:commit] == "Aprobar"
-        # Send email to user
-        UserMailer.change_email(user, @request, 'Aprobada').deliver_now
-        # Send email to supervisor or admin when is aprobed
-        ######User.Mailer.admin_email(user,@request)######
+      begin
+        # get user
+          user = User.find_by_national_id(@request.national_id)
+        # Approved
+        if params[:commit] == "Aprobar"
+          # Send email to user
+          UserMailer.change_email(user, @request, 'Aprobada').deliver_now
+          # Send email to supervisor or admin when is aprobed
+          ######User.Mailer.admin_email(user,@request)######
 
-      # rejected
-      elsif params[:commit] == "Rechazar"
-        # Send email to user
-        UserMailer.change_email(user, @request, 'Rechazada').deliver_now
+        # rejected
+        elsif params[:commit] == "Rechazar"
+          # Send email to user
+          UserMailer.change_email(user, @request, 'Rechazada').deliver_now
+        end
+      rescue
+        render layout: error
       end
 ################################################################################
 
@@ -291,11 +294,15 @@ class RequestsController < ApplicationController
       user = User.find_by_id(params[:user_id])
 
 ################################################################################
-      # Send mail to user
-      UserMailer.user_email(user, @request).deliver_now
-      puts('**********mandando emails**********')
-      # Send mail to supervisor
-      UserMailer.supervisor_email(user, @request).deliver_now
+      begin
+        # Send mail to user
+        UserMailer.user_email(user, @request).deliver_now
+        puts('**********mandando emails**********')
+        # Send mail to supervisor
+        UserMailer.supervisor_email(user, @request).deliver_now
+      rescue
+        render layout: error
+      end
 ################################################################################
 
       puts(requests_url+"/validations/"+@request.link)
@@ -359,13 +366,13 @@ class RequestsController < ApplicationController
     @items = get_items(@user["national_id"])
   end
 
-  # Renew Request form
+  # Transferline Request form
   def transfer_line
     # User information in Hash
     @user = session[:user]
   end
 
-  # Renew Request form
+  # stolen_lost Request form
   def stolen_lost
     # User information in Hash
     @user = session[:user]
@@ -378,14 +385,18 @@ class RequestsController < ApplicationController
     @bam_plans = plans_available_bam(@user["country"])
     # get user items
     @items = get_items(@user["national_id"])
+
+    render layout: 'general_view2'
   end
 
-  # Renew Request form
+  # tech_service Request form
   def technical_service
     # User information in Hash
     @user = session[:user]
     # get user item_wrapper_class
     @items = get_items(@user["national_id"])
+
+    render layout: 'general_view2'
   end
 
   private

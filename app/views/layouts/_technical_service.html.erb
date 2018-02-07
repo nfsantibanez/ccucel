@@ -14,36 +14,31 @@
 </head>
 <body>
 
-  <div class="well form-horizontal">
+  <h4><strong> Datos de Solicitud Servicio Técnico </strong></h4>
 
   <!-- Obtener nueva informacion del Formulario -->
-  <h4><strong> Datos de Solicitud Servicio Técnico </strong></h4>
-  <hr>
+  <div class="well form-horizontal">
 
   <!-- Dispositivo de reemplazo -->
   <div class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
+    <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
       <%= form.label :want_replacement, '¿Desea un dispositivo de reemplazo?' %>
     </p>
-    <p class="col-md-3 pull-left">
+    <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
       <%= form.collection_radio_buttons :want_replacement, [[true, 'Si'], [false, 'No']], :first, :last,
       :item_wrapper_class => 'inline', checked: true%>
     </p>
-    <div class="col-md-3"></div>
   </div>
 
   <!-- Descripcion falla-->
   <div class="row">
-    <div class="col-md-3"></div>
-    <p class="col-md-3 text-left">
+    <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
       <%= form.label :comment, 'Descripción de Falla'%>
     </p>
-    <p class="col-md-4 pull-left">
-      <%= text_area_tag :comment, nil, rows: 6, cols: 30,
+    <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+      <%= text_area_tag :comment, nil, rows: 4, cols: 20, style:"max-width: 100%",
        placeholder: "Describa lo más detallado posible la falla del dispositivo"%>
     </p>
-    <div class="col-md-2"></div>
   </div>
 
   </div>

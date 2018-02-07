@@ -32,6 +32,10 @@
       margin-top: 1%;
       margin-bottom: 1%;
     }
+    
+    .btn {
+      margin-bottom: 15px;
+    }
   </style>
 
   <%= javascript_include_tag "jquery.min" %>
@@ -113,7 +117,6 @@
   <hr>
 
   <%= form_with url: "/requests/forms/create/new", method: "post" do |form| %>
-    <div class="well form-horizontal">
 
       <%= form.hidden_field :item, value: @user["item"] %>
       <%= form.hidden_field :user_id, value: @user["id"] %>
@@ -124,16 +127,25 @@
       <%= form.hidden_field :national_id, value: @user["national_id"] %>
       <%= form.hidden_field :email, value: @user["email"] %>
 
-      <!-- Cargar Informacion del usuario para mostrar -->
-      <%= render partial: '/layouts/user_info', locals: {form: form} %>
-    </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <br>
+          <!-- Cargar Informacion del usuario para mostrar -->
+          <%= render partial: '/layouts/user_info2', locals: {form: form} %>
+          <hr>
+        </div>
+      </div>
 
-    <!-- Formulario de informacion del dispositivo -->
-      <%= render partial: '/layouts/item_info', locals: {form: form} %>
-
-    <!-- Formulario de servicio tecnico -->
-      <%= render partial: '/layouts/technical_service', locals: {form: form} %>
-    <br>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <!-- Formulario de informacion del dispositivo -->
+          <%= render partial: '/layouts/item_info', locals: {form: form} %>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <!-- Formulario de servicio tecnico -->
+          <%= render partial: '/layouts/technical_service', locals: {form: form} %>
+        </div>
+      </div>
 
     <!-- Enviar Formulario -->
     <div id= "submit">

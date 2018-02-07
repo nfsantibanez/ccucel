@@ -5,8 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 872px}
 
     label {
       padding-top: 7px;
@@ -103,7 +101,6 @@
       </div>
       <div class="col-lg-1 col-md-10 hidden-sm hidden-xs"></div>
     </div>
-    <br>
 
     <!-- Cargar formulario para cesion de linea -->
     <h4><strong> Datos de Solicitud</strong></h4>
@@ -112,28 +109,28 @@
       <div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
       <div class="well form-horizontal col-lg-10 col-md-10 col-sm-12 col-xs-12">
       <div id= "select_type" class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
-        <p class="col-lg-3  col-md-3 col-sm-3 col-xs-6 text-left">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sm-1"></div>
+        <p class="col-lg-3  col-md-3 col-sm-3 col-xs-5 text-left">
           <%= form.label :transfer_line_type, 'Seleccione Acción:' %>
         </p>
 
-        <p class="col-lg-3 col-md-3 col-sm-3 col-xs-6 pull-left">
+        <p class="col-lg-3 col-md-3 col-sm-3 col-xs-5 pull-left">
           <%= form.select :transfer_line_type, [['Ceder Línea a CCU', 'ceder'],
           ['Liberar Línea de CCU', 'liberar']], {}, style: 'width:100%' %>
         </p>
-        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sm-1"></div>
       </div>
 
       <div id= "number"  class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3 hidden-x"></div>
-        <p class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-left">
-          <%= form.label :phone_number, 'Ingrese Número (+56 9): ' %>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sm-1"></div>
+        <p class="col-lg-3 col-md-3 col-sm-3 col-xs-5 text-left">
+          <%= form.label :phone_number, 'Número (+56 9)' %>
         </p>
 
-        <p class="col-lg-3  col-md-3 col-sm-3 col-xs-6 pull-left">
+        <p class="col-lg-3  col-md-3 col-sm-3 col-xs-5 pull-left">
           <%= form.text_field :phone_number, style: 'width:100%' %>
         </p>
-        <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sm-1"></div>
       </div>
 
       <div id="cesion" class="alert alert-danger">

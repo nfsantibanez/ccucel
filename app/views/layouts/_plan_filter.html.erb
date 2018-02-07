@@ -14,6 +14,10 @@
     .btn {
       margin-top: 10px;
     }
+    
+    label {
+      margin-right: 10px;
+    }
 
   </style>
 
@@ -42,19 +46,19 @@
     <%= search_form_for @search do |form|%>
 
       <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-2 col-xs-1"></div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
           <%= form.label :item_eq, 'Item', class: "pull-left" %>
           <%= form.select :item_eq, [['Todos',''],['Roaming','roaming'],['Bam', 'bam']],
-          {}, {id: "1", style: "width:120px", class: "pull-right"} %>
+          {}, {id: "1", style: "width:120px", class: "pull-left"} %>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
           <%= form.label :plan_type_eq, "Tipo", class: "pull-left"%>
           <%= form.select :plan_type_eq, [['Todo',''],['Plan','plan'],
           ['Bolsa','bag']], {},
-          {id: "2", style: "width:120px", class: "pull-right"}%>
+          {id: "2", style: "width:120px", class: "pull-left"}%>
         </div>
-        <div class="col-md-3"></div>
+        <div class="col-lg-3 col-md-3 col-sm-2 col-xs-1"></div>
       </div>
       <hr>
 

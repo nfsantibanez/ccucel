@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Solicitud</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+
+</head>
+<body>
+
+  <h4><strong> Datos de Solicitud Sim </strong></h4>
+
+  <!-- Obtener nueva informacion del Formulario -->
+  <div class="well form-horizontal">
+    
+    <div id= "same_number" class="field-center">
+      <% if @items.has_key?(:sim) %>
+        <% if !@items[:sim].phone_number.to_s.empty? %>
+          <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
+            <p class="col-lg-5 col-md-5 col-sm-5 col-xs-6 text-left">
+              <%= form.label :phone_number, 'Número asignado'%>
+            </p>
+
+            <p class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+              <%= form.label :phone_number, '+56 9 '+@items[:sim].phone_number.to_s %>
+            </p>
+          </div>
+              <%= form.hidden_field :phone_number, value: @items[:sim].phone_number.to_s %>
+
+        <% else %>
+          <p></p>
+          <div class="alert alert-danger">Sim no tiene un número de teléfono asignado en el sistema,
+            Ingrese el número telefónico actual que tiene asociado a CCU</div>
+            <div class="row">
+              <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
+              <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+                <%= form.label :phone_number, 'Número (+56 9)' %>
+              </p>
+
+              <p class="col-lg-4 col-md-5 col-sm-5 col-xs-6 text-left">
+                <%= form.text_field :phone_number, style: 'width:100%' %>
+              </p>
+              <div class="col-lg-3 col-md-2 col-sm-2 hidden-xs"></div>
+            </div>
+        <% end %>
+
+      <% else %>
+      <p></p>
+      <div class="alert alert-danger">Usuario no tiene una Sim asignada en el sistema,
+        si tiene una Sim asociada a CCU ingrese el número telefónico de la Sim</div>
+        <div class="row">
+          <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
+          <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-left">
+            <%= form.label :phone_number, 'Número (+56 9):' %>
+          </p>
+
+          <p class="col-lg-4 col-md-5 col-sm-5 col-xs-6 text-left">
+            <%= form.text_field :phone_number, style: 'width:100%' %>
+          </p>
+          <div class="col-lg-3 col-md-2 col-sm-2 hidden-xs"></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</body>
+</html>

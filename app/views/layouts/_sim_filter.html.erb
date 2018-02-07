@@ -15,6 +15,11 @@
       margin-top: 10px;
     }
 
+    label {
+      margin-right: 10px;
+    }
+
+
   </style>
 
   <script type="text/javascript">
@@ -42,27 +47,27 @@
     <%= search_form_for @search do |form|%>
 
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
           <%= form.label :serial_number, "n° de Serie", class: "pull-left"%>
-          <%= form.text_field :serial_number_cont, placeholder: "search", class: "pull-right",
-          size: "15", id: "1"%>
+          <%= form.text_field :serial_number_cont, placeholder: "search", class: "pull-left",
+          size: "11", id: "1"%>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
           <%= form.label :phone_number, "n° de Teléfono", class: "pull-left"%>
-          <%= form.text_field :phone_number_cont, placeholder: "search", class: "pull-right",
-          size: "15", id: "2"%>
+          <%= form.text_field :phone_number_cont, placeholder: "search", class: "pull-left",
+          size: "11", id: "2"%>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
           <%= form.label :state_eq, "Estado", class: "pull-left"%>
           <%= form.select :state_eq, [['Todos',''],['Nuevos','new'],
           ['Usados','used']], {},
-          {id: "3", style: "width:100px", class: "pull-right"}%>
+          {id: "3", style: "width:85px", class: "pull-left"}%>
         </div>
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
           <%= form.label :available_true, "Disponible", class: "pull-left"%>
           <%= form.select :available_true, [['Todos', ''], ['True', true],
           ['False', false]],
-          {}, {id: "4", style: "width:100px", class: "pull-right"}%>
+          {}, {id: "4", style: "width:85px", class: "pull-left"}%>
         </div>
       </div>
       <hr>

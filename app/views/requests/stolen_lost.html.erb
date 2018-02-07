@@ -28,9 +28,9 @@
       margin-top: 1%;
       margin-bottom: 1%;
     }
-    .well {
-      margin: 0px;
-      padding: 0px;
+
+    .btn {
+      margin-bottom: 15px;
     }
 
   </style>
@@ -157,28 +157,34 @@
       <%= form.hidden_field :national_id, value: @user["national_id"] %>
       <%= form.hidden_field :email, value: @user["email"] %>
 
-    <div class="row">
-      <div class="well form-horizontal col-md-6 col-xs-6">
-         <!-- Cargar Informacion del usuario para mostrar -->
-         <%= render partial: '/layouts/user_info', locals: {form: form} %>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <br>
+          <!-- Cargar Informacion del usuario para mostrar -->
+          <%= render partial: '/layouts/user_info2', locals: {form: form} %>
+          <hr>
+        </div>
       </div>
-      <div class="col-md-6 col-xs-6">
-        <!-- Formulario del robo o perdida -->
-        <%= render partial: '/layouts/stolen_lost', locals: {form: form} %>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <!-- Formulario del robo o perdida -->
+          <%= render partial: '/layouts/stolen_lost', locals: {form: form} %>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <!-- Formulario para nuevo dispositivo -->
+          <% if @user["item"] == 'smartphone' %>
+            <%= render partial: '/layouts/sl_smp', locals: {form: form} %>
+          <% elsif @user["item"] == 'bam' %>
+            <%= render partial: '/layouts/sl_bam', locals: {form: form} %>
+          <% elsif @user["item"] == 'sim' %>
+            <%= render partial: '/layouts/sl_sim', locals: {form: form} %>
+          <% end %>
+        </div>
       </div>
-    </div>
 
 
 
-    <!-- Formulario para nuevo dispositivo -->
-      <% if @user["item"] == 'smartphone' %>
-        <%= render partial: '/layouts/renew_smp', locals: {form: form} %>
-      <% elsif @user["item"] == 'bam' %>
-        <%= render partial: '/layouts/renew_bam', locals: {form: form} %>
-      <% elsif @user["item"] == 'sim' %>
-        <%= render partial: '/layouts/renew_sim', locals: {form: form} %>
-      <% end %>
-    <br>
     <!-- Enviar Formulario -->
     <div id= "submit">
     <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
