@@ -78,7 +78,7 @@
           <strong>Solicitud: </strong>
           <%= @request.email_sended  %>
         </p>
-        <% if !@request.comment_sup.empty? %>
+        <% if !@request.comment_sup.blank? %>
         <br>
         <p class="text-left">
         <strong>Respuesta Solicitud: </strong>

@@ -93,7 +93,7 @@ class RequestsController < ApplicationController
           UserMailer.change_email(user, @request, 'Rechazada').deliver_now
         end
       rescue
-        render layout: error
+        render layout: error and return
       end
 ################################################################################
 
@@ -301,7 +301,7 @@ class RequestsController < ApplicationController
         # Send mail to supervisor
         UserMailer.supervisor_email(user, @request).deliver_now
       rescue
-        render layout: error
+        render layout: error and return
       end
 ################################################################################
 

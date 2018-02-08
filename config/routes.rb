@@ -12,9 +12,16 @@ Rails.application.routes.draw do
   get '/requests/home/menu' => 'home_pages#request_home'
   # Follow Request
   get '/requests/home/follow_request' => 'home_pages#follow_request'
-
   # Show Request for user
   get '/requests/home/follow' => 'requests#show'
+  # Request FAQ
+  get '/requests/home/faq' => 'home_pages#faq'
+  # Request downloads
+  get '/requests/home/downloads' => 'home_pages#downloads'
+  # Request support
+  get '/requests/home/support' => 'home_pages#support'
+
+
   # Validate User
   get '/requests/home/validate' => 'requests#validate_user'
   # Validates Aproval/reject of request
@@ -22,7 +29,7 @@ Rails.application.routes.draw do
   # Update request for supervisor
   patch '/requests/validations/update/:id' => 'requests#update_validation'
 
-  # Delete
+  # Delete Action
   # smp
   get '/smartphones/delete/:id' => 'smartphones#destroy'
   # bam
@@ -32,6 +39,7 @@ Rails.application.routes.draw do
   # plan
   get '/plans/delete/:id' => 'plans#destroy'
 
+  # Requests Forms
   # TransferLine Form
   get '/requests/forms/transferline' => 'requests#transfer_line'
   # New Form
@@ -44,12 +52,14 @@ Rails.application.routes.draw do
   get '/requests/forms/stolenlost' => 'requests#stolen_lost'
   # Technical Service Form
   get '/requests/forms/technicalservice' => 'requests#technical_service'
+
+  # Download Nota de pedido
   # files
   get '/requests/files/:id' => 'requests#download_file'
   # Contract
   get '/requests/contracts/:id' => 'requests#download_contract'
 
-  # Admin login
+  # Admin
   post 'admins/login_attempt' => 'sessions#login_attempt'
   get 'admins/login_attempt' => 'sessions#login'
   get 'admins/login' => 'sessions#login'

@@ -26,10 +26,25 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  # Config mailer
   config.action_mailer.perform_caching = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.asset_host = '128.84.201.201'
+
+  # for outlook
+  config.action_mailer.smtp_settings = {
+    openssl_verify_mode: "none",
+    address: '128.84.0.150',
+    port: 587,
+    enable_starttls_auto:  true,
+  }
+  # Define host for mailer
+  config.action_mailer.default_url_options = {
+    host: '128.84.201.201'
+  }
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

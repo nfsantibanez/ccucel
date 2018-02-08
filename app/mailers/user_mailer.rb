@@ -6,9 +6,10 @@ class UserMailer < ApplicationMailer
     @n_link = request.link
     @supervisor = user.supervisor
     if Rails.env.test? || Rails.env.development?
+      @no_data=''
       @to = 'solcelulares@ccu.cl'
     elsif Rails.env.production?
-      @to = if user.supervisor_email.blank? then user.supervisor_email, @no_data='' else 'solcelulares@ccu.cl' end
+      @to = if !user.supervisor_email.blank? then user.supervisor_email, @no_data='' else 'solcelulares@ccu.cl' end
     end
     @subject = request.name+" a creado la solicitud n° "+request.n_request+" que necesita su aprobación."
     @body = request.email_sended+"."
@@ -30,10 +31,11 @@ class UserMailer < ApplicationMailer
     @no_data = 'HA RECIBIDO ESTE CORREO YA QUE EL USUARIO QUE CREÓ LA SOLICITUD NO TIENE UN CORREO ASOCIADO'
     @user = user
     if Rails.env.test? || Rails.env.development?
-      @to = 'solcelulares@ccu.cl '
+      @no_data=''
+      @to = 'nisanti@ccu.cl '
     elsif Rails.env.production?
       @to = user.user_email
-      @to = if user.user_email.blank? then user.user_email, @no_data='' else 'solcelulares@ccu.cl' end
+      @to = if !user.user_email.blank? then user.user_email, @no_data='' else 'solcelulares@ccu.cl' end
     end
     @subject = "Se ha creado la Solicitud n° "+request.n_request
     @body = "Usted a creado la solicitud n° "+request.n_request
@@ -47,7 +49,7 @@ class UserMailer < ApplicationMailer
     @request = request
     @change = change
     if Rails.env.test? || Rails.env.development?
-      @to = 'solcelulares@ccu.cl '
+      @to = 'solcelulares@ccu.cl'
     elsif Rails.env.production?
       @to = if !user.user_email.blank? then user.user_email else 'solcelulares@ccu.cl' end
     end

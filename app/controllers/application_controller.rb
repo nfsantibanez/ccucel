@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
       user_db = User.where(national_id: user["EMPLID"]).first
       user_db.update_attributes!(jobtitle: user["JOBTITLE"], company: user["COMPANY"],
         deptname: user["DEPTNAME"], jobcode: user["JOBCODE"], location: user["LOCATION"],
-        supervisor: user["SUPERVISOR_ID"], supervisor_jobtitle: user["SUPERVISOR_JOBTITLE"],
+        supervisor: user["SUPERVISOR_NAME"], supervisor_jobtitle: user["SUPERVISOR_JOBTITLE"],
         supervisor_email: user["SUPERVISOR_EMAIL"], job_family: user["JOB_FAMILY"],
         country: user["COUNTRY"])
     else
