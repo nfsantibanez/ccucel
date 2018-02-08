@@ -6635,3 +6635,118 @@ D, [2018-02-08T13:09:00.892889 #25570] DEBUG -- :   [1m[35m (6.4ms)[0m  [1m
 D, [2018-02-08T13:09:00.983055 #25570] DEBUG -- :   [1m[35m (81.1ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'SYSADM' AND cols.table_name = 'AR_INTERNAL_METADATA' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
 D, [2018-02-08T13:09:00.996863 #25570] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (9.9ms)[0m  [1m[34mSELECT  "AR_INTERNAL_METADATA".* FROM "AR_INTERNAL_METADATA" WHERE "AR_INTERNAL_METADATA"."KEY" = :a1 AND ROWNUM <= :a2 [0m  [["key", "environment"], ["LIMIT", 1]]
 D, [2018-02-08T13:09:01.004392 #25570] DEBUG -- :   [1m[35m (6.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+I, [2018-02-08T13:22:45.492231 #26996]  INFO -- : [4ee8ada1-415d-476c-850c-84bf9a0c31d6] Started GET "/" for 127.0.0.1 at 2018-02-08 13:22:45 -0300
+I, [2018-02-08T13:22:45.499412 #26996]  INFO -- : [4ee8ada1-415d-476c-850c-84bf9a0c31d6] Processing by HomePagesController#home as HTML
+I, [2018-02-08T13:22:45.504800 #26996]  INFO -- : [4ee8ada1-415d-476c-850c-84bf9a0c31d6]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-08T13:22:45.505295 #26996]  INFO -- : [4ee8ada1-415d-476c-850c-84bf9a0c31d6]   Rendered home_pages/home.html.erb within layouts/home (0.4ms)
+I, [2018-02-08T13:22:45.506900 #26996]  INFO -- : [4ee8ada1-415d-476c-850c-84bf9a0c31d6] Completed 200 OK in 7ms (Views: 3.0ms)
+I, [2018-02-08T13:22:46.311120 #26996]  INFO -- : [3cf29cb9-d3bd-4ca4-965d-18e17465a0cb] Started GET "/requests/home/menu" for 127.0.0.1 at 2018-02-08 13:22:46 -0300
+I, [2018-02-08T13:22:46.311804 #26996]  INFO -- : [3cf29cb9-d3bd-4ca4-965d-18e17465a0cb] Processing by HomePagesController#request_home as HTML
+I, [2018-02-08T13:22:46.313046 #26996]  INFO -- : [3cf29cb9-d3bd-4ca4-965d-18e17465a0cb]   Rendering home_pages/request_home.html.erb within layouts/general_view
+I, [2018-02-08T13:22:46.315593 #26996]  INFO -- : [3cf29cb9-d3bd-4ca4-965d-18e17465a0cb]   Rendered home_pages/request_home.html.erb within layouts/general_view (2.4ms)
+I, [2018-02-08T13:22:46.316583 #26996]  INFO -- : [3cf29cb9-d3bd-4ca4-965d-18e17465a0cb] Completed 200 OK in 5ms (Views: 4.2ms)
+I, [2018-02-08T13:22:46.714948 #26996]  INFO -- : [8a8ee870-6c3d-4913-b770-d7bb622bbda3] Started GET "/requests/home/follow_request" for 127.0.0.1 at 2018-02-08 13:22:46 -0300
+I, [2018-02-08T13:22:46.715583 #26996]  INFO -- : [8a8ee870-6c3d-4913-b770-d7bb622bbda3] Processing by HomePagesController#follow_request as HTML
+I, [2018-02-08T13:22:46.716534 #26996]  INFO -- : [8a8ee870-6c3d-4913-b770-d7bb622bbda3]   Rendering home_pages/follow_request.html.erb within layouts/general_view
+I, [2018-02-08T13:22:46.718539 #26996]  INFO -- : [8a8ee870-6c3d-4913-b770-d7bb622bbda3]   Rendered home_pages/follow_request.html.erb within layouts/general_view (1.9ms)
+I, [2018-02-08T13:22:46.719164 #26996]  INFO -- : [8a8ee870-6c3d-4913-b770-d7bb622bbda3] Completed 200 OK in 3ms (Views: 3.1ms)
+I, [2018-02-08T13:22:47.151898 #26996]  INFO -- : [e20dfd23-2cfd-4c4f-be70-57220685d115] Started GET "/requests/home/downloads" for 127.0.0.1 at 2018-02-08 13:22:47 -0300
+I, [2018-02-08T13:22:47.152706 #26996]  INFO -- : [e20dfd23-2cfd-4c4f-be70-57220685d115] Processing by HomePagesController#downloads as HTML
+I, [2018-02-08T13:22:47.153784 #26996]  INFO -- : [e20dfd23-2cfd-4c4f-be70-57220685d115]   Rendering home_pages/downloads.html.erb within layouts/general_view
+I, [2018-02-08T13:22:47.154549 #26996]  INFO -- : [e20dfd23-2cfd-4c4f-be70-57220685d115]   Rendered home_pages/downloads.html.erb within layouts/general_view (0.7ms)
+I, [2018-02-08T13:22:47.155235 #26996]  INFO -- : [e20dfd23-2cfd-4c4f-be70-57220685d115] Completed 200 OK in 2ms (Views: 2.0ms)
+I, [2018-02-08T13:22:47.684424 #26996]  INFO -- : [dabcdefd-9424-4b95-955b-59696689971f] Started GET "/requests/home/support" for 127.0.0.1 at 2018-02-08 13:22:47 -0300
+I, [2018-02-08T13:22:47.685300 #26996]  INFO -- : [dabcdefd-9424-4b95-955b-59696689971f] Processing by HomePagesController#support as HTML
+I, [2018-02-08T13:22:47.686360 #26996]  INFO -- : [dabcdefd-9424-4b95-955b-59696689971f]   Rendering home_pages/support.html.erb within layouts/general_view
+I, [2018-02-08T13:22:47.687112 #26996]  INFO -- : [dabcdefd-9424-4b95-955b-59696689971f]   Rendered home_pages/support.html.erb within layouts/general_view (0.5ms)
+I, [2018-02-08T13:22:47.687574 #26996]  INFO -- : [dabcdefd-9424-4b95-955b-59696689971f] Completed 200 OK in 2ms (Views: 1.8ms)
+I, [2018-02-08T13:22:48.229740 #26996]  INFO -- : [9f96b884-351a-43ea-8f69-ce2ce1368cf7] Started GET "/admins/login" for 127.0.0.1 at 2018-02-08 13:22:48 -0300
+I, [2018-02-08T13:22:48.231208 #26996]  INFO -- : [9f96b884-351a-43ea-8f69-ce2ce1368cf7] Processing by SessionsController#login as HTML
+I, [2018-02-08T13:22:48.232595 #26996]  INFO -- : [9f96b884-351a-43ea-8f69-ce2ce1368cf7]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-08T13:22:48.235135 #26996]  INFO -- : [9f96b884-351a-43ea-8f69-ce2ce1368cf7]   Rendered sessions/login.html.erb within layouts/general_view (2.4ms)
+I, [2018-02-08T13:22:48.236051 #26996]  INFO -- : [9f96b884-351a-43ea-8f69-ce2ce1368cf7] Completed 200 OK in 5ms (Views: 3.7ms)
+I, [2018-02-08T13:22:48.683099 #26996]  INFO -- : [37db5cf2-5dd2-4902-9766-a51a6a4eadb3] Started GET "/requests/home/faq" for 127.0.0.1 at 2018-02-08 13:22:48 -0300
+I, [2018-02-08T13:22:48.684164 #26996]  INFO -- : [37db5cf2-5dd2-4902-9766-a51a6a4eadb3] Processing by HomePagesController#faq as HTML
+I, [2018-02-08T13:22:48.685929 #26996]  INFO -- : [37db5cf2-5dd2-4902-9766-a51a6a4eadb3]   Rendering home_pages/faq.html.erb within layouts/general_view2
+I, [2018-02-08T13:22:48.687054 #26996]  INFO -- : [37db5cf2-5dd2-4902-9766-a51a6a4eadb3]   Rendered home_pages/faq.html.erb within layouts/general_view2 (0.9ms)
+I, [2018-02-08T13:22:48.688121 #26996]  INFO -- : [37db5cf2-5dd2-4902-9766-a51a6a4eadb3] Completed 200 OK in 4ms (Views: 3.0ms)
+I, [2018-02-08T13:23:08.374059 #27047]  INFO -- : [47f4e1cb-548b-41ce-b8fb-c309314375ce] Started GET "/" for 127.0.0.1 at 2018-02-08 13:23:08 -0300
+I, [2018-02-08T13:23:08.382640 #27047]  INFO -- : [47f4e1cb-548b-41ce-b8fb-c309314375ce] Processing by HomePagesController#home as HTML
+I, [2018-02-08T13:23:08.388354 #27047]  INFO -- : [47f4e1cb-548b-41ce-b8fb-c309314375ce]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-08T13:23:08.388788 #27047]  INFO -- : [47f4e1cb-548b-41ce-b8fb-c309314375ce]   Rendered home_pages/home.html.erb within layouts/home (0.3ms)
+I, [2018-02-08T13:23:08.390172 #27047]  INFO -- : [47f4e1cb-548b-41ce-b8fb-c309314375ce] Completed 200 OK in 7ms (Views: 2.9ms)
+I, [2018-02-08T13:23:08.955222 #27047]  INFO -- : [b63ebbfb-38d5-4636-96a6-1a0e2707ae46] Started GET "/requests/home/follow_request" for 127.0.0.1 at 2018-02-08 13:23:08 -0300
+I, [2018-02-08T13:23:08.955931 #27047]  INFO -- : [b63ebbfb-38d5-4636-96a6-1a0e2707ae46] Processing by HomePagesController#follow_request as HTML
+I, [2018-02-08T13:23:08.957214 #27047]  INFO -- : [b63ebbfb-38d5-4636-96a6-1a0e2707ae46]   Rendering home_pages/follow_request.html.erb within layouts/general_view
+I, [2018-02-08T13:23:08.958844 #27047]  INFO -- : [b63ebbfb-38d5-4636-96a6-1a0e2707ae46]   Rendered home_pages/follow_request.html.erb within layouts/general_view (1.5ms)
+I, [2018-02-08T13:23:08.959969 #27047]  INFO -- : [b63ebbfb-38d5-4636-96a6-1a0e2707ae46] Completed 200 OK in 4ms (Views: 3.5ms)
+I, [2018-02-08T13:23:09.420894 #27047]  INFO -- : [c152608b-b736-4f12-8226-66eb26bc9e10] Started GET "/requests/home/menu" for 127.0.0.1 at 2018-02-08 13:23:09 -0300
+I, [2018-02-08T13:23:09.421523 #27047]  INFO -- : [c152608b-b736-4f12-8226-66eb26bc9e10] Processing by HomePagesController#request_home as HTML
+I, [2018-02-08T13:23:09.422460 #27047]  INFO -- : [c152608b-b736-4f12-8226-66eb26bc9e10]   Rendering home_pages/request_home.html.erb within layouts/general_view
+I, [2018-02-08T13:23:09.425444 #27047]  INFO -- : [c152608b-b736-4f12-8226-66eb26bc9e10]   Rendered home_pages/request_home.html.erb within layouts/general_view (2.9ms)
+I, [2018-02-08T13:23:09.426132 #27047]  INFO -- : [c152608b-b736-4f12-8226-66eb26bc9e10] Completed 200 OK in 5ms (Views: 4.1ms)
+I, [2018-02-08T13:23:09.979685 #27047]  INFO -- : [a98433f6-a197-41d6-9cc8-0031ed81fe8f] Started GET "/requests/home/downloads" for 127.0.0.1 at 2018-02-08 13:23:09 -0300
+I, [2018-02-08T13:23:09.980466 #27047]  INFO -- : [a98433f6-a197-41d6-9cc8-0031ed81fe8f] Processing by HomePagesController#downloads as HTML
+I, [2018-02-08T13:23:09.981515 #27047]  INFO -- : [a98433f6-a197-41d6-9cc8-0031ed81fe8f]   Rendering home_pages/downloads.html.erb within layouts/general_view
+I, [2018-02-08T13:23:09.982270 #27047]  INFO -- : [a98433f6-a197-41d6-9cc8-0031ed81fe8f]   Rendered home_pages/downloads.html.erb within layouts/general_view (0.7ms)
+I, [2018-02-08T13:23:09.982938 #27047]  INFO -- : [a98433f6-a197-41d6-9cc8-0031ed81fe8f] Completed 200 OK in 2ms (Views: 1.8ms)
+I, [2018-02-08T13:23:10.355730 #27047]  INFO -- : [9dd6e001-2cc9-4dd5-be85-574ff3470fe7] Started GET "/requests/home/support" for 127.0.0.1 at 2018-02-08 13:23:10 -0300
+I, [2018-02-08T13:23:10.356832 #27047]  INFO -- : [9dd6e001-2cc9-4dd5-be85-574ff3470fe7] Processing by HomePagesController#support as HTML
+I, [2018-02-08T13:23:10.358121 #27047]  INFO -- : [9dd6e001-2cc9-4dd5-be85-574ff3470fe7]   Rendering home_pages/support.html.erb within layouts/general_view
+I, [2018-02-08T13:23:10.359064 #27047]  INFO -- : [9dd6e001-2cc9-4dd5-be85-574ff3470fe7]   Rendered home_pages/support.html.erb within layouts/general_view (0.8ms)
+I, [2018-02-08T13:23:10.359866 #27047]  INFO -- : [9dd6e001-2cc9-4dd5-be85-574ff3470fe7] Completed 200 OK in 3ms (Views: 2.1ms)
+I, [2018-02-08T13:23:10.784656 #27047]  INFO -- : [3fb95d44-9a0c-4844-a9b6-8bc97acb2d78] Started GET "/requests/home/faq" for 127.0.0.1 at 2018-02-08 13:23:10 -0300
+I, [2018-02-08T13:23:10.785536 #27047]  INFO -- : [3fb95d44-9a0c-4844-a9b6-8bc97acb2d78] Processing by HomePagesController#faq as HTML
+I, [2018-02-08T13:23:10.786903 #27047]  INFO -- : [3fb95d44-9a0c-4844-a9b6-8bc97acb2d78]   Rendering home_pages/faq.html.erb within layouts/general_view2
+I, [2018-02-08T13:23:10.787896 #27047]  INFO -- : [3fb95d44-9a0c-4844-a9b6-8bc97acb2d78]   Rendered home_pages/faq.html.erb within layouts/general_view2 (0.9ms)
+I, [2018-02-08T13:23:10.789143 #27047]  INFO -- : [3fb95d44-9a0c-4844-a9b6-8bc97acb2d78] Completed 200 OK in 4ms (Views: 3.1ms)
+I, [2018-02-08T13:23:11.213898 #27047]  INFO -- : [081f195e-896b-4828-8ba4-2142bfb1923d] Started GET "/admins/login" for 127.0.0.1 at 2018-02-08 13:23:11 -0300
+I, [2018-02-08T13:23:11.215266 #27047]  INFO -- : [081f195e-896b-4828-8ba4-2142bfb1923d] Processing by SessionsController#login as HTML
+I, [2018-02-08T13:23:11.216916 #27047]  INFO -- : [081f195e-896b-4828-8ba4-2142bfb1923d]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-08T13:23:11.219133 #27047]  INFO -- : [081f195e-896b-4828-8ba4-2142bfb1923d]   Rendered sessions/login.html.erb within layouts/general_view (2.1ms)
+I, [2018-02-08T13:23:11.220080 #27047]  INFO -- : [081f195e-896b-4828-8ba4-2142bfb1923d] Completed 200 OK in 5ms (Views: 3.4ms)
+I, [2018-02-08T13:23:11.900479 #27047]  INFO -- : [781734c1-e3bf-4de8-a492-ef9f38b9bea9] Started GET "/requests/home/faq" for 127.0.0.1 at 2018-02-08 13:23:11 -0300
+I, [2018-02-08T13:23:11.901151 #27047]  INFO -- : [781734c1-e3bf-4de8-a492-ef9f38b9bea9] Processing by HomePagesController#faq as HTML
+I, [2018-02-08T13:23:11.901976 #27047]  INFO -- : [781734c1-e3bf-4de8-a492-ef9f38b9bea9]   Rendering home_pages/faq.html.erb within layouts/general_view2
+I, [2018-02-08T13:23:11.902479 #27047]  INFO -- : [781734c1-e3bf-4de8-a492-ef9f38b9bea9]   Rendered home_pages/faq.html.erb within layouts/general_view2 (0.4ms)
+I, [2018-02-08T13:23:11.902956 #27047]  INFO -- : [781734c1-e3bf-4de8-a492-ef9f38b9bea9] Completed 200 OK in 2ms (Views: 1.1ms)
+I, [2018-02-08T13:23:13.868511 #27047]  INFO -- : [08a0971a-8979-4c02-999c-7ed52b032bf1] Started GET "/" for 127.0.0.1 at 2018-02-08 13:23:13 -0300
+I, [2018-02-08T13:23:13.869418 #27047]  INFO -- : [08a0971a-8979-4c02-999c-7ed52b032bf1] Processing by HomePagesController#home as HTML
+I, [2018-02-08T13:23:13.870165 #27047]  INFO -- : [08a0971a-8979-4c02-999c-7ed52b032bf1]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-08T13:23:13.870282 #27047]  INFO -- : [08a0971a-8979-4c02-999c-7ed52b032bf1]   Rendered home_pages/home.html.erb within layouts/home (0.0ms)
+I, [2018-02-08T13:23:13.870936 #27047]  INFO -- : [08a0971a-8979-4c02-999c-7ed52b032bf1] Completed 200 OK in 1ms (Views: 1.0ms)
+I, [2018-02-08T13:23:50.462143 #27245]  INFO -- : [e609ec22-6d3c-4d93-bc0f-619cd3e2852f] Started GET "/" for 127.0.0.1 at 2018-02-08 13:23:50 -0300
+I, [2018-02-08T13:23:50.469255 #27245]  INFO -- : [e609ec22-6d3c-4d93-bc0f-619cd3e2852f] Processing by HomePagesController#home as HTML
+I, [2018-02-08T13:23:50.474485 #27245]  INFO -- : [e609ec22-6d3c-4d93-bc0f-619cd3e2852f]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-08T13:23:50.474872 #27245]  INFO -- : [e609ec22-6d3c-4d93-bc0f-619cd3e2852f]   Rendered home_pages/home.html.erb within layouts/home (0.3ms)
+I, [2018-02-08T13:23:50.476163 #27245]  INFO -- : [e609ec22-6d3c-4d93-bc0f-619cd3e2852f] Completed 200 OK in 7ms (Views: 2.6ms)
+I, [2018-02-08T13:23:51.427310 #27245]  INFO -- : [61c42900-b0c2-4fda-9ecc-7b2367f09827] Started GET "/" for 127.0.0.1 at 2018-02-08 13:23:51 -0300
+I, [2018-02-08T13:23:51.428112 #27245]  INFO -- : [61c42900-b0c2-4fda-9ecc-7b2367f09827] Processing by HomePagesController#home as HTML
+I, [2018-02-08T13:23:51.428953 #27245]  INFO -- : [61c42900-b0c2-4fda-9ecc-7b2367f09827]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-08T13:23:51.429096 #27245]  INFO -- : [61c42900-b0c2-4fda-9ecc-7b2367f09827]   Rendered home_pages/home.html.erb within layouts/home (0.0ms)
+I, [2018-02-08T13:23:51.429848 #27245]  INFO -- : [61c42900-b0c2-4fda-9ecc-7b2367f09827] Completed 200 OK in 2ms (Views: 1.1ms)
+I, [2018-02-08T13:23:51.943395 #27245]  INFO -- : [bf022aae-5db3-4801-ae48-795a91d01f1d] Started GET "/requests/home/menu" for 127.0.0.1 at 2018-02-08 13:23:51 -0300
+I, [2018-02-08T13:23:51.944036 #27245]  INFO -- : [bf022aae-5db3-4801-ae48-795a91d01f1d] Processing by HomePagesController#request_home as HTML
+I, [2018-02-08T13:23:51.945249 #27245]  INFO -- : [bf022aae-5db3-4801-ae48-795a91d01f1d]   Rendering home_pages/request_home.html.erb within layouts/general_view
+I, [2018-02-08T13:23:51.947766 #27245]  INFO -- : [bf022aae-5db3-4801-ae48-795a91d01f1d]   Rendered home_pages/request_home.html.erb within layouts/general_view (2.4ms)
+I, [2018-02-08T13:23:51.948758 #27245]  INFO -- : [bf022aae-5db3-4801-ae48-795a91d01f1d] Completed 200 OK in 5ms (Views: 4.2ms)
+I, [2018-02-08T13:23:52.343575 #27245]  INFO -- : [11086df0-4590-4841-90b2-b63c63413d05] Started GET "/requests/home/follow_request" for 127.0.0.1 at 2018-02-08 13:23:52 -0300
+I, [2018-02-08T13:23:52.344212 #27245]  INFO -- : [11086df0-4590-4841-90b2-b63c63413d05] Processing by HomePagesController#follow_request as HTML
+I, [2018-02-08T13:23:52.345163 #27245]  INFO -- : [11086df0-4590-4841-90b2-b63c63413d05]   Rendering home_pages/follow_request.html.erb within layouts/general_view
+I, [2018-02-08T13:23:52.347399 #27245]  INFO -- : [11086df0-4590-4841-90b2-b63c63413d05]   Rendered home_pages/follow_request.html.erb within layouts/general_view (2.1ms)
+I, [2018-02-08T13:23:52.348075 #27245]  INFO -- : [11086df0-4590-4841-90b2-b63c63413d05] Completed 200 OK in 4ms (Views: 3.4ms)
+I, [2018-02-08T13:23:52.957793 #27245]  INFO -- : [b6417fa6-28c9-4085-aa79-0e62df3f0f09] Started GET "/requests/home/support" for 127.0.0.1 at 2018-02-08 13:23:52 -0300
+I, [2018-02-08T13:23:52.958586 #27245]  INFO -- : [b6417fa6-28c9-4085-aa79-0e62df3f0f09] Processing by HomePagesController#support as HTML
+I, [2018-02-08T13:23:52.959438 #27245]  INFO -- : [b6417fa6-28c9-4085-aa79-0e62df3f0f09]   Rendering home_pages/support.html.erb within layouts/general_view
+I, [2018-02-08T13:23:52.960187 #27245]  INFO -- : [b6417fa6-28c9-4085-aa79-0e62df3f0f09]   Rendered home_pages/support.html.erb within layouts/general_view (0.5ms)
+I, [2018-02-08T13:23:52.960845 #27245]  INFO -- : [b6417fa6-28c9-4085-aa79-0e62df3f0f09] Completed 200 OK in 2ms (Views: 1.8ms)
+I, [2018-02-08T13:23:53.653373 #27245]  INFO -- : [7ae3100b-6a94-43cc-b0ae-bc318e5514bf] Started GET "/admins/login" for 127.0.0.1 at 2018-02-08 13:23:53 -0300
+I, [2018-02-08T13:23:53.654718 #27245]  INFO -- : [7ae3100b-6a94-43cc-b0ae-bc318e5514bf] Processing by SessionsController#login as HTML
+I, [2018-02-08T13:23:53.656397 #27245]  INFO -- : [7ae3100b-6a94-43cc-b0ae-bc318e5514bf]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-08T13:23:53.658851 #27245]  INFO -- : [7ae3100b-6a94-43cc-b0ae-bc318e5514bf]   Rendered sessions/login.html.erb within layouts/general_view (2.3ms)
+I, [2018-02-08T13:23:53.659682 #27245]  INFO -- : [7ae3100b-6a94-43cc-b0ae-bc318e5514bf] Completed 200 OK in 5ms (Views: 3.8ms)
+I, [2018-02-08T13:23:54.118562 #27245]  INFO -- : [c124a5d8-7a4f-4928-a94b-1ca8468d97f3] Started GET "/requests/home/faq" for 127.0.0.1 at 2018-02-08 13:23:54 -0300
+I, [2018-02-08T13:23:54.119638 #27245]  INFO -- : [c124a5d8-7a4f-4928-a94b-1ca8468d97f3] Processing by HomePagesController#faq as HTML
+I, [2018-02-08T13:23:54.121185 #27245]  INFO -- : [c124a5d8-7a4f-4928-a94b-1ca8468d97f3]   Rendering home_pages/faq.html.erb within layouts/general_view2
+I, [2018-02-08T13:23:54.122464 #27245]  INFO -- : [c124a5d8-7a4f-4928-a94b-1ca8468d97f3]   Rendered home_pages/faq.html.erb within layouts/general_view2 (1.2ms)
+I, [2018-02-08T13:23:54.123679 #27245]  INFO -- : [c124a5d8-7a4f-4928-a94b-1ca8468d97f3] Completed 200 OK in 4ms (Views: 3.5ms)
