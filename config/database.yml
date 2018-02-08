@@ -16,11 +16,11 @@ development:
 
 # Config for Oracle DB conecction
   adapter: oracle_enhanced
-  host: p260e.ccu.cl
+  host: 128.84.4.108
   port: 1521
-  database: HR88DEV
-  username: sysadm
-  password: hrdev16
+  database: FDBD
+  username: TELEFONIATST
+  password: Telefoniatst_2018
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -30,15 +30,14 @@ test:
   database: db/test.sqlite3
 
 production:
-# Original Config	
+# Original Config
 #  <<: *default
 #  database: db/production.sqlite3
 
 # Config for Oracle DB conecction
   adapter: oracle_enhanced
-  host: p260e.ccu.cl
+  host: 128.84.4.108
   port: 1521
-  database: HR88DEV
-  username: sysadm
-  password: hrdev16
-
+  database: FDBD
+  username: TELEFONIA
+  password: Telefonia_2018
