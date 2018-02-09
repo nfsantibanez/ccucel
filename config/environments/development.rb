@@ -32,7 +32,7 @@ Rails.application.configure do
   # Config mailer
   config.action_mailer.perform_caching = false
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.asset_host = '128.84.4.23'
   # host de test '128.84.201.201'
@@ -46,7 +46,7 @@ Rails.application.configure do
   }
   # Define host for mailer
   config.action_mailer.default_url_options = {
-    host: '128.84.4.23' 
+    host: '128.84.4.23'
   }
 
   # Print deprecation notices to the Rails logger.
