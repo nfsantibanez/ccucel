@@ -5,20 +5,47 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-  // Custom shit
+
+  h2 {
+    margin: 0;
+  }
+
+  hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
   body {
-    margin-top: 30px;
-    background-color: #eee;
+    background-color: #fff;
+  }
+
+  h4{
+    color: #000;
+  }
+
+  a, a:hover, a:focus, a:visited {
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  p {
+    margin: 0 0 5px;
+  }
+
+  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    background-color: #003F2A;  !important;
+    border-color: #003F2A;  !important;
   }
 
   .list-group.help-group {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     padding-left: 0;
     margin: 0;
     .faq-list {
       display: block;
       top: auto;
-      margin: 0 0 32px;
+      margin: 0 0 5px;
       border-radius: 2px;
       border: 1px solid #ddd;
       box-shadow: 0 1px 5px rgba(85, 85, 85, 0.15);
@@ -26,7 +53,7 @@
         position: relative;
         display: block;
         margin: 0;
-        padding: 13px 16px;
+        padding: 5px 5px;
         background-color: #fff;
         border: 0;
         border-bottom: 1px solid #ddd;
@@ -68,30 +95,15 @@
     border-radius: 2px;
     overflow: hidden;
     background-color: #fff;
-    margin: 0 0 16px;
-    a[href^="#"],
-    a[href^="#"]:hover,
-    a[href^="#"]:focus {
-      outline: none;
-      cursor: pointer;
-      text-decoration: none;
-    }
+    margin: 0 0 10px;
+
     .panel-heading {
       background-color: #f6f6f6;
-      padding: 0 16px;
-      line-height: 48px;
+      padding: 0 10px;
+      line-height: 10px;
       border-top-right-radius: 2px;
       border-top-left-radius: 2px;
       color: rgba(0,0,0,.87);
-      h2 {
-        margin: 0;
-        padding: 14px 0 14px;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 20px;
-        letter-spacing: 0;
-        text-transform: none;
-      }
     }
     .panel-body {
       background-color: #fff;
@@ -100,11 +112,6 @@
       border-top-right-radius: 0;
       border-top-left-radius: 0;
       margin-top: 0;
-      p {
-        margin: 0 0 16px;
-        &:last-of-type {
-          margin: 0;
-        }
       }
     }
   </style>
@@ -134,104 +141,178 @@
     <div class="col-md-4">
       <ul class="list-group help-group">
         <div class="faq-list list-group nav nav-tabs">
-          <a href="#tab1" class="list-group-item active" role="tab" data-toggle="tab">Frequently Asked Questions</a>
-          <a href="#tab2" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-account"></i> My profile</a>
-          <a href="#tab3" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-account-settings"></i> My account</a>
-          <a href="#tab4" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-star"></i> My favorites</a>
-          <a href="#tab5" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-cart"></i> Checkout</a>
-          <a href="#tab6" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-heart"></i> Lorem ipsum</a>
-          <a href="#tab7" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-check"></i> Dolor sit amet</a>
+          <a href="#tab1" class="list-group-item active" role="tab" data-toggle="tab">Solicitudes</a>
+          <a href="#tab2" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-account"></i>Dispositivos</a>
+          <a href="#tab3" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-star"></i>Roaming</a>
+          <a href="#tab4" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-cart"></i>Documentos</a>
+          <a href="#tab5" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-heart"></i>Otros</a>
         </div>
       </ul>
     </div>
     <div class="col-md-8">
       <div class="tab-content panels-faq">
+
         <div class="tab-pane active" id="tab1">
           <div class="panel-group" id="help-accordion-1">
+
             <div class="panel panel-default panel-help">
-              <a href="#opret-produkt" data-toggle="collapse" data-parent="#help-accordion-1">
+              <a href="#sol_1" data-toggle="collapse" data-parent="#help-accordion-1">
                 <div class="panel-heading">
-                  <h2>How do I edit my profile?</h2>
+                  <h4>¿Cómo realizo una solicitud?</h4>
                 </div>
               </a>
-              <div id="opret-produkt" class="collapse in">
+
+              <div id="sol_1" class="collapse in">
                 <div class="panel-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                  <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+                  <p>Debes dirigirte a la pestaña “Solicitudes”, seleccionar el tipo de solicitud que deseas, luego
+                    debes identificarte con tu RUT (sin puntos, con guión) y presionar "Enviar".
+                    Luego debes rellenar el o los formularios que aparecen debajo "Datos del Usuario" y presionar "Enviar"
+                  </p>
                 </div>
               </div>
             </div>
+
             <div class="panel panel-default panel-help">
-              <a href="#rediger-produkt" data-toggle="collapse" data-parent="#help-accordion-1">
+              <a href="#sol_2" data-toggle="collapse" data-parent="#help-accordion-1">
                 <div class="panel-heading">
-                  <h2>How do I upload a new profile picture?</h2>
+                  <h4>¿Qué debo hacer si mi dispositivo (Smartphone o Bam) presenta fallas?</h4>
                 </div>
               </a>
-              <div id="rediger-produkt" class="collapse">
+
+              <div id="sol_2" class="collapse">
                 <div class="panel-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                  <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+                  <p>Debes ir al módulo de solicitudes, y seleccionar la opción “Servicio Técnico”,
+                    una vez cursada la solicitud, se entregará un equipo de reemplazo mientras se
+                    realiza la reparación del equipo con falla</p>
                 </div>
               </div>
             </div>
+
             <div class="panel panel-default panel-help">
-              <a href="#ret-pris" data-toggle="collapse" data-parent="#help-accordion-1">
+              <a href="#sol_3" data-toggle="collapse" data-parent="#help-accordion-1">
                 <div class="panel-heading">
-                  <h2>Can I change my phone number?</h2>
+                  <h4>¿Qué puedo hacer en caso de robo o extravío de un dispositivo (Smartphone o Bam)? </h4>
                 </div>
               </a>
-              <div id="ret-pris" class="collapse">
+
+              <div id="sol_3" class="collapse">
                 <div class="panel-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                  <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+                  <p> Lo primero que debes hacer es llamar al 103 desde un móvil Entel o
+                    al 800 367 626 desde red fija o móvil solicitando el bloqueo del dospositivo.
+                    Además debes dejar una constancia en carabineros, esta es solicitada al
+                    momento de realizar la solicitud de dispositivo por robo o pérdida en la pestaña “Solicitudes” </p>
                 </div>
               </div>
             </div>
+
             <div class="panel panel-default panel-help">
-              <a href="#slet-produkt" data-toggle="collapse" data-parent="#help-accordion-1">
+              <a href="#sol_4" data-toggle="collapse" data-parent="#help-accordion-1">
                 <div class="panel-heading">
-                  <h2>Where do I change my privacy settings?</h2>
+                  <h4>p4?</h4>
                 </div>
               </a>
-              <div id="slet-produkt" class="collapse">
+
+              <div id="sol_4" class="collapse">
                 <div class="panel-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                  <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+                  <p>...</p>
                 </div>
               </div>
             </div>
-            <div class="panel panel-default panel-help">
-              <a href="#opret-kampagne" data-toggle="collapse" data-parent="#help-accordion-1">
-                <div class="panel-heading">
-                  <h2>What is this?</h2>
-                </div>
-              </a>
-              <div id="opret-kampagne" class="collapse">
-                <div class="panel-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                  <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
+
         <div class="tab-pane" id="tab2">
           <div class="panel-group" id="help-accordion-2">
+
             <div class="panel panel-default panel-help">
-              <a href="#help-three" data-toggle="collapse" data-parent="#help-accordion-2">
+              <a href="#smp_1" data-toggle="collapse" data-parent="#help-accordion-2">
                 <div class="panel-heading">
-                  <h2>Lorem ipsum?</h2>
+                  <h4>¿En qué consiste el plan de Cervecería CCU?</h4>
                 </div>
               </a>
-              <div id="help-three" class="collapse in">
+
+              <div id="smp_1" class="collapse in">
                 <div class="panel-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus nesciunt ut officiis accusantium quisquam minima praesentium, beatae fugit illo nobis fugiat adipisci quia distinctio repellat culpa saepe, optio aperiam est!</p>
-                  <p><strong>Example: </strong>Facere, id excepturi iusto aliquid beatae delectus nemo enim, ad saepe nam et.</p>
+                  <p>Corresponde en un plan limitado de voz desde los 400 minutos
+                    según el cargo que ejerces dentro de la compañía, más una bolsa
+                    de internet móvil ilimitada de 1GB de capacidad, que al consumirla
+                    sigue siendo ilimitada pero la velocidad de navegación disminuye a 128 kb/s.
+                    El plan se reinicia todos los 1° de cada mes</p>
                 </div>
               </div>
             </div>
+
+            <div class="panel panel-default panel-help">
+              <a href="#smp_2" data-toggle="collapse" data-parent="#help-accordion-2">
+                <div class="panel-heading">
+                  <h4>¿Cuándo me corresponde cambio de equipo?</h4>
+                </div>
+              </a>
+
+              <div id="smp_2" class="collapse">
+                <div class="panel-body">
+                  <p>Según el procedimiento establecido por CCU, el cambio de equipo
+                    corresponde 24 meses desde la recepción del aparato telefónico </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default panel-help">
+              <a href="#smp_3" data-toggle="collapse" data-parent="#help-accordion-2">
+                <div class="panel-heading">
+                  <h4>¿Dónde puedo ver la antigüedad de mi equipo?</h4>
+                </div>
+              </a>
+
+              <div id="smp_3" class="collapse">
+                <div class="panel-body">
+                  <p> En la pestaña de “solicitudes”, debes seleccionar “Renovación
+                    de equipo” e ingresar tu numero para luego presionar "valida" y
+                    ver si ya corresponde el cambio de tu equipo</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default panel-help">
+              <a href="#smp_4" data-toggle="collapse" data-parent="#help-accordion-2">
+                <div class="panel-heading">
+                  <h4>P4?</h4>
+                </div>
+              </a>
+
+              <div id="smp_4" class="collapse">
+                <div class="panel-body">
+                  <p>... </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default panel-help">
+              <a href="#smp_5" data-toggle="collapse" data-parent="#help-accordion-2">
+                <div class="panel-heading">
+                  <h4>¿p5?</h4>
+                </div>
+              </a>
+
+              <div id="smp_5" class="collapse">
+                <div class="panel-body">
+                  <p>... </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
+
+
+
+
+
+
+
+
+
       </div>
     </div>
   </div>

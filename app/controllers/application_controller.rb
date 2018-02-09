@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
 
     # Query to CCU DB
     begin
-      # First view created for web
+      # view created in transitory DB
       query_1 = "select * from sysadm.ps_v88rh_emplee_vw where "
-      # Second view created for web
+      # view created in final DB
       query_2 = "select * from ps_v88rh_phonereq_vw where "
       query_id = "emplid = '"+rut+"'"
       view= ActiveRecord::Base.connection.execute(query_2+query_id)
