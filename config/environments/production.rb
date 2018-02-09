@@ -68,7 +68,7 @@ Rails.application.configure do
 
   # Config mailer
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.asset_host = '128.84.4.23'
   #chost de test '128.84.201.201'
