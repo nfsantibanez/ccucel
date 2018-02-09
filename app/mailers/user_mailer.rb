@@ -16,13 +16,13 @@ class UserMailer < ApplicationMailer
     mail(to: @to, subject: @subject)
   end
 
-  def admin_email(user, request)
-    # puts('entrando a admin_mailer')
-    @user = user
+  def admin_email(request)
+    puts('entrando a admin_mailer')
     @request = request
     @to = 'solcelulares@ccu.cl'
-    @subject = request.name+" a creado la solicitud n° "+request.n_request+" que necesita su aprobación."
-    @body = request.email_sended+"."
+    @subject = 'Se ha Aprobado la solicitud n° '+request.n_request
+    @body = 'La solicitud n° '+request.n_request+', cursada por '+request.name
+
     mail(to: @to, subject: @subject)
   end
 
@@ -34,7 +34,6 @@ class UserMailer < ApplicationMailer
       @no_data=''
       @to = 'nisanti@ccu.cl '
     elsif Rails.env.production?
-      @to = user.user_email
       @to = if !user.user_email.blank? then user.user_email, @no_data='' else 'solcelulares@ccu.cl' end
     end
     @subject = "Se ha creado la Solicitud n° "+request.n_request

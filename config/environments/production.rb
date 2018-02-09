@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Dont check for pending migrations
+  config.active_record.migration_error = false
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -11,7 +14,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
@@ -67,7 +70,8 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.asset_host = '128.84.201.201'
+  config.action_mailer.asset_host = '128.84.4.23'
+  #chost de test '128.84.201.201'
 
   # for outlook
   config.action_mailer.smtp_settings = {
@@ -78,7 +82,7 @@ Rails.application.configure do
   }
   # Define host for mailer
   config.action_mailer.default_url_options = {
-    host: '128.84.201.201'
+    host: '128.84.4.23'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -107,6 +111,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  # Dont check for pending migrations
-  config.active_record.migration_error = false
 end

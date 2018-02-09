@@ -84,8 +84,8 @@ class RequestsController < ApplicationController
         if params[:commit] == "Aprobar"
           # Send email to user
           UserMailer.change_email(user, @request, 'Aprobada').deliver_now
-          # Send email to supervisor or admin when is aprobed
-          ######User.Mailer.admin_email(user,@request)######
+          # Send email to admin when is approved
+          UserMailer.admin_email(@request).deliver_now
 
         # rejected
         elsif params[:commit] == "Rechazar"
