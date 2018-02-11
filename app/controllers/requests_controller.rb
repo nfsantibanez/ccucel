@@ -73,34 +73,35 @@ class RequestsController < ApplicationController
       params[:closed_at] = DateTime.now
     end
 
-    # update request
-    if @request.update(validate_params)
-
+    Request.transaction do
+      # update request
+      if @request.update(validate_params)
 ################################################################################
-      begin
-        # get user
-          user = User.find_by_national_id(@request.national_id)
-        # Approved
-        if params[:commit] == "Aprobar"
-          # Send email to user
-          UserMailer.change_email(user, @request, 'Aprobada').deliver_now
-          # Send email to admin when is approved
-          UserMailer.admin_email(@request).deliver_now
+        begin
+          # get user
+            user = User.find_by_national_id(@request.national_id)
+          # Approved
+          if params[:commit] == "Aprobar"
+            # Send email to user
+            UserMailer.change_email(user, @request, 'Aprobada').deliver_now
+            # Send email to admin when is approved
+            UserMailer.admin_email(@request).deliver_now
 
-        # rejected
-        elsif params[:commit] == "Rechazar"
-          # Send email to user
-          UserMailer.change_email(user, @request, 'Rechazada').deliver_now
+          # rejected
+          elsif params[:commit] == "Rechazar"
+            # Send email to user
+            UserMailer.change_email(user, @request, 'Rechazada').deliver_now
+          end
+        rescue
+          params[:errors]= 'Ocurrió un error al enviar la notificación por correo'
+          render layout: 'error' and return
         end
-      rescue
-        render layout: 'error' and return
-      end
 ################################################################################
-
-      params[:request] = 'follow'
-      render 'show', layout: 'admin_restrict_view'
-    else
-      render layout: 'error'
+        params[:request] = 'follow'
+        render 'show', layout: 'admin_restrict_view'
+      else
+        render layout: 'error'
+      end
     end
 
   end
@@ -282,29 +283,33 @@ class RequestsController < ApplicationController
       params[:n_request] = id
       # Update Attributte
       @request.update_attribute("n_request", id)
+      # n = @request.update_attributes!(n_request: id)
+      # puts(n)
 
       # Unique identifier to access request
       salt =  Digest::SHA256.hexdigest @request.national_id
       url = Digest::SHA256.hexdigest salt+@request.n_request
       params[:link] = url
-      # Update Attributte
-      @request.update_attribute("link", url)
 
-      # Send mails
-      user = User.find_by_id(params[:user_id])
+      Request.transaction do
+        # Update Attributte
+        @request.update_attribute("link", url)
 
+        # Send mails
+        user = User.find_by_id(params[:user_id])
+  ################################################################################
+        begin
+          # Send mail to user
+          UserMailer.user_email(user, @request).deliver_now
+          puts('**********mandando emails**********')
+          # Send mail to supervisor
+          UserMailer.supervisor_email(user, @request).deliver_now
+        rescue
+          params[:errors]= 'Ocurrió un error al enviar la notificación por correo'
+          render layout: 'error' and return
+        end
 ################################################################################
-      begin
-        # Send mail to user
-        UserMailer.user_email(user, @request).deliver_now
-        puts('**********mandando emails**********')
-        # Send mail to supervisor
-        UserMailer.supervisor_email(user, @request).deliver_now
-      rescue
-        render layout: 'error' and return
       end
-################################################################################
-
       puts(requests_url+"/validations/"+@request.link)
 
       # Render success message

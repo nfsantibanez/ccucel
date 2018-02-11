@@ -9,7 +9,8 @@ class UserMailer < ApplicationMailer
       @no_data=''
       @to = 'solcelulares@ccu.cl'
     elsif Rails.env.production?
-      @to = if !user.supervisor_email.blank? then user.supervisor_email, @no_data='' else 'solcelulares@ccu.cl' end
+      @to = if !user.supervisor_email.blank? then user.supervisor_email else 'solcelulares@ccu.cl' end
+      @no_data= '' unless user.supervisor_email.blank?
     end
     @subject = request.name+" a creado la solicitud n° "+request.n_request+" que necesita su aprobación."
     @body = request.email_sended+"."
@@ -34,7 +35,8 @@ class UserMailer < ApplicationMailer
       @no_data=''
       @to = 'nisanti@ccu.cl '
     elsif Rails.env.production?
-      @to = if !user.user_email.blank? then user.user_email, @no_data='' else 'solcelulares@ccu.cl' end
+      @to = if !user.email.blank? then user.email else 'solcelulares@ccu.cl' end
+      @no_data= '' unless user.email.blank?
     end
     @subject = "Se ha creado la Solicitud n° "+request.n_request
     @body = "Usted a creado la solicitud n° "+request.n_request
@@ -50,7 +52,7 @@ class UserMailer < ApplicationMailer
     if Rails.env.test? || Rails.env.development?
       @to = 'solcelulares@ccu.cl'
     elsif Rails.env.production?
-      @to = if !user.user_email.blank? then user.user_email else 'solcelulares@ccu.cl' end
+      @to = if !user.email.blank? then user.email else 'solcelulares@ccu.cl' end
     end
     @subject = "Cambio de estado de Solicitud n° "+request.n_request
     @body = "La solicitud n° "+request.n_request+" ha cambiado de estado a "
