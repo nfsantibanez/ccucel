@@ -28,7 +28,7 @@ end
 
 # Action support
 def support
-  render layout: 'general_view'
+  render layout: 'general_view2'
 end
 
 end
