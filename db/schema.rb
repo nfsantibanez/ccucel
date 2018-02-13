@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20180201133831) do
     t.datetime "start_date", precision: 6
     t.datetime "end_date", precision: 6
     t.datetime "closed_at", precision: 6
-    t.string "link"
+    t.string "link", default: ""
     t.string "sup_approval", default: "pendiente"
     t.text "comment_sup", default: ""
     t.integer "user_id", limit: 19, precision: 19

@@ -14,7 +14,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
@@ -70,8 +70,8 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.asset_host = '128.84.4.23'
-  #chost de test '128.84.201.201'
+  # ip host de test: '128.84.201.201'
+  # ip host final: '128.84.4.23'
 
   # for outlook
   config.action_mailer.smtp_settings = {
@@ -82,7 +82,7 @@ Rails.application.configure do
   }
   # Define host for mailer
   config.action_mailer.default_url_options = {
-    host: '128.84.4.23'
+    host: 'celulares.ccu.cl'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

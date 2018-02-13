@@ -34,7 +34,7 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.datetime :start_date
       t.datetime :end_date
       t.datetime :closed_at
-      t.string :link
+      t.string :link, default: ''
       t.string :sup_approval, default: 'pendiente'
       t.text :comment_sup, default: ""
       t.references :user, foreign_key: true
