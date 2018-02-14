@@ -13,7 +13,7 @@
   label {
     padding-top: 7px;
   }
-  
+
   hr {
     margin-top: 3px;
     margin-bottom: 3px;
@@ -81,8 +81,8 @@
               <td><%= (DateTime.now - request.created_at.to_datetime).to_i %></td>
             <% end %>
             <td><%= link_to 'Usuario', request.user %></td>
-            <td><%= link_to 'Solicitud', requests_path+"/"+request.link %></td>
-            <td><%= link_to 'Editar', requests_path+"/"+request.link+"/edit" %></td>
+            <td><%= link_to 'Solicitud', requests_path+"/"+request.link unless request.link.blank? %></td>
+            <td><%= link_to 'Editar', requests_path+"/"+request.link+"/edit" unless request.link.blank? %></td>
 
           </tr>
         <% end %>

@@ -22161,3 +22161,1168 @@ F, [2018-02-13T12:43:38.379821 #27265] FATAL -- : [d69a0c4e-0611-4de5-80e6-08041
 [d69a0c4e-0611-4de5-80e6-08041364e300] puma (3.11.0) lib/puma/server.rb:438:in `process_client'
 [d69a0c4e-0611-4de5-80e6-08041364e300] puma (3.11.0) lib/puma/server.rb:302:in `block in run'
 [d69a0c4e-0611-4de5-80e6-08041364e300] puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-02-14T10:43:34.780360 #9162]  INFO -- : [7c1ce828-6949-454d-98e2-35777c895827] Started GET "/requests" for 127.0.0.1 at 2018-02-14 10:43:34 -0300
+I, [2018-02-14T10:43:34.844021 #9162]  INFO -- : [7c1ce828-6949-454d-98e2-35777c895827] Processing by RequestsController#index as HTML
+I, [2018-02-14T10:43:34.856007 #9162]  INFO -- : [7c1ce828-6949-454d-98e2-35777c895827] Redirected to http://localhost:3000/admins/login_attempt
+I, [2018-02-14T10:43:34.856197 #9162]  INFO -- : [7c1ce828-6949-454d-98e2-35777c895827] Filter chain halted as :authenticate_user rendered or redirected
+I, [2018-02-14T10:43:34.856382 #9162]  INFO -- : [7c1ce828-6949-454d-98e2-35777c895827] Completed 302 Found in 12ms
+I, [2018-02-14T10:43:34.870173 #9162]  INFO -- : [819bc4b0-0ac3-4537-a4dc-b14f2a4b82a2] Started GET "/admins/login_attempt" for 127.0.0.1 at 2018-02-14 10:43:34 -0300
+I, [2018-02-14T10:43:34.871732 #9162]  INFO -- : [819bc4b0-0ac3-4537-a4dc-b14f2a4b82a2] Processing by SessionsController#login as HTML
+I, [2018-02-14T10:43:34.873875 #9162]  INFO -- : [819bc4b0-0ac3-4537-a4dc-b14f2a4b82a2]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-14T10:43:34.875821 #9162]  INFO -- : [819bc4b0-0ac3-4537-a4dc-b14f2a4b82a2]   Rendered sessions/login.html.erb within layouts/general_view (1.8ms)
+I, [2018-02-14T10:43:34.877441 #9162]  INFO -- : [819bc4b0-0ac3-4537-a4dc-b14f2a4b82a2] Completed 200 OK in 6ms (Views: 4.4ms)
+I, [2018-02-14T10:43:41.126336 #9162]  INFO -- : [1d2832c6-6f85-4895-b14f-abea2207b1a1] Started POST "/admins/login_attempt" for 127.0.0.1 at 2018-02-14 10:43:41 -0300
+I, [2018-02-14T10:43:41.126985 #9162]  INFO -- : [1d2832c6-6f85-4895-b14f-abea2207b1a1] Processing by SessionsController#login_attempt as HTML
+I, [2018-02-14T10:43:41.127043 #9162]  INFO -- : [1d2832c6-6f85-4895-b14f-abea2207b1a1]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"UJjEdCUtObhKzTMa2AF0dYtZtULbS/2GrNoL69W8SCJRJnuuBDX6f/CmLPaSctHsEN2v9iFxwGYve66wUQD+Pg==", "username_or_email"=>"solcelulares", "login_password"=>"[FILTERED]", "commit"=>"Ingresar"}
+D, [2018-02-14T10:43:41.369135 #9162] DEBUG -- : [1d2832c6-6f85-4895-b14f-abea2207b1a1]   [1m[35m (44.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'ADMINS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T10:43:41.388164 #9162] DEBUG -- : [1d2832c6-6f85-4895-b14f-abea2207b1a1]   [1m[36mAdmin Load (7.8ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."USERNAME" = :a1 AND ROWNUM <= :a2 [0m  [["username", "solcelulares"], ["LIMIT", 1]]
+D, [2018-02-14T10:43:41.471854 #9162] DEBUG -- : [1d2832c6-6f85-4895-b14f-abea2207b1a1]   [1m[35m (5.5ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+D, [2018-02-14T10:43:41.500490 #9162] DEBUG -- : [1d2832c6-6f85-4895-b14f-abea2207b1a1]   [1m[36mSequence (3.6ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('ADMINS_seq')[0m
+D, [2018-02-14T10:43:41.544191 #9162] DEBUG -- : [1d2832c6-6f85-4895-b14f-abea2207b1a1]   [1m[36mPrimary Key (43.2ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'ADMINS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+I, [2018-02-14T10:43:41.637588 #9162]  INFO -- : [1d2832c6-6f85-4895-b14f-abea2207b1a1] Redirected to http://localhost:3000/requests
+I, [2018-02-14T10:43:41.637828 #9162]  INFO -- : [1d2832c6-6f85-4895-b14f-abea2207b1a1] Completed 302 Found in 511ms (ActiveRecord: 182.0ms)
+I, [2018-02-14T10:43:41.655574 #9162]  INFO -- : [6bff7ab7-22ac-4214-9ef2-a74995718ac2] Started GET "/requests" for 127.0.0.1 at 2018-02-14 10:43:41 -0300
+I, [2018-02-14T10:43:41.656441 #9162]  INFO -- : [6bff7ab7-22ac-4214-9ef2-a74995718ac2] Processing by RequestsController#index as HTML
+D, [2018-02-14T10:43:41.667253 #9162] DEBUG -- : [6bff7ab7-22ac-4214-9ef2-a74995718ac2]   [1m[36mAdmin Load (4.0ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T10:43:41.671117 #9162]  INFO -- : [6bff7ab7-22ac-4214-9ef2-a74995718ac2]   Rendering requests/index.html.erb within layouts/admin_view
+D, [2018-02-14T10:43:41.882024 #9162] DEBUG -- : [6bff7ab7-22ac-4214-9ef2-a74995718ac2]   [1m[35m (199.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+I, [2018-02-14T10:43:41.896189 #9162]  INFO -- : [6bff7ab7-22ac-4214-9ef2-a74995718ac2]   Rendered layouts/_request_filter.html.erb (222.2ms)
+D, [2018-02-14T10:43:41.917673 #9162] DEBUG -- : [6bff7ab7-22ac-4214-9ef2-a74995718ac2]   [1m[36mRequest Load (15.0ms)[0m  [1m[34mSELECT "REQUESTS".* FROM "REQUESTS"[0m
+I, [2018-02-14T10:43:41.918125 #9162]  INFO -- : [6bff7ab7-22ac-4214-9ef2-a74995718ac2]   Rendered requests/index.html.erb within layouts/admin_view (246.8ms)
+I, [2018-02-14T10:43:41.921852 #9162]  INFO -- : [6bff7ab7-22ac-4214-9ef2-a74995718ac2] Completed 200 OK in 265ms (Views: 37.9ms | ActiveRecord: 218.4ms)
+I, [2018-02-14T10:43:43.989983 #9162]  INFO -- : [87cc5563-8fbb-4e3f-94b6-4cfc6468755e] Started GET "/" for 127.0.0.1 at 2018-02-14 10:43:43 -0300
+I, [2018-02-14T10:43:43.991427 #9162]  INFO -- : [87cc5563-8fbb-4e3f-94b6-4cfc6468755e] Processing by HomePagesController#home as HTML
+I, [2018-02-14T10:43:43.992913 #9162]  INFO -- : [87cc5563-8fbb-4e3f-94b6-4cfc6468755e]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-14T10:43:43.993223 #9162]  INFO -- : [87cc5563-8fbb-4e3f-94b6-4cfc6468755e]   Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+I, [2018-02-14T10:43:43.994457 #9162]  INFO -- : [87cc5563-8fbb-4e3f-94b6-4cfc6468755e] Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+I, [2018-02-14T10:43:44.574540 #9162]  INFO -- : [d5242bcf-8aee-4a0d-ba2f-fc5d3a228c80] Started GET "/requests/home/menu" for 127.0.0.1 at 2018-02-14 10:43:44 -0300
+I, [2018-02-14T10:43:44.575184 #9162]  INFO -- : [d5242bcf-8aee-4a0d-ba2f-fc5d3a228c80] Processing by HomePagesController#request_home as HTML
+I, [2018-02-14T10:43:44.576400 #9162]  INFO -- : [d5242bcf-8aee-4a0d-ba2f-fc5d3a228c80]   Rendering home_pages/request_home.html.erb within layouts/general_view
+I, [2018-02-14T10:43:44.579020 #9162]  INFO -- : [d5242bcf-8aee-4a0d-ba2f-fc5d3a228c80]   Rendered home_pages/request_home.html.erb within layouts/general_view (2.5ms)
+I, [2018-02-14T10:43:44.579795 #9162]  INFO -- : [d5242bcf-8aee-4a0d-ba2f-fc5d3a228c80] Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+I, [2018-02-14T10:43:46.717274 #9162]  INFO -- : [5090cae3-daba-43b6-8ea5-8d44bba6cc66] Started GET "/admins/login" for 127.0.0.1 at 2018-02-14 10:43:46 -0300
+I, [2018-02-14T10:43:46.718246 #9162]  INFO -- : [5090cae3-daba-43b6-8ea5-8d44bba6cc66] Processing by SessionsController#login as HTML
+I, [2018-02-14T10:43:46.718776 #9162]  INFO -- : [5090cae3-daba-43b6-8ea5-8d44bba6cc66] Redirected to http://localhost:3000/requests
+I, [2018-02-14T10:43:46.718864 #9162]  INFO -- : [5090cae3-daba-43b6-8ea5-8d44bba6cc66] Filter chain halted as :save_login_state rendered or redirected
+I, [2018-02-14T10:43:46.718963 #9162]  INFO -- : [5090cae3-daba-43b6-8ea5-8d44bba6cc66] Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+I, [2018-02-14T10:43:46.733672 #9162]  INFO -- : [6585cc90-f6b3-4963-80bf-804625bd5465] Started GET "/requests" for 127.0.0.1 at 2018-02-14 10:43:46 -0300
+I, [2018-02-14T10:43:46.734186 #9162]  INFO -- : [6585cc90-f6b3-4963-80bf-804625bd5465] Processing by RequestsController#index as HTML
+D, [2018-02-14T10:43:46.745631 #9162] DEBUG -- : [6585cc90-f6b3-4963-80bf-804625bd5465]   [1m[36mAdmin Load (2.7ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T10:43:46.748153 #9162]  INFO -- : [6585cc90-f6b3-4963-80bf-804625bd5465]   Rendering requests/index.html.erb within layouts/admin_view
+I, [2018-02-14T10:43:46.758068 #9162]  INFO -- : [6585cc90-f6b3-4963-80bf-804625bd5465]   Rendered layouts/_request_filter.html.erb (9.4ms)
+D, [2018-02-14T10:43:46.791696 #9162] DEBUG -- : [6585cc90-f6b3-4963-80bf-804625bd5465]   [1m[36mRequest Load (27.2ms)[0m  [1m[34mSELECT "REQUESTS".* FROM "REQUESTS"[0m
+I, [2018-02-14T10:43:46.792564 #9162]  INFO -- : [6585cc90-f6b3-4963-80bf-804625bd5465]   Rendered requests/index.html.erb within layouts/admin_view (44.2ms)
+I, [2018-02-14T10:43:46.794768 #9162]  INFO -- : [6585cc90-f6b3-4963-80bf-804625bd5465] Completed 200 OK in 60ms (Views: 19.7ms | ActiveRecord: 29.9ms)
+I, [2018-02-14T10:43:47.518492 #9162]  INFO -- : [d8484267-fc17-4b81-b100-ffa12dbce40d] Started GET "/requests" for 127.0.0.1 at 2018-02-14 10:43:47 -0300
+I, [2018-02-14T10:43:47.519017 #9162]  INFO -- : [d8484267-fc17-4b81-b100-ffa12dbce40d] Processing by RequestsController#index as HTML
+D, [2018-02-14T10:43:47.526554 #9162] DEBUG -- : [d8484267-fc17-4b81-b100-ffa12dbce40d]   [1m[36mAdmin Load (2.3ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T10:43:47.527505 #9162]  INFO -- : [d8484267-fc17-4b81-b100-ffa12dbce40d]   Rendering requests/index.html.erb within layouts/admin_view
+I, [2018-02-14T10:43:47.530746 #9162]  INFO -- : [d8484267-fc17-4b81-b100-ffa12dbce40d]   Rendered layouts/_request_filter.html.erb (3.1ms)
+D, [2018-02-14T10:43:47.545191 #9162] DEBUG -- : [d8484267-fc17-4b81-b100-ffa12dbce40d]   [1m[36mRequest Load (11.7ms)[0m  [1m[34mSELECT "REQUESTS".* FROM "REQUESTS"[0m
+I, [2018-02-14T10:43:47.545378 #9162]  INFO -- : [d8484267-fc17-4b81-b100-ffa12dbce40d]   Rendered requests/index.html.erb within layouts/admin_view (17.8ms)
+I, [2018-02-14T10:43:47.546223 #9162]  INFO -- : [d8484267-fc17-4b81-b100-ffa12dbce40d] Completed 200 OK in 27ms (Views: 7.3ms | ActiveRecord: 14.1ms)
+I, [2018-02-14T10:43:48.242290 #9162]  INFO -- : [0c096903-eec9-4e07-b6fe-69789fe8dc3e] Started GET "/users" for 127.0.0.1 at 2018-02-14 10:43:48 -0300
+I, [2018-02-14T10:43:48.243669 #9162]  INFO -- : [0c096903-eec9-4e07-b6fe-69789fe8dc3e] Processing by UsersController#index as HTML
+D, [2018-02-14T10:43:48.257019 #9162] DEBUG -- : [0c096903-eec9-4e07-b6fe-69789fe8dc3e]   [1m[36mAdmin Load (4.7ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T10:43:48.258887 #9162]  INFO -- : [0c096903-eec9-4e07-b6fe-69789fe8dc3e]   Rendering users/index.html.erb within layouts/admin_view
+D, [2018-02-14T10:43:48.392143 #9162] DEBUG -- : [0c096903-eec9-4e07-b6fe-69789fe8dc3e]   [1m[35m (110.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+I, [2018-02-14T10:43:48.400214 #9162]  INFO -- : [0c096903-eec9-4e07-b6fe-69789fe8dc3e]   Rendered layouts/_user_filter.html.erb (139.2ms)
+D, [2018-02-14T10:43:48.411435 #9162] DEBUG -- : [0c096903-eec9-4e07-b6fe-69789fe8dc3e]   [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "USERS".* FROM "USERS"[0m
+I, [2018-02-14T10:43:48.411847 #9162]  INFO -- : [0c096903-eec9-4e07-b6fe-69789fe8dc3e]   Rendered users/index.html.erb within layouts/admin_view (152.8ms)
+I, [2018-02-14T10:43:48.413873 #9162]  INFO -- : [0c096903-eec9-4e07-b6fe-69789fe8dc3e] Completed 200 OK in 170ms (Views: 40.2ms | ActiveRecord: 119.9ms)
+I, [2018-02-14T10:43:48.689542 #9162]  INFO -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b] Started GET "/smartphones" for 127.0.0.1 at 2018-02-14 10:43:48 -0300
+I, [2018-02-14T10:43:48.691051 #9162]  INFO -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b] Processing by SmartphonesController#index as HTML
+D, [2018-02-14T10:43:48.708430 #9162] DEBUG -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b]   [1m[36mAdmin Load (8.6ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T10:43:48.917163 #9162] DEBUG -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b]   [1m[35m (200.3ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'SMARTPHONES' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T10:43:48.933688 #9162] DEBUG -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b]   [1m[36mSmartphone Load (13.4ms)[0m  [1m[34mSELECT id, model, code FROM "SMARTPHONES" WHERE "SMARTPHONES"."STATE" = :a1[0m  [["state", "catalog"]]
+D, [2018-02-14T10:43:48.959530 #9162] DEBUG -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b]   [1m[36mSequence (6.0ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('SMARTPHONES_seq')[0m
+D, [2018-02-14T10:43:48.969688 #9162] DEBUG -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b]   [1m[36mPrimary Key (9.6ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'SMARTPHONES' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+I, [2018-02-14T10:43:49.002227 #9162]  INFO -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b]   Rendering smartphones/index.html.erb within layouts/admin_view
+I, [2018-02-14T10:43:49.010095 #9162]  INFO -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b]   Rendered layouts/_smp_filter.html.erb (4.5ms)
+D, [2018-02-14T10:43:49.078983 #9162] DEBUG -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b]   [1m[36mSmartphone Load (67.1ms)[0m  [1m[34mSELECT "SMARTPHONES".* FROM "SMARTPHONES"[0m
+I, [2018-02-14T10:43:49.084332 #9162]  INFO -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b]   Rendered smartphones/index.html.erb within layouts/admin_view (81.8ms)
+I, [2018-02-14T10:43:49.086543 #9162]  INFO -- : [19bbb0d1-311e-4f7f-aa46-d19ce0ad349b] Completed 200 OK in 395ms (Views: 18.9ms | ActiveRecord: 304.9ms)
+I, [2018-02-14T10:43:49.504864 #9162]  INFO -- : [0b3fb547-79ab-4da8-b0af-54f837b8a04f] Started GET "/requests" for 127.0.0.1 at 2018-02-14 10:43:49 -0300
+I, [2018-02-14T10:43:49.505622 #9162]  INFO -- : [0b3fb547-79ab-4da8-b0af-54f837b8a04f] Processing by RequestsController#index as HTML
+D, [2018-02-14T10:43:49.520107 #9162] DEBUG -- : [0b3fb547-79ab-4da8-b0af-54f837b8a04f]   [1m[36mAdmin Load (8.2ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T10:43:49.521058 #9162]  INFO -- : [0b3fb547-79ab-4da8-b0af-54f837b8a04f]   Rendering requests/index.html.erb within layouts/admin_view
+I, [2018-02-14T10:43:49.524154 #9162]  INFO -- : [0b3fb547-79ab-4da8-b0af-54f837b8a04f]   Rendered layouts/_request_filter.html.erb (2.9ms)
+D, [2018-02-14T10:43:49.533970 #9162] DEBUG -- : [0b3fb547-79ab-4da8-b0af-54f837b8a04f]   [1m[36mRequest Load (7.7ms)[0m  [1m[34mSELECT "REQUESTS".* FROM "REQUESTS"[0m
+I, [2018-02-14T10:43:49.534147 #9162]  INFO -- : [0b3fb547-79ab-4da8-b0af-54f837b8a04f]   Rendered requests/index.html.erb within layouts/admin_view (13.0ms)
+I, [2018-02-14T10:43:49.534946 #9162]  INFO -- : [0b3fb547-79ab-4da8-b0af-54f837b8a04f] Completed 200 OK in 29ms (Views: 6.3ms | ActiveRecord: 15.9ms)
+I, [2018-02-14T10:43:52.529291 #9162]  INFO -- : [f87c8b4a-48b9-4ca3-befe-4eb6b5e9c8d5] Started GET "/admins/logout" for 127.0.0.1 at 2018-02-14 10:43:52 -0300
+I, [2018-02-14T10:43:52.530168 #9162]  INFO -- : [f87c8b4a-48b9-4ca3-befe-4eb6b5e9c8d5] Processing by SessionsController#logout as HTML
+I, [2018-02-14T10:43:52.530809 #9162]  INFO -- : [f87c8b4a-48b9-4ca3-befe-4eb6b5e9c8d5] Redirected to http://localhost:3000/admins/login_attempt
+I, [2018-02-14T10:43:52.530978 #9162]  INFO -- : [f87c8b4a-48b9-4ca3-befe-4eb6b5e9c8d5] Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+I, [2018-02-14T10:43:52.543585 #9162]  INFO -- : [95c35ee0-afa0-45d8-9404-a246ace7ff11] Started GET "/admins/login_attempt" for 127.0.0.1 at 2018-02-14 10:43:52 -0300
+I, [2018-02-14T10:43:52.544106 #9162]  INFO -- : [95c35ee0-afa0-45d8-9404-a246ace7ff11] Processing by SessionsController#login as HTML
+I, [2018-02-14T10:43:52.544841 #9162]  INFO -- : [95c35ee0-afa0-45d8-9404-a246ace7ff11]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-14T10:43:52.545605 #9162]  INFO -- : [95c35ee0-afa0-45d8-9404-a246ace7ff11]   Rendered sessions/login.html.erb within layouts/general_view (0.7ms)
+I, [2018-02-14T10:43:52.546489 #9162]  INFO -- : [95c35ee0-afa0-45d8-9404-a246ace7ff11] Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+D, [2018-02-14T10:45:39.244501 #9406] DEBUG -- :   [1m[35m (5.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:39.287354 #9406] DEBUG -- :   [1m[35m (18.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T10:45:39.292669 #9406] DEBUG -- :   [1m[35m (4.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+D, [2018-02-14T10:45:39.366723 #9406] DEBUG -- :   [1m[35m (73.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:39.391717 #9406] DEBUG -- :   [1m[35m (5.5ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+D, [2018-02-14T10:45:39.400950 #9406] DEBUG -- :   [1m[35m (8.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:39.491359 #9406] DEBUG -- :   [1m[35m (49.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:39.528484 #9406] DEBUG -- :   [1m[35m (24.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:39.548280 #9406] DEBUG -- :   [1m[35m (7.3ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+I, [2018-02-14T10:45:39.548588 #9406]  INFO -- : Migrating to CreateAdmins (20180201133831)
+D, [2018-02-14T10:45:39.678932 #9406] DEBUG -- :   [1m[35m (121.3ms)[0m  [1m[35mDROP TABLE "ADMINS"[0m
+D, [2018-02-14T10:45:39.695773 #9406] DEBUG -- :   [1m[35m (16.3ms)[0m  [1m[35mDROP SEQUENCE "ADMINS_SEQ"[0m
+D, [2018-02-14T10:45:39.705236 #9406] DEBUG -- :   [1m[35mSQL (7.9ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20180201133831"]]
+I, [2018-02-14T10:45:39.705439 #9406]  INFO -- : Migrating to CreateRequests (20171221132708)
+D, [2018-02-14T10:45:40.169629 #9406] DEBUG -- :   [1m[35m (462.6ms)[0m  [1m[35mDROP TABLE "REQUESTS"[0m
+D, [2018-02-14T10:45:40.183912 #9406] DEBUG -- :   [1m[35m (13.7ms)[0m  [1m[35mDROP SEQUENCE "REQUESTS_SEQ"[0m
+D, [2018-02-14T10:45:40.193537 #9406] DEBUG -- :   [1m[35mSQL (8.3ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132708"]]
+I, [2018-02-14T10:45:40.193722 #9406]  INFO -- : Migrating to CreateUsers (20171221132707)
+D, [2018-02-14T10:45:40.376145 #9406] DEBUG -- :   [1m[35m (181.0ms)[0m  [1m[35mDROP TABLE "USERS"[0m
+D, [2018-02-14T10:45:40.391714 #9406] DEBUG -- :   [1m[35m (15.0ms)[0m  [1m[35mDROP SEQUENCE "USERS_SEQ"[0m
+D, [2018-02-14T10:45:40.397065 #9406] DEBUG -- :   [1m[35mSQL (4.0ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132707"]]
+I, [2018-02-14T10:45:40.397244 #9406]  INFO -- : Migrating to CreatePlans (20171221132706)
+D, [2018-02-14T10:45:40.502987 #9406] DEBUG -- :   [1m[35m (104.4ms)[0m  [1m[35mDROP TABLE "PLANS"[0m
+D, [2018-02-14T10:45:40.514717 #9406] DEBUG -- :   [1m[35m (11.1ms)[0m  [1m[35mDROP SEQUENCE "PLANS_SEQ"[0m
+D, [2018-02-14T10:45:40.519522 #9406] DEBUG -- :   [1m[35mSQL (3.5ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132706"]]
+I, [2018-02-14T10:45:40.519761 #9406]  INFO -- : Migrating to CreateSmartphones (20171221132705)
+D, [2018-02-14T10:45:40.681938 #9406] DEBUG -- :   [1m[35m (160.8ms)[0m  [1m[35mDROP TABLE "SMARTPHONES"[0m
+D, [2018-02-14T10:45:40.693410 #9406] DEBUG -- :   [1m[35m (10.9ms)[0m  [1m[35mDROP SEQUENCE "SMARTPHONES_SEQ"[0m
+D, [2018-02-14T10:45:40.700701 #9406] DEBUG -- :   [1m[35mSQL (6.0ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132705"]]
+I, [2018-02-14T10:45:40.700882 #9406]  INFO -- : Migrating to CreateBams (20171221132704)
+D, [2018-02-14T10:45:40.866071 #9406] DEBUG -- :   [1m[35m (163.8ms)[0m  [1m[35mDROP TABLE "BAMS"[0m
+D, [2018-02-14T10:45:40.893596 #9406] DEBUG -- :   [1m[35m (27.0ms)[0m  [1m[35mDROP SEQUENCE "BAMS_SEQ"[0m
+D, [2018-02-14T10:45:40.899408 #9406] DEBUG -- :   [1m[35mSQL (4.5ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132704"]]
+I, [2018-02-14T10:45:40.899587 #9406]  INFO -- : Migrating to CreateSims (20171221132703)
+D, [2018-02-14T10:45:41.024618 #9406] DEBUG -- :   [1m[35m (123.7ms)[0m  [1m[35mDROP TABLE "SIMS"[0m
+D, [2018-02-14T10:45:41.037484 #9406] DEBUG -- :   [1m[35m (12.3ms)[0m  [1m[35mDROP SEQUENCE "SIMS_SEQ"[0m
+D, [2018-02-14T10:45:41.042165 #9406] DEBUG -- :   [1m[35mSQL (3.4ms)[0m  [1m[31mDELETE FROM "SCHEMA_MIGRATIONS" WHERE "SCHEMA_MIGRATIONS"."VERSION" = :a1[0m  [["version", "20171221132703"]]
+D, [2018-02-14T10:45:50.767788 #9448] DEBUG -- :   [1m[35m (17.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:50.810178 #9448] DEBUG -- :   [1m[35m (24.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:50.836800 #9448] DEBUG -- :   [1m[35m (11.5ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:50.957125 #9448] DEBUG -- :   [1m[35m (37.6ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T10:45:50.972710 #9448] DEBUG -- :   [1m[35m (13.8ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+I, [2018-02-14T10:45:50.972996 #9448]  INFO -- : Migrating to CreateSims (20171221132703)
+D, [2018-02-14T10:45:51.220651 #9448] DEBUG -- :   [1m[35m (240.1ms)[0m  [1m[35mCREATE TABLE "SIMS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "PHONE_NUMBER" VARCHAR2(255) NOT NULL, "SERIAL_NUMBER" VARCHAR2(255), "COUNTRY" VARCHAR2(255) NOT NULL, "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "ORDER" BLOB, "ORDER_NAME" VARCHAR2(255), "ORDER_TYPE" VARCHAR2(255), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+D, [2018-02-14T10:45:51.232795 #9448] DEBUG -- :   [1m[35m (11.5ms)[0m  [1m[35mCREATE SEQUENCE "SIMS_SEQ" START WITH 10000[0m
+D, [2018-02-14T10:45:51.237870 #9448] DEBUG -- :   [1m[35m (4.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:51.267848 #9448] DEBUG -- :   [1m[35mSQL (17.2ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132703"]]
+I, [2018-02-14T10:45:51.316125 #9448]  INFO -- : Migrating to CreateBams (20171221132704)
+D, [2018-02-14T10:45:51.375897 #9448] DEBUG -- :   [1m[35m (56.5ms)[0m  [1m[35mCREATE TABLE "BAMS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "MODEL" VARCHAR2(255) NOT NULL, "PLAN" VARCHAR2(255) DEFAULT '', "CODE" VARCHAR2(255) NOT NULL, "COUNTRY" VARCHAR2(255) NOT NULL, "IMEI" VARCHAR2(255) DEFAULT '000000000000000' NOT NULL, "PRICE" NUMBER(38), "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "ORDER" BLOB, "ORDER_NAME" VARCHAR2(255), "ORDER_TYPE" VARCHAR2(255), "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "RENOVATION_AT" TIMESTAMP, "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+D, [2018-02-14T10:45:51.387984 #9448] DEBUG -- :   [1m[35m (11.5ms)[0m  [1m[35mCREATE SEQUENCE "BAMS_SEQ" START WITH 10000[0m
+D, [2018-02-14T10:45:51.392747 #9448] DEBUG -- :   [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132704"]]
+I, [2018-02-14T10:45:51.402181 #9448]  INFO -- : Migrating to CreateSmartphones (20171221132705)
+D, [2018-02-14T10:45:51.477380 #9448] DEBUG -- :   [1m[35m (72.1ms)[0m  [1m[35mCREATE TABLE "SMARTPHONES" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "MODEL" VARCHAR2(255) NOT NULL, "PHONE_NUMBER" VARCHAR2(255), "CODE" VARCHAR2(255) NOT NULL, "CATEGORY" VARCHAR2(255) NOT NULL, "COUNTRY" VARCHAR2(255) NOT NULL, "IMEI" VARCHAR2(255) DEFAULT '000000000000000' NOT NULL, "PRICE" NUMBER(38), "STATE" VARCHAR2(255) DEFAULT 'new' NOT NULL, "ORDER" BLOB, "ORDER_NAME" VARCHAR2(255), "ORDER_TYPE" VARCHAR2(255), "AVAILABLE" NUMBER(1) DEFAULT 1 NOT NULL, "RENOVATION_AT" TIMESTAMP, "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+D, [2018-02-14T10:45:51.483905 #9448] DEBUG -- :   [1m[35m (5.9ms)[0m  [1m[35mCREATE SEQUENCE "SMARTPHONES_SEQ" START WITH 10000[0m
+D, [2018-02-14T10:45:51.486983 #9448] DEBUG -- :   [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132705"]]
+I, [2018-02-14T10:45:51.489911 #9448]  INFO -- : Migrating to CreatePlans (20171221132706)
+D, [2018-02-14T10:45:51.581627 #9448] DEBUG -- :   [1m[35m (90.6ms)[0m  [1m[35mCREATE TABLE "PLANS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "ITEM" VARCHAR2(255) NOT NULL, "PLAN_TYPE" VARCHAR2(255) NOT NULL, "NAME" VARCHAR2(255) NOT NULL, "DETAIL" VARCHAR2(255), "PRICE" NUMBER(38), "CATEGORY" VARCHAR2(255) DEFAULT 'ALL', "COUNTRY" VARCHAR2(255) NOT NULL, "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+D, [2018-02-14T10:45:51.614429 #9448] DEBUG -- :   [1m[35m (32.2ms)[0m  [1m[35mCREATE SEQUENCE "PLANS_SEQ" START WITH 10000[0m
+D, [2018-02-14T10:45:51.645577 #9448] DEBUG -- :   [1m[35mSQL (29.4ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132706"]]
+I, [2018-02-14T10:45:51.651453 #9448]  INFO -- : Migrating to CreateUsers (20171221132707)
+D, [2018-02-14T10:45:51.768956 #9448] DEBUG -- :   [1m[35m (112.1ms)[0m  [1m[35mCREATE TABLE "USERS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "NATIONAL_ID" VARCHAR2(255) NOT NULL, "NAME" VARCHAR2(255) NOT NULL, "LAST_NAME" VARCHAR2(255) NOT NULL, "EMAIL" VARCHAR2(255), "COUNTRY" VARCHAR2(255) NOT NULL, "JOBTITLE" VARCHAR2(255) NOT NULL, "JOB_FAMILY" VARCHAR2(255) NOT NULL, "COMPANY" VARCHAR2(255) NOT NULL, "SUPERVISOR" VARCHAR2(255), "SUPERVISOR_EMAIL" VARCHAR2(255), "SUPERVISOR_JOBTITLE" VARCHAR2(255), "JOBCODE" VARCHAR2(255), "LOCATION" VARCHAR2(255) NOT NULL, "DEPTNAME" VARCHAR2(255) NOT NULL, "SMARTPHONE_ID" NUMBER(19), "BAM_ID" NUMBER(19), "SIM_ID" NUMBER(19), "PLAN_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_645C703A8E"
+FOREIGN KEY ("SMARTPHONE_ID")
+  REFERENCES "SMARTPHONES" ("ID")
+, CONSTRAINT "FK_RAILS_E8DDB5A1EA"
+FOREIGN KEY ("BAM_ID")
+  REFERENCES "BAMS" ("ID")
+, CONSTRAINT "FK_RAILS_436F5D8337"
+FOREIGN KEY ("SIM_ID")
+  REFERENCES "SIMS" ("ID")
+, CONSTRAINT "FK_RAILS_C7D01481E8"
+FOREIGN KEY ("PLAN_ID")
+  REFERENCES "PLANS" ("ID")
+)[0m
+D, [2018-02-14T10:45:51.784149 #9448] DEBUG -- :   [1m[35m (14.5ms)[0m  [1m[35mCREATE SEQUENCE "USERS_SEQ" START WITH 10000[0m
+D, [2018-02-14T10:45:51.788702 #9448] DEBUG -- :   [1m[35m (4.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:51.882985 #9448] DEBUG -- :   [1m[35m (73.0ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'TELEFONIA'
+               AND i.table_owner = 'TELEFONIA'
+               AND i.table_name = 'USERS'
+               AND i.index_name = 'INDEX_USERS_ON_SMARTPHONE_ID'
+[0m
+D, [2018-02-14T10:45:51.908877 #9448] DEBUG -- :   [1m[35m (25.5ms)[0m  [1m[35mCREATE  INDEX "INDEX_USERS_ON_SMARTPHONE_ID" ON "USERS" ("SMARTPHONE_ID") [0m
+D, [2018-02-14T10:45:51.923844 #9448] DEBUG -- :   [1m[35m (14.6ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:51.965978 #9448] DEBUG -- :   [1m[35m (10.4ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'TELEFONIA'
+               AND i.table_owner = 'TELEFONIA'
+               AND i.table_name = 'USERS'
+               AND i.index_name = 'INDEX_USERS_ON_BAM_ID'
+[0m
+D, [2018-02-14T10:45:51.984753 #9448] DEBUG -- :   [1m[35m (18.4ms)[0m  [1m[35mCREATE  INDEX "INDEX_USERS_ON_BAM_ID" ON "USERS" ("BAM_ID") [0m
+D, [2018-02-14T10:45:52.002533 #9448] DEBUG -- :   [1m[35m (17.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:52.034891 #9448] DEBUG -- :   [1m[35m (6.1ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'TELEFONIA'
+               AND i.table_owner = 'TELEFONIA'
+               AND i.table_name = 'USERS'
+               AND i.index_name = 'INDEX_USERS_ON_SIM_ID'
+[0m
+D, [2018-02-14T10:45:52.054536 #9448] DEBUG -- :   [1m[35m (19.3ms)[0m  [1m[35mCREATE  INDEX "INDEX_USERS_ON_SIM_ID" ON "USERS" ("SIM_ID") [0m
+D, [2018-02-14T10:45:52.065743 #9448] DEBUG -- :   [1m[35m (10.8ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:52.113398 #9448] DEBUG -- :   [1m[35m (7.5ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'TELEFONIA'
+               AND i.table_owner = 'TELEFONIA'
+               AND i.table_name = 'USERS'
+               AND i.index_name = 'INDEX_USERS_ON_PLAN_ID'
+[0m
+D, [2018-02-14T10:45:52.124593 #9448] DEBUG -- :   [1m[35m (10.9ms)[0m  [1m[35mCREATE  INDEX "INDEX_USERS_ON_PLAN_ID" ON "USERS" ("PLAN_ID") [0m
+D, [2018-02-14T10:45:52.128764 #9448] DEBUG -- :   [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132707"]]
+I, [2018-02-14T10:45:52.133835 #9448]  INFO -- : Migrating to CreateRequests (20171221132708)
+D, [2018-02-14T10:45:52.230350 #9448] DEBUG -- :   [1m[35m (90.6ms)[0m  [1m[35mCREATE TABLE "REQUESTS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "N_REQUEST" VARCHAR2(255), "REQUEST" VARCHAR2(255) NOT NULL, "ITEM" VARCHAR2(255) NOT NULL, "MODEL" VARCHAR2(255) DEFAULT 'default' NOT NULL, "PLAN" VARCHAR2(255) DEFAULT 'default' NOT NULL, "CLASSIFICATION" VARCHAR2(255) DEFAULT 'abierto' NOT NULL, "CONTRACT" BLOB, "CONTRACT_TYPE" VARCHAR2(255), "CONTRACT_NAME" VARCHAR2(255), "FILE" BLOB, "FILE_TYPE" VARCHAR2(255), "FILE_NAME" VARCHAR2(255), "STATUS" VARCHAR2(255) DEFAULT 'pendiente aprobacion' NOT NULL, "COMMENT" CLOB, "COMMENT_STOLEN_LOST" CLOB, "EMAIL_SENDED" CLOB, "WANT_REPLACEMENT" NUMBER(1), "WANT_SIM" NUMBER(1), "WANT_NEW_NUMBER" NUMBER(1), "NUMBER_TYPE" VARCHAR2(255), "PHONE_NUMBER" VARCHAR2(255), "TRANSFER_LINE_TYPE" VARCHAR2(255), "PRICE" VARCHAR2(255), "REGION" VARCHAR2(255), "COUNTRY" VARCHAR2(255), "NAME" VARCHAR2(255), "NATIONAL_ID" VARCHAR2(255), "EMAIL" VARCHAR2(255), "COMPANY" VARCHAR2(255), "DEPTNAME" VARCHAR2(255), "START_DATE" TIMESTAMP, "END_DATE" TIMESTAMP, "CLOSED_AT" TIMESTAMP, "LINK" VARCHAR2(255) DEFAULT '', "SUP_APPROVAL" VARCHAR2(255) DEFAULT 'pendiente', "COMMENT_SUP" CLOB DEFAULT '', "USER_ID" NUMBER(19), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL, CONSTRAINT "FK_RAILS_8EAD8B1E6B"
+FOREIGN KEY ("USER_ID")
+  REFERENCES "USERS" ("ID")
+)[0m
+D, [2018-02-14T10:45:52.242620 #9448] DEBUG -- :   [1m[35m (11.6ms)[0m  [1m[35mCREATE SEQUENCE "REQUESTS_SEQ" START WITH 10000[0m
+D, [2018-02-14T10:45:52.246237 #9448] DEBUG -- :   [1m[35m (3.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T10:45:52.280908 #9448] DEBUG -- :   [1m[35m (9.9ms)[0m  [1m[34m            SELECT 1 FROM all_indexes i
+            WHERE i.owner = 'TELEFONIA'
+               AND i.table_owner = 'TELEFONIA'
+               AND i.table_name = 'REQUESTS'
+               AND i.index_name = 'INDEX_REQUESTS_ON_USER_ID'
+[0m
+D, [2018-02-14T10:45:52.296309 #9448] DEBUG -- :   [1m[35m (15.1ms)[0m  [1m[35mCREATE  INDEX "INDEX_REQUESTS_ON_USER_ID" ON "REQUESTS" ("USER_ID") [0m
+D, [2018-02-14T10:45:52.305002 #9448] DEBUG -- :   [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20171221132708"]]
+I, [2018-02-14T10:45:52.346541 #9448]  INFO -- : Migrating to CreateAdmins (20180201133831)
+D, [2018-02-14T10:45:52.373246 #9448] DEBUG -- :   [1m[35m (24.5ms)[0m  [1m[35mCREATE TABLE "ADMINS" ("ID" NUMBER(38) NOT NULL PRIMARY KEY, "USERNAME" VARCHAR2(255), "EMAIL" VARCHAR2(255), "ENCRYPTED_PASSWORD" VARCHAR2(255), "SALT" VARCHAR2(255), "CREATED_AT" TIMESTAMP NOT NULL, "UPDATED_AT" TIMESTAMP NOT NULL)[0m
+D, [2018-02-14T10:45:52.380356 #9448] DEBUG -- :   [1m[35m (6.4ms)[0m  [1m[35mCREATE SEQUENCE "ADMINS_SEQ" START WITH 10000[0m
+D, [2018-02-14T10:45:52.387848 #9448] DEBUG -- :   [1m[35mSQL (5.8ms)[0m  [1m[32mINSERT INTO "SCHEMA_MIGRATIONS" ("VERSION") VALUES (:a1)[0m  [["version", "20180201133831"]]
+D, [2018-02-14T10:45:52.484395 #9448] DEBUG -- :   [1m[35m (85.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'AR_INTERNAL_METADATA' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T10:45:52.499498 #9448] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (11.2ms)[0m  [1m[34mSELECT  "AR_INTERNAL_METADATA".* FROM "AR_INTERNAL_METADATA" WHERE "AR_INTERNAL_METADATA"."KEY" = :a1 AND ROWNUM <= :a2 [0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-02-14T10:45:52.503693 #9448] DEBUG -- :   [1m[35m (3.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+I, [2018-02-14T11:04:49.153416 #10718]  INFO -- : [8cd12762-aeab-4541-b00c-aa226c163bf8] Started GET "/requests" for 127.0.0.1 at 2018-02-14 11:04:49 -0300
+I, [2018-02-14T11:04:49.161840 #10718]  INFO -- : [8cd12762-aeab-4541-b00c-aa226c163bf8] Processing by RequestsController#index as HTML
+I, [2018-02-14T11:04:49.167333 #10718]  INFO -- : [8cd12762-aeab-4541-b00c-aa226c163bf8] Redirected to http://localhost:3000/admins/login_attempt
+I, [2018-02-14T11:04:49.167463 #10718]  INFO -- : [8cd12762-aeab-4541-b00c-aa226c163bf8] Filter chain halted as :authenticate_user rendered or redirected
+I, [2018-02-14T11:04:49.167576 #10718]  INFO -- : [8cd12762-aeab-4541-b00c-aa226c163bf8] Completed 302 Found in 6ms
+I, [2018-02-14T11:04:49.176092 #10718]  INFO -- : [cb53136c-0adf-4475-970e-9a0fefe5823d] Started GET "/admins/login_attempt" for 127.0.0.1 at 2018-02-14 11:04:49 -0300
+I, [2018-02-14T11:04:49.177432 #10718]  INFO -- : [cb53136c-0adf-4475-970e-9a0fefe5823d] Processing by SessionsController#login as HTML
+I, [2018-02-14T11:04:49.179120 #10718]  INFO -- : [cb53136c-0adf-4475-970e-9a0fefe5823d]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-14T11:04:49.180667 #10718]  INFO -- : [cb53136c-0adf-4475-970e-9a0fefe5823d]   Rendered sessions/login.html.erb within layouts/general_view (1.4ms)
+I, [2018-02-14T11:04:49.183154 #10718]  INFO -- : [cb53136c-0adf-4475-970e-9a0fefe5823d] Completed 200 OK in 6ms (Views: 4.7ms)
+I, [2018-02-14T11:04:52.622230 #10718]  INFO -- : [ac90c4fa-2278-42f0-a363-17f34fac8bac] Started GET "/admins/login" for 127.0.0.1 at 2018-02-14 11:04:52 -0300
+I, [2018-02-14T11:04:52.622861 #10718]  INFO -- : [ac90c4fa-2278-42f0-a363-17f34fac8bac] Processing by SessionsController#login as HTML
+I, [2018-02-14T11:04:52.623584 #10718]  INFO -- : [ac90c4fa-2278-42f0-a363-17f34fac8bac]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-14T11:04:52.624196 #10718]  INFO -- : [ac90c4fa-2278-42f0-a363-17f34fac8bac]   Rendered sessions/login.html.erb within layouts/general_view (0.5ms)
+I, [2018-02-14T11:04:52.624757 #10718]  INFO -- : [ac90c4fa-2278-42f0-a363-17f34fac8bac] Completed 200 OK in 2ms (Views: 1.3ms)
+I, [2018-02-14T11:04:57.232393 #10718]  INFO -- : [4aff6e64-bec8-4d2f-9684-f9c755c0f68b] Started POST "/admins/login_attempt" for 127.0.0.1 at 2018-02-14 11:04:57 -0300
+I, [2018-02-14T11:04:57.233021 #10718]  INFO -- : [4aff6e64-bec8-4d2f-9684-f9c755c0f68b] Processing by SessionsController#login_attempt as HTML
+I, [2018-02-14T11:04:57.233075 #10718]  INFO -- : [4aff6e64-bec8-4d2f-9684-f9c755c0f68b]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"DUebiagcEeU+BEOaquk8kHHCu849NpM1DKu8J0LQu/55FIYZGvZ/DaYRUnu1vtmtuxJaPeY/8+8R0qfXS6EsrA==", "username_or_email"=>"solcelulares", "login_password"=>"[FILTERED]", "commit"=>"Ingresar"}
+D, [2018-02-14T11:04:57.509506 #10718] DEBUG -- : [4aff6e64-bec8-4d2f-9684-f9c755c0f68b]   [1m[35m (89.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'ADMINS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T11:04:57.534869 #10718] DEBUG -- : [4aff6e64-bec8-4d2f-9684-f9c755c0f68b]   [1m[36mAdmin Load (14.1ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."USERNAME" = :a1 AND ROWNUM <= :a2 [0m  [["username", "solcelulares"], ["LIMIT", 1]]
+I, [2018-02-14T11:04:57.536105 #10718]  INFO -- : [4aff6e64-bec8-4d2f-9684-f9c755c0f68b]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-14T11:04:57.537942 #10718]  INFO -- : [4aff6e64-bec8-4d2f-9684-f9c755c0f68b]   Rendered sessions/login.html.erb within layouts/general_view (1.6ms)
+I, [2018-02-14T11:04:57.540328 #10718]  INFO -- : [4aff6e64-bec8-4d2f-9684-f9c755c0f68b] Completed 200 OK in 307ms (Views: 4.4ms | ActiveRecord: 103.3ms)
+D, [2018-02-14T11:05:10.897869 #10769] DEBUG -- :   [1m[35m (9.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T11:05:10.934349 #10769] DEBUG -- :   [1m[35m (4.2ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T11:05:10.947954 #10769] DEBUG -- :   [1m[35m (4.3ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T11:05:10.994504 #10769] DEBUG -- :   [1m[35m (15.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T11:05:11.002886 #10769] DEBUG -- :   [1m[35m (6.1ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+D, [2018-02-14T11:05:11.054230 #10769] DEBUG -- :   [1m[35m (22.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'AR_INTERNAL_METADATA' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T11:05:11.069569 #10769] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (11.5ms)[0m  [1m[34mSELECT  "AR_INTERNAL_METADATA".* FROM "AR_INTERNAL_METADATA" WHERE "AR_INTERNAL_METADATA"."KEY" = :a1 AND ROWNUM <= :a2 [0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-02-14T11:05:11.074244 #10769] DEBUG -- :   [1m[35m (4.1ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T11:05:19.359580 #10805] DEBUG -- :   [1m[35m (9.7ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T11:05:19.380478 #10805] DEBUG -- :   [1m[35m (3.4ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T11:05:19.398758 #10805] DEBUG -- :   [1m[35m (5.9ms)[0m  [1m[34mSELECT SYS_CONTEXT('userenv', 'current_schema') FROM dual[0m
+D, [2018-02-14T11:05:19.457478 #10805] DEBUG -- :   [1m[35m (21.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'SCHEMA_MIGRATIONS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T11:05:19.463285 #10805] DEBUG -- :   [1m[35m (3.9ms)[0m  [1m[34mSELECT "SCHEMA_MIGRATIONS"."VERSION" FROM "SCHEMA_MIGRATIONS" ORDER BY "SCHEMA_MIGRATIONS"."VERSION" ASC[0m
+D, [2018-02-14T11:05:19.519623 #10805] DEBUG -- :   [1m[35m (38.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'ADMINS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T11:05:19.653119 #10805] DEBUG -- :   [1m[35m (12.6ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+D, [2018-02-14T11:05:19.664072 #10805] DEBUG -- :   [1m[36mSequence (6.0ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('ADMINS_seq')[0m
+D, [2018-02-14T11:05:19.688871 #10805] DEBUG -- :   [1m[36mPrimary Key (24.4ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'ADMINS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T11:05:19.716664 #10805] DEBUG -- :   [1m[36mAdmin Exists (7.8ms)[0m  [1m[34mSELECT  1 AS one FROM "ADMINS" WHERE "ADMINS"."USERNAME" = :a1 AND ROWNUM <= :a2 [0m  [["username", "solcelulares"], ["LIMIT", 1]]
+D, [2018-02-14T11:05:19.727755 #10805] DEBUG -- :   [1m[36mAdmin Exists (9.6ms)[0m  [1m[34mSELECT  1 AS one FROM "ADMINS" WHERE "ADMINS"."EMAIL" = :a1 AND ROWNUM <= :a2 [0m  [["email", "solcelulares@ccu.cl"], ["LIMIT", 1]]
+D, [2018-02-14T11:05:19.860337 #10805] DEBUG -- :   [1m[36mPrimary Key Trigger (6.0ms)[0m  [1m[34m          SELECT trigger_name
+          FROM all_triggers
+          WHERE owner = 'TELEFONIA'
+            AND trigger_name = q'[ADMINS_PKT]'
+            AND table_owner = 'TELEFONIA'
+            AND table_name = q'[ADMINS]'
+            AND status = 'ENABLED'
+[0m
+D, [2018-02-14T11:05:19.900117 #10805] DEBUG -- :   [1m[35mSQL (29.4ms)[0m  [1m[32mINSERT INTO "ADMINS" ("USERNAME", "EMAIL", "ENCRYPTED_PASSWORD", "SALT", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7)[0m  [["username", "solcelulares"], ["email", "solcelulares@ccu.cl"], ["encrypted_password", "$2a$10$fHu8o9I4vPj0TO3G21NcIeRMKMHl/DAvihvXn2RqlnasYU1vv21AS"], ["salt", "$2a$10$fHu8o9I4vPj0TO3G21NcIe"], ["created_at", "2018-02-14 14:05:19.806810"], ["updated_at", "2018-02-14 14:05:19.806810"], ["id", 10000]]
+D, [2018-02-14T11:05:20.057200 #10805] DEBUG -- :   [1m[35m (136.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'SMARTPHONES' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T11:05:20.074623 #10805] DEBUG -- :   [1m[36mSequence (4.9ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('SMARTPHONES_seq')[0m
+D, [2018-02-14T11:05:20.087287 #10805] DEBUG -- :   [1m[36mPrimary Key (12.2ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'SMARTPHONES' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T11:05:20.134846 #10805] DEBUG -- :   [1m[36mPrimary Key Trigger (4.0ms)[0m  [1m[34m          SELECT trigger_name
+          FROM all_triggers
+          WHERE owner = 'TELEFONIA'
+            AND trigger_name = q'[SMARTPHONES_PKT]'
+            AND table_owner = 'TELEFONIA'
+            AND table_name = q'[SMARTPHONES]'
+            AND status = 'ENABLED'
+[0m
+D, [2018-02-14T11:05:20.175199 #10805] DEBUG -- :   [1m[35mSQL (28.1ms)[0m  [1m[32mINSERT INTO "SMARTPHONES" ("MODEL", "CODE", "CATEGORY", "COUNTRY", "PRICE", "STATE", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["model", "Samsung Galaxy S8"], ["code", "106616"], ["category", "GE"], ["country", "CHL"], ["price", 200836], ["state", "catalog"], ["created_at", "2018-02-14 14:05:20.114822"], ["updated_at", "2018-02-14 14:05:20.114822"], ["id", 10000]]
+D, [2018-02-14T11:05:20.192684 #10805] DEBUG -- :   [1m[35mSQL (5.2ms)[0m  [1m[32mINSERT INTO "SMARTPHONES" ("MODEL", "CODE", "CATEGORY", "COUNTRY", "PRICE", "STATE", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["model", "Samsung Galaxy S8"], ["code", "106616"], ["category", "EJ"], ["country", "CHL"], ["price", 200836], ["state", "catalog"], ["created_at", "2018-02-14 14:05:20.181980"], ["updated_at", "2018-02-14 14:05:20.181980"], ["id", 10001]]
+D, [2018-02-14T11:05:20.234147 #10805] DEBUG -- :   [1m[35mSQL (5.3ms)[0m  [1m[32mINSERT INTO "SMARTPHONES" ("MODEL", "CODE", "CATEGORY", "COUNTRY", "PRICE", "STATE", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["model", "Samsung Galaxy S7"], ["code", "106553"], ["category", "GE"], ["country", "CHL"], ["price", 158820], ["state", "catalog"], ["created_at", "2018-02-14 14:05:20.220760"], ["updated_at", "2018-02-14 14:05:20.220760"], ["id", 10002]]
+D, [2018-02-14T11:05:20.249442 #10805] DEBUG -- :   [1m[35mSQL (4.9ms)[0m  [1m[32mINSERT INTO "SMARTPHONES" ("MODEL", "CODE", "CATEGORY", "COUNTRY", "PRICE", "STATE", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["model", "Samsung Galaxy S7"], ["code", "106553"], ["category", "EJ"], ["country", "CHL"], ["price", 158820], ["state", "catalog"], ["created_at", "2018-02-14 14:05:20.238984"], ["updated_at", "2018-02-14 14:05:20.238984"], ["id", 10003]]
+D, [2018-02-14T11:05:20.271024 #10805] DEBUG -- :   [1m[35mSQL (5.4ms)[0m  [1m[32mINSERT INTO "SMARTPHONES" ("MODEL", "CODE", "CATEGORY", "COUNTRY", "PRICE", "STATE", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["model", "Samsung Galaxy S7"], ["code", "106553"], ["category", "VE"], ["country", "CHL"], ["price", 158820], ["state", "catalog"], ["created_at", "2018-02-14 14:05:20.258607"], ["updated_at", "2018-02-14 14:05:20.258607"], ["id", 10004]]
+D, [2018-02-14T11:05:20.289466 #10805] DEBUG -- :   [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "SMARTPHONES" ("MODEL", "CODE", "CATEGORY", "COUNTRY", "PRICE", "STATE", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["model", "Samsung Galaxy J7"], ["code", "106586"], ["category", "PT"], ["country", "CHL"], ["price", 50417], ["state", "catalog"], ["created_at", "2018-02-14 14:05:20.279929"], ["updated_at", "2018-02-14 14:05:20.279929"], ["id", 10005]]
+D, [2018-02-14T11:05:20.321198 #10805] DEBUG -- :   [1m[35mSQL (21.3ms)[0m  [1m[32mINSERT INTO "SMARTPHONES" ("MODEL", "CODE", "CATEGORY", "COUNTRY", "PRICE", "STATE", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["model", "Samsung Galaxy J5"], ["code", "106583"], ["category", "EE"], ["country", "CHL"], ["price", 40333], ["state", "catalog"], ["created_at", "2018-02-14 14:05:20.295099"], ["updated_at", "2018-02-14 14:05:20.295099"], ["id", 10006]]
+D, [2018-02-14T11:05:20.338550 #10805] DEBUG -- :   [1m[35mSQL (3.1ms)[0m  [1m[32mINSERT INTO "SMARTPHONES" ("MODEL", "CODE", "CATEGORY", "COUNTRY", "PRICE", "STATE", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["model", "Samsung Galaxy J5"], ["code", "106583"], ["category", "OO"], ["country", "CHL"], ["price", 40333], ["state", "catalog"], ["created_at", "2018-02-14 14:05:20.328140"], ["updated_at", "2018-02-14 14:05:20.328140"], ["id", 10007]]
+D, [2018-02-14T11:05:20.358201 #10805] DEBUG -- :   [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "SMARTPHONES" ("MODEL", "CODE", "CATEGORY", "COUNTRY", "PRICE", "STATE", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["model", "Own F1035"], ["code", "162050"], ["category", "ALL"], ["country", "CHL"], ["price", 0], ["state", "catalog"], ["created_at", "2018-02-14 14:05:20.346082"], ["updated_at", "2018-02-14 14:05:20.346082"], ["id", 10008]]
+D, [2018-02-14T11:05:20.460132 #10805] DEBUG -- :   [1m[35m (83.2ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'BAMS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T11:05:20.476485 #10805] DEBUG -- :   [1m[36mSequence (8.1ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('BAMS_seq')[0m
+D, [2018-02-14T11:05:20.484628 #10805] DEBUG -- :   [1m[36mPrimary Key (7.7ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'BAMS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T11:05:20.543127 #10805] DEBUG -- :   [1m[36mPrimary Key Trigger (6.1ms)[0m  [1m[34m          SELECT trigger_name
+          FROM all_triggers
+          WHERE owner = 'TELEFONIA'
+            AND trigger_name = q'[BAMS_PKT]'
+            AND table_owner = 'TELEFONIA'
+            AND table_name = q'[BAMS]'
+            AND status = 'ENABLED'
+[0m
+D, [2018-02-14T11:05:20.579824 #10805] DEBUG -- :   [1m[35mSQL (27.7ms)[0m  [1m[32mINSERT INTO "BAMS" ("MODEL", "CODE", "COUNTRY", "PRICE", "STATE", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8)[0m  [["model", "BAM E8372H LTE"], ["code", "133167"], ["country", "CHL"], ["price", 0], ["state", "catalog"], ["created_at", "2018-02-14 14:05:20.510237"], ["updated_at", "2018-02-14 14:05:20.510237"], ["id", 10000]]
+D, [2018-02-14T11:05:20.660618 #10805] DEBUG -- :   [1m[35m (63.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'PLANS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T11:05:20.672233 #10805] DEBUG -- :   [1m[36mSequence (4.6ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('PLANS_seq')[0m
+D, [2018-02-14T11:05:20.680793 #10805] DEBUG -- :   [1m[36mPrimary Key (8.1ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'PLANS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T11:05:20.708946 #10805] DEBUG -- :   [1m[36mPrimary Key Trigger (5.5ms)[0m  [1m[34m          SELECT trigger_name
+          FROM all_triggers
+          WHERE owner = 'TELEFONIA'
+            AND trigger_name = q'[PLANS_PKT]'
+            AND table_owner = 'TELEFONIA'
+            AND table_name = q'[PLANS]'
+            AND status = 'ENABLED'
+[0m
+D, [2018-02-14T11:05:20.761606 #10805] DEBUG -- :   [1m[35mSQL (20.7ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "1452 BAM Pro 4 Gb Normal"], ["detail", " El plan incluye: 2 Gb / vel. descarga nacional promedio: 3 Mbps (nacional) y 2,2 Mbps (internacional) "], ["price", 15882], ["country", "CHL"], ["created_at", "2018-02-14 14:05:20.698549"], ["updated_at", "2018-02-14 14:05:20.698549"], ["id", 10000]]
+D, [2018-02-14T11:05:20.853753 #10805] DEBUG -- :   [1m[35mSQL (76.7ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "1453 BAM Pro 8 Gb Normal"], ["detail", " El plan incluye: 4 Gb / vel. descarga nacional promedio: 3 Mbps (nacional) y 2,2 Mbps (internacional) "], ["price", 20924], ["country", "CHL"], ["created_at", "2018-02-14 14:05:20.767021"], ["updated_at", "2018-02-14 14:05:20.767021"], ["id", 10001]]
+D, [2018-02-14T11:05:20.866487 #10805] DEBUG -- :   [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "1454 BAM Pro 12 Gb Normal"], ["detail", " El plan incluye: 6 Gb / vel. descarga nacional promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) "], ["price", 24286], ["country", "CHL"], ["created_at", "2018-02-14 14:05:20.858370"], ["updated_at", "2018-02-14 14:05:20.858370"], ["id", 10002]]
+D, [2018-02-14T11:05:20.880412 #10805] DEBUG -- :   [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "1455 BAM Pro 20 Gb Normal"], ["detail", " El plan incluye: 10 Gb / vel. descarga nacional promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) "], ["price", 30168], ["country", "CHL"], ["created_at", "2018-02-14 14:05:20.870886"], ["updated_at", "2018-02-14 14:05:20.870886"], ["id", 10003]]
+D, [2018-02-14T11:05:20.896366 #10805] DEBUG -- :   [1m[35mSQL (4.8ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "bam"], ["plan_type", "plan"], ["name", "1456 BAM Pro 30 Gb Normal"], ["detail", " El plan incluye: 15 Gb / vel. descarga nacional promedio: 5,8 Mbps (nacional) y 4,7 Mbps (internacional) "], ["price", 37807], ["country", "CHL"], ["created_at", "2018-02-14 14:05:20.885552"], ["updated_at", "2018-02-14 14:05:20.885552"], ["id", 10004]]
+D, [2018-02-14T11:05:20.911738 #10805] DEBUG -- :   [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Programa Viajero 150 MB"], ["detail", "El plan incluye: 150 MB + WHATSAPP ILIMITADO"], ["price", 9990], ["country", "CHL"], ["created_at", "2018-02-14 14:05:20.901104"], ["updated_at", "2018-02-14 14:05:20.901104"], ["id", 10005]]
+D, [2018-02-14T11:05:20.926671 #10805] DEBUG -- :   [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Programa Viajero Pro 150 MB"], ["detail", "El plan incluye: 150 MB + 15 MIN + 15 SMS + WHATSAPP ILIMITADO"], ["price", 12990], ["country", "CHL"], ["created_at", "2018-02-14 14:05:20.918025"], ["updated_at", "2018-02-14 14:05:20.918025"], ["id", 10006]]
+D, [2018-02-14T11:05:20.974113 #10805] DEBUG -- :   [1m[35mSQL (6.4ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Programa Viajero 300 MB"], ["detail", "El plan incluye: 300 MB + WHATSAPP ILIMITADO"], ["price", 17990], ["country", "CHL"], ["created_at", "2018-02-14 14:05:20.958531"], ["updated_at", "2018-02-14 14:05:20.958531"], ["id", 10007]]
+D, [2018-02-14T11:05:20.989717 #10805] DEBUG -- :   [1m[35mSQL (4.8ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "roaming"], ["plan_type", "plan"], ["name", "Programa Viajero Pro 300 MB"], ["detail", "El plan incluye: 300 MB + 30 MIN + 30 SMS + WHATSAPP ILIMITADO"], ["price", 22990], ["country", "CHL"], ["created_at", "2018-02-14 14:05:20.978464"], ["updated_at", "2018-02-14 14:05:20.978464"], ["id", 10008]]
+D, [2018-02-14T11:05:21.004325 #10805] DEBUG -- :   [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa 30 Dias Roaming 15MB"], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 29990], ["country", "CHL"], ["created_at", "2018-02-14 14:05:20.996053"], ["updated_at", "2018-02-14 14:05:20.996053"], ["id", 10009]]
+D, [2018-02-14T11:05:21.018766 #10805] DEBUG -- :   [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa 30 Dias Roaming 25MB"], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 45990], ["country", "CHL"], ["created_at", "2018-02-14 14:05:21.008636"], ["updated_at", "2018-02-14 14:05:21.008636"], ["id", 10010]]
+D, [2018-02-14T11:05:21.037591 #10805] DEBUG -- :   [1m[35mSQL (8.2ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa 30 Dias Roaming 50MB"], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 79990], ["country", "CHL"], ["created_at", "2018-02-14 14:05:21.023654"], ["updated_at", "2018-02-14 14:05:21.023654"], ["id", 10011]]
+D, [2018-02-14T11:05:21.069407 #10805] DEBUG -- :   [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa 30 Dias Roaming 100MB"], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 144990], ["country", "CHL"], ["created_at", "2018-02-14 14:05:21.060743"], ["updated_at", "2018-02-14 14:05:21.060743"], ["id", 10012]]
+D, [2018-02-14T11:05:21.087234 #10805] DEBUG -- :   [1m[35mSQL (4.4ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolas 30 Dias Roaming 200MB"], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 239990], ["country", "CHL"], ["created_at", "2018-02-14 14:05:21.077914"], ["updated_at", "2018-02-14 14:05:21.077914"], ["id", 10013]]
+D, [2018-02-14T11:05:21.100217 #10805] DEBUG -- :   [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "PLANS" ("ITEM", "PLAN_TYPE", "NAME", "DETAIL", "PRICE", "COUNTRY", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9)[0m  [["item", "roaming"], ["plan_type", "bag"], ["name", "Bolsa 30 Dias Roaming 400MB"], ["detail", "Bolsa solo incluye plan de datos y duración de 30 dias"], ["price", 449990], ["country", "CHL"], ["created_at", "2018-02-14 14:05:21.092412"], ["updated_at", "2018-02-14 14:05:21.092412"], ["id", 10014]]
+I, [2018-02-14T11:05:43.552890 #10857]  INFO -- : [76376af4-b35e-4990-b1bb-a6f52b05db4b] Started GET "/admins/login_attempt" for 127.0.0.1 at 2018-02-14 11:05:43 -0300
+I, [2018-02-14T11:05:43.561138 #10857]  INFO -- : [76376af4-b35e-4990-b1bb-a6f52b05db4b] Processing by SessionsController#login as HTML
+I, [2018-02-14T11:05:43.567127 #10857]  INFO -- : [76376af4-b35e-4990-b1bb-a6f52b05db4b]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-14T11:05:43.569247 #10857]  INFO -- : [76376af4-b35e-4990-b1bb-a6f52b05db4b]   Rendered sessions/login.html.erb within layouts/general_view (2.0ms)
+I, [2018-02-14T11:05:43.570420 #10857]  INFO -- : [76376af4-b35e-4990-b1bb-a6f52b05db4b] Completed 200 OK in 9ms (Views: 3.9ms)
+I, [2018-02-14T11:06:41.128223 #10857]  INFO -- : [6c81fc51-67de-4b2c-9abe-b04e85663423] Started GET "/requests/validations/97b19eb10b8a6266fb75f93ce7c632d6eb48c88d96808b8b9809fcaa6ac9aa6a" for 127.0.0.1 at 2018-02-14 11:06:41 -0300
+I, [2018-02-14T11:06:41.129592 #10857]  INFO -- : [6c81fc51-67de-4b2c-9abe-b04e85663423] Processing by RequestsController#validations as HTML
+I, [2018-02-14T11:06:41.129665 #10857]  INFO -- : [6c81fc51-67de-4b2c-9abe-b04e85663423]   Parameters: {"id"=>"97b19eb10b8a6266fb75f93ce7c632d6eb48c88d96808b8b9809fcaa6ac9aa6a"}
+D, [2018-02-14T11:06:41.582390 #10857] DEBUG -- : [6c81fc51-67de-4b2c-9abe-b04e85663423]   [1m[35m (293.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T11:06:41.607394 #10857] DEBUG -- : [6c81fc51-67de-4b2c-9abe-b04e85663423]   [1m[36mRequest Load (9.5ms)[0m  [1m[34mSELECT  "REQUESTS".* FROM "REQUESTS" WHERE "REQUESTS"."LINK" = :a1 AND ROWNUM <= :a2 [0m  [["link", "97b19eb10b8a6266fb75f93ce7c632d6eb48c88d96808b8b9809fcaa6ac9aa6a"], ["LIMIT", 1]]
+I, [2018-02-14T11:06:41.609043 #10857]  INFO -- : [6c81fc51-67de-4b2c-9abe-b04e85663423] Completed 200 OK in 479ms (Views: 0.5ms | ActiveRecord: 303.3ms)
+I, [2018-02-14T12:30:31.483139 #18043]  INFO -- : [3734a712-bcd8-4e4e-b2b7-91c258e09e95] Started GET "/" for 127.0.0.1 at 2018-02-14 12:30:31 -0300
+I, [2018-02-14T12:30:31.489914 #18043]  INFO -- : [3734a712-bcd8-4e4e-b2b7-91c258e09e95] Processing by HomePagesController#home as HTML
+I, [2018-02-14T12:30:31.495233 #18043]  INFO -- : [3734a712-bcd8-4e4e-b2b7-91c258e09e95]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-14T12:30:31.495644 #18043]  INFO -- : [3734a712-bcd8-4e4e-b2b7-91c258e09e95]   Rendered home_pages/home.html.erb within layouts/home (0.3ms)
+I, [2018-02-14T12:30:31.496963 #18043]  INFO -- : [3734a712-bcd8-4e4e-b2b7-91c258e09e95] Completed 200 OK in 7ms (Views: 2.7ms)
+I, [2018-02-14T12:30:32.679560 #18043]  INFO -- : [84f4af4d-fd21-409e-8b78-dd51cc0e6548] Started GET "/requests/home/menu" for 127.0.0.1 at 2018-02-14 12:30:32 -0300
+I, [2018-02-14T12:30:32.680219 #18043]  INFO -- : [84f4af4d-fd21-409e-8b78-dd51cc0e6548] Processing by HomePagesController#request_home as HTML
+I, [2018-02-14T12:30:32.681408 #18043]  INFO -- : [84f4af4d-fd21-409e-8b78-dd51cc0e6548]   Rendering home_pages/request_home.html.erb within layouts/general_view
+I, [2018-02-14T12:30:32.683625 #18043]  INFO -- : [84f4af4d-fd21-409e-8b78-dd51cc0e6548]   Rendered home_pages/request_home.html.erb within layouts/general_view (2.1ms)
+I, [2018-02-14T12:30:32.684742 #18043]  INFO -- : [84f4af4d-fd21-409e-8b78-dd51cc0e6548] Completed 200 OK in 4ms (Views: 4.0ms)
+I, [2018-02-14T12:30:33.260874 #18043]  INFO -- : [f36a4008-0c81-4eee-b830-83b6a2b568be] Started GET "/" for 127.0.0.1 at 2018-02-14 12:30:33 -0300
+I, [2018-02-14T12:30:33.261430 #18043]  INFO -- : [f36a4008-0c81-4eee-b830-83b6a2b568be] Processing by HomePagesController#home as HTML
+I, [2018-02-14T12:30:33.262001 #18043]  INFO -- : [f36a4008-0c81-4eee-b830-83b6a2b568be]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-14T12:30:33.262121 #18043]  INFO -- : [f36a4008-0c81-4eee-b830-83b6a2b568be]   Rendered home_pages/home.html.erb within layouts/home (0.0ms)
+I, [2018-02-14T12:30:33.262992 #18043]  INFO -- : [f36a4008-0c81-4eee-b830-83b6a2b568be] Completed 200 OK in 1ms (Views: 1.1ms)
+I, [2018-02-14T12:30:33.945706 #18043]  INFO -- : [771c69e2-c51d-48f5-a270-31accb8a5b20] Started GET "/requests/home/follow_request" for 127.0.0.1 at 2018-02-14 12:30:33 -0300
+I, [2018-02-14T12:30:33.946296 #18043]  INFO -- : [771c69e2-c51d-48f5-a270-31accb8a5b20] Processing by HomePagesController#follow_request as HTML
+I, [2018-02-14T12:30:33.947298 #18043]  INFO -- : [771c69e2-c51d-48f5-a270-31accb8a5b20]   Rendering home_pages/follow_request.html.erb within layouts/general_view
+I, [2018-02-14T12:30:33.949249 #18043]  INFO -- : [771c69e2-c51d-48f5-a270-31accb8a5b20]   Rendered home_pages/follow_request.html.erb within layouts/general_view (1.7ms)
+I, [2018-02-14T12:30:33.949905 #18043]  INFO -- : [771c69e2-c51d-48f5-a270-31accb8a5b20] Completed 200 OK in 3ms (Views: 3.0ms)
+I, [2018-02-14T12:30:34.577624 #18043]  INFO -- : [423dd31a-c8c2-4984-bfcf-42dba7fed4e8] Started GET "/requests/home/downloads" for 127.0.0.1 at 2018-02-14 12:30:34 -0300
+I, [2018-02-14T12:30:34.578178 #18043]  INFO -- : [423dd31a-c8c2-4984-bfcf-42dba7fed4e8] Processing by HomePagesController#downloads as HTML
+I, [2018-02-14T12:30:34.579159 #18043]  INFO -- : [423dd31a-c8c2-4984-bfcf-42dba7fed4e8]   Rendering home_pages/downloads.html.erb within layouts/general_view
+I, [2018-02-14T12:30:34.580228 #18043]  INFO -- : [423dd31a-c8c2-4984-bfcf-42dba7fed4e8]   Rendered home_pages/downloads.html.erb within layouts/general_view (1.0ms)
+I, [2018-02-14T12:30:34.581110 #18043]  INFO -- : [423dd31a-c8c2-4984-bfcf-42dba7fed4e8] Completed 200 OK in 3ms (Views: 2.3ms)
+I, [2018-02-14T12:30:34.748829 #18043]  INFO -- : [42363f88-4784-4d74-b028-d97ddbfb3b28] Started GET "/downloads/configuracion_handheld" for 127.0.0.1 at 2018-02-14 12:30:34 -0300
+F, [2018-02-14T12:30:34.749530 #18043] FATAL -- : [42363f88-4784-4d74-b028-d97ddbfb3b28]   
+F, [2018-02-14T12:30:34.749618 #18043] FATAL -- : [42363f88-4784-4d74-b028-d97ddbfb3b28] ActionController::RoutingError (No route matches [GET] "/downloads/configuracion_handheld"):
+F, [2018-02-14T12:30:34.749930 #18043] FATAL -- : [42363f88-4784-4d74-b028-d97ddbfb3b28]   
+F, [2018-02-14T12:30:34.750090 #18043] FATAL -- : [42363f88-4784-4d74-b028-d97ddbfb3b28] actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] railties (5.1.4) lib/rails/engine.rb:522:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+[42363f88-4784-4d74-b028-d97ddbfb3b28] puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-02-14T12:30:34.750387 #18043]  INFO -- : [d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] Started GET "/downloads/configuracion_correo" for 127.0.0.1 at 2018-02-14 12:30:34 -0300
+I, [2018-02-14T12:30:34.754815 #18043]  INFO -- : [92d2e885-89c0-4bee-b65c-1f2018c59111] Started GET "/downloads/configuracion_apn" for 127.0.0.1 at 2018-02-14 12:30:34 -0300
+F, [2018-02-14T12:30:34.755963 #18043] FATAL -- : [d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee]   
+F, [2018-02-14T12:30:34.756914 #18043] FATAL -- : [92d2e885-89c0-4bee-b65c-1f2018c59111]   
+F, [2018-02-14T12:30:34.757185 #18043] FATAL -- : [d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] ActionController::RoutingError (No route matches [GET] "/downloads/configuracion_correo"):
+F, [2018-02-14T12:30:34.757499 #18043] FATAL -- : [92d2e885-89c0-4bee-b65c-1f2018c59111] ActionController::RoutingError (No route matches [GET] "/downloads/configuracion_apn"):
+F, [2018-02-14T12:30:34.757619 #18043] FATAL -- : [d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee]   
+F, [2018-02-14T12:30:34.757731 #18043] FATAL -- : [92d2e885-89c0-4bee-b65c-1f2018c59111]   
+F, [2018-02-14T12:30:34.758106 #18043] FATAL -- : [d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] railties (5.1.4) lib/rails/engine.rb:522:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+[d64a9acf-e0c5-4fb3-8de3-6c1b7e9edfee] puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+F, [2018-02-14T12:30:34.758592 #18043] FATAL -- : [92d2e885-89c0-4bee-b65c-1f2018c59111] actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] railties (5.1.4) lib/rails/engine.rb:522:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+[92d2e885-89c0-4bee-b65c-1f2018c59111] puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-02-14T12:30:35.346749 #18043]  INFO -- : [36198a5d-efec-4dad-a77d-95495bfc65cd] Started GET "/requests/home/support" for 127.0.0.1 at 2018-02-14 12:30:35 -0300
+I, [2018-02-14T12:30:35.347314 #18043]  INFO -- : [36198a5d-efec-4dad-a77d-95495bfc65cd] Processing by HomePagesController#support as HTML
+I, [2018-02-14T12:30:35.348818 #18043]  INFO -- : [36198a5d-efec-4dad-a77d-95495bfc65cd]   Rendering home_pages/support.html.erb within layouts/general_view2
+I, [2018-02-14T12:30:35.351274 #18043]  INFO -- : [36198a5d-efec-4dad-a77d-95495bfc65cd]   Rendered home_pages/support.html.erb within layouts/general_view2 (2.4ms)
+I, [2018-02-14T12:30:35.351410 #18043]  INFO -- : [36198a5d-efec-4dad-a77d-95495bfc65cd] Completed 500 Internal Server Error in 4ms
+F, [2018-02-14T12:30:35.352172 #18043] FATAL -- : [36198a5d-efec-4dad-a77d-95495bfc65cd]   
+F, [2018-02-14T12:30:35.352216 #18043] FATAL -- : [36198a5d-efec-4dad-a77d-95495bfc65cd] ActionView::Template::Error (The asset "quehacer1.jpg" is not present in the asset pipeline.):
+F, [2018-02-14T12:30:35.352540 #18043] FATAL -- : [36198a5d-efec-4dad-a77d-95495bfc65cd]     113:     <hr>
+[36198a5d-efec-4dad-a77d-95495bfc65cd]     114:     <h3><strong>Pérdida o Robo</strong></h3>
+[36198a5d-efec-4dad-a77d-95495bfc65cd]     115:     <hr>
+[36198a5d-efec-4dad-a77d-95495bfc65cd]     116:     <%= image_tag "quehacer1.jpg", class:"img-responsive center-block"%>
+[36198a5d-efec-4dad-a77d-95495bfc65cd]     117:     <%= image_tag "quehacer2.jpg", class:"img-responsive center-block"%>
+[36198a5d-efec-4dad-a77d-95495bfc65cd]     118:     <%= image_tag "quehacer3.jpg", class:"img-responsive center-block"%>
+[36198a5d-efec-4dad-a77d-95495bfc65cd]     119:     <hr>
+F, [2018-02-14T12:30:35.352580 #18043] FATAL -- : [36198a5d-efec-4dad-a77d-95495bfc65cd]   
+F, [2018-02-14T12:30:35.352614 #18043] FATAL -- : [36198a5d-efec-4dad-a77d-95495bfc65cd] app/views/home_pages/support.html.erb:116:in `_app_views_home_pages_support_html_erb__2855878285709755423_47406305992960'
+[36198a5d-efec-4dad-a77d-95495bfc65cd] app/controllers/home_pages_controller.rb:31:in `support'
+I, [2018-02-14T12:31:30.204319 #18201]  INFO -- : [a404757e-ad83-4886-b6ac-c5b62b3c8ada] Started GET "/requests/home/support" for 127.0.0.1 at 2018-02-14 12:31:30 -0300
+I, [2018-02-14T12:31:30.212492 #18201]  INFO -- : [a404757e-ad83-4886-b6ac-c5b62b3c8ada] Processing by HomePagesController#support as HTML
+I, [2018-02-14T12:31:30.217802 #18201]  INFO -- : [a404757e-ad83-4886-b6ac-c5b62b3c8ada]   Rendering home_pages/support.html.erb within layouts/general_view2
+I, [2018-02-14T12:31:30.219769 #18201]  INFO -- : [a404757e-ad83-4886-b6ac-c5b62b3c8ada]   Rendered home_pages/support.html.erb within layouts/general_view2 (1.9ms)
+I, [2018-02-14T12:31:30.220946 #18201]  INFO -- : [a404757e-ad83-4886-b6ac-c5b62b3c8ada] Completed 200 OK in 8ms (Views: 4.1ms)
+I, [2018-02-14T12:31:31.710869 #18201]  INFO -- : [eb6cb87c-d0a3-4e0c-b2f5-c6e0b9174217] Started GET "/" for 127.0.0.1 at 2018-02-14 12:31:31 -0300
+I, [2018-02-14T12:31:31.711514 #18201]  INFO -- : [eb6cb87c-d0a3-4e0c-b2f5-c6e0b9174217] Processing by HomePagesController#home as HTML
+I, [2018-02-14T12:31:31.712636 #18201]  INFO -- : [eb6cb87c-d0a3-4e0c-b2f5-c6e0b9174217]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-14T12:31:31.712956 #18201]  INFO -- : [eb6cb87c-d0a3-4e0c-b2f5-c6e0b9174217]   Rendered home_pages/home.html.erb within layouts/home (0.2ms)
+I, [2018-02-14T12:31:31.713928 #18201]  INFO -- : [eb6cb87c-d0a3-4e0c-b2f5-c6e0b9174217] Completed 200 OK in 2ms (Views: 1.9ms)
+I, [2018-02-14T12:31:32.134925 #18201]  INFO -- : [8d3e2749-585e-4711-bc24-afdcea8a0893] Started GET "/requests/home/menu" for 127.0.0.1 at 2018-02-14 12:31:32 -0300
+I, [2018-02-14T12:31:32.135770 #18201]  INFO -- : [8d3e2749-585e-4711-bc24-afdcea8a0893] Processing by HomePagesController#request_home as HTML
+I, [2018-02-14T12:31:32.137135 #18201]  INFO -- : [8d3e2749-585e-4711-bc24-afdcea8a0893]   Rendering home_pages/request_home.html.erb within layouts/general_view
+I, [2018-02-14T12:31:32.140204 #18201]  INFO -- : [8d3e2749-585e-4711-bc24-afdcea8a0893]   Rendered home_pages/request_home.html.erb within layouts/general_view (3.0ms)
+I, [2018-02-14T12:31:32.141662 #18201]  INFO -- : [8d3e2749-585e-4711-bc24-afdcea8a0893] Completed 200 OK in 6ms (Views: 5.3ms)
+I, [2018-02-14T12:31:32.685108 #18201]  INFO -- : [074f861f-cf1a-43bf-80a9-27e8ea68cac8] Started GET "/requests/home/follow_request" for 127.0.0.1 at 2018-02-14 12:31:32 -0300
+I, [2018-02-14T12:31:32.685863 #18201]  INFO -- : [074f861f-cf1a-43bf-80a9-27e8ea68cac8] Processing by HomePagesController#follow_request as HTML
+I, [2018-02-14T12:31:32.686861 #18201]  INFO -- : [074f861f-cf1a-43bf-80a9-27e8ea68cac8]   Rendering home_pages/follow_request.html.erb within layouts/general_view
+I, [2018-02-14T12:31:32.688610 #18201]  INFO -- : [074f861f-cf1a-43bf-80a9-27e8ea68cac8]   Rendered home_pages/follow_request.html.erb within layouts/general_view (1.7ms)
+I, [2018-02-14T12:31:32.689212 #18201]  INFO -- : [074f861f-cf1a-43bf-80a9-27e8ea68cac8] Completed 200 OK in 3ms (Views: 2.8ms)
+I, [2018-02-14T12:31:33.241698 #18201]  INFO -- : [7b998091-0b1d-4c77-898b-8bac26ad4705] Started GET "/requests/home/downloads" for 127.0.0.1 at 2018-02-14 12:31:33 -0300
+I, [2018-02-14T12:31:33.242313 #18201]  INFO -- : [7b998091-0b1d-4c77-898b-8bac26ad4705] Processing by HomePagesController#downloads as HTML
+I, [2018-02-14T12:31:33.243424 #18201]  INFO -- : [7b998091-0b1d-4c77-898b-8bac26ad4705]   Rendering home_pages/downloads.html.erb within layouts/general_view
+I, [2018-02-14T12:31:33.244208 #18201]  INFO -- : [7b998091-0b1d-4c77-898b-8bac26ad4705]   Rendered home_pages/downloads.html.erb within layouts/general_view (0.7ms)
+I, [2018-02-14T12:31:33.245121 #18201]  INFO -- : [7b998091-0b1d-4c77-898b-8bac26ad4705] Completed 200 OK in 3ms (Views: 2.0ms)
+I, [2018-02-14T12:31:33.410456 #18201]  INFO -- : [522a56c1-8a16-4b10-8d7e-167aeb1157ef] Started GET "/downloads/configuracion_apn" for 127.0.0.1 at 2018-02-14 12:31:33 -0300
+F, [2018-02-14T12:31:33.411519 #18201] FATAL -- : [522a56c1-8a16-4b10-8d7e-167aeb1157ef]   
+F, [2018-02-14T12:31:33.411678 #18201] FATAL -- : [522a56c1-8a16-4b10-8d7e-167aeb1157ef] ActionController::RoutingError (No route matches [GET] "/downloads/configuracion_apn"):
+I, [2018-02-14T12:31:33.412283 #18201]  INFO -- : [60ede57a-1e4d-4105-aeb1-f09db43918a7] Started GET "/downloads/configuracion_correo" for 127.0.0.1 at 2018-02-14 12:31:33 -0300
+F, [2018-02-14T12:31:33.412334 #18201] FATAL -- : [522a56c1-8a16-4b10-8d7e-167aeb1157ef]   
+F, [2018-02-14T12:31:33.413084 #18201] FATAL -- : [60ede57a-1e4d-4105-aeb1-f09db43918a7]   
+F, [2018-02-14T12:31:33.413608 #18201] FATAL -- : [60ede57a-1e4d-4105-aeb1-f09db43918a7] ActionController::RoutingError (No route matches [GET] "/downloads/configuracion_correo"):
+F, [2018-02-14T12:31:33.413534 #18201] FATAL -- : [522a56c1-8a16-4b10-8d7e-167aeb1157ef] actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] railties (5.1.4) lib/rails/engine.rb:522:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+[522a56c1-8a16-4b10-8d7e-167aeb1157ef] puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+F, [2018-02-14T12:31:33.413654 #18201] FATAL -- : [60ede57a-1e4d-4105-aeb1-f09db43918a7]   
+I, [2018-02-14T12:31:33.413470 #18201]  INFO -- : [e3fe7046-fb73-438c-aefc-3c70144c32c6] Started GET "/downloads/configuracion_handheld" for 127.0.0.1 at 2018-02-14 12:31:33 -0300
+F, [2018-02-14T12:31:33.419016 #18201] FATAL -- : [60ede57a-1e4d-4105-aeb1-f09db43918a7] actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] railties (5.1.4) lib/rails/engine.rb:522:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+[60ede57a-1e4d-4105-aeb1-f09db43918a7] puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+F, [2018-02-14T12:31:33.419841 #18201] FATAL -- : [e3fe7046-fb73-438c-aefc-3c70144c32c6]   
+F, [2018-02-14T12:31:33.424830 #18201] FATAL -- : [e3fe7046-fb73-438c-aefc-3c70144c32c6] ActionController::RoutingError (No route matches [GET] "/downloads/configuracion_handheld"):
+F, [2018-02-14T12:31:33.424994 #18201] FATAL -- : [e3fe7046-fb73-438c-aefc-3c70144c32c6]   
+F, [2018-02-14T12:31:33.425446 #18201] FATAL -- : [e3fe7046-fb73-438c-aefc-3c70144c32c6] actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] railties (5.1.4) lib/rails/engine.rb:522:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+[e3fe7046-fb73-438c-aefc-3c70144c32c6] puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+I, [2018-02-14T12:31:33.962867 #18201]  INFO -- : [bf469966-1a6b-459c-8723-f4bdea70f693] Started GET "/requests/home/support" for 127.0.0.1 at 2018-02-14 12:31:33 -0300
+I, [2018-02-14T12:31:33.963589 #18201]  INFO -- : [bf469966-1a6b-459c-8723-f4bdea70f693] Processing by HomePagesController#support as HTML
+I, [2018-02-14T12:31:33.964444 #18201]  INFO -- : [bf469966-1a6b-459c-8723-f4bdea70f693]   Rendering home_pages/support.html.erb within layouts/general_view2
+I, [2018-02-14T12:31:33.965792 #18201]  INFO -- : [bf469966-1a6b-459c-8723-f4bdea70f693]   Rendered home_pages/support.html.erb within layouts/general_view2 (1.3ms)
+I, [2018-02-14T12:31:33.966531 #18201]  INFO -- : [bf469966-1a6b-459c-8723-f4bdea70f693] Completed 200 OK in 3ms (Views: 2.4ms)
+I, [2018-02-14T12:31:34.715794 #18201]  INFO -- : [e1d540b9-5796-49d2-911a-dcbd07a0080f] Started GET "/requests/home/faq" for 127.0.0.1 at 2018-02-14 12:31:34 -0300
+I, [2018-02-14T12:31:34.717039 #18201]  INFO -- : [e1d540b9-5796-49d2-911a-dcbd07a0080f] Processing by HomePagesController#faq as HTML
+I, [2018-02-14T12:31:34.718457 #18201]  INFO -- : [e1d540b9-5796-49d2-911a-dcbd07a0080f]   Rendering home_pages/faq.html.erb within layouts/general_view2
+I, [2018-02-14T12:31:34.719454 #18201]  INFO -- : [e1d540b9-5796-49d2-911a-dcbd07a0080f]   Rendered home_pages/faq.html.erb within layouts/general_view2 (0.9ms)
+I, [2018-02-14T12:31:34.720435 #18201]  INFO -- : [e1d540b9-5796-49d2-911a-dcbd07a0080f] Completed 200 OK in 3ms (Views: 2.8ms)
+I, [2018-02-14T12:31:35.382704 #18201]  INFO -- : [6b413421-04c9-42f6-b41b-4c0246726685] Started GET "/admins/login" for 127.0.0.1 at 2018-02-14 12:31:35 -0300
+I, [2018-02-14T12:31:35.384249 #18201]  INFO -- : [6b413421-04c9-42f6-b41b-4c0246726685] Processing by SessionsController#login as HTML
+I, [2018-02-14T12:31:35.385810 #18201]  INFO -- : [6b413421-04c9-42f6-b41b-4c0246726685]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-14T12:31:35.388454 #18201]  INFO -- : [6b413421-04c9-42f6-b41b-4c0246726685]   Rendered sessions/login.html.erb within layouts/general_view (2.5ms)
+I, [2018-02-14T12:31:35.389309 #18201]  INFO -- : [6b413421-04c9-42f6-b41b-4c0246726685] Completed 200 OK in 5ms (Views: 3.8ms)
+I, [2018-02-14T12:31:36.328713 #18201]  INFO -- : [5d0136bc-6600-4460-a8d9-52e71119f3f0] Started GET "/requests/home/faq" for 127.0.0.1 at 2018-02-14 12:31:36 -0300
+I, [2018-02-14T12:31:36.329654 #18201]  INFO -- : [5d0136bc-6600-4460-a8d9-52e71119f3f0] Processing by HomePagesController#faq as HTML
+I, [2018-02-14T12:31:36.330458 #18201]  INFO -- : [5d0136bc-6600-4460-a8d9-52e71119f3f0]   Rendering home_pages/faq.html.erb within layouts/general_view2
+I, [2018-02-14T12:31:36.330623 #18201]  INFO -- : [5d0136bc-6600-4460-a8d9-52e71119f3f0]   Rendered home_pages/faq.html.erb within layouts/general_view2 (0.1ms)
+I, [2018-02-14T12:31:36.331470 #18201]  INFO -- : [5d0136bc-6600-4460-a8d9-52e71119f3f0] Completed 200 OK in 2ms (Views: 1.3ms)
+I, [2018-02-14T12:31:37.830848 #18201]  INFO -- : [916fd978-7d65-4518-96c7-040de3b4a5ee] Started GET "/requests/home/menu" for 127.0.0.1 at 2018-02-14 12:31:37 -0300
+I, [2018-02-14T12:31:37.831364 #18201]  INFO -- : [916fd978-7d65-4518-96c7-040de3b4a5ee] Processing by HomePagesController#request_home as HTML
+I, [2018-02-14T12:31:37.832083 #18201]  INFO -- : [916fd978-7d65-4518-96c7-040de3b4a5ee]   Rendering home_pages/request_home.html.erb within layouts/general_view
+I, [2018-02-14T12:31:37.833869 #18201]  INFO -- : [916fd978-7d65-4518-96c7-040de3b4a5ee]   Rendered home_pages/request_home.html.erb within layouts/general_view (1.7ms)
+I, [2018-02-14T12:31:37.834475 #18201]  INFO -- : [916fd978-7d65-4518-96c7-040de3b4a5ee] Completed 200 OK in 3ms (Views: 2.5ms)
+I, [2018-02-14T12:31:43.228993 #18201]  INFO -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d] Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=transfer+line&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=15.680.498-3&commit=Enviar" for 127.0.0.1 at 2018-02-14 12:31:43 -0300
+I, [2018-02-14T12:31:43.230461 #18201]  INFO -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d] Processing by RequestsController#validate_user as HTML
+I, [2018-02-14T12:31:43.230698 #18201]  INFO -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d]   Parameters: {"utf8"=>"✓", "request_type"=>"transfer line", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"15.680.498-3", "commit"=>"Enviar"}
+D, [2018-02-14T12:31:43.705901 #18201] DEBUG -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d]   [1m[35m (229.5ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '15680498-3'[0m
+D, [2018-02-14T12:31:43.982629 #18201] DEBUG -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d]   [1m[35m (262.0ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T12:31:44.002972 #18201] DEBUG -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d]   [1m[36mUser Exists (10.6ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "15680498-3"], ["LIMIT", 1]]
+D, [2018-02-14T12:31:44.169767 #18201] DEBUG -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d]   [1m[35m (63.1ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+D, [2018-02-14T12:31:44.198889 #18201] DEBUG -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d]   [1m[36mSequence (10.2ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('USERS_seq')[0m
+D, [2018-02-14T12:31:44.223107 #18201] DEBUG -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d]   [1m[36mPrimary Key (23.9ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T12:31:44.257441 #18201] DEBUG -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d]   [1m[36mUser Exists (11.3ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ROWNUM <= :a2 [0m  [["email", "fdiazve@ccu.cl"], ["LIMIT", 1]]
+D, [2018-02-14T12:31:44.300584 #18201] DEBUG -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d]   [1m[36mPrimary Key Trigger (32.5ms)[0m  [1m[34m          SELECT trigger_name
+          FROM all_triggers
+          WHERE owner = 'TELEFONIA'
+            AND trigger_name = q'[USERS_PKT]'
+            AND table_owner = 'TELEFONIA'
+            AND table_name = q'[USERS]'
+            AND status = 'ENABLED'
+[0m
+D, [2018-02-14T12:31:44.384751 #18201] DEBUG -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d]   [1m[35mSQL (59.4ms)[0m  [1m[32mINSERT INTO "USERS" ("NATIONAL_ID", "NAME", "LAST_NAME", "EMAIL", "COUNTRY", "JOBTITLE", "JOB_FAMILY", "COMPANY", "SUPERVISOR", "SUPERVISOR_EMAIL", "SUPERVISOR_JOBTITLE", "JOBCODE", "LOCATION", "DEPTNAME", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10, :a11, :a12, :a13, :a14, :a15, :a16, :a17)[0m  [["national_id", "15680498-3"], ["name", "Felipe Antonio"], ["last_name", "Diaz Vega"], ["email", "fdiazve@ccu.cl"], ["country", "CHL"], ["jobtitle", "JEFE DE PROYECTOS SISTEMAS"], ["job_family", "PT"], ["company", "00"], ["supervisor", "Marco Antonio,Rios Zuniga"], ["supervisor_email", "mrios@ccu.cl"], ["supervisor_jobtitle", "SUBGTE DESARROLLO DE SISTEMAS"], ["jobcode", "103268"], ["location", "30_VITA"], ["deptname", "P09 Sistemas De Informacion"], ["created_at", "2018-02-14 15:31:44.258124"], ["updated_at", "2018-02-14 15:31:44.258124"], ["id", 10000]]
+I, [2018-02-14T12:31:44.419827 #18201]  INFO -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d] Redirected to http://localhost:3000/requests/forms/transferline
+I, [2018-02-14T12:31:44.420938 #18201]  INFO -- : [cb4e7ba8-12f8-4017-ae6a-c7560e3b901d] Completed 302 Found in 1190ms (ActiveRecord: 804.7ms)
+I, [2018-02-14T12:31:44.458837 #18201]  INFO -- : [5a5a81a6-a632-4a10-8777-e305c3b1dbf3] Started GET "/requests/forms/transferline" for 127.0.0.1 at 2018-02-14 12:31:44 -0300
+I, [2018-02-14T12:31:44.460290 #18201]  INFO -- : [5a5a81a6-a632-4a10-8777-e305c3b1dbf3] Processing by RequestsController#transfer_line as HTML
+I, [2018-02-14T12:31:44.464061 #18201]  INFO -- : [5a5a81a6-a632-4a10-8777-e305c3b1dbf3]   Rendering requests/transfer_line.html.erb within layouts/general_view
+I, [2018-02-14T12:31:44.486307 #18201]  INFO -- : [5a5a81a6-a632-4a10-8777-e305c3b1dbf3]   Rendered layouts/_user_info2.html.erb (15.1ms)
+I, [2018-02-14T12:31:44.487342 #18201]  INFO -- : [5a5a81a6-a632-4a10-8777-e305c3b1dbf3]   Rendered requests/transfer_line.html.erb within layouts/general_view (23.1ms)
+I, [2018-02-14T12:31:44.488385 #18201]  INFO -- : [5a5a81a6-a632-4a10-8777-e305c3b1dbf3] Completed 200 OK in 28ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+I, [2018-02-14T12:31:50.470376 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a] Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-02-14 12:31:50 -0300
+I, [2018-02-14T12:31:50.471086 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a] Processing by RequestsController#create_user as HTML
+I, [2018-02-14T12:31:50.471148 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"6vmDX/2I07lRENZ78l9IiKUgNWDYlKuxz7wa4wrzMpwlSikGP9regQybilMEqdEeJc54jH5Iv8vn6IqzCpDpXw==", "item"=>"smartphone line", "user_id"=>"10000", "request"=>"transfer line", "company"=>"00", "deptname"=>"P09 Sistemas De Informacion", "name"=>"Felipe Antonio Diaz Vega", "national_id"=>"15680498-3", "email"=>"fdiazve@ccu.cl", "transfer_line_type"=>"ceder", "phone_number"=>"92105881", "commit"=>"Enviar"}
+D, [2018-02-14T12:31:50.492869 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:31:50.886273 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   [1m[35m (380.4ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T12:31:50.904028 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   [1m[36mSequence (5.9ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('REQUESTS_seq')[0m
+D, [2018-02-14T12:31:50.915041 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   [1m[36mPrimary Key (10.5ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T12:31:50.972800 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:31:50.983661 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   [1m[36mPrimary Key Trigger (3.8ms)[0m  [1m[34m          SELECT trigger_name
+          FROM all_triggers
+          WHERE owner = 'TELEFONIA'
+            AND trigger_name = q'[REQUESTS_PKT]'
+            AND table_owner = 'TELEFONIA'
+            AND table_name = q'[REQUESTS]'
+            AND status = 'ENABLED'
+[0m
+D, [2018-02-14T12:31:51.069074 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   [1m[35mSQL (66.4ms)[0m  [1m[32mINSERT INTO "REQUESTS" ("REQUEST", "ITEM", "EMAIL_SENDED", "PHONE_NUMBER", "TRANSFER_LINE_TYPE", "NAME", "NATIONAL_ID", "EMAIL", "COMPANY", "DEPTNAME", "USER_ID", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10, :a11, :a12, :a13, :a14)[0m  [["request", "transfer line"], ["item", "smartphone line"], ["email_sended", #<OCI8::CLOB:0x00562e7ee99a50>], ["phone_number", "92105881"], ["transfer_line_type", "ceder"], ["name", "Felipe Antonio Diaz Vega"], ["national_id", "15680498-3"], ["email", "fdiazve@ccu.cl"], ["company", "00"], ["deptname", "P09 Sistemas De Informacion"], ["user_id", 10000], ["created_at", "2018-02-14 15:31:50.973356"], ["updated_at", "2018-02-14 15:31:50.973356"], ["id", 10000]]
+D, [2018-02-14T12:31:51.083727 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   [1m[35mSQL (9.6ms)[0m  [1m[33mUPDATE "REQUESTS" SET "N_REQUEST" = :a1, "UPDATED_AT" = :a2 WHERE "REQUESTS"."ID" = :a3[0m  [["n_request", "100009010"], ["updated_at", "2018-02-14 15:31:51.070829"], ["id", 10000]]
+D, [2018-02-14T12:31:51.110494 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   [1m[35mSQL (22.2ms)[0m  [1m[33mUPDATE "REQUESTS" SET "LINK" = :a1, "UPDATED_AT" = :a2 WHERE "REQUESTS"."ID" = :a3[0m  [["link", "3e94a212c16d44f7f5af1ae878366411498f7432080c55bfc2d7a36a7ede8b0b"], ["updated_at", "2018-02-14 15:31:51.085943"], ["id", 10000]]
+D, [2018-02-14T12:31:51.118460 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:31:51.132651 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   Rendering user_mailer/user_email.html.erb
+I, [2018-02-14T12:31:51.134683 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   Rendered user_mailer/user_email.html.erb (1.8ms)
+D, [2018-02-14T12:31:51.296343 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a] UserMailer#user_email: processed outbound mail in 174.9ms
+I, [2018-02-14T12:32:21.630920 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a] Sent mail to fdiazve@ccu.cl (30334.3ms)
+D, [2018-02-14T12:32:21.631119 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a] Date: Wed, 14 Feb 2018 12:31:51 -0300
+From: solcelulares@ccu.cl
+To: fdiazve@ccu.cl
+Message-ID: <5a84566749121_47192b173ef04698343a7@nico-GL502VM.mail>
+Subject: =?UTF-8?Q?Se_ha_creado_la_Solicitud_n=C2=B0_100009010?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type=
+' />
+</head>
+<body>
+
+
+<p></p>
+<h4><strong>Estimado(a) Felipe Antonio Diaz Vega,</strong></h4>
+
+<p>
+Usted a creado la solicitud n=C2=B0 100009010
+</p>
+
+<br>
+
+<p>
+Para realizar el siguimiento del estado de su solicitud debe ingresar al =
+siguiente <a href=3D"http://celulares.ccu.cl/requests/home/follow_request=
+">Link</a>
+</p>
+
+<br>
+
+<p>
+<strong>Atte.</strong>
+</p>
+<p>
+<strong>Administrador Web Dispositivos y Servicios M=C3=B3viles | solcelu=
+lares@ccu.cl</strong>
+</p>
+
+</body>
+</html>
+
+I, [2018-02-14T12:32:21.637214 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   Rendering user_mailer/supervisor_email.html.erb
+I, [2018-02-14T12:32:21.637866 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   Rendered user_mailer/supervisor_email.html.erb (0.5ms)
+D, [2018-02-14T12:32:21.638185 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a] UserMailer#supervisor_email: processed outbound mail in 6.5ms
+I, [2018-02-14T12:32:51.603017 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a] Sent mail to mrios@ccu.cl (29964.7ms)
+D, [2018-02-14T12:32:51.603208 #18201] DEBUG -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a] Date: Wed, 14 Feb 2018 12:32:21 -0300
+From: solcelulares@ccu.cl
+To: mrios@ccu.cl
+Message-ID: <5a8456859bf0f_47192b173ef046983446b@nico-GL502VM.mail>
+Subject: =?UTF-8?Q?Felipe_Antonio_Diaz_Vega_a_creado_la_solicitud_n=C2=B0?=
+ =?UTF-8?Q?_100009010_que_necesita_su_aprobaci=C3=B3n.?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type=
+' />
+</head>
+<body>
+
+
+<p></p>
+<h4><strong>Estimado(a) Marco Antonio,Rios Zuniga,</strong></h4>
+
+<p>
+Felipe Antonio Diaz Vega (fdiazve@ccu.cl), JEFE DE PROYECTOS SISTEMAS, pe=
+rteneciente al centro de costos P09 Sistemas De Informacion, a cursado un=
+a solicitud para ceder su linea de tel=C3=A9fono con n=C3=BAmero telef=C3=
+=B3nico: +56 9 92105881.
+</p>
+
+<br>
+
+<p>
+Para aprobar/rechazar la solicitud debe ingresar al siguiente <a href=3D"=
+http://celulares.ccu.cl/requests/validations/3e94a212c16d44f7f5af1ae87836=
+6411498f7432080c55bfc2d7a36a7ede8b0b">Link</a>
+</p>
+
+<br>
+
+<p>
+<strong>Atte.</strong>
+</p>
+<p>
+<strong>Administrador Web Dispositivos y Servicios M=C3=B3viles | solcelu=
+lares@ccu.cl</strong>
+</p>
+
+</body>
+</html>
+
+I, [2018-02-14T12:32:51.606321 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   Rendering requests/create_user.html.erb within layouts/success
+I, [2018-02-14T12:32:51.607335 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a]   Rendered requests/create_user.html.erb within layouts/success (0.8ms)
+I, [2018-02-14T12:32:51.619034 #18201]  INFO -- : [0d265a9f-e2b1-41f9-b09f-a3d6af4e1b3a] Completed 200 OK in 61148ms (Views: 6.7ms | ActiveRecord: 524.6ms)
+I, [2018-02-14T12:33:05.150604 #18201]  INFO -- : [081ba746-5d27-4fd9-8e6e-6829111a5bc7] Started GET "/admins/login" for 127.0.0.1 at 2018-02-14 12:33:05 -0300
+I, [2018-02-14T12:33:05.151359 #18201]  INFO -- : [081ba746-5d27-4fd9-8e6e-6829111a5bc7] Processing by SessionsController#login as HTML
+I, [2018-02-14T12:33:05.152393 #18201]  INFO -- : [081ba746-5d27-4fd9-8e6e-6829111a5bc7]   Rendering sessions/login.html.erb within layouts/general_view
+I, [2018-02-14T12:33:05.153054 #18201]  INFO -- : [081ba746-5d27-4fd9-8e6e-6829111a5bc7]   Rendered sessions/login.html.erb within layouts/general_view (0.6ms)
+I, [2018-02-14T12:33:05.153645 #18201]  INFO -- : [081ba746-5d27-4fd9-8e6e-6829111a5bc7] Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+I, [2018-02-14T12:33:09.373527 #18201]  INFO -- : [ababed33-b49a-4d6e-9adc-6e16496d39c1] Started POST "/admins/login_attempt" for 127.0.0.1 at 2018-02-14 12:33:09 -0300
+I, [2018-02-14T12:33:09.374336 #18201]  INFO -- : [ababed33-b49a-4d6e-9adc-6e16496d39c1] Processing by SessionsController#login_attempt as HTML
+I, [2018-02-14T12:33:09.374401 #18201]  INFO -- : [ababed33-b49a-4d6e-9adc-6e16496d39c1]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"UO39zPbdTwpHj7HaaSpBIxPBvnv3obCLqTaJi1/qnKj0rixN9/ub1R5qQMAieacC45Hq3K7pmcAEE82bJcgKvg==", "username_or_email"=>"solcelulares", "login_password"=>"[FILTERED]", "commit"=>"Ingresar"}
+D, [2018-02-14T12:33:09.538485 #18201] DEBUG -- : [ababed33-b49a-4d6e-9adc-6e16496d39c1]   [1m[35m (144.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'ADMINS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T12:33:09.558490 #18201] DEBUG -- : [ababed33-b49a-4d6e-9adc-6e16496d39c1]   [1m[36mAdmin Load (16.8ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."USERNAME" = :a1 AND ROWNUM <= :a2 [0m  [["username", "solcelulares"], ["LIMIT", 1]]
+D, [2018-02-14T12:33:09.571425 #18201] DEBUG -- : [ababed33-b49a-4d6e-9adc-6e16496d39c1]   [1m[36mSequence (4.4ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('ADMINS_seq')[0m
+D, [2018-02-14T12:33:09.600108 #18201] DEBUG -- : [ababed33-b49a-4d6e-9adc-6e16496d39c1]   [1m[36mPrimary Key (28.1ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'ADMINS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+I, [2018-02-14T12:33:09.691155 #18201]  INFO -- : [ababed33-b49a-4d6e-9adc-6e16496d39c1] Redirected to http://localhost:3000/requests
+I, [2018-02-14T12:33:09.691379 #18201]  INFO -- : [ababed33-b49a-4d6e-9adc-6e16496d39c1] Completed 302 Found in 317ms (ActiveRecord: 194.1ms)
+I, [2018-02-14T12:33:09.698935 #18201]  INFO -- : [a97b4106-3e76-406a-b9e7-b03ea4cdcaf8] Started GET "/requests" for 127.0.0.1 at 2018-02-14 12:33:09 -0300
+I, [2018-02-14T12:33:09.699527 #18201]  INFO -- : [a97b4106-3e76-406a-b9e7-b03ea4cdcaf8] Processing by RequestsController#index as HTML
+D, [2018-02-14T12:33:09.720976 #18201] DEBUG -- : [a97b4106-3e76-406a-b9e7-b03ea4cdcaf8]   [1m[36mAdmin Load (5.5ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:33:09.722586 #18201]  INFO -- : [a97b4106-3e76-406a-b9e7-b03ea4cdcaf8]   Rendering requests/index.html.erb within layouts/admin_view
+I, [2018-02-14T12:33:09.727072 #18201]  INFO -- : [a97b4106-3e76-406a-b9e7-b03ea4cdcaf8]   Rendered layouts/_request_filter.html.erb (3.3ms)
+D, [2018-02-14T12:33:09.830082 #18201] DEBUG -- : [a97b4106-3e76-406a-b9e7-b03ea4cdcaf8]   [1m[36mRequest Load (101.4ms)[0m  [1m[34mSELECT "REQUESTS".* FROM "REQUESTS"[0m
+D, [2018-02-14T12:33:09.835872 #18201] DEBUG -- : [a97b4106-3e76-406a-b9e7-b03ea4cdcaf8]   [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:33:09.838180 #18201]  INFO -- : [a97b4106-3e76-406a-b9e7-b03ea4cdcaf8]   Rendered requests/index.html.erb within layouts/admin_view (115.5ms)
+I, [2018-02-14T12:33:09.841065 #18201]  INFO -- : [a97b4106-3e76-406a-b9e7-b03ea4cdcaf8] Completed 200 OK in 141ms (Views: 14.0ms | ActiveRecord: 110.4ms)
+I, [2018-02-14T12:33:17.081394 #18201]  INFO -- : [e4d24d03-11f7-4ff3-8a71-a15255dbc0cd] Started GET "/requests" for 127.0.0.1 at 2018-02-14 12:33:17 -0300
+I, [2018-02-14T12:33:17.081926 #18201]  INFO -- : [e4d24d03-11f7-4ff3-8a71-a15255dbc0cd] Processing by RequestsController#index as HTML
+D, [2018-02-14T12:33:17.101324 #18201] DEBUG -- : [e4d24d03-11f7-4ff3-8a71-a15255dbc0cd]   [1m[36mAdmin Load (10.1ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:33:17.103405 #18201]  INFO -- : [e4d24d03-11f7-4ff3-8a71-a15255dbc0cd]   Rendering requests/index.html.erb within layouts/admin_view
+I, [2018-02-14T12:33:17.112381 #18201]  INFO -- : [e4d24d03-11f7-4ff3-8a71-a15255dbc0cd]   Rendered layouts/_request_filter.html.erb (8.5ms)
+D, [2018-02-14T12:33:17.193676 #18201] DEBUG -- : [e4d24d03-11f7-4ff3-8a71-a15255dbc0cd]   [1m[36mRequest Load (75.8ms)[0m  [1m[34mSELECT "REQUESTS".* FROM "REQUESTS"[0m
+D, [2018-02-14T12:33:17.205008 #18201] DEBUG -- : [e4d24d03-11f7-4ff3-8a71-a15255dbc0cd]   [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:33:17.206836 #18201]  INFO -- : [e4d24d03-11f7-4ff3-8a71-a15255dbc0cd]   Rendered requests/index.html.erb within layouts/admin_view (103.2ms)
+I, [2018-02-14T12:33:17.209100 #18201]  INFO -- : [e4d24d03-11f7-4ff3-8a71-a15255dbc0cd] Completed 200 OK in 127ms (Views: 21.1ms | ActiveRecord: 95.0ms)
+I, [2018-02-14T12:33:18.253520 #18201]  INFO -- : [a6348dfe-518c-4010-8c23-7eca3b86d857] Started GET "/users" for 127.0.0.1 at 2018-02-14 12:33:18 -0300
+I, [2018-02-14T12:33:18.254899 #18201]  INFO -- : [a6348dfe-518c-4010-8c23-7eca3b86d857] Processing by UsersController#index as HTML
+D, [2018-02-14T12:33:18.302764 #18201] DEBUG -- : [a6348dfe-518c-4010-8c23-7eca3b86d857]   [1m[36mAdmin Load (41.0ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:33:18.304440 #18201]  INFO -- : [a6348dfe-518c-4010-8c23-7eca3b86d857]   Rendering users/index.html.erb within layouts/admin_view
+I, [2018-02-14T12:33:18.311829 #18201]  INFO -- : [a6348dfe-518c-4010-8c23-7eca3b86d857]   Rendered layouts/_user_filter.html.erb (4.9ms)
+D, [2018-02-14T12:33:18.326781 #18201] DEBUG -- : [a6348dfe-518c-4010-8c23-7eca3b86d857]   [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT "USERS".* FROM "USERS"[0m
+I, [2018-02-14T12:33:18.327622 #18201]  INFO -- : [a6348dfe-518c-4010-8c23-7eca3b86d857]   Rendered users/index.html.erb within layouts/admin_view (23.0ms)
+I, [2018-02-14T12:33:18.328765 #18201]  INFO -- : [a6348dfe-518c-4010-8c23-7eca3b86d857] Completed 200 OK in 74ms (Views: 13.6ms | ActiveRecord: 52.4ms)
+I, [2018-02-14T12:33:19.215910 #18201]  INFO -- : [57c27717-996d-42c0-bb9d-57b236ec6583] Started GET "/" for 127.0.0.1 at 2018-02-14 12:33:19 -0300
+I, [2018-02-14T12:33:19.216606 #18201]  INFO -- : [57c27717-996d-42c0-bb9d-57b236ec6583] Processing by HomePagesController#home as HTML
+I, [2018-02-14T12:33:19.217322 #18201]  INFO -- : [57c27717-996d-42c0-bb9d-57b236ec6583]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-14T12:33:19.217433 #18201]  INFO -- : [57c27717-996d-42c0-bb9d-57b236ec6583]   Rendered home_pages/home.html.erb within layouts/home (0.0ms)
+I, [2018-02-14T12:33:19.217988 #18201]  INFO -- : [57c27717-996d-42c0-bb9d-57b236ec6583] Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+I, [2018-02-14T12:33:19.937868 #18201]  INFO -- : [f3e32c76-e5ea-4303-a57e-5bfe1700a882] Started GET "/requests/home/follow_request" for 127.0.0.1 at 2018-02-14 12:33:19 -0300
+I, [2018-02-14T12:33:19.938518 #18201]  INFO -- : [f3e32c76-e5ea-4303-a57e-5bfe1700a882] Processing by HomePagesController#follow_request as HTML
+I, [2018-02-14T12:33:19.939195 #18201]  INFO -- : [f3e32c76-e5ea-4303-a57e-5bfe1700a882]   Rendering home_pages/follow_request.html.erb within layouts/general_view
+I, [2018-02-14T12:33:19.940048 #18201]  INFO -- : [f3e32c76-e5ea-4303-a57e-5bfe1700a882]   Rendered home_pages/follow_request.html.erb within layouts/general_view (0.8ms)
+I, [2018-02-14T12:33:19.940605 #18201]  INFO -- : [f3e32c76-e5ea-4303-a57e-5bfe1700a882] Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+I, [2018-02-14T12:35:44.637141 #18201]  INFO -- : [82587ca4-aeba-45e7-8598-c8ed62904aaa] Started GET "/" for 127.0.0.1 at 2018-02-14 12:35:44 -0300
+I, [2018-02-14T12:35:44.637670 #18201]  INFO -- : [82587ca4-aeba-45e7-8598-c8ed62904aaa] Processing by HomePagesController#home as HTML
+I, [2018-02-14T12:35:44.638244 #18201]  INFO -- : [82587ca4-aeba-45e7-8598-c8ed62904aaa]   Rendering home_pages/home.html.erb within layouts/home
+I, [2018-02-14T12:35:44.638344 #18201]  INFO -- : [82587ca4-aeba-45e7-8598-c8ed62904aaa]   Rendered home_pages/home.html.erb within layouts/home (0.0ms)
+I, [2018-02-14T12:35:44.638852 #18201]  INFO -- : [82587ca4-aeba-45e7-8598-c8ed62904aaa] Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+I, [2018-02-14T12:35:45.758765 #18201]  INFO -- : [09418c03-7a59-49f9-a77b-a020867485ec] Started GET "/requests/home/menu" for 127.0.0.1 at 2018-02-14 12:35:45 -0300
+I, [2018-02-14T12:35:45.759398 #18201]  INFO -- : [09418c03-7a59-49f9-a77b-a020867485ec] Processing by HomePagesController#request_home as HTML
+I, [2018-02-14T12:35:45.760125 #18201]  INFO -- : [09418c03-7a59-49f9-a77b-a020867485ec]   Rendering home_pages/request_home.html.erb within layouts/general_view
+I, [2018-02-14T12:35:45.761586 #18201]  INFO -- : [09418c03-7a59-49f9-a77b-a020867485ec]   Rendered home_pages/request_home.html.erb within layouts/general_view (1.3ms)
+I, [2018-02-14T12:35:45.762321 #18201]  INFO -- : [09418c03-7a59-49f9-a77b-a020867485ec] Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+I, [2018-02-14T12:35:51.851633 #18201]  INFO -- : [dc6f00d8-f5df-4a22-afef-26afba9ba146] Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=transfer+line&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=15.680.498-3&commit=Enviar" for 127.0.0.1 at 2018-02-14 12:35:51 -0300
+I, [2018-02-14T12:35:51.852348 #18201]  INFO -- : [dc6f00d8-f5df-4a22-afef-26afba9ba146] Processing by RequestsController#validate_user as HTML
+I, [2018-02-14T12:35:51.852421 #18201]  INFO -- : [dc6f00d8-f5df-4a22-afef-26afba9ba146]   Parameters: {"utf8"=>"✓", "request_type"=>"transfer line", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"15.680.498-3", "commit"=>"Enviar"}
+D, [2018-02-14T12:35:51.875559 #18201] DEBUG -- : [dc6f00d8-f5df-4a22-afef-26afba9ba146]   [1m[35m (15.7ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '15680498-3'[0m
+D, [2018-02-14T12:35:51.894354 #18201] DEBUG -- : [dc6f00d8-f5df-4a22-afef-26afba9ba146]   [1m[36mUser Exists (18.0ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "15680498-3"], ["LIMIT", 1]]
+D, [2018-02-14T12:35:51.918820 #18201] DEBUG -- : [dc6f00d8-f5df-4a22-afef-26afba9ba146]   [1m[36mUser Load (23.6ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "15680498-3"], ["LIMIT", 1]]
+D, [2018-02-14T12:35:51.935800 #18201] DEBUG -- : [dc6f00d8-f5df-4a22-afef-26afba9ba146]   [1m[36mUser Exists (12.6ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "fdiazve@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:35:51.956603 #18201]  INFO -- : [dc6f00d8-f5df-4a22-afef-26afba9ba146] Redirected to http://localhost:3000/requests/forms/transferline
+I, [2018-02-14T12:35:51.957094 #18201]  INFO -- : [dc6f00d8-f5df-4a22-afef-26afba9ba146] Completed 302 Found in 105ms (ActiveRecord: 69.9ms)
+I, [2018-02-14T12:35:51.983593 #18201]  INFO -- : [b05caf9b-fd1e-4cc0-84c8-261a3b105506] Started GET "/requests/forms/transferline" for 127.0.0.1 at 2018-02-14 12:35:51 -0300
+I, [2018-02-14T12:35:51.984806 #18201]  INFO -- : [b05caf9b-fd1e-4cc0-84c8-261a3b105506] Processing by RequestsController#transfer_line as HTML
+I, [2018-02-14T12:35:51.987094 #18201]  INFO -- : [b05caf9b-fd1e-4cc0-84c8-261a3b105506]   Rendering requests/transfer_line.html.erb within layouts/general_view
+I, [2018-02-14T12:35:51.992611 #18201]  INFO -- : [b05caf9b-fd1e-4cc0-84c8-261a3b105506]   Rendered layouts/_user_info2.html.erb (2.5ms)
+I, [2018-02-14T12:35:51.994313 #18201]  INFO -- : [b05caf9b-fd1e-4cc0-84c8-261a3b105506]   Rendered requests/transfer_line.html.erb within layouts/general_view (7.0ms)
+I, [2018-02-14T12:35:51.995706 #18201]  INFO -- : [b05caf9b-fd1e-4cc0-84c8-261a3b105506] Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+I, [2018-02-14T12:35:57.730705 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16] Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-02-14 12:35:57 -0300
+I, [2018-02-14T12:35:57.731435 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16] Processing by RequestsController#create_user as HTML
+I, [2018-02-14T12:35:57.731734 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y5m6iXLMGIbWFn8yLStoKDMUJDTDC5bh9ECXiR6u2BesKhDQsJ4VvoudIxrb3fG+s/pp2GXXgpvcFAfZHs0D1A==", "item"=>"smartphone line", "user_id"=>"10000", "request"=>"transfer line", "company"=>"00", "deptname"=>"P09 Sistemas De Informacion", "name"=>"Felipe Antonio Diaz Vega", "national_id"=>"15680498-3", "email"=>"fdiazve@ccu.cl", "transfer_line_type"=>"ceder", "phone_number"=>"92105881", "commit"=>"Enviar"}
+D, [2018-02-14T12:35:57.765125 #18201] DEBUG -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   [1m[36mUser Load (14.3ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:35:57.776189 #18201] DEBUG -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:35:57.881305 #18201] DEBUG -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   [1m[35mSQL (18.8ms)[0m  [1m[32mINSERT INTO "REQUESTS" ("REQUEST", "ITEM", "EMAIL_SENDED", "PHONE_NUMBER", "TRANSFER_LINE_TYPE", "NAME", "NATIONAL_ID", "EMAIL", "COMPANY", "DEPTNAME", "USER_ID", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10, :a11, :a12, :a13, :a14)[0m  [["request", "transfer line"], ["item", "smartphone line"], ["email_sended", #<OCI8::CLOB:0x007f7c98b83258>], ["phone_number", "92105881"], ["transfer_line_type", "ceder"], ["name", "Felipe Antonio Diaz Vega"], ["national_id", "15680498-3"], ["email", "fdiazve@ccu.cl"], ["company", "00"], ["deptname", "P09 Sistemas De Informacion"], ["user_id", 10000], ["created_at", "2018-02-14 15:35:57.776747"], ["updated_at", "2018-02-14 15:35:57.776747"], ["id", 10003]]
+D, [2018-02-14T12:35:57.911485 #18201] DEBUG -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   [1m[35mSQL (26.3ms)[0m  [1m[33mUPDATE "REQUESTS" SET "N_REQUEST" = :a1, "UPDATED_AT" = :a2 WHERE "REQUESTS"."ID" = :a3[0m  [["n_request", "100033311"], ["updated_at", "2018-02-14 15:35:57.882844"], ["id", 10003]]
+D, [2018-02-14T12:35:57.943700 #18201] DEBUG -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   [1m[35mSQL (27.3ms)[0m  [1m[33mUPDATE "REQUESTS" SET "LINK" = :a1, "UPDATED_AT" = :a2 WHERE "REQUESTS"."ID" = :a3[0m  [["link", "72896b78c48497b07c8f5c6f521c72df3a55883c18074c0d5f68653d47292906"], ["updated_at", "2018-02-14 15:35:57.914171"], ["id", 10003]]
+D, [2018-02-14T12:35:57.955476 #18201] DEBUG -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:35:57.958017 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   Rendering user_mailer/user_email.html.erb
+I, [2018-02-14T12:35:57.958908 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   Rendered user_mailer/user_email.html.erb (0.6ms)
+D, [2018-02-14T12:35:57.959986 #18201] DEBUG -- : [746d971e-ecc4-418b-b929-06c3dea3aa16] UserMailer#user_email: processed outbound mail in 3.5ms
+I, [2018-02-14T12:36:23.947033 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16] Sent mail to fdiazve@ccu.cl (25986.8ms)
+D, [2018-02-14T12:36:23.947266 #18201] DEBUG -- : [746d971e-ecc4-418b-b929-06c3dea3aa16] Date: Wed, 14 Feb 2018 12:35:57 -0300
+From: solcelulares@ccu.cl
+To: fdiazve@ccu.cl
+Message-ID: <5a84575deac6d_47192b173ef045a834567@nico-GL502VM.mail>
+Subject: =?UTF-8?Q?Se_ha_creado_la_Solicitud_n=C2=B0_100033311?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type=
+' />
+</head>
+<body>
+
+
+<p></p>
+<h4><strong>Estimado(a) Felipe Antonio Diaz Vega,</strong></h4>
+
+<p>
+Usted a creado la solicitud n=C2=B0 100033311
+</p>
+
+<br>
+
+<p>
+Para realizar el siguimiento del estado de su solicitud debe ingresar al =
+siguiente <a href=3D"http://celulares.ccu.cl/requests/home/follow_request=
+">Link</a>
+</p>
+
+<br>
+
+<p>
+<strong>Atte.</strong>
+</p>
+<p>
+<strong>Administrador Web Dispositivos y Servicios M=C3=B3viles | solcelu=
+lares@ccu.cl</strong>
+</p>
+
+</body>
+</html>
+
+I, [2018-02-14T12:36:23.949018 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   Rendering user_mailer/supervisor_email.html.erb
+I, [2018-02-14T12:36:23.949595 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   Rendered user_mailer/supervisor_email.html.erb (0.4ms)
+D, [2018-02-14T12:36:23.950411 #18201] DEBUG -- : [746d971e-ecc4-418b-b929-06c3dea3aa16] UserMailer#supervisor_email: processed outbound mail in 2.6ms
+I, [2018-02-14T12:36:56.574274 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16] Sent mail to mrios@ccu.cl (32623.6ms)
+D, [2018-02-14T12:36:56.574456 #18201] DEBUG -- : [746d971e-ecc4-418b-b929-06c3dea3aa16] Date: Wed, 14 Feb 2018 12:36:23 -0300
+From: solcelulares@ccu.cl
+To: mrios@ccu.cl
+Message-ID: <5a845777e8654_47192b173ef045a8346dc@nico-GL502VM.mail>
+Subject: =?UTF-8?Q?Felipe_Antonio_Diaz_Vega_a_creado_la_solicitud_n=C2=B0?=
+ =?UTF-8?Q?_100033311_que_necesita_su_aprobaci=C3=B3n.?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type=
+' />
+</head>
+<body>
+
+
+<p></p>
+<h4><strong>Estimado(a) Marco Antonio,Rios Zuniga,</strong></h4>
+
+<p>
+Felipe Antonio Diaz Vega (fdiazve@ccu.cl), JEFE DE PROYECTOS SISTEMAS, pe=
+rteneciente al centro de costos P09 Sistemas De Informacion, a cursado un=
+a solicitud para ceder su linea de tel=C3=A9fono con n=C3=BAmero telef=C3=
+=B3nico: +56 9 92105881.
+</p>
+
+<br>
+
+<p>
+Para aprobar/rechazar la solicitud debe ingresar al siguiente <a href=3D"=
+http://celulares.ccu.cl/requests/validations/72896b78c48497b07c8f5c6f521c=
+72df3a55883c18074c0d5f68653d47292906">Link</a>
+</p>
+
+<br>
+
+<p>
+<strong>Atte.</strong>
+</p>
+<p>
+<strong>Administrador Web Dispositivos y Servicios M=C3=B3viles | solcelu=
+lares@ccu.cl</strong>
+</p>
+
+</body>
+</html>
+
+I, [2018-02-14T12:36:56.575892 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   Rendering requests/create_user.html.erb within layouts/success
+I, [2018-02-14T12:36:56.576180 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16]   Rendered requests/create_user.html.erb within layouts/success (0.1ms)
+I, [2018-02-14T12:36:56.587531 #18201]  INFO -- : [746d971e-ecc4-418b-b929-06c3dea3aa16] Completed 200 OK in 58856ms (Views: 2.4ms | ActiveRecord: 105.1ms)
+I, [2018-02-14T12:43:14.339904 #18856]  INFO -- : [a1be6aa8-a70b-402d-8a62-b19307666b05] Started GET "/requests/home/menu" for 127.0.0.1 at 2018-02-14 12:43:14 -0300
+I, [2018-02-14T12:43:14.347216 #18856]  INFO -- : [a1be6aa8-a70b-402d-8a62-b19307666b05] Processing by HomePagesController#request_home as HTML
+I, [2018-02-14T12:43:14.352849 #18856]  INFO -- : [a1be6aa8-a70b-402d-8a62-b19307666b05]   Rendering home_pages/request_home.html.erb within layouts/general_view
+I, [2018-02-14T12:43:14.355233 #18856]  INFO -- : [a1be6aa8-a70b-402d-8a62-b19307666b05]   Rendered home_pages/request_home.html.erb within layouts/general_view (2.3ms)
+I, [2018-02-14T12:43:14.356536 #18856]  INFO -- : [a1be6aa8-a70b-402d-8a62-b19307666b05] Completed 200 OK in 9ms (Views: 4.7ms)
+I, [2018-02-14T12:43:19.473626 #18856]  INFO -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5] Started GET "/requests/home/validate?utf8=%E2%9C%93&request_type=new&request_hw_new=smartphone&request_hw_renew_tech=smartphone&request_hw_lost=smartphone&user_rut=15.680.498-3&commit=Enviar" for 127.0.0.1 at 2018-02-14 12:43:19 -0300
+I, [2018-02-14T12:43:19.475355 #18856]  INFO -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5] Processing by RequestsController#validate_user as HTML
+I, [2018-02-14T12:43:19.475425 #18856]  INFO -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5]   Parameters: {"utf8"=>"✓", "request_type"=>"new", "request_hw_new"=>"smartphone", "request_hw_renew_tech"=>"smartphone", "request_hw_lost"=>"smartphone", "user_rut"=>"15.680.498-3", "commit"=>"Enviar"}
+D, [2018-02-14T12:43:19.857898 #18856] DEBUG -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5]   [1m[35m (129.1ms)[0m  [1m[34mselect * from ps_v88rh_phonereq_vw where emplid = '15680498-3'[0m
+D, [2018-02-14T12:43:20.360614 #18856] DEBUG -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5]   [1m[35m (483.8ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'USERS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T12:43:20.372571 #18856] DEBUG -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5]   [1m[36mUser Exists (4.7ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "15680498-3"], ["LIMIT", 1]]
+D, [2018-02-14T12:43:20.477316 #18856] DEBUG -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5]   [1m[35m (13.0ms)[0m  [1m[34mSELECT LOWER(view_name) FROM all_views WHERE owner = SYS_CONTEXT('userenv', 'current_schema')[0m
+D, [2018-02-14T12:43:20.489629 #18856] DEBUG -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5]   [1m[36mSequence (3.7ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('USERS_seq')[0m
+D, [2018-02-14T12:43:20.505057 #18856] DEBUG -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5]   [1m[36mPrimary Key (14.9ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'USERS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T12:43:20.514104 #18856] DEBUG -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5]   [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT * FROM (SELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 ORDER BY "USERS"."ID" ASC ) WHERE ROWNUM <= :a2[0m  [["national_id", "15680498-3"], ["LIMIT", 1]]
+D, [2018-02-14T12:43:20.572007 #18856] DEBUG -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5]   [1m[36mUser Exists (15.8ms)[0m  [1m[34mSELECT  1 AS one FROM "USERS" WHERE "USERS"."EMAIL" = :a1 AND ("USERS"."ID" != :a2) AND ROWNUM <= :a3 [0m  [["email", "fdiazve@ccu.cl"], ["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:43:20.580364 #18856]  INFO -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5] Redirected to http://localhost:3000/requests/forms/new
+I, [2018-02-14T12:43:20.580589 #18856]  INFO -- : [7435cc29-054c-4f97-a04b-4fcf5de4cbe5] Completed 302 Found in 1105ms (ActiveRecord: 763.8ms)
+I, [2018-02-14T12:43:20.593373 #18856]  INFO -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf] Started GET "/requests/forms/new" for 127.0.0.1 at 2018-02-14 12:43:20 -0300
+I, [2018-02-14T12:43:20.593987 #18856]  INFO -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf] Processing by RequestsController#new_form as HTML
+D, [2018-02-14T12:43:20.871919 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[35m (239.7ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'SMARTPHONES' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T12:43:20.891061 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mSmartphone Load (16.1ms)[0m  [1m[34mSELECT id, model, code, price FROM "SMARTPHONES" WHERE (state= 'catalog' AND country= 'CHL')[0m
+D, [2018-02-14T12:43:20.916008 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mSequence (12.2ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('SMARTPHONES_seq')[0m
+D, [2018-02-14T12:43:20.940295 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mPrimary Key (23.7ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'SMARTPHONES' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T12:43:20.991395 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mSmartphone Load (14.2ms)[0m  [1m[34mSELECT id, model, code, price, category FROM "SMARTPHONES" WHERE (state= 'catalog' AND country= 'CHL' AND (category= 'PT' OR category= 'ALL'))[0m
+D, [2018-02-14T12:43:21.186672 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[35m (166.7ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'BAMS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T12:43:21.198923 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mBam Load (9.2ms)[0m  [1m[34mSELECT id, model, code, price FROM "BAMS" WHERE (state= 'catalog' AND country= 'CHL')[0m
+D, [2018-02-14T12:43:21.236141 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mSequence (9.9ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('BAMS_seq')[0m
+D, [2018-02-14T12:43:21.261857 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mPrimary Key (25.2ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'BAMS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T12:43:21.398684 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[35m (89.9ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'PLANS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T12:43:21.414045 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mPlan Load (13.2ms)[0m  [1m[34mSELECT id, name, detail, price FROM "PLANS" WHERE (country= 'CHL' AND item= 'bam')[0m
+D, [2018-02-14T12:43:21.428829 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mSequence (10.2ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('PLANS_seq')[0m
+D, [2018-02-14T12:43:21.441106 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mPrimary Key (11.7ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'PLANS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T12:43:21.471459 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mPlan Load (16.3ms)[0m  [1m[34mSELECT id, name, detail, price FROM "PLANS" WHERE (country= 'CHL' AND plan_type = 'plan' AND item= 'roaming')[0m
+D, [2018-02-14T12:43:21.477516 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mPlan Load (5.4ms)[0m  [1m[34mSELECT id, name, detail, price FROM "PLANS" WHERE (country= 'CHL' AND plan_type = 'bag' AND item= 'roaming')[0m
+D, [2018-02-14T12:43:21.487849 #18856] DEBUG -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."NATIONAL_ID" = :a1 AND ROWNUM <= :a2 [0m  [["national_id", "15680498-3"], ["LIMIT", 1]]
+I, [2018-02-14T12:43:21.491578 #18856]  INFO -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   Rendering requests/new_form.html.erb within layouts/general_view
+I, [2018-02-14T12:43:21.502640 #18856]  INFO -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   Rendered layouts/_user_info2.html.erb (4.3ms)
+I, [2018-02-14T12:43:21.664497 #18856]  INFO -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   Rendered layouts/_new_smp.html.erb (160.0ms)
+I, [2018-02-14T12:43:21.665313 #18856]  INFO -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf]   Rendered requests/new_form.html.erb within layouts/general_view (173.5ms)
+I, [2018-02-14T12:43:21.666295 #18856]  INFO -- : [fb049d4c-7f0a-4d38-81cf-de6108104bdf] Completed 200 OK in 1072ms (Views: 175.8ms | ActiveRecord: 671.5ms)
+I, [2018-02-14T12:43:25.087544 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878] Started POST "/requests/forms/create/new" for 127.0.0.1 at 2018-02-14 12:43:25 -0300
+I, [2018-02-14T12:43:25.088481 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878] Processing by RequestsController#create_user as HTML
+I, [2018-02-14T12:43:25.088555 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   Parameters: {"utf8"=>"✓", "authenticity_token"=>"522rZ+xhh++j3M3ao7jEuhTdm++5PPLz7oRFrZ3J9h8o3gE+LjOK1/5XkfJVTl0slDPWAx/g5onG0NX9naot3A==", "item"=>"smartphone", "user_id"=>"10000", "request"=>"new", "company"=>"00", "deptname"=>"P09 Sistemas De Informacion", "name"=>"Felipe Antonio Diaz Vega", "national_id"=>"15680498-3", "email"=>"fdiazve@ccu.cl", "model_one"=>"10005", "model_all"=>"10000", "want_all"=>"0", "comment"=>"", "want_sim"=>"true", "want_new_number"=>"true", "phone_number"=>"", "commit"=>"Enviar"}
+D, [2018-02-14T12:43:25.192414 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[36mUser Load (59.4ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:43:25.211716 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[36mSmartphone Load (17.8ms)[0m  [1m[34mSELECT  "SMARTPHONES".* FROM "SMARTPHONES" WHERE "SMARTPHONES"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10005], ["LIMIT", 1]]
+D, [2018-02-14T12:43:25.629793 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[35m (386.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'REQUESTS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T12:43:25.658319 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[36mSequence (10.7ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('REQUESTS_seq')[0m
+D, [2018-02-14T12:43:25.686351 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[36mPrimary Key (27.5ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'REQUESTS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T12:43:25.758683 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:43:25.768488 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[36mPrimary Key Trigger (4.0ms)[0m  [1m[34m          SELECT trigger_name
+          FROM all_triggers
+          WHERE owner = 'TELEFONIA'
+            AND trigger_name = q'[REQUESTS_PKT]'
+            AND table_owner = 'TELEFONIA'
+            AND table_name = q'[REQUESTS]'
+            AND status = 'ENABLED'
+[0m
+D, [2018-02-14T12:43:25.854398 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[35mSQL (12.3ms)[0m  [1m[32mINSERT INTO "REQUESTS" ("REQUEST", "ITEM", "MODEL", "COMMENT", "EMAIL_SENDED", "WANT_SIM", "WANT_NEW_NUMBER", "PRICE", "NAME", "NATIONAL_ID", "EMAIL", "COMPANY", "DEPTNAME", "USER_ID", "CREATED_AT", "UPDATED_AT", "ID") VALUES (:a1, :a2, :a3, :a4, :a5, :a6, :a7, :a8, :a9, :a10, :a11, :a12, :a13, :a14, :a15, :a16, :a17)[0m  [["request", "new"], ["item", "smartphone"], ["model", "Samsung Galaxy J7"], ["comment", #<OCI8::CLOB:0x007f7bfc3d1628>], ["email_sended", #<OCI8::CLOB:0x007f7bfc3d1588>], ["want_sim", "1"], ["want_new_number", "1"], ["price", "50417"], ["name", "Felipe Antonio Diaz Vega"], ["national_id", "15680498-3"], ["email", "fdiazve@ccu.cl"], ["company", "00"], ["deptname", "P09 Sistemas De Informacion"], ["user_id", 10000], ["created_at", "2018-02-14 15:43:25.759206"], ["updated_at", "2018-02-14 15:43:25.759206"], ["id", 10004]]
+D, [2018-02-14T12:43:25.878524 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[35mSQL (19.1ms)[0m  [1m[33mUPDATE "REQUESTS" SET "N_REQUEST" = :a1, "UPDATED_AT" = :a2 WHERE "REQUESTS"."ID" = :a3[0m  [["n_request", "100044964"], ["updated_at", "2018-02-14 15:43:25.855959"], ["id", 10004]]
+D, [2018-02-14T12:43:25.887605 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[35mSQL (4.7ms)[0m  [1m[33mUPDATE "REQUESTS" SET "LINK" = :a1, "UPDATED_AT" = :a2 WHERE "REQUESTS"."ID" = :a3[0m  [["link", "28c64511d798507357a98b847abc4a118693e60553ac49705ea96fb7fd68a35f"], ["updated_at", "2018-02-14 15:43:25.880849"], ["id", 10004]]
+D, [2018-02-14T12:43:25.897324 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:43:25.909980 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   Rendering user_mailer/user_email.html.erb
+I, [2018-02-14T12:43:25.911956 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   Rendered user_mailer/user_email.html.erb (1.7ms)
+D, [2018-02-14T12:43:26.054388 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878] UserMailer#user_email: processed outbound mail in 155.0ms
+I, [2018-02-14T12:43:56.629782 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878] Sent mail to fdiazve@ccu.cl (30575.1ms)
+D, [2018-02-14T12:43:56.629974 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878] Date: Wed, 14 Feb 2018 12:43:26 -0300
+From: solcelulares@ccu.cl
+To: fdiazve@ccu.cl
+Message-ID: <5a84591edfd3_49a82ad1baba9b346869f@nico-GL502VM.mail>
+Subject: =?UTF-8?Q?Se_ha_creado_la_Solicitud_n=C2=B0_100044964?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type=
+' />
+</head>
+<body>
+
+
+<p></p>
+<h4><strong>Estimado(a) Felipe Antonio Diaz Vega,</strong></h4>
+
+<p>
+Usted a creado la solicitud n=C2=B0 100044964
+</p>
+
+<br>
+
+<p>
+Para realizar el siguimiento del estado de su solicitud debe ingresar al =
+siguiente <a href=3D"http://celulares.ccu.cl/requests/home/follow_request=
+">Link</a>
+</p>
+
+<br>
+
+<p>
+<strong>Atte.</strong>
+</p>
+<p>
+<strong>Administrador Web Dispositivos y Servicios M=C3=B3viles | solcelu=
+lares@ccu.cl</strong>
+</p>
+
+</body>
+</html>
+
+I, [2018-02-14T12:43:56.636114 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   Rendering user_mailer/supervisor_email.html.erb
+I, [2018-02-14T12:43:56.636715 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   Rendered user_mailer/supervisor_email.html.erb (0.5ms)
+D, [2018-02-14T12:43:56.637014 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878] UserMailer#supervisor_email: processed outbound mail in 6.4ms
+I, [2018-02-14T12:44:16.076455 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878] Sent mail to mrios@ccu.cl (19439.3ms)
+D, [2018-02-14T12:44:16.076640 #18856] DEBUG -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878] Date: Wed, 14 Feb 2018 12:43:56 -0300
+From: solcelulares@ccu.cl
+To: mrios@ccu.cl
+Message-ID: <5a84593c9ba62_49a82ad1baba9b34687e1@nico-GL502VM.mail>
+Subject: =?UTF-8?Q?Felipe_Antonio_Diaz_Vega_a_creado_la_solicitud_n=C2=B0?=
+ =?UTF-8?Q?_100044964_que_necesita_su_aprobaci=C3=B3n.?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Type=
+' />
+</head>
+<body>
+
+
+<p></p>
+<h4><strong>Estimado(a) Marco Antonio,Rios Zuniga,</strong></h4>
+
+<p>
+Felipe Antonio Diaz Vega (fdiazve@ccu.cl), JEFE DE PROYECTOS SISTEMAS, pe=
+rteneciente al centro de costos P09 Sistemas De Informacion, a cursado un=
+a solicitud para  un nuevo smartphone modelo Samsung Galaxy J7, con un va=
+lor de $50417. El smartphone debe traer tarjeta Sim y el n=C3=BAmero de t=
+el=C3=A9fono asociado a =C3=A9l debe ser nuevo..
+</p>
+
+<br>
+
+<p>
+Para aprobar/rechazar la solicitud debe ingresar al siguiente <a href=3D"=
+http://celulares.ccu.cl/requests/validations/28c64511d798507357a98b847abc=
+4a118693e60553ac49705ea96fb7fd68a35f">Link</a>
+</p>
+
+<br>
+
+<p>
+<strong>Atte.</strong>
+</p>
+<p>
+<strong>Administrador Web Dispositivos y Servicios M=C3=B3viles | solcelu=
+lares@ccu.cl</strong>
+</p>
+
+</body>
+</html>
+
+I, [2018-02-14T12:44:16.079682 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   Rendering requests/create_user.html.erb within layouts/success
+I, [2018-02-14T12:44:16.080542 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878]   Rendered requests/create_user.html.erb within layouts/success (0.6ms)
+I, [2018-02-14T12:44:16.125178 #18856]  INFO -- : [cbd8d7f9-7fe3-4e43-a37f-2f0e15093878] Completed 200 OK in 51036ms (Views: 5.0ms | ActiveRecord: 551.9ms)
+I, [2018-02-14T12:45:25.380360 #18856]  INFO -- : [63504d76-174e-4e38-af74-ce80000a3225] Started GET "/admins/login" for 127.0.0.1 at 2018-02-14 12:45:25 -0300
+I, [2018-02-14T12:45:25.381593 #18856]  INFO -- : [63504d76-174e-4e38-af74-ce80000a3225] Processing by SessionsController#login as HTML
+I, [2018-02-14T12:45:25.382168 #18856]  INFO -- : [63504d76-174e-4e38-af74-ce80000a3225] Redirected to http://localhost:3000/requests
+I, [2018-02-14T12:45:25.382259 #18856]  INFO -- : [63504d76-174e-4e38-af74-ce80000a3225] Filter chain halted as :save_login_state rendered or redirected
+I, [2018-02-14T12:45:25.382346 #18856]  INFO -- : [63504d76-174e-4e38-af74-ce80000a3225] Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+I, [2018-02-14T12:45:25.392501 #18856]  INFO -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89] Started GET "/requests" for 127.0.0.1 at 2018-02-14 12:45:25 -0300
+I, [2018-02-14T12:45:25.393109 #18856]  INFO -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89] Processing by RequestsController#index as HTML
+D, [2018-02-14T12:45:25.437227 #18856] DEBUG -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   [1m[36mSequence (13.5ms)[0m  [1m[34mselect us.sequence_name from all_sequences us where us.sequence_owner = 'TELEFONIA' and us.sequence_name = upper('ADMINS_seq')[0m
+D, [2018-02-14T12:45:25.453905 #18856] DEBUG -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   [1m[36mPrimary Key (16.3ms)[0m  [1m[34mSELECT cc.column_name FROM all_constraints c, all_cons_columns cc WHERE c.owner = 'TELEFONIA' AND c.table_name = 'ADMINS' AND c.constraint_type = 'P' AND cc.owner = c.owner AND cc.constraint_name = c.constraint_name[0m
+D, [2018-02-14T12:45:25.519189 #18856] DEBUG -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   [1m[35m (56.5ms)[0m  [1m[34mSELECT cols.column_name AS name, cols.data_type AS sql_type, cols.data_default, cols.nullable, cols.virtual_column, cols.hidden_column, cols.data_type_owner AS sql_type_owner, DECODE(cols.data_type, 'NUMBER', data_precision, 'FLOAT', data_precision, 'VARCHAR2', DECODE(char_used, 'C', char_length, data_length), 'RAW', DECODE(char_used, 'C', char_length, data_length), 'CHAR', DECODE(char_used, 'C', char_length, data_length), NULL) AS limit, DECODE(data_type, 'NUMBER', data_scale, NULL) AS scale, comments.comments as column_comment FROM all_tab_cols cols, all_col_comments comments WHERE cols.owner = 'TELEFONIA' AND cols.table_name = 'ADMINS' AND cols.hidden_column = 'NO' AND cols.owner = comments.owner AND cols.table_name = comments.table_name AND cols.column_name = comments.column_name ORDER BY cols.column_id[0m
+D, [2018-02-14T12:45:25.528551 #18856] DEBUG -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   [1m[36mAdmin Load (6.5ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:45:25.546522 #18856]  INFO -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   Rendering requests/index.html.erb within layouts/admin_view
+I, [2018-02-14T12:45:25.559638 #18856]  INFO -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   Rendered layouts/_request_filter.html.erb (9.2ms)
+D, [2018-02-14T12:45:25.652277 #18856] DEBUG -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   [1m[36mRequest Load (88.8ms)[0m  [1m[34mSELECT "REQUESTS".* FROM "REQUESTS"[0m
+D, [2018-02-14T12:45:25.664220 #18856] DEBUG -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:25.668235 #18856] DEBUG -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:25.671123 #18856] DEBUG -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:25.673869 #18856] DEBUG -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:25.676500 #18856] DEBUG -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:45:25.677925 #18856]  INFO -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89]   Rendered requests/index.html.erb within layouts/admin_view (131.1ms)
+I, [2018-02-14T12:45:25.681419 #18856]  INFO -- : [cc987ad5-3bd1-4fea-b133-cf70ba2f9c89] Completed 200 OK in 288ms (Views: 39.4ms | ActiveRecord: 190.3ms)
+I, [2018-02-14T12:45:34.140766 #18856]  INFO -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb] Started GET "/requests?q%5Bs%5D=created_at+asc" for 127.0.0.1 at 2018-02-14 12:45:34 -0300
+I, [2018-02-14T12:45:34.141460 #18856]  INFO -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb] Processing by RequestsController#index as HTML
+I, [2018-02-14T12:45:34.141519 #18856]  INFO -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   Parameters: {"q"=>{"s"=>"created_at asc"}}
+D, [2018-02-14T12:45:34.337042 #18856] DEBUG -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   [1m[36mAdmin Load (47.2ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:45:34.339788 #18856]  INFO -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   Rendering requests/index.html.erb within layouts/admin_view
+I, [2018-02-14T12:45:34.346810 #18856]  INFO -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   Rendered layouts/_request_filter.html.erb (6.6ms)
+D, [2018-02-14T12:45:35.184229 #18856] DEBUG -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   [1m[36mRequest Load (832.2ms)[0m  [1m[34mSELECT "REQUESTS".* FROM "REQUESTS" ORDER BY "REQUESTS"."CREATED_AT" ASC[0m
+D, [2018-02-14T12:45:35.190670 #18856] DEBUG -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:35.193738 #18856] DEBUG -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:35.196289 #18856] DEBUG -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:35.198727 #18856] DEBUG -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:35.201203 #18856] DEBUG -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:45:35.202507 #18856]  INFO -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb]   Rendered requests/index.html.erb within layouts/admin_view (862.4ms)
+I, [2018-02-14T12:45:35.204576 #18856]  INFO -- : [c1a5c6bf-94e3-419b-b695-f169e9c75acb] Completed 200 OK in 1063ms (Views: 28.9ms | ActiveRecord: 883.4ms)
+I, [2018-02-14T12:45:37.648161 #18856]  INFO -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd] Started GET "/requests?q%5Bs%5D=created_at+desc" for 127.0.0.1 at 2018-02-14 12:45:37 -0300
+I, [2018-02-14T12:45:37.648727 #18856]  INFO -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd] Processing by RequestsController#index as HTML
+I, [2018-02-14T12:45:37.648778 #18856]  INFO -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   Parameters: {"q"=>{"s"=>"created_at desc"}}
+D, [2018-02-14T12:45:37.693783 #18856] DEBUG -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   [1m[36mAdmin Load (9.9ms)[0m  [1m[34mSELECT  "ADMINS".* FROM "ADMINS" WHERE "ADMINS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:45:37.694885 #18856]  INFO -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   Rendering requests/index.html.erb within layouts/admin_view
+I, [2018-02-14T12:45:37.698016 #18856]  INFO -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   Rendered layouts/_request_filter.html.erb (2.9ms)
+D, [2018-02-14T12:45:37.844592 #18856] DEBUG -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   [1m[36mRequest Load (144.0ms)[0m  [1m[34mSELECT "REQUESTS".* FROM "REQUESTS" ORDER BY "REQUESTS"."CREATED_AT" DESC[0m
+D, [2018-02-14T12:45:37.859876 #18856] DEBUG -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:37.863059 #18856] DEBUG -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:37.865994 #18856] DEBUG -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:37.868965 #18856] DEBUG -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+D, [2018-02-14T12:45:37.871614 #18856] DEBUG -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "USERS".* FROM "USERS" WHERE "USERS"."ID" = :a1 AND ROWNUM <= :a2 [0m  [["id", 10000], ["LIMIT", 1]]
+I, [2018-02-14T12:45:37.873087 #18856]  INFO -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd]   Rendered requests/index.html.erb within layouts/admin_view (178.0ms)
+I, [2018-02-14T12:45:37.874942 #18856]  INFO -- : [9b9119e9-f700-4c05-b2fc-60d749461ddd] Completed 200 OK in 226ms (Views: 22.9ms | ActiveRecord: 167.0ms)

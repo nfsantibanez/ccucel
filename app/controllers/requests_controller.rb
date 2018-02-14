@@ -92,13 +92,16 @@ class RequestsController < ApplicationController
             # Send email to user
             UserMailer.change_email(user, @request, 'Rechazada').deliver_now
           end
-        rescue
-          params[:errors]= 'Ocurrió un error al enviar la notificación por correo'
-          render layout: 'error' and return
+          # Render success message
+          params[:request] = 'follow'
+          render 'show', layout: 'admin_restrict_view'
+
+        rescue EOFError
+          params[:errors]= ''
+          render layout: 'error'
+          raise ActiveRecord::Rollback
         end
 ################################################################################
-        params[:request] = 'follow'
-        render 'show', layout: 'admin_restrict_view'
       else
         render layout: 'error'
       end
@@ -272,54 +275,50 @@ class RequestsController < ApplicationController
       @request = Request.new(request_params)
     end
 
-    # If request was successfully created
-    if @request.save
+    Request.transaction do
+      # If request was successfully created
+      if @request.save
+        begin
+        # Crear n_request 6 digit hex alphanumberic
+        # id = @request.id.to_s+SecureRandom.hex(3)
 
-      # Crear n_request 6 digit hex alphanumberic
-      # id = @request.id.to_s+SecureRandom.hex(3)
+        # Crear n_request 6 digit number only
+        id = @request.id.to_s+((SecureRandom.random_number(9e3) + 1e3).to_i).to_s
+        params[:n_request] = id
+        # Update Attributte
+        @request.update_attribute("n_request", id)
 
-      # Crear n_request 6 digit number only
-      id = @request.id.to_s+((SecureRandom.random_number(9e3) + 1e3).to_i).to_s
-      params[:n_request] = id
-      # Update Attributte
-      @request.update_attribute("n_request", id)
-      # n = @request.update_attributes!(n_request: id)
-      # puts(n)
+        # Unique identifier to access request
+        salt =  Digest::SHA256.hexdigest @request.national_id
+        url = Digest::SHA256.hexdigest salt+@request.n_request
+        params[:link] = url
 
-      # Unique identifier to access request
-      salt =  Digest::SHA256.hexdigest @request.national_id
-      url = Digest::SHA256.hexdigest salt+@request.n_request
-      params[:link] = url
-
-      Request.transaction do
         # Update Attributte
         @request.update_attribute("link", url)
 
         # Send mails
         user = User.find_by_id(params[:user_id])
-  ################################################################################
-        begin
-          # Send mail to user
-          UserMailer.user_email(user, @request).deliver_now
-          puts('**********mandando emails**********')
-          # Send mail to supervisor
-          UserMailer.supervisor_email(user, @request).deliver_now
-        rescue
-          params[:errors]= 'Ocurrió un error al enviar la notificación por correo'
-          render layout: 'error' and return
-        end
 ################################################################################
+        # Send mail to user
+        UserMailer.user_email(user, @request).deliver_now
+        # Send mail to supervisor
+        UserMailer.supervisor_email(user, @request).deliver_now
+################################################################################
+        puts(requests_url+"/validations/"+@request.link)
+        # Render success message
+        render layout: 'success'
+
+        rescue EOFError
+          params[:errors]= ''
+          render layout: 'error'
+          raise ActiveRecord::Rollback
+        end
+      else
+        # Render mensaje de error y volver a Home
+        params[:errors]= @request.errors.to_json
+        render layout: 'error'
       end
-      puts(requests_url+"/validations/"+@request.link)
-
-      # Render success message
-      render layout: 'success'
-    else
-      # Render mensaje de error y volver a Home
-      params[:errors]= @request.errors.to_json
-      render layout: 'error'
     end
-
 
   end
 

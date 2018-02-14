@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
 
   def supervisor_email(user, request)
-    # puts('entrando a super_mailer')
+    puts('entrando a super_mailer')
     @no_data = 'SE HA ENVIADO ESTE CORREO YA QUE EL USUARIO QUE CREÓ LA SOLICITUD NO TIENE UN CORREO DE SUPERVISOR ASOCIADO'
     @n_link = request.link
     @supervisor = user.supervisor
@@ -28,7 +28,7 @@ class UserMailer < ApplicationMailer
   end
 
   def user_email(user, request)
-    # puts('entrando a user_mailer')
+    puts('entrando a user_mailer')
     @no_data = 'HA RECIBIDO ESTE CORREO YA QUE EL USUARIO QUE CREÓ LA SOLICITUD NO TIENE UN CORREO ASOCIADO'
     @user = user
     if Rails.env.test? || Rails.env.development?
@@ -45,12 +45,12 @@ class UserMailer < ApplicationMailer
   end
 
   def change_email(user, request, change)
-    # puts('entrando a change_mailer')
+    puts('entrando a change_mailer')
     @user = user
     @request = request
     @change = change
     if Rails.env.test? || Rails.env.development?
-      @to = 'solcelulares@ccu.cl'
+      @to = 'nisanti@ccu.cl'
     elsif Rails.env.production?
       @to = if !user.email.blank? then user.email else 'solcelulares@ccu.cl' end
     end
