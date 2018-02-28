@@ -2,6 +2,7 @@ class UserMailer < ApplicationMailer
 
   def supervisor_email(user, request)
     puts('entrando a super_mailer')
+    @request = request
     @no_data = 'SE HA ENVIADO ESTE CORREO YA QUE EL USUARIO QUE CREÓ LA SOLICITUD NO TIENE UN CORREO DE SUPERVISOR ASOCIADO'
     @n_link = request.link
     @supervisor = user.supervisor
@@ -13,7 +14,7 @@ class UserMailer < ApplicationMailer
       @no_data= '' unless user.supervisor_email.blank?
     end
     @subject = request.name+" a creado la solicitud n° "+request.n_request+" que necesita su aprobación."
-    @body = request.email_sended+"."
+    @body = "Se le ha enviado la siguiente Solicitud para su aprobación:"
     mail(to: @to, subject: @subject)
   end
 
