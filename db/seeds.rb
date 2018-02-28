@@ -7,6 +7,7 @@ if Rails.env.development? || Rails.env.production?
   admin = Admin.create!(username: 'solcelulares', email: 'solcelulares@ccu.cl',
     password: 'Ccuwebcel', password_confirmation: 'Ccuwebcel')
   puts(admin)
+end
 ################################################################################################
 ################################################################################################
 
@@ -93,9 +94,9 @@ if Rails.env.development? || Rails.env.production?
 
 ################################################################################################
 #################################### DATA FOR TEST ENV #########################################
-elsif Rails.env.test?
+if Rails.env.test?
   # Main user admin
-  admin = Admin.create!(username: 'test', email: 'solcelulares@ccu.cl',
+  admin = Admin.create!(username: 'testadmin', email: 'solcelulares@ccu.cl',
     password: 'passtest', password_confirmation: 'passtest')
   puts(admin)
   # Users CHL

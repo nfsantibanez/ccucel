@@ -156,26 +156,39 @@
         </div>
       <%end%>
 
-
       <div class="row">
         <p class="col-md-4 text-left">
           <%if  @request.request == 'technical service' %>
             <strong>Precio Presupuesto: </strong>
+          <%elsif @request.item == 'bam' || @request.item == 'smartphone' %>
+            <strong>Precio Referencial Equipo: </strong>
+          <%elsif @request.item == 'roaming' %>
+            <strong>Precio Plan/Bolsa Roaming: </strong>
           <%else%>
             <strong>Precio: </strong>
           <%end%>
           <%= '$'+@request.price.to_s %>
         </p>
-
         <%if @request.item == 'bam' || @request.item == 'smartphone'%>
-          <p class="user col-md-4 text-left">
+          <p class="col-md-4 text-left">
             <strong>Modelo: </strong>
             <%= @request.model %>
           </p>
         <%end%>
-        <%if @request.item == 'bam' || @request.item == 'roaming'%>
-          <p class="user col-md-4 text-left">
-            <strong>Plan Bam/Roaming:</strong>
+        <%if @request.item == 'bam' %>
+          <%if @request.request != 'technical service' %>
+            <p class="col-md-4 text-left">
+              <strong>Precio Plan:</strong>
+              <%= '$'+@request.price_plan.to_s %>
+            </p>
+          <%end%>
+          <p class="col-md-4 text-left">
+            <strong>Plan Bam:</strong>
+            <%= @request.plan %>
+          </p>
+        <%elsif @request.item == 'roaming'%>
+          <p class="col-md-4 text-left">
+            <strong>Plan Roaming:</strong>
             <%= @request.plan %>
           </p>
         <%end%>
@@ -203,7 +216,6 @@
               <%end%>
             </p>
           <%end%>
-        <p class="user col-md-4 text-left"></p>
       </div>
 
       <div class="row">
@@ -223,7 +235,7 @@
         <%if @request.item == 'smartphone' ||  @request.item == 'sim'%>
           <%if @request.request != 'technical service' %>
             <p class="user col-md-4 text-left">
-              <strong>¿Equipo con Sim?:</strong>
+              <strong>¿Incluye Sim?:</strong>
               <%if @request.want_sim == true%>
                 Si
               <%else%>

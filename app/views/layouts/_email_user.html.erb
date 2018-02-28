@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+
+  table{
+    border-collapse: collapse;
+    border: 2px solid black;
+    width: 70%;
+    margin-bottom: 10px auto;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  th{
+    text-align: center;
+    border-bottom: solid 2px solid black;
+  }
+
+  td{
+    border-top: solid 1px solid black;
+    border-left: solid 1px solid black;
+    margin: 4px;
+    padding: 3px;
+    text-align: left;
+  }
+
+  </style>
+</head>
+<body>
+  <table class="table-responsive">
+
+    <thead>
+      <tr>
+      <th colspan="2"><strong>Datos Trabajador</strong></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td style="border-top: none;"><strong>Solicitante:</strong></td>
+        <td style="border-top: none;"><%= @request.name %></td>
+      </tr>
+      <tr>
+        <td><strong>Rut:</strong></td>
+        <td><%= @request.national_id %></td>
+      </tr>
+      <tr>
+        <td><strong>Correo:</strong></td>
+        <td><%= @request.email %></td>
+      </tr>
+      <tr>
+        <td><strong>Empresa:</strong></td>
+        <td><%= @request.company %></td>
+      </tr>
+      <tr>
+        <td><strong>Centro de Costo:</strong></td>
+        <td><%= @request.deptname %></td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

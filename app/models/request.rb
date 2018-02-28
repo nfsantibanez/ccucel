@@ -44,6 +44,10 @@ class Request < ApplicationRecord
     if !self.price.blank? && !self.price.include?(".")
       self.price = self.price.reverse.gsub(/.{3}(?=.)/, '\0.').reverse
     end
+
+    if !self.price_plan.blank? && !self.price_plan.include?(".")
+      self.price_plan = self.price_plan.reverse.gsub(/.{3}(?=.)/, '\0.').reverse
+    end
   end
 
 

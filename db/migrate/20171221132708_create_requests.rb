@@ -24,6 +24,7 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.string :phone_number
       t.string :transfer_line_type
       t.string :price, defaul: ""
+      t.string :price_plan, defaul: ""
       t.string :region
       t.string :country
       t.string :name
@@ -37,6 +38,7 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.string :link, default: ''
       t.string :sup_approval, default: 'pendiente'
       t.text :comment_sup, default: ""
+      t.string :purchase_order, default: "pendiente"
       t.references :user, foreign_key: true
 
       t.timestamps

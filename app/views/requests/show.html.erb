@@ -52,11 +52,11 @@
           <strong>Solicitante: </strong>
           <%= @request.name %>
         </p>
-        <p class="user col-md-4 text-left">
+        <p class="col-md-4 text-left">
           <strong>Rut: </strong>
           <%= @request.national_id %>
         </p>
-        <p class=" user col-md-4 text-left">
+        <p class="col-md-4 text-left">
           <strong>Correo: </strong>
           <%= @request.email %>
         </p>
@@ -67,11 +67,11 @@
           <strong>Empresa: </strong>
           <%= @request.company %>
         </p>
-        <p class="user col-md-4 text-left">
+        <p class="col-md-4 text-left">
           <strong>Centro de Costo: </strong>
           <%= @request.deptname %>
         </p>
-        <p class=" user col-md-4 text-left"></p>
+        <p class=" col-md-4 text-left"></p>
       </div>
 
       <hr>
@@ -93,11 +93,11 @@
           <strong>N° Solicitud: </strong>
           <%= @request.n_request %>
         </p>
-        <p class="user col-md-4 text-left">
+        <p class="col-md-4 text-left">
             <strong>Tipo: </strong>
             <%= @request.request %>
         </p>
-        <p class=" user col-md-4 text-left">
+        <p class="col-md-4 text-left">
           <strong>Item: </strong>
           <%= @request.item %>
         </p>
@@ -137,11 +137,11 @@
             <strong>Fecha Inicio Viaje: </strong>
             <%= @request.start_date.strftime('%d/%m/%Y')  %>
           </p>
-          <p class="user col-md-4 text-left">
+          <p class="col-md-4 text-left">
             <strong>Fecha Término Viaje: </strong>
             <%= @request.end_date.strftime('%d/%m/%Y')  %>
           </p>
-          <p class="user col-md-4 text-left"></p>
+          <p class="col-md-4 text-left"></p>
         </div>
 
         <div class="row">
@@ -149,61 +149,74 @@
             <strong>Región de Destino: </strong>
             <%= @request.region %>
           </p>
-          <p class="user col-md-4 text-left">
+          <p class="col-md-4 text-left">
             <strong>País de Destino: </strong>
             <%= @request.country %>
           </p>
-          <p class="user col-md-4 text-left"></p>
+          <p class="col-md-4 text-left"></p>
         </div>
       <%end%>
-
 
       <div class="row">
         <p class="col-md-4 text-left">
           <%if  @request.request == 'technical service' %>
             <strong>Precio Presupuesto: </strong>
+          <%elsif @request.item == 'bam' || @request.item == 'smartphone' %>
+            <strong>Precio Referencial Equipo: </strong>
+          <%elsif @request.item == 'roaming' %>
+            <strong>Precio Plan/Bolsa Roaming: </strong>
           <%else%>
             <strong>Precio: </strong>
           <%end%>
           <%= '$'+@request.price.to_s %>
         </p>
         <%if @request.item == 'bam' || @request.item == 'smartphone'%>
-          <p class="user col-md-4 text-left">
+          <p class="col-md-4 text-left">
             <strong>Modelo: </strong>
             <%= @request.model %>
           </p>
         <%end%>
-        <%if @request.item == 'bam' || @request.item == 'roaming'%>
-          <p class="user col-md-4 text-left">
-            <strong>Plan Bam/Roaming:</strong>
+        <%if @request.item == 'bam' %>
+          <%if @request.request != 'technical service' %>
+            <p class="col-md-4 text-left">
+              <strong>Precio Plan:</strong>
+              <%= '$'+@request.price_plan.to_s %>
+            </p>
+          <%end%>
+          <p class="col-md-4 text-left">
+            <strong>Plan Bam:</strong>
+            <%= @request.plan %>
+          </p>
+        <%elsif @request.item == 'roaming'%>
+          <p class="col-md-4 text-left">
+            <strong>Plan Roaming:</strong>
             <%= @request.plan %>
           </p>
         <%end%>
       </div>
 
       <div class="row">
-          <%if @request.item == 'smartphone' && @request.request != 'technical service' %>
-            <p class="col-md-4 text-left">
-              <strong>Comentarios Modelo:</strong>
-              <%= @request.comment %>
-            </p>
-          <%elsif @request.request == 'technical service'%>
-            <p class="col-md-4 text-left">
-              <strong>Comentarios Desperfecto:</strong>
-              <%= @request.comment %>
-            </p>
-          <%end%>
-          <%if @request.request == 'technical service' %>
-            <p class="user col-md-4 text-left">
-              <strong>¿Solicitó equipo de reemplazo?: </strong>
-              <%if @request.want_replacement == true%>
-                Si
-              <%else%>
-                No
-              <%end%>
-            </p>
-          <%end%>
-        <p class="user col-md-4 text-left"></p>
+        <%if @request.item == 'smartphone' && @request.request != 'technical service' %>
+          <p class="col-md-4 text-left">
+            <strong>Comentarios Modelo:</strong>
+            <%= @request.comment %>
+          </p>
+        <%elsif @request.request == 'technical service'%>
+          <p class="col-md-4 text-left">
+            <strong>Comentarios Desperfecto:</strong>
+            <%= @request.comment %>
+          </p>
+        <%end%>
+        <%if @request.request == 'technical service' %>
+          <p class="col-md-4 text-left">
+            <strong>¿Solicitó equipo de reemplazo?: </strong>
+            <%if @request.want_replacement == true%>
+              Si
+            <%else%>
+              No
+            <%end%>
+          </p>
+        <%end%>
       </div>
 
       <div class="row">
@@ -215,15 +228,15 @@
               <%elsif @request.number_type == 'same'%>
                   <strong>N° de Teléfono actual:</strong>
               <%else%>
-                  <strong>N° de Teléfono"cedido:</strong>
+                  <strong>N° de Teléfono cedido:</strong>
               <%end%>
               <%= '+56 9 '+@request.phone_number %>
             </p>
           <%end%>
         <%if @request.item == 'smartphone' ||  @request.item == 'sim'%>
           <%if @request.request != 'technical service' %>
-            <p class="user col-md-4 text-left">
-              <strong>¿Equipo con Sim?:</strong>
+            <p class="col-md-4 text-left">
+              <strong>¿Incluye Sim?:</strong>
               <%if @request.want_sim == true%>
                 Si
               <%else%>
@@ -233,7 +246,7 @@
           <%end%>
 
           <%if @request.want_sim == true%>
-            <p class="user col-md-4 text-left">
+            <p class="col-md-4 text-left">
               <strong>¿Solicitó número nuevo?:</strong>
               <%if @request.want_new_number == true%>
                 Si
@@ -255,7 +268,7 @@
           <%end%>
           <%if @request.file%>
             <%if @request.request == 'stolen/lost'%>
-              <p class="user col-md-4 text-left">
+              <p class="col-md-4 text-left">
                 <strong>Constancia: </strong>
                 <%= link_to 'Download', requests_url+'/files/'+@request.n_request,  data: {turbolinks: false}  %>
               </p>

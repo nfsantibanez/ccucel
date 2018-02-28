@@ -30,6 +30,7 @@ class UserMailer < ApplicationMailer
 
   def user_email(user, request)
     puts('entrando a user_mailer')
+    @request = request
     @no_data = 'HA RECIBIDO ESTE CORREO YA QUE EL USUARIO QUE CREÓ LA SOLICITUD NO TIENE UN CORREO ASOCIADO'
     @user = user
     if Rails.env.test? || Rails.env.development?
@@ -40,7 +41,7 @@ class UserMailer < ApplicationMailer
       @no_data= '' unless user.email.blank?
     end
     @subject = "Se ha creado la Solicitud n° "+request.n_request
-    @body = "Usted a creado la solicitud n° "+request.n_request
+    @body = "Usted a creado una solicitud con las siguientes características:"
 
     mail(to: @to, subject: @subject)
   end
