@@ -364,7 +364,7 @@ class ApplicationController < ActionController::Base
 
       if params["request"] == "stolen/lost"
         ms+= " debe ser el número telefónico: +56 9 "+params["phone_number"]+
-        ". Esta solicitud fue cursada por la pérdido o robo de la Sim que el trabajador tenia asignado anteriormente."
+        ". Esta solicitud fue cursada por la pérdida o robo de la Sim que el trabajador tenia asignado anteriormente."
       elsif params["want_new_number"] == "true"
         ms+= " debe ser nuevo."
       else
