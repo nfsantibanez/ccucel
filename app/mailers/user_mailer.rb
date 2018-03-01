@@ -13,7 +13,8 @@ class UserMailer < ApplicationMailer
       @to = if !user.supervisor_email.blank? then user.supervisor_email else 'solcelulares@ccu.cl' end
       @no_data= '' unless user.supervisor_email.blank?
     end
-    @subject = request.name+" a creado la solicitud n° "+request.n_request+" que necesita su aprobación."
+    @subject = "Tiene una solicitud pendiente de aprobación"
+
     @body = "Se le ha enviado la siguiente Solicitud para su aprobación:"
     mail(to: @to, subject: @subject)
   end
