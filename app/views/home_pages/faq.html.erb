@@ -121,6 +121,8 @@
     }
   </style>
 
+  <%= javascript_include_tag"bootstrap.min" %>
+
 
   <script type="text/javascript">
     $(function() {
@@ -148,8 +150,7 @@
           <a href="#tab1" class="list-group-item active" role="tab" data-toggle="tab">Solicitudes</a>
           <a href="#tab2" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-account"></i>Dispositivos</a>
           <a href="#tab3" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-star"></i>Roaming</a>
-          <a href="#tab4" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-cart"></i>Documentos</a>
-          <a href="#tab5" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-heart"></i>Otros</a>
+          <a href="#tab4" class="list-group-item" role="tab" data-toggle="tab"><i class="mdi mdi-heart"></i>Otros</a>
         </div>
       </ul>
     </div>
@@ -166,11 +167,14 @@
                 </div>
               </a>
 
-              <div id="sol_1" class="collapse in">
+              <div id="sol_1" class="collapse">
                 <div class="panel-body">
-                  <p>Debes dirigirte a la pestaña “Solicitudes”, seleccionar el tipo de solicitud que deseas, luego
-                    debes identificarte con tu RUT (sin puntos, con guión) y presionar "Enviar".
-                    Luego debes rellenar el o los formularios que aparecen debajo "Datos del Usuario" y presionar "Enviar"
+                  <p>Debes dirigirte a la pestaña “Solicitudes”, seleccionar el tipo
+                    de solicitud en "Selección Solicitud", elegir el equipo o servicio
+                    en "Selección Equipo/Servicio", luego debes identificarte con tu
+                    RUT (sin puntos, con guión) y presionar "Enviar".
+                    Finalmente debes rellenar el o los formularios que aparecen debajo de los
+                    "Datos del Usuario" y presionar "Enviar"
                   </p>
                 </div>
               </div>
@@ -179,15 +183,20 @@
             <div class="panel panel-default panel-help">
               <a href="#sol_2" data-toggle="collapse" data-parent="#help-accordion-1">
                 <div class="panel-heading">
-                  <h4>¿Qué debo hacer si mi dispositivo (Smartphone o Bam) presenta fallas?</h4>
+                  <h4>¿Qué debo hacer si mi equipo presenta fallas?</h4>
                 </div>
               </a>
 
               <div id="sol_2" class="collapse">
                 <div class="panel-body">
-                  <p>Debes ir al módulo de solicitudes, y seleccionar la opción “Servicio Técnico”,
-                    una vez cursada la solicitud, se entregará un equipo de reemplazo mientras se
-                    realiza la reparación del equipo con falla</p>
+                  <p>Debes dirigirte a la pestaña "Solicitudes", seleccionar “Reparar Equipo”
+                    en "Selección Solicitud", elegir el equipo o servicio
+                    en "Selección Equipo/Servicio", luego debes identificarte con tu
+                    RUT (sin puntos, con guión) y presionar "Enviar".
+                    Finalmente debes rellenar los formularios que aparecen debajo de los
+                    "Datos del Usuario" y presionar "Enviar". El usuario tiene la opción
+                    de pedir un equipo de reemplazo mientras se realiza la reparación del equipo con fallas
+                  </p>
                 </div>
               </div>
             </div>
@@ -195,16 +204,19 @@
             <div class="panel panel-default panel-help">
               <a href="#sol_3" data-toggle="collapse" data-parent="#help-accordion-1">
                 <div class="panel-heading">
-                  <h4>¿Qué puedo hacer en caso de robo o extravío de un dispositivo (Smartphone o Bam)? </h4>
+                  <h4>¿Qué debo hacer en caso de robo o extravío de mi equipo? </h4>
                 </div>
               </a>
 
               <div id="sol_3" class="collapse">
                 <div class="panel-body">
                   <p> Lo primero que debes hacer es llamar al 103 desde un móvil Entel o
-                    al 800 367 626 desde red fija o móvil solicitando el bloqueo del dospositivo.
+                    al 800 367 626 desde red fija o móvil solicitando el bloqueo del equipo.
                     Además debes dejar una constancia en carabineros, esta es solicitada al
-                    momento de realizar la solicitud de dispositivo por robo o pérdida en la pestaña “Solicitudes” </p>
+                    momento de realizar la solicitud del equipo por robo o pérdida
+                    en la pestaña “Solicitudes” ingesando "Robo/Pérdida Equipo" en
+                    "Selección Solicitud"
+                    </p>
                 </div>
               </div>
             </div>
@@ -212,13 +224,38 @@
             <div class="panel panel-default panel-help">
               <a href="#sol_4" data-toggle="collapse" data-parent="#help-accordion-1">
                 <div class="panel-heading">
-                  <h4>p4?</h4>
+                  <h4>¿Cómo realizo una solicitud de roaming?</h4>
                 </div>
               </a>
 
               <div id="sol_4" class="collapse">
                 <div class="panel-body">
-                  <p>...</p>
+                  <p>Debes dirigirte a la pestaña "Solicitudes", seleccionar “Nuevo Equipo/Servicio”
+                    en "Selección Solicitud", elegir "Roaming" en "Selección Equipo/Servicio",
+                    luego debes identificarte con tu RUT (sin puntos, con guión) y presionar "Enviar".
+                    Finalmente debes rellenar el formulario que aparece debajo de los
+                    "Datos del Usuario" y presionar "Enviar"
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default panel-help">
+              <a href="#sol_4" data-toggle="collapse" data-parent="#help-accordion-1">
+                <div class="panel-heading">
+                  <h4>¿Que debo hacer si deseo mi numero particular como numero de la compañia? </h4>
+                </div>
+              </a>
+
+              <div id="sol_4" class="collapse">
+                <div class="panel-body">
+                  <p>El primer paso es portarte a Entel como prepago, una vez este ok
+                    la portabilidad, debes dirigirte a la pestaña "Solicitudes", seleccionar “Cesión de línea"
+                    e identificarte con tu RUT (sin puntos, con guión) y presionar "Enviar".
+                    Finalmente debes rellenar el formulario que aparecen debajo de los
+                      "Datos del Usuario" preocupándote de ingresar "Ceder línea a CCU" en
+                      "Seleccione Acción" y presionar "Enviar"
+                  </p>
                 </div>
               </div>
             </div>
@@ -236,7 +273,7 @@
                 </div>
               </a>
 
-              <div id="smp_1" class="collapse in">
+              <div id="smp_1" class="collapse">
                 <div class="panel-body">
                   <p>Corresponde en un plan limitado de voz desde los 400 minutos
                     según el cargo que ejerces dentro de la compañía, más una bolsa
@@ -257,7 +294,7 @@
               <div id="smp_2" class="collapse">
                 <div class="panel-body">
                   <p>Según el procedimiento establecido por CCU, el cambio de equipo
-                    corresponde 24 meses desde la recepción del aparato telefónico </p>
+                    corresponde 24 meses desde la recepción del dispositivo móvil (smartphone o bam) </p>
                 </div>
               </div>
             </div>
@@ -265,15 +302,19 @@
             <div class="panel panel-default panel-help">
               <a href="#smp_3" data-toggle="collapse" data-parent="#help-accordion-2">
                 <div class="panel-heading">
-                  <h4>¿Dónde puedo ver la antigüedad de mi equipo?</h4>
+                  <h4>¿Dónde puedo ver la fecha en la cual me corresponde cambio de equipo?</h4>
                 </div>
               </a>
 
               <div id="smp_3" class="collapse">
                 <div class="panel-body">
-                  <p> En la pestaña de “solicitudes”, debes seleccionar “Renovación
-                    de equipo” e ingresar tu numero para luego presionar "valida" y
-                    ver si ya corresponde el cambio de tu equipo</p>
+                  <p> En la pestaña de “Solicitudes”, debes seleccionar “Renovar Equipo” en
+                    "Selección Solicitud", ingresar el equipo a consultar en
+                    "Selección Equipo/Servicio", luego debes identificarte con tu
+                    RUT (sin puntos, con guión) y presionar "Enviar".
+                    En la primera línea de la información desplegada en "Datos de Solicitud"
+                    aparecerá un mensaje con la información de los días que faltan para renovar
+                    el equipo consultado</p>
                 </div>
               </div>
             </div>
@@ -281,13 +322,18 @@
             <div class="panel panel-default panel-help">
               <a href="#smp_4" data-toggle="collapse" data-parent="#help-accordion-2">
                 <div class="panel-heading">
-                  <h4>P4?</h4>
+                  <h4>¿Qué modelo de smartphone me corresponde?</h4>
                 </div>
               </a>
 
               <div id="smp_4" class="collapse">
                 <div class="panel-body">
-                  <p>... </p>
+                  <p> Los modelos disponibles se despliegan de manera automática
+                  según la "Familia del Cargo" que tiene asociado el trabajador.
+                  Si se desea elegir un modelo que no le corresponde puede seleccionar la pestaña
+                  "Mostrar modelos que no corresponden a mi cargo" y podrá ver todos los modelos disponibles,
+                  sin embargo deberá ingresar obligatoriamente el motivo de elección
+                </p>
                 </div>
               </div>
             </div>
@@ -295,13 +341,15 @@
             <div class="panel panel-default panel-help">
               <a href="#smp_5" data-toggle="collapse" data-parent="#help-accordion-2">
                 <div class="panel-heading">
-                  <h4>¿p5?</h4>
+                  <h4>¿Como puedo saber cual es el IMEI de mi equipo? </h4>
                 </div>
               </a>
 
               <div id="smp_5" class="collapse">
                 <div class="panel-body">
-                  <p>... </p>
+                  <p>Lo puedes hacer digitando en tu celular *#06#, o bien abriendo la
+                    tapa posterior de tu equipo celular, donde bajo la bateria se
+                    encuentra el codigo de 15 digitos</p>
                 </div>
               </div>
             </div>
@@ -309,7 +357,125 @@
           </div>
         </div>
 
+        <div class="tab-pane" id="tab3">
+          <div class="panel-group" id="help-accordion-3">
 
+            <div class="panel panel-default panel-help">
+              <a href="#rom_1" data-toggle="collapse" data-parent="#help-accordion-3">
+                <div class="panel-heading">
+                  <h4>Si estoy en el extranjero y recibo una llamada desde Chile, el cobro de la llamada, ¿Es para la persona que llama? </h4>
+                </div>
+              </a>
+
+              <div id="rom_1" class="collapse">
+                <div class="panel-body">
+                  <p>La respuesta es NO, el cobro siempre es para la persona que
+                    está en el extranjero, por lo tanto quien se encuentra fuera
+                    del país es quien paga por llamadas emitidas y recibidas
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="tab-pane" id="tab4">
+          <div class="panel-group" id="help-accordion-4">
+
+            <div class="panel panel-default panel-help">
+              <a href="#ot_1" data-toggle="collapse" data-parent="#help-accordion-4">
+                <div class="panel-heading">
+                  <h4>¿Cómo puedo ver el detalle de mi consumo de mi smartphone?</h4>
+                </div>
+              </a>
+
+              <div id="ot_1" class="collapse">
+                <div class="panel-body">
+                  <p> Todo los equipos smartphone vienen con la aplicación de Entel
+                    donde se puede ver el detalle del consumo
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default panel-help">
+              <a href="#ot_2" data-toggle="collapse" data-parent="#help-accordion-4">
+                <div class="panel-heading">
+                  <h4>¿Como puedo saber cuantos minutos he consumido en el mes actual? </h4>
+                </div>
+              </a>
+
+              <div id="ot_2" class="collapse">
+                <div class="panel-body">
+                  <p> Lo puedes hacer digitando en tu celular *100#, en donde
+                    la cantidad total corresponde a los minutos consumidos a la
+                    fecha actual desde el dia 01 de cada mes
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default panel-help">
+              <a href="#ot_3" data-toggle="collapse" data-parent="#help-accordion-4">
+                <div class="panel-heading">
+                  <h4>Si estoy en el extranjero y recibo una llamada desde Chile, el cobro de la llamada, ¿Es para la persona que llama? </h4>
+                </div>
+              </a>
+
+              <div id="ot_3" class="collapse">
+                <div class="panel-body">
+                  <p>La respuesta es NO, el cobro siempre es para la persona que
+                    está en el extranjero, por lo tanto quien se encuentra fuera
+                    del país es quien paga por llamadas emitidas y recibidas
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default panel-help">
+              <a href="#ot_4" data-toggle="collapse" data-parent="#help-accordion-4">
+                <div class="panel-heading">
+                  <h4> ¿Cómo respaldar mi información personal?  </h4>
+                </div>
+              </a>
+
+              <div id="ot_4" class="collapse">
+                <div class="panel-body">
+                  <p> Conectando mediante USB tu equipo celular al computador, puedes
+                    navegar entre las carpetas que existen en su memoria interna o micro SD
+                    (en caso que tenga), debes copiar la informacion que deseas respaldar y
+                    pegarla en una carpeta de tu computador. Si deseas respaldar tus contactos
+                    lo puedes hacer de la misma forma, realizando previamente la exportacion de
+                    tus contactos a traves de las opciones que entrega la aplicacion de
+                    conctactos del telefono.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default panel-help">
+              <a href="#ot_5" data-toggle="collapse" data-parent="#help-accordion-4">
+                <div class="panel-heading">
+                  <h4> ¿Cómo optimizar el rendimiento de la batería? </h4>
+                </div>
+              </a>
+
+              <div id="ot_5" class="collapse">
+                <div class="panel-body">
+                  <p> Las medidas mas recomendables son: Disminuir el brillo de la pantalla,
+                    desactivar las aplicaciones y servicios que no estén siendo utilizados,
+                    configura solo cuentas de correo que vas a usar, procurar de no tener gps
+                    activo si no se esta utilizando y desactivar red wifi cuando no estes
+                    conectado a una.
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
 
 
 

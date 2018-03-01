@@ -216,7 +216,11 @@ class ApplicationController < ActionController::Base
 
   # Build message for request and email
   def build_message
+
+    # Get user
     user = User.find(params["user_id"])
+
+    # User Info
     user_info = user["name"]+" "+user["last_name"]+" ("+user["email"]+"), "+user["jobtitle"]+
     ", perteneciente al centro de costos "+user["deptname"]+", a cursado una solicitud para "
 
@@ -224,6 +228,7 @@ class ApplicationController < ActionController::Base
     if params["request"] == "transfer line"
       ms = user_info+params["transfer_line_type"]+" su linea de teléfono con número telefónico: +56 9 "+
       params["phone_number"]
+
     # Smartphone
     elsif params["item"] == "smartphone"
       lost = ""
@@ -246,7 +251,7 @@ class ApplicationController < ActionController::Base
       # New
       if params["request"] == "new"
         ms = user_info+" un nuevo smartphone modelo "+params["model"]["model"]+
-        ", con un valor de $"+params["model"]['price'].to_s+". "
+        ", con un valor de $"+params["model"]['price'].to_s.reverse.gsub(/.{3}(?=.)/, '\0.').reverse+". "
         if params["want_sim"] == "true"
           ms+= "El smartphone debe traer tarjeta Sim y el número de teléfono asociado a él "
           if params["want_new_number"] == "true"
@@ -262,11 +267,11 @@ class ApplicationController < ActionController::Base
       # Renew, stolen/lost
       elsif params["request"] == "renew" || params["request"] == "stolen/lost"
         ms = user_info+" renovar su smartphone, eligiendo el modelo "+params["model"]["model"]+
-        ", con un valor de $"+params["model"]['price'].to_s+". "
+        ", con un valor referencial de $"+params["model"]['price'].to_s.reverse.gsub(/.{3}(?=.)/, '\0.').reverse+". "
 
         if params["request"] == "stolen/lost"
           ms = user_info+" un nuevo smartphone modelo "+params["model"]["model"]+
-          ", con un valor de $"+params["model"]['price'].to_s+". "
+          ", con un valor de $"+params["model"]['price'].to_s.reverse.gsub(/.{3}(?=.)/, '\0.').reverse+". "
           lost = " Esta solicitud fue cursada por la pérdido o robo del smartphone que el trabajador tenia asignado anteriormente."
         end
 
@@ -312,18 +317,19 @@ class ApplicationController < ActionController::Base
     elsif params["item"] == "bam"
 
       if params["request"] != "technical service"
-      # Get bam model's info
-      params["model"] = get_bam(params["model"])
-      # Get bam plan's info
-      params["plan"] = get_plan(params["plan"])
+        # Get bam model's info
+        params["model"] = get_bam(params["model"])
+        # Get bam plan's info
+        params["plan"] = get_plan(params["plan"])
       end
 
       # New, stolen/lost
       if params["request"] == "new" || params["request"] == "stolen/lost"
         # Message
-        ms = user_info+" un nuevo dispositivo Bam modelo "+params["model"]["model"]+",
-        con el plan: "+params["plan"]["name"]+", el cual tiene un valor de $"+
-        params["plan"]['price'].to_s+". "
+        ms = user_info+" un nuevo dispositivo Bam modelo "+params["model"]["model"]+
+        ", con un valor de $"+params["model"]['price'].to_s.reverse.gsub(/.{3}(?=.)/, '\0.').reverse+
+        ", asociado al plan "+params["plan"]["name"]+", el cual tiene un valor de $"+
+        params["plan"]['price'].to_s.reverse.gsub(/.{3}(?=.)/, '\0.').reverse+". "
 
         if params["request"] == "stolen/lost"
           ms+= " Esta solicitud fue cursada por la pérdido o robo del dispositivo Bam que el trabajador tenia asignado anteriormente."
@@ -333,19 +339,21 @@ class ApplicationController < ActionController::Base
       elsif params["request"] == "renew"
         # Message
         ms = user_info+" renovar su dispositivo Bam, eligiendo el modelo "+params["model"]["model"]+
-        ", con un valor de $"+params["model"]['price'].to_s+". El usuario mantendrá el mismo plan"
+        ", con un valor de $"+params["model"]['price'].to_s.reverse.gsub(/.{3}(?=.)/, '\0.').reverse+
+        ". El usuario mantendrá el mismo plan, el cual tiene un valor de $"+
+        params["plan"]['price'].to_s.reverse.gsub(/.{3}(?=.)/, '\0.').reverse+". "
 
       # Technical service
     elsif params["request"] == "technical service"
         #If user want replacement
         if params["want_replacement"] == "true"
-          replace= "El trabajador va a necesitar un dispositivo de reemplazo durante el periodo en que el dispositivo BAM es enviado al servicio técnico"
+          replace= "El trabajador va a necesitar un dispositivo de reemplazo durante el periodo en que el dispositivo Bam es enviado al servicio técnico"
         else
-          replace= "El trabajador no necesita un dispositivo de reemplazo durante el periodo en que el dispositivo BAM es enviado al servicio técnico"
+          replace= "El trabajador no necesita un dispositivo de reemplazo durante el periodo en que el dispositivo Bam es enviado al servicio técnico"
         end
         #message
-        ms = user_info+" enviar al servicio técnico su dispositivo BAM modelo "+
-        params["model"]+", IMEI "+params["imei"]+". El desperfecto que presenta el BAM es "+
+        ms = user_info+" enviar al servicio técnico su dispositivo Bam modelo "+
+        params["model"]+", IMEI "+params["imei"]+". El desperfecto que presenta el Bam es "+
         params["comment"]+". "+replace
       end
 
@@ -377,7 +385,7 @@ class ApplicationController < ActionController::Base
       params["end_date"] = Date.parse(date_split[2]+"/"+date_split[1]+"/"+date_split[0])
       # Message
       ms = user_info+" el servicio Roaming, con el plan: "+params["plan"]["name"]+
-      ", el cual tiene un valor de $"+params["plan"]['price'].to_s+". El servicio
+      ", el cual tiene un valor de $"+params["plan"]['price'].to_s.reverse.gsub(/.{3}(?=.)/, '\0.').reverse+". El servicio
       se solicita ya que el trabajador viaja al extranjero debido a: "+params["comment"]+
       ", entre las fechas: "+params["start_date"].strftime('%d/%m/%Y')+" y "+params["end_date"].strftime('%d/%m/%Y')+"."
     end

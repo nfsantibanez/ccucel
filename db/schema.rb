@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20180201133831) do
     t.string "email"
     t.string "encrypted_password"
     t.string "salt"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "bams", force: :cascade do |t|
@@ -27,28 +27,15 @@ ActiveRecord::Schema.define(version: 20180201133831) do
     t.string "code", null: false
     t.string "country", null: false
     t.string "imei", default: "000000000000000", null: false
-    t.integer "price", precision: 38
+    t.integer "price"
     t.string "state", default: "new", null: false
     t.binary "order"
     t.string "order_name"
     t.string "order_type"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", precision: 6
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "hola", force: :cascade do |t|
-    t.string "phone_number", null: false
-    t.string "serial_number"
-    t.string "country", null: false
-    t.string "state", default: "new", null: false
-    t.boolean "available", default: true, null: false
-    t.binary "order"
-    t.string "order_name"
-    t.string "order_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "renovation_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "plans", force: :cascade do |t|
@@ -56,11 +43,11 @@ ActiveRecord::Schema.define(version: 20180201133831) do
     t.string "plan_type", null: false
     t.string "name", null: false
     t.string "detail"
-    t.integer "price", precision: 38
+    t.integer "price"
     t.string "category", default: "ALL"
     t.string "country", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "requests", force: :cascade do |t|
@@ -87,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180201133831) do
     t.string "phone_number"
     t.string "transfer_line_type"
     t.string "price"
+    t.string "price_plan"
     t.string "region"
     t.string "country"
     t.string "name"
@@ -94,15 +82,16 @@ ActiveRecord::Schema.define(version: 20180201133831) do
     t.string "email"
     t.string "company"
     t.string "deptname"
-    t.datetime "start_date", precision: 6
-    t.datetime "end_date", precision: 6
-    t.datetime "closed_at", precision: 6
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "closed_at"
     t.string "link", default: ""
     t.string "sup_approval", default: "pendiente"
     t.text "comment_sup", default: ""
-    t.integer "user_id", limit: 19, precision: 19
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "purchase_order", default: "pendiente"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
@@ -115,8 +104,8 @@ ActiveRecord::Schema.define(version: 20180201133831) do
     t.binary "order"
     t.string "order_name"
     t.string "order_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "smartphones", force: :cascade do |t|
@@ -126,15 +115,15 @@ ActiveRecord::Schema.define(version: 20180201133831) do
     t.string "category", null: false
     t.string "country", null: false
     t.string "imei", default: "000000000000000", null: false
-    t.integer "price", precision: 38
+    t.integer "price"
     t.string "state", default: "new", null: false
     t.binary "order"
     t.string "order_name"
     t.string "order_type"
     t.boolean "available", default: true, null: false
-    t.datetime "renovation_at", precision: 6
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "renovation_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -152,21 +141,16 @@ ActiveRecord::Schema.define(version: 20180201133831) do
     t.string "jobcode"
     t.string "location", null: false
     t.string "deptname", null: false
-    t.integer "smartphone_id", limit: 19, precision: 19
-    t.integer "bam_id", limit: 19, precision: 19
-    t.integer "sim_id", limit: 19, precision: 19
-    t.integer "plan_id", limit: 19, precision: 19
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "smartphone_id"
+    t.integer "bam_id"
+    t.integer "sim_id"
+    t.integer "plan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["bam_id"], name: "index_users_on_bam_id"
     t.index ["plan_id"], name: "index_users_on_plan_id"
     t.index ["sim_id"], name: "index_users_on_sim_id"
     t.index ["smartphone_id"], name: "index_users_on_smartphone_id"
   end
 
-  add_foreign_key "requests", "users"
-  add_foreign_key "users", "bams"
-  add_foreign_key "users", "plans"
-  add_foreign_key "users", "sims"
-  add_foreign_key "users", "smartphones"
 end

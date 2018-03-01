@@ -2,6 +2,7 @@ class UserMailer < ApplicationMailer
 
   def supervisor_email(user, request)
     puts('entrando a super_mailer')
+    @request = request
     @no_data = 'SE HA ENVIADO ESTE CORREO YA QUE EL USUARIO QUE CREÓ LA SOLICITUD NO TIENE UN CORREO DE SUPERVISOR ASOCIADO'
     @n_link = request.link
     @supervisor = user.supervisor
@@ -12,8 +13,9 @@ class UserMailer < ApplicationMailer
       @to = if !user.supervisor_email.blank? then user.supervisor_email else 'solcelulares@ccu.cl' end
       @no_data= '' unless user.supervisor_email.blank?
     end
-    @subject = request.name+" a creado la solicitud n° "+request.n_request+" que necesita su aprobación."
-    @body = request.email_sended+"."
+    @subject = "Tiene una solicitud pendiente de aprobación"
+
+    @body = "Se le ha enviado la siguiente Solicitud para su aprobación:"
     mail(to: @to, subject: @subject)
   end
 
@@ -29,6 +31,7 @@ class UserMailer < ApplicationMailer
 
   def user_email(user, request)
     puts('entrando a user_mailer')
+    @request = request
     @no_data = 'HA RECIBIDO ESTE CORREO YA QUE EL USUARIO QUE CREÓ LA SOLICITUD NO TIENE UN CORREO ASOCIADO'
     @user = user
     if Rails.env.test? || Rails.env.development?
@@ -39,7 +42,7 @@ class UserMailer < ApplicationMailer
       @no_data= '' unless user.email.blank?
     end
     @subject = "Se ha creado la Solicitud n° "+request.n_request
-    @body = "Usted a creado la solicitud n° "+request.n_request
+    @body = "Usted a creado una solicitud con las siguientes características:"
 
     mail(to: @to, subject: @subject)
   end

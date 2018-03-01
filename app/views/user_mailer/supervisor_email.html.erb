@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' >
 </head>
 <body>
 
@@ -9,7 +9,6 @@
   <strong><p style='color: red;'><%=@no_data%></p></strong>
 <% end %>
 
-<p></p>
 <h4><strong>Estimado(a) <%= @supervisor+"," %></strong></h4>
 
 <p>
@@ -18,16 +17,19 @@
 
 <br>
 
+<%= render partial: '/layouts/email_user' %>
+<%= render partial: '/layouts/email_request' %>
+
+<br>
+
 <p>
-Para aprobar/rechazar la solicitud debe ingresar al siguiente <%= link_to "Link", requests_url+"/validations/"+@n_link%>
+Haga click <%= link_to "AQUÍ", requests_url+"/validations/"+@n_link%> para acceder a la solicitud. 
 </p>
 
 <br>
 
 <p>
-<strong>Atte.</strong>
-</p>
-<p>
+<strong>Atte,</strong><br />
 <strong>Administrador Web Dispositivos y Servicios Móviles | solcelulares@ccu.cl</strong>
 </p>
 

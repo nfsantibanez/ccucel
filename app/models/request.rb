@@ -10,6 +10,7 @@ class Request < ApplicationRecord
   validate :valid_item
   validate :valid_request
   validate :valid_status, on: :update
+  before_save :transform_price
   # Revisar cuando debo validar que exista un contrato adjunto
   # validates :valid_contract
 
@@ -36,6 +37,16 @@ class Request < ApplicationRecord
       status != 'en reparaciones' && status != 'disponible para retiro' &&
       status != 'pendiente nota de pedido' && status != 'enviado a trabajador' && status != 'finalizada'
       errors.add(:status, 'invalid status field')
+    end
+  end
+
+  def transform_price
+    if !self.price.blank? && !self.price.include?(".")
+      self.price = self.price.reverse.gsub(/.{3}(?=.)/, '\0.').reverse
+    end
+
+    if !self.price_plan.blank? && !self.price_plan.include?(".")
+      self.price_plan = self.price_plan.reverse.gsub(/.{3}(?=.)/, '\0.').reverse
     end
   end
 

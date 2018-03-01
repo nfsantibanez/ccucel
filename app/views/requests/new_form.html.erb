@@ -40,8 +40,7 @@
       margin-bottom: 15px;
     }
   </style>
-
-  <%= javascript_include_tag "jquery.min" %>
+  
   <%= javascript_include_tag "display_new" %>
   <%= javascript_include_tag "sweetalert-dev" %>
   <%= stylesheet_link_tag "sweetalert" %>
@@ -94,7 +93,7 @@
 
     <!-- Enviar Formulario -->
     <div id= "submit">
-      <%= form.submit 'Enviar', class: "btn btn-success btn-lg" %>
+      <%= form.submit 'Enviar', class: "btn btn-success btn-lg", data: {loading_text: "Loading ..."} %>
     </div>
   <% end %>
 

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Información de Usuario</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+
+  table{
+    border-collapse: collapse;
+    border: 2px solid black;
+    width: 70%;
+    margin-bottom: 10px auto;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  th{
+    text-align: center;
+    border-bottom: solid 2px solid black;
+  }
+
+  td{
+    border-top: solid 1px solid black;
+    border-left: solid 1px solid black;
+    margin: 4px;
+    padding: 3px;
+    text-align: left;
+  }
+
+  </style>
+</head>
+<body>
+  <table class="table-responsive">
+
+    <thead>
+      <tr>
+      <th colspan="2"><strong>Datos Solicitud</strong></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td style="border-top: none;"><strong>N° Solicitud:</strong></td>
+        <td style="border-top: none;"><%= @request.n_request %></td>
+      </tr>
+      <tr>
+        <td><strong>Tipo:</strong></td>
+        <td><%= @request.request %></td>
+      </tr>
+      <tr>
+        <td><strong>Item:</strong></td>
+        <td><%= @request.item %></td>
+      </tr>
+      <tr>
+        <td><strong>Estado: </strong></td>
+        <td><%= @request.status %></td>
+      </tr>
+      <tr>
+        <td><strong>Fecha Creación:</strong></td>
+        <td><%= @request.created_at.localtime.strftime('%d/%m/%Y %H:%M:%S') %></td>
+      </tr>
+
+      <%if @request.request == 'stolen/lost'%>
+        <tr>
+            <td><strong>Fecha del Suceso: </strong></td>
+            <td><%= @request.start_date.strftime('%d/%m/%Y') %></td>
+        </tr>
+        <tr>
+            <td><strong> Descripción Robo/Pérdida: </strong></td>
+            <td><%= @request.comment_stolen_lost %></td>
+        </tr>
+      <%end%>
+
+      <%if @request.item == 'roaming'%>
+        <tr>
+            <td><strong>Fecha Inicio Viaje: </strong></td>
+            <td><%= @request.start_date.strftime('%d/%m/%Y') %></td>
+        </tr>
+        <tr>
+            <td><strong>Fecha Término Viaje: </strong></td>
+            <td><%= @request.end_date.strftime('%d/%m/%Y') %></td>
+        </tr>
+        <tr>
+            <td><strong>Región de Destino: </strong></td>
+            <td><%= @request.region %></td>
+        </tr>
+        <tr>
+            <td><strong>País de Destino: </strong></td>
+            <td><%= @request.country %></td>
+        </tr>
+      <%end%>
+
+      <tr>
+        <%if @request.request == 'technical service' %>
+          <td><strong>Precio Presupuesto: </strong></td>
+        <%elsif @request.item == 'bam' || @request.item == 'smartphone' %>
+          <td><strong>Precio Referencial Equipo: </strong></td>
+        <%elsif @request.item == 'roaming' %>
+          <td><strong>Precio Plan/Bolsa Roaming: </strong></td>
+        <%else%>
+          <td><strong>Precio: </strong></td>
+        <%end%>
+        <td><%= '$'+@request.price.to_s %></td>
+      </tr>
+
+      <%if @request.item == 'bam' || @request.item == 'smartphone'%>
+        <tr>
+          <td><strong>Modelo: </strong></td>
+          <td><%= @request.model %></td>
+        </tr>
+      <%end%>
+
+      <%if @request.item == 'bam' %>
+        <%if @request.request != 'technical service' %>
+          <tr>
+            <td><strong>Precio Plan:</strong></td>
+            <td><%= '$'+@request.price_plan.to_s %></td>
+          </tr>
+        <%end%>
+        <tr>
+          <td><strong>Plan Bam:</strong></td>
+          <td><%= @request.plan %></td>
+        </tr>
+      <%elsif @request.item == 'roaming'%>
+        <tr>
+          <td><strong>Plan Roaming:</strong></td>
+          <td><%= @request.plan %></td>
+        <tr>
+      <%end%>
+
+      <%if @request.item == 'smartphone' && @request.request != 'technical service' %>
+        <tr>
+          <td><strong>Comentarios Modelo:</strong></td>
+          <td><%= @request.comment %></td>
+        </tr>
+      <%elsif @request.request == 'technical service'%>
+        <tr>
+          <td><strong>Comentarios Desperfecto:</strong></td>
+          <td><%= @request.comment %></td>
+        </tr>
+      <%end%>
+      <%if @request.request == 'technical service' %>
+        <tr>
+          <td><strong>¿Solicitó equipo de reemplazo?: </strong></td>
+          <%if @request.want_replacement == true%>
+            <td>Si</td>
+          <%else%>
+            <td>No</td>
+          <%end%>
+        </tr>
+      <%end%>
+
+      <%if @request.want_new_number == false || @request.transfer_line_type == 'ceder' ||
+        @request.transfer_line_type == 'liberar'%>
+          <tr>
+            <%if @request.transfer_line_type == 'liberar'%>
+                <td><strong>N° de Teléfono a liberar:</strong></td>
+            <%elsif @request.number_type == 'same'%>
+                <td><strong>N° de Teléfono actual:</strong></td>
+            <%else%>
+                <td><strong>N° de Teléfono cedido:</strong></td>
+            <%end%>
+            <td><%= '+56 9 '+@request.phone_number %></td>
+          </tr>
+      <%end%>
+
+      <%if @request.item == 'smartphone' ||  @request.item == 'sim'%>
+        <%if @request.request != 'technical service' %>
+          <tr>
+            <td><strong>¿Incluye Sim?:</strong></td>
+            <%if @request.want_sim == true%>
+              <td>Si</td>
+            <%else%>
+              <td>No</td>
+            <%end%>
+          </tr>
+        <%end%>
+
+        <%if @request.want_sim == true%>
+          <tr>
+            <td><strong>¿Solicitó número nuevo?:</strong></td>
+            <%if @request.want_new_number == true%>
+              <td>Si</td>
+            <%else%>
+              <td>No</td>
+            <%end%>
+          </tr>
+        <%end%>
+      <%end%>
+
+    </tbody>
+  </table>
+
+
+</body>
+</html>

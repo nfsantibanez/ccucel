@@ -156,26 +156,39 @@
         </div>
       <%end%>
 
-
       <div class="row">
         <p class="col-md-4 text-left">
           <%if  @request.request == 'technical service' %>
             <strong>Precio Presupuesto: </strong>
+          <%elsif @request.item == 'bam' || @request.item == 'smartphone' %>
+            <strong>Precio Referencial Equipo: </strong>
+          <%elsif @request.item == 'roaming' %>
+            <strong>Precio Plan/Bolsa Roaming: </strong>
           <%else%>
             <strong>Precio: </strong>
           <%end%>
           <%= '$'+@request.price.to_s %>
         </p>
-
         <%if @request.item == 'bam' || @request.item == 'smartphone'%>
-          <p class="user col-md-4 text-left">
+          <p class="col-md-4 text-left">
             <strong>Modelo: </strong>
             <%= @request.model %>
           </p>
         <%end%>
-        <%if @request.item == 'bam' || @request.item == 'roaming'%>
-          <p class="user col-md-4 text-left">
-            <strong>Plan Bam/Roaming:</strong>
+        <%if @request.item == 'bam' %>
+          <%if @request.request != 'technical service' %>
+            <p class="col-md-4 text-left">
+              <strong>Precio Plan:</strong>
+              <%= '$'+@request.price_plan.to_s %>
+            </p>
+          <%end%>
+          <p class="col-md-4 text-left">
+            <strong>Plan Bam:</strong>
+            <%= @request.plan %>
+          </p>
+        <%elsif @request.item == 'roaming'%>
+          <p class="col-md-4 text-left">
+            <strong>Plan Roaming:</strong>
             <%= @request.plan %>
           </p>
         <%end%>
@@ -195,11 +208,14 @@
           <%end%>
           <%if @request.request == 'technical service' %>
             <p class="user col-md-4 text-left">
-              <strong>Quizo Equipo reemplazo?: </strong>
-              <%= @request.want_replacement %>
+              <strong>¿Solicitó equipo de reemplazo?:</strong>
+              <%if @request.want_replacement == true%>
+                Si
+              <%else%>
+                No
+              <%end%>
             </p>
           <%end%>
-        <p class="user col-md-4 text-left"></p>
       </div>
 
       <div class="row">
@@ -207,11 +223,11 @@
             @request.transfer_line_type == 'liberar'%>
             <p class="col-md-4 text-left">
               <%if @request.transfer_line_type == 'liberar'%>
-                  <strong>n° de Teléfono a liberar:</strong>
+                  <strong>N° de Teléfono a liberar:</strong>
               <%elsif @request.number_type == 'same'%>
-                  <strong>n° de Teléfono actual:</strong>
+                  <strong>N° de Teléfono actual:</strong>
               <%else%>
-                  <strong>n° de Teléfono cedido:</strong>
+                  <strong>N° de Teléfono cedido:</strong>
               <%end%>
               <%= '+56 9 '+@request.phone_number %>
             </p>
@@ -219,15 +235,23 @@
         <%if @request.item == 'smartphone' ||  @request.item == 'sim'%>
           <%if @request.request != 'technical service' %>
             <p class="user col-md-4 text-left">
-              <strong>Quizo Sim?:</strong>
-              <%= @request.want_sim %>
+              <strong>¿Incluye Sim?:</strong>
+              <%if @request.want_sim == true%>
+                Si
+              <%else%>
+                No
+              <%end%>
             </p>
           <%end%>
 
           <%if @request.want_sim == true%>
             <p class="user col-md-4 text-left">
-              <strong>Quizo número nuevo?:</strong>
-              <%= @request.want_new_number %>
+              <strong>¿Solicitó número nuevo?:</strong>
+              <%if @request.want_new_number == true%>
+                Si
+              <%else%>
+                No
+              <%end%>
             </p>
           <%end%>
         <%end%>

@@ -216,10 +216,12 @@ class RequestsController < ApplicationController
     # Item Bam
     elsif  params["item"] == "bam"
       if params["request"] == "new" || params["request"] == "stolen/lost"
+        # Get bam plan's price
+        params["price_plan"] = params["plan"].price
+        # Get bam models's price
+        params["price"] = params["model"].price
         # Get bam model's name
         params["model"] = params["model"].model
-        # Get bam plan's price
-        params["price"] = params["plan"].price
         # Get bam plan's name
         params["plan"] = params["plan"].name
 
@@ -231,6 +233,8 @@ class RequestsController < ApplicationController
         end
 
       elsif params["request"] == "renew"
+        # Get bam plan's price
+        params["price_plan"] = params["plan"].price
         # Get bam models's price
         params["price"] = params["model"].price
         # Get bam model's name
@@ -421,13 +425,13 @@ class RequestsController < ApplicationController
         :status, :comment, :comment_stolen_lost, :email_sended, :want_replacement,
         :want_sim, :want_new_number, :number_type, :phone_number, :transfer_line_type,
         :price, :region, :country, :name, :national_id, :email, :company, :deptname,
-        :start_date, :end_date, :closed_at, :user_id, :link)
+        :start_date, :end_date, :closed_at, :user_id, :link, :price_plan)
     end
 
     # params for update
     def request_params_update
       params.permit(:classification, :contract, :contract_type, :contract_name,
-        :status, :price, :closed_at)
+        :status, :price, :price_plan, :purchase_order, :closed_at)
     end
 
     # params for update

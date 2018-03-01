@@ -26,32 +26,37 @@
 
   <%= form_with url: '/requests/'+@request.link , method: "patch" do |form| %>
 
-    <div class="col-md-3 col-xs-2"></div>
-    <div class="well form-horizontal col-md-6 col-xs-8">
+    <div class="col-md-2"></div>
+    <div class="well form-horizontal col-md-8">
 
       <div class="row">
-        <p class="user col-md-2 col-xs-3 text-left">
+        <p class="col-md-1 text-left"></p>
+        <p class="col-md-2 text-left">
           <%= form.label :status, "Validación Supervisor:"%>
         </p>
-        <p class="user col-md-4 col-xs-3 text-left">
+        <p class="col-md-3 text-left">
           <%= @request.sup_approval %>
         </p>
-        <p class="user col-md-2 col-xs-3 text-left">
+        <p class="col-md-2 text-left">
           <%= form.label :classification, "Clasificación:" %>
         </p>
-        <p class="user col-md-4 col-xs-3 text-left">
+        <p class="col-md-3 text-left">
           <%= @request.classification %>
         </p>
+        <p class="col-md-1 text-left"></p>
       </div>
+
+      <hr>
 
       <%if @request.classification == 'abierto' &&  @request.status != 'rechazada' &&
         @request.status != 'cancelada' &&  @request.status != 'finalizada' %>
 
         <div class="row">
-          <p class="col-md-2 col-xs-3 text-left">
-            <%= form.label :status, "Estado", class: "control-label" %>
+          <p class="col-md-1 text-left"></p>
+          <p class="col-md-2 text-left">
+            <%= form.label :status, "Estado:", class: "control-label" %>
           </p>
-          <p class="col-md-4 col-xs-3">
+          <p class="col-md-3">
             <%= form.select :status, [['Pendiente aprobación' , 'pendiente aprobacion' ],
             ['Cancelada','cancelada'], ['Pendiente entrega dispositivo','pendiente entrega dispositivo'],
             ['Pendiente cotización', 'pendiente cotizacion'], ['En reparaciones', 'en reparaciones'],
@@ -59,41 +64,70 @@
             ['Enviado a trabajador', 'enviado a trabajador'], ['Finalizada', 'finalizada']],
           {selected: @request.status}, {class: "pull-left", style: "width:100%"} %>
           </p>
-          <p class="col-md-2 col-xs-3 text-left">
-            <%= form.label :price, "Precio $", class: "control-label" %>
+          <p class="col-md-2 text-left">
+            <%= form.label :price, "Precio:", class: "control-label" %>
           </p>
-          <p class="col-md-4 col-xs-3">
+          <p class="col-md-3">
             <%= form.text_field :price, id: :request_price, class: "pull-left",
           value: @request.price, style: "width:100%" %>
           </p>
+          <p class="col-md-1 text-left"></p>
         </div>
 
-        <div class="row">
+        <%if @request.item == 'bam'%>
+          <div class="row">
+            <p class="col-md-6 text-left"></p>
+            <p class="col-md-2 text-left">
+              <%= form.label :price_plan, "Precio Plan:", class: "control-label" %>
+            </p>
+            <p class="col-md-3 text-left">
+              <%= form.text_field :price_plan, id: :request_price_plan, class: "pull-left",
+              value: @request.price_plan, style: "width:100%" %>
+            </p>
+            <p class="col-md-1 text-left"></p>
+          </div>
+        <%end%>
 
+        <hr>
+
+        <div class="row">
+          <p class="col-md-1 text-left"></p>
+          <p class="col-md-3 text-left">
+            <%= form.label :purchase_order, "N° Nota de Pedido:", class: "control-label" %>
+          </p>
+          <p class="col-md-2 text-left">
+            <%= form.text_field :purchase_order, id: :request_purchase_order, class: "pull-left",
+            value: @request.purchase_order, style: "width:100%" %>
+          </p>
+          <p class="col-md-6 text-left"></p>
         </div>
 
         <%if @request.contract? %>
           <div class="row">
-            <p class="col-md-5 col-xs-5 text-left">
-              <%= form.label :old_contract, "Nota de Pedido Actual", class: "control-label pull-left" %>
+            <p class="col-md-1 text-left"></p>
+            <p class="col-md-3 text-left">
+              <%= form.label :old_contract, "Nota de Pedido Actual:", class: "control-label pull-left" %>
             </p>
-            <p data-turbolinks="false" class="col-md-7 col-xs-7 text-left">
+            <p data-turbolinks="false" class="col-md-7 text-left">
               <%= link_to "Download", controller: :requests, action: :download_contract, id: @request.n_request %>
             </p>
+            <p class="col-md-1 text-left"></p>
           </div>
         <%end%>
 
         <div class="row">
-          <p class="col-md-5 col-xs-5 text-left">
-            <%= form.label :contract, "Subir nueva Nota de Pedido", class: "control-label" %>
+          <p class="col-md-1 text-left"></p>
+          <p class="col-md-3 text-left">
+            <%= form.label :contract, "Subir nueva Nota de Pedido:", class: "control-label" %>
           </p>
-          <p class="col-md-7 col-xs-7">
+          <p class="col-md-7">
             <%= form.file_field :contract, multiple: false, name: "contract",
             accept: 'image/png,image/gif,image/jpeg', class: "pull-left" %>
           </p>
+          <p class="col-md-1 text-left"></p>
         </div>
 
-        <br>
+        <hr>
         <div class="actions">
           <%= form.submit 'Editar', onclick: "return confirm('Está seguro que desea Editar la Solicitud')", class: "btn btn-primary btn-md" %>
         </div>
@@ -101,29 +135,58 @@
       <% else %>
 
         <div class="row">
-          <p class="user col-md-2 col-xs-3 text-left">
+          <p class="col-md-1 text-left"></p>
+          <p class="col-md-2 text-left">
             <%= form.label :status, "Estado" %>
           </p>
-          <p class=" user col-md-4 col-xs-3 text-left">
+          <p class="col-md-3 text-left">
             <%= @request.status %>
           </p>
-          <p class="user col-md-2 col-xs-3 text-left">
+          <p class="col-md-2 text-left">
             <%= form.label :price, "Precio $" %>
           </p>
-          <p class=" user col-md-4 col-xs-3 text-left">
+          <p class="col-md-3 text-left">
             <%= @request.price %>
           </p>
+          <p class="col-md-1 text-left"></p>
+        </div>
+
+        <%if @request.item == 'bam'%>
+          <div class="row">
+            <p class="col-md-6 text-left"></p>
+            <p class="col-md-2 text-left">
+              <%= form.label :price_plan, "Precio Plan:", class: "control-label" %>
+            </p>
+            <p class="col-md-3 text-left">
+              <%= @request.price_plan %>
+            </p>
+            <p class="col-md-1 text-left"></p>
+          </div>
+        <%end%>
+
+        <hr>
+
+        <div class="row">
+          <p class="col-md-1 text-left"></p>
+          <p class="col-md-3 text-left">
+            <%= form.label :purchase_order, "N° Nota de Pedido:", class: "control-label" %>
+          </p>
+          <p class="col-md-2 text-left">
+            <%= @request.purchase_order %>
+          </p>
+          <p class="col-md-6 text-left"></p>
         </div>
 
         <%if @request.contract? %>
           <div class="row">
-            <p class="col-md-5 col-xs-5 text-left">
-              <%= form.label :old_contract, "Nota de Pedido Actual", class: "control-label" %>
+            <p class="col-md-1 text-left"></p>
+            <p class="col-md-3 text-left">
+              <%= form.label :old_contract, "Nota de Pedido Actual:", class: "control-label" %>
             </p>
-            <p data-turbolinks="false" class="col-md-7 col-xs-7 text-left">
+            <p data-turbolinks="false" class="col-md-7 text-left">
               <%= link_to "Download", controller: :requests, action: :download_contract, id: @request.n_request %>
             </p>
-            <div class="col-md-4"></div>
+            <p class="col-md-1 text-left"></p>
           </div>
         <%end%>
         <div class="alert alert-danger">
@@ -135,7 +198,7 @@
       <hr>
       | <%= link_to 'Solicitud', requests_path+"/"+@request.link %> | <%= link_to 'Solicitudes', requests_path %> |
     </div>
-    <div class="col-md-3 col-xs-2"></div>
+    <div class="col-md-2"></div>
   <% end %>
 
 </body>
