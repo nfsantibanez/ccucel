@@ -233,8 +233,12 @@ class RequestsController < ApplicationController
         end
 
       elsif params["request"] == "renew"
-        # Get bam plan's price
-        params["price_plan"] = params["plan"].price
+        begin
+          # Get bam plan's price
+          params["price_plan"] = params["plan"].price
+        rescue
+          params["price_plan"] = 0
+        end
         # Get bam models's price
         params["price"] = params["model"].price
         # Get bam model's name
@@ -410,6 +414,7 @@ class RequestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_request
+      puts(params[:id])
       @request = Request.find_by_link(params[:id])
       if !@request and params.has_key?(:n_request)
         params[:n_request].strip!

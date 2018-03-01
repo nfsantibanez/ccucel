@@ -23,8 +23,8 @@ class CreateRequests < ActiveRecord::Migration[5.1]
       t.string :number_type
       t.string :phone_number
       t.string :transfer_line_type
-      t.string :price, defaul: '0'
-      t.string :price_plan, defaul: '0'
+      t.string :price, default: '0'
+      t.string :price_plan, default: '0'
       t.string :region
       t.string :country
       t.string :name
